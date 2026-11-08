@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recuperação de Senha | Arducci Gelateria &amp; Açaiteria</title>
+<!-- Google Fonts: Inter & Playfair Display -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS with Forms and Container Queries -->
+<link rel="stylesheet" href="styles/admin-2.css?v=20261108-layout-41">
+<!-- Theme Configuration -->
+
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"></head>
+<body class="h-full bg-canvas-crema text-on-surface antialiased flex flex-col justify-between selection:bg-gold-light selection:text-cacao-deep">
+<!-- TopNavBar Header (Shared Component Anchors) -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-16 px-6 lg:px-10 w-full bg-surface-container-lowest border-b border-surface-crema-muted select-none shadow-sm"><!-- Brand / Logo Section SORVETEC PRO -->
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-cacao-deep flex items-center justify-center text-gold-light shadow-sm border border-gold-burnished/30">
+<span class="material-symbols-outlined text-gold-light text-xl" data-icon="icecream">icecream</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-cacao-deep tracking-tight">SORVETEC</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/20 border border-gold-burnished/40 text-gold-deep font-label-sm text-[10px] font-bold tracking-wider">PRO</span>
+</div>
+<span class="font-label-sm text-[10px] text-tertiary tracking-wider font-medium">Arducci Gelato &amp; Açaí · DAL 1984</span>
+</div>
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-3 md:gap-4">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 text-cacao-deep hover:text-primary transition-colors duration-150 font-label-md text-label-md font-semibold" id="btn-top-back" type="button">
+<span class="material-symbols-outlined text-lg leading-none" data-icon="arrow_back">arrow_back</span>
+<span>Voltar ao Login</span>
+</button>
+<!-- Dropdown de Configurações e Acessibilidade -->
+<div class="relative group">
+<button class="inline-flex items-center gap-2 h-9 px-3.5 rounded-lg border border-surface-crema-muted bg-surface-crema-subtle/70 hover:bg-surface-crema-subtle text-cacao-deep transition-colors duration-150 font-label-md text-label-md shadow-sm active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="settings">settings</span>
+<span class="font-semibold text-cacao-deep">Configurações</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Power Button -->
+<button class="w-9 h-9 rounded-full border border-surface-crema-muted bg-surface-container-lowest hover:bg-cherry-soft hover:text-cherry-alert text-on-surface-variant flex items-center justify-center transition-colors duration-150 active:scale-95 shadow-sm" onclick="goToStep(1)" title="Encerrar Sessão" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="power_settings_new">power_settings_new</span>
+</button>
+</div></header>
+<!-- Main Recovery Workspace Canvas -->
+<main class="flex-1 flex items-center justify-center px-4 py-6 lg:py-8 w-full">
+<div class="w-full max-w-[490px] bg-surface-container-lowest rounded-2xl border border-surface-crema-muted shadow-[0_4px_24px_-4px_rgba(46,31,22,0.06)] p-6 sm:p-8 flex flex-col items-center transition-all duration-300">
+<!-- Corporate Security Access Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pistache-soft border border-pistache-accent/30 text-pistache-emerald mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-pistache-emerald animate-pulse"></span>
+<span class="font-label-sm text-[10px] tracking-widest font-semibold uppercase text-pistache-emerald">SORVETEC PRO · SEGURANÇA</span>
+</div>
+<!-- Editorial Header Section (Dynamic) -->
+<h1 class="font-headline-md text-headline-lg text-cacao-deep text-center font-bold tracking-tight mb-1" id="recovery-title">
+      Recuperação de Senha
+    </h1>
+<p class="font-body-sm text-body-sm text-tertiary text-center max-w-sm mb-6 leading-relaxed" id="recovery-subtitle">
+      Redefina o seu acesso corporativo com segurança em 3 etapas simples.
+    </p>
+<!-- Stepper Component (Interactive bullets) -->
+<div class="w-full max-w-xs mb-6 px-1 transition-opacity duration-300" id="stepper-container">
+<div class="relative flex items-center justify-between">
+<!-- Step Connector Tracks -->
+<div class="absolute left-5 right-5 top-3.5 h-[2px] bg-surface-crema-muted -z-0">
+<div class="h-full bg-pistache-emerald transition-all duration-300 w-0" id="stepper-progress-bar"></div>
+</div>
+<!-- Step 1 Indicator -->
+<button class="relative z-10 flex flex-col items-center gap-1 group focus:outline-none cursor-pointer" id="step-bullet-1" onclick="goToStep(1)" type="button">
+<div class="w-7 h-7 rounded-full bg-pistache-emerald text-surface-container-lowest font-label-md text-xs flex items-center justify-center font-bold ring-4 ring-pistache-soft shadow-sm transition-all duration-200" id="step-circle-1">
+            1
+          </div>
+<span class="font-label-sm text-xs font-semibold text-cacao-deep transition-colors duration-200" id="step-label-1">Envio</span>
+</button>
+<!-- Step 2 Indicator -->
+<button class="relative z-10 flex flex-col items-center gap-1 group focus:outline-none cursor-pointer" id="step-bullet-2" onclick="goToStep(2)" type="button">
+<div class="w-7 h-7 rounded-full bg-surface-crema-subtle text-tertiary border border-surface-crema-muted font-label-md text-xs flex items-center justify-center font-semibold transition-all duration-200" id="step-circle-2">
+            2
+          </div>
+<span class="font-label-sm text-xs font-medium text-outline transition-colors duration-200" id="step-label-2">Token</span>
+</button>
+<!-- Step 3 Indicator -->
+<button class="relative z-10 flex flex-col items-center gap-1 group focus:outline-none cursor-pointer" id="step-bullet-3" onclick="goToStep(3)" type="button">
+<div class="w-7 h-7 rounded-full bg-surface-crema-subtle text-tertiary border border-surface-crema-muted font-label-md text-xs flex items-center justify-center font-semibold transition-all duration-200" id="step-circle-3">
+            3
+          </div>
+<span class="font-label-sm text-xs font-medium text-outline transition-colors duration-200" id="step-label-3">Nova Senha</span>
+</button>
+</div>
+</div>
+<!-- ================= STEP 1: ENVIO ================= -->
+<div class="w-full flex flex-col gap-4" id="step-content-1">
+<form class="w-full flex flex-col gap-4" onsubmit="event.preventDefault(); goToStep(2);">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] tracking-wider font-bold text-cacao-deep uppercase" for="recovery-input">
+            E-mail ou WhatsApp Cadastrado
+          </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant font-data-tabular text-body-md select-none">
+              @
+            </span>
+<input class="w-full h-10 pl-9 pr-3.5 rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished outline-none transition-all shadow-inner" id="recovery-input" placeholder="Digite seu e-mail ou telefone corporativo" type="text" value="arducci@gmail.com"/>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5 text-tertiary font-body-sm text-xs">
+<span class="material-symbols-outlined text-sm leading-none text-outline" data-icon="info">info</span>
+<span>Enviaremos um código token de 6 dígitos para verificação instantânea.</span>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full h-11 rounded-xl bg-pistache-emerald hover:bg-secondary text-surface-container-lowest font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pistache-accent" id="btn-step1-submit" onclick="goToStep(2)" type="button">
+<span>Enviar Token de Segurança</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Auxiliary Help Box Compact -->
+<div class="w-full mt-2 p-3.5 rounded-xl bg-surface-crema-subtle/80 border border-border-gold-subtle/60 flex items-start gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-crema-muted text-cacao-surface flex-shrink-0 flex items-center justify-center border border-border-crema mt-0.5">
+<span class="material-symbols-outlined text-base text-gold-deep" data-icon="badge">badge</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h4 class="font-title-sm text-xs font-bold text-cacao-deep">
+            Primeiro acesso ou sem conta corporativa?
+          </h4>
+<p class="font-body-sm text-[11px] text-tertiary leading-relaxed">
+            Para cadastrar um novo operador ou alterar permissões, solicite ao <strong class="font-semibold text-cacao-deep">Administrador Mestre</strong> no módulo de Gestão de Equipe.
+          </p>
+</div>
+</div>
+</div>
+<!-- ================= STEP 2: TOKEN ================= -->
+<div class="w-full hidden flex-col gap-4" id="step-content-2">
+<form class="w-full flex flex-col gap-4" onsubmit="event.preventDefault(); goToStep(3);">
+<div class="flex flex-col items-center gap-2">
+<label class="font-label-sm text-[11px] tracking-wider font-bold text-cacao-deep uppercase" for="token-digit-1">
+            Código Token de 6 Dígitos
+          </label>
+<!-- 6 Individual Digit Inputs -->
+<div class="flex items-center justify-center gap-2 sm:gap-2.5 my-1">
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" id="token-digit-1" maxlength="1" type="text" value="8"/>
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" maxlength="1" type="text" value="3"/>
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" maxlength="1" type="text" value="1"/>
+<span class="text-tertiary font-bold text-sm">-</span>
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" maxlength="1" type="text" value="9"/>
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" maxlength="1" type="text" value="4"/>
+<input class="token-digit w-10 sm:w-11 h-12 text-center text-lg font-bold font-data-tabular rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-cacao-deep focus:border-pistache-accent focus:ring-2 focus:ring-pistache-accent/30 outline-none transition-all shadow-inner" maxlength="1" type="text" value="2"/>
+</div>
+<!-- Resend Timer -->
+<div class="flex items-center gap-1.5 text-xs text-tertiary">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="timer">timer</span>
+<span>Não recebeu o código?</span>
+<button class="font-semibold text-primary hover:text-gold-deep underline decoration-dotted transition-colors" id="btn-resend" onclick="resendToken()" type="button">
+              Reenviar código em <span id="resend-countdown">45s</span>
+</button>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2 mt-2">
+<button class="w-full h-11 rounded-xl bg-pistache-emerald hover:bg-secondary text-surface-container-lowest font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pistache-accent" id="btn-step2-submit" onclick="goToStep(3)" type="button">
+<span>Validar Token</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full h-9 rounded-xl text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle font-label-md text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors" onclick="goToStep(1)" type="button">
+<span class="material-symbols-outlined text-base leading-none" data-icon="arrow_back">arrow_back</span>
+<span>Voltar para Envio</span>
+</button>
+</div>
+</form>
+</div>
+<!-- ================= STEP 3: NOVA SENHA ================= -->
+<div class="w-full hidden flex-col gap-4" id="step-content-3">
+<form class="w-full flex flex-col gap-3.5" onsubmit="event.preventDefault(); goToStep(4);">
+<!-- Nova Senha -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] tracking-wider font-bold text-cacao-deep uppercase" for="new-password">
+            Nova Senha Corporativa
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg select-none" data-icon="lock">lock</span>
+<input class="w-full h-10 pl-9 pr-10 rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished outline-none transition-all shadow-inner" id="new-password" placeholder="Mínimo de 8 caracteres" type="password" value="Arducci@2024"/>
+<button class="absolute right-3 text-outline hover:text-cacao-deep focus:outline-none" onclick="togglePasswordVisibility('new-password', this)" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirmar Nova Senha -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] tracking-wider font-bold text-cacao-deep uppercase" for="confirm-password">
+            Confirmar Nova Senha
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg select-none" data-icon="lock_reset">lock_reset</span>
+<input class="w-full h-10 pl-9 pr-10 rounded-xl border border-surface-crema-muted bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished outline-none transition-all shadow-inner" id="confirm-password" placeholder="Repita a nova senha" type="password" value="Arducci@2024"/>
+<button class="absolute right-3 text-outline hover:text-cacao-deep focus:outline-none" onclick="togglePasswordVisibility('confirm-password', this)" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Security Indicators -->
+<div class="p-2.5 rounded-lg bg-surface-crema-subtle/70 border border-surface-crema-muted text-xs flex flex-col gap-1.5">
+<span class="font-label-sm text-[10px] uppercase font-bold text-tertiary tracking-wider">Requisitos de Segurança:</span>
+<div class="grid grid-cols-2 gap-1 text-[11px] text-tertiary">
+<span class="flex items-center gap-1 text-pistache-emerald font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span> 8+ caracteres
+            </span>
+<span class="flex items-center gap-1 text-pistache-emerald font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span> Letra maiúscula
+            </span>
+<span class="flex items-center gap-1 text-pistache-emerald font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span> Número ou símbolo
+            </span>
+<span class="flex items-center gap-1 text-pistache-emerald font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span> Senhas coincidem
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2 mt-1">
+<button class="w-full h-11 rounded-xl bg-pistache-emerald hover:bg-secondary text-surface-container-lowest font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pistache-accent" id="btn-step3-submit" onclick="goToStep(4)" type="button">
+<span>Salvar Nova Senha</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="check">check</span>
+</button>
+<button class="w-full h-9 rounded-xl text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle font-label-md text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors" onclick="goToStep(2)" type="button">
+<span class="material-symbols-outlined text-base leading-none" data-icon="arrow_back">arrow_back</span>
+<span>Voltar para Validação de Token</span>
+</button>
+</div>
+</form>
+</div>
+<!-- ================= STEP 4: SUCESSO / CONCLUÍDO ================= -->
+<div class="w-full hidden flex-col items-center text-center py-2" id="step-content-4">
+<!-- Success Icon -->
+<div class="w-16 h-16 rounded-full bg-pistache-soft border-2 border-pistache-emerald flex items-center justify-center text-pistache-emerald mb-4 ring-8 ring-pistache-soft/50 shadow-sm animate-bounce">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="check_circle">check_circle</span>
+</div>
+<h2 class="font-headline-md text-xl font-bold text-cacao-deep tracking-tight mb-2">
+        Senha redefinida com sucesso!
+      </h2>
+<p class="font-body-sm text-body-sm text-tertiary max-w-xs mb-6 leading-relaxed">
+        Seu acesso ao <strong class="text-cacao-deep font-semibold">SORVETEC PRO</strong> foi atualizado com segurança. Você já pode autenticar seu terminal.
+      </p>
+<!-- Badge Confirmação -->
+<div class="w-full p-3 rounded-xl bg-surface-crema-subtle/80 border border-border-gold-subtle/60 flex items-center justify-between mb-6 text-xs text-tertiary font-data-tabular">
+<span class="flex items-center gap-1.5 text-cacao-deep font-medium">
+<span class="material-symbols-outlined text-base text-gold-deep" data-icon="verified_user">verified_user</span>
+          Terminal Seguro
+        </span>
+<span class="text-outline">Criptografia SHA-256</span>
+</div>
+<!-- Action Button -->
+<button class="w-full h-11 rounded-xl bg-pistache-emerald hover:bg-secondary text-surface-container-lowest font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pistache-accent" id="btn-login-success" onclick="goToStep(1)" type="button">
+<span>Fazer Login no PDV</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="login">login</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Institutional Docked Footer (Shared Component Anchor) -->
+<footer class="sticky bottom-0 z-30 flex flex-wrap items-center justify-between h-auto py-2 sm:h-9 px-6 w-full bg-surface-container-low border-t border-surface-crema-muted text-on-surface-variant font-data-tabular text-body-sm select-none gap-2"><!-- Copyright Left -->
+<div class="flex items-center gap-2 text-xs text-tertiary">
+<span>Arducci Gelateria &amp; Açaiteria · Terminal PDV Corporativo</span>
+</div>
+<!-- Status & Telemetry Links Right -->
+<div class="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-tertiary">
+<span class="hidden md:inline font-mono text-cacao-deep font-medium">TERM-PG-BALCAO-01</span>
+<span class="hidden sm:inline text-surface-crema-muted">|</span>
+<span class="hidden sm:inline">v2.4.2</span>
+<span class="text-surface-crema-muted">|</span>
+<div class="inline-flex items-center gap-1.5 text-pistache-accent font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-pistache-emerald animate-pulse"></span>
+<span>Status: Conectado à Nuvem</span>
+<span class="hidden xl:inline text-tertiary font-normal">(Latência: 24ms)</span>
+</div>
+</div></footer>
+<!-- Interactive Flow Controller -->
+<script>
+  let currentStep = 1;
+
+  const stepsData = {
+    1: {
+      title: "Recuperação de Senha",
+      subtitle: "Redefina o seu acesso corporativo com segurança em 3 etapas simples."
+    },
+    2: {
+      title: "Verificação de Token",
+      subtitle: "Informe o código de 6 dígitos enviado para arducci@gmail.com"
+    },
+    3: {
+      title: "Criar Nova Senha",
+      subtitle: "Crie uma nova senha de acesso corporativo com no mínimo 8 caracteres."
+    },
+    4: {
+      title: "Acesso Redefinido",
+      subtitle: "Procedimento concluído com êxito pelo Terminal de Segurança."
+    }
+  };
+
+  function goToStep(step) {
+    if (step < 1 || step > 4) return;
+    currentStep = step;
+
+    // 1. Hide all step contents and show active one
+    for (let i = 1; i <= 4; i++) {
+      const el = document.getElementById(`step-content-${i}`);
+      if (el) {
+        if (i === step) {
+          el.classList.remove('hidden');
+          el.classList.add('flex');
+        } else {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+      }
+    }
+
+    // 2. Update Header Titles
+    const titleEl = document.getElementById('recovery-title');
+    const subtitleEl = document.getElementById('recovery-subtitle');
+    const stepperContainer = document.getElementById('stepper-container');
+
+    if (titleEl && subtitleEl) {
+      titleEl.textContent = stepsData[step].title;
+      subtitleEl.textContent = stepsData[step].subtitle;
+    }
+
+    // 3. Update Stepper Appearance
+    const progressBar = document.getElementById('stepper-progress-bar');
+    if (step === 4) {
+      if (stepperContainer) stepperContainer.classList.add('hidden');
+    } else {
+      if (stepperContainer) stepperContainer.classList.remove('hidden');
+      if (progressBar) {
+        if (step === 1) progressBar.style.width = '0%';
+        if (step === 2) progressBar.style.width = '50%';
+        if (step === 3) progressBar.style.width = '100%';
+      }
+
+      // Update bullets 1, 2, 3
+      for (let i = 1; i <= 3; i++) {
+        const circle = document.getElementById(`step-circle-${i}`);
+        const label = document.getElementById(`step-label-${i}`);
+
+        if (i < step) {
+          // Completed step
+          circle.className = "w-7 h-7 rounded-full bg-pistache-emerald text-surface-container-lowest font-label-md text-xs flex items-center justify-center font-bold ring-2 ring-pistache-soft shadow-sm transition-all duration-200";
+          circle.innerHTML = '<span class="material-symbols-outlined text-sm font-bold">check</span>';
+          label.className = "font-label-sm text-xs font-semibold text-pistache-emerald transition-colors duration-200";
+        } else if (i === step) {
+          // Active step
+          circle.className = "w-7 h-7 rounded-full bg-pistache-emerald text-surface-container-lowest font-label-md text-xs flex items-center justify-center font-bold ring-4 ring-pistache-soft shadow-sm transition-all duration-200";
+          circle.textContent = i;
+          label.className = "font-label-sm text-xs font-bold text-cacao-deep transition-colors duration-200";
+        } else {
+          // Pending step
+          circle.className = "w-7 h-7 rounded-full bg-surface-crema-subtle text-tertiary border border-surface-crema-muted font-label-md text-xs flex items-center justify-center font-semibold transition-all duration-200";
+          circle.textContent = i;
+          label.className = "font-label-sm text-xs font-medium text-outline transition-colors duration-200";
+        }
+      }
+    }
+
+    // Focus input when entering step 2
+    if (step === 2) {
+      setTimeout(() => {
+        const digit1 = document.getElementById('token-digit-1');
+        if (digit1) digit1.focus();
+      }, 50);
+    }
+  }
+
+  // Toggle Password Visibility
+  function togglePasswordVisibility(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (icon) icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      if (icon) icon.textContent = 'visibility';
+    }
+  }
+
+  // Auto-focus progression for 6-digit token inputs
+  document.addEventListener('DOMContentLoaded', () => {
+    const digitInputs = document.querySelectorAll('.token-digit');
+    digitInputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value.length >= 1 && index < digitInputs.length - 1) {
+          digitInputs[index + 1].focus();
+        }
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          digitInputs[index - 1].focus();
+        }
+      });
+    });
+
+    const topBackBtn = document.getElementById('btn-top-back');
+    if (topBackBtn) {
+      topBackBtn.addEventListener('click', () => {
+        goToStep(1);
+      });
+    }
+  });
+
+  // Resend Countdown
+  let timerSecs = 45;
+  function resendToken() {
+    timerSecs = 45;
+    const countEl = document.getElementById('resend-countdown');
+    if (countEl) countEl.textContent = `${timerSecs}s`;
+    alert('Novo código de segurança enviado para arducci@gmail.com');
+  }
+</script>
+<script>window.ADMIN_SCREEN_ID=2;</script><script src="admin.js?v=20261108-layout-41"></script></body></html>

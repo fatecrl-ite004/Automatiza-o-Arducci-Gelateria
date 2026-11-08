@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bebidas - Arducci Gelateria</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS v3 -->
+<link rel="stylesheet" href="styles/screen-28.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Toast transition */
+    #cart-toast {
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Selected card styling */
+    .drink-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .drink-card.is-selected {
+      border-color: #246c30 !important;
+      background-color: #f6fbf7 !important;
+      box-shadow: 0 0 0 1.5px #246c30, 0 4px 12px rgba(36, 108, 48, 0.12) !important;
+    }
+    .drink-card.is-selected .drink-badge-check {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-fixed selection:text-primary min-h-screen flex justify-center">
+<!-- Mobile Viewport Container (412px max for realistic high-end mobile frame) -->
+<div class="w-full max-w-md bg-surface min-h-screen flex flex-col relative shadow-2xl border-x border-outline-variant/30 pb-52">
+<!-- 1. Native Status Bar (Mobile Header Layer) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30"><!-- 1. Native Status Bar (Mobile Header Layer) -->
+<div class="flex justify-between items-center px-6 pt-3 pb-1 text-on-surface select-none">
+<span class="font-label-md text-label-md font-semibold tracking-tight text-primary">9:41</span>
+<div class="flex items-center space-x-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- 2. Cliente Logado Header -->
+<div class="flex items-center justify-between px-4 py-2.5 border-b border-outline-variant/20 bg-surface/60"><div class="flex items-center space-x-2.5"><div class="w-9 h-9 rounded-full overflow-hidden ring-2 ring-outline-variant/30 shrink-0"><img alt="Foto de perfil do Cliente Arducci" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxwZ4qjmJ3WKgr47xxiagdty0PrccDhFDFBJ1g36twJ3ubG8qyao1SQQyU3KpWr0EdBG1Ub3TaQLPuW6AYSilxaTKkBZTKw67aUYTpyNzsj9Qb-07h-nXU0p2ojQoe-MwAGQPKNoZYh7bn7hbAPzZQV8P5IiAAfHGZRAfu9KsCdAG4GbpySMPVqWcW-4MAa0CAsyZhd7K2mHAD-6chrZq7JQ0dwDsvkGOlcfZSg68N6jnMBeZj0EIarg"/></div><div class="flex flex-col text-left"><span class="font-label-sm text-[10px] tracking-wider uppercase font-bold text-outline">BEM-VINDO!</span><span class="font-headline-md text-[16px] font-bold text-primary-container leading-tight">Cliente Arducci</span></div></div><div class="flex items-center space-x-2"><button aria-label="Sacola de Compras" class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-primary relative shadow-xs"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 bg-error text-on-error font-label-sm text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold ring-2 ring-surface" id="bag-count">2</span></button><button aria-label="Sair da conta" class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-primary-container shadow-xs" title="Sair da conta" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div>
+<!-- 3. App Bar Navigation -->
+<div class="flex items-center justify-between px-4 py-2.5">
+<!-- Return Button -->
+<button aria-label="Voltar" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-primary" onclick="history.back()">
+<span class="material-symbols-outlined text-[24px]">chevron_left</span>
+</button>
+<!-- Brand Chancery & Screen Title -->
+<div class="flex flex-col items-center text-center">
+<span class="font-label-sm text-[10px] uppercase tracking-[0.2em] font-bold text-outline">ARDUCCI GELATERIA</span>
+<h1 class="font-headline-md text-headline-md text-primary-container leading-tight">Bebidas</h1>
+</div>
+<!-- Cart Bag Icon with dynamic counter badge -->
+<div class="relative">
+<button aria-label="Filtros e busca" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-primary">
+<span class="material-symbols-outlined text-[22px]">local_bar</span>
+</button>
+</div>
+</div></header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 space-y-6">
+<!-- 2. Banner Superior Elegante -->
+<section class="relative w-full rounded-2xl overflow-hidden shadow-sm border border-outline-variant/40 bg-primary-container">
+<!-- Background Image -->
+<div class="relative h-44 w-full overflow-hidden">
+<img alt="Bebidas Refrescantes Arducci" class="w-full h-full object-cover brightness-[0.78] contrast-[1.05]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYRkmwxQaL5rFteSlSWRrtBmiX9ihDXwBT_-T90PTqLifJaa6UxitztyU-WIVuEvS3Fas2aLPsxlyC1meU1X_ecc4kTF9hldscI9A7WLclWnKwTinuHgmBmWT74GBrca7KgKwNb_znMKl-r1MRc6ifZ93u5_gkT1_1iMjog-7BYAhnQ21v5PL0tiWXarOipAoAM3dufJXqz3GirxvuxnyHhx5WDkkbUVvy49oVTp6l"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+</div>
+<!-- Banner Overlaid Content -->
+<div class="absolute inset-0 p-4 flex flex-col justify-end text-on-primary">
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-surface/90 text-primary-container backdrop-blur-sm mb-1.5 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+<span class="font-label-sm text-[10px] font-bold tracking-wider">BEBIDAS INDUSTRIALIZADAS</span>
+</div>
+<p class="font-body-sm text-[12px] leading-tight text-surface-container-high/90 mt-1 line-clamp-2 max-w-[92%]">
+            Bebidas industrializadas e prontas para consumo, servidas extremamente geladas para harmonizar com suas sobremesas e gelatos.
+          </p>
+</div>
+</section>
+<!-- Section Title & Meta -->
+<div class="flex items-center justify-between pt-1">
+<div>
+<h3 class="font-headline-md text-[18px] text-primary-container font-semibold">Linha de Bebidas</h3>
+<p class="font-body-sm text-outline text-[12px]">Toque no card para selecionar ou use os botões + e -</p>
+</div>
+<span class="font-label-sm text-outline bg-surface-container-low px-2.5 py-1 rounded-full border border-outline-variant/30">
+          6 opções
+        </span>
+</div>
+<!-- 3. Grade de Produtos Interativa (2 Colunas com cards clicáveis) -->
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Produto 1: Água Mineral sem Gás (250ml) -->
+<article class="drink-card bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-outline-variant/40 hover:border-secondary/60 cursor-pointer relative" id="card-agua_sem_gas" onclick="handleCardClick('agua_sem_gas', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Água Mineral sem Gás 250ml" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaYtKyCQOUm0Vfjacwdtf9a99Lzrlcl36-TvbWG0bMRllI11kA3x1n8jBFHb8W5J06S0Bzq0C_FV2ttOMryizrauxWNIPSN1GDKOaIx_dtAa07r2Zn8KOQb3Vx5Zwk-i8XQ2xRkeAADq2tkopIYQUi2JNMnj_YTEeRa--SY__Iv3NnnetcEuG-zeLivUBkMENeZUCiBOtQX6deNZ-0FPHY7Q8k7No9xszUXg3ALkqg"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-primary px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold border border-outline-variant/30">
+                250ml
+              </span>
+<!-- Selection indicator badge -->
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-0 scale-75 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Água Mineral sem Gás</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Garrafa individual, límpida e gelada.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 6,00</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('agua_sem_gas', -1, 'Água Mineral sem Gás (250ml)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-agua_sem_gas">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-agua_sem_gas">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('agua_sem_gas', 1, 'Água Mineral sem Gás (250ml)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Produto 2: Água Mineral com Gás (250ml) -->
+<article class="drink-card is-selected bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-secondary cursor-pointer relative" id="card-agua_com_gas" onclick="handleCardClick('agua_com_gas', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Água Mineral com Gás 250ml" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRdhX2R9Ud0-PY3EU9FBOCdEBbpcYR5jgyD5T1HXclytSx_-pWkjXiGOrIVkewZioVTGPcP7Y_rZbQkjYpclQDFe3pFtn8Q9ZXQFEM-vedkvjMNoE3d5qxK_qbQXM_jsbXac1RLDN-h-0ELIvZltn49DZ-JddrZBRS3W8sAsRDdL4Kk7Fo5iQsY60T_DttiPmKd6y08tUYbPTgoAi9F2dL1Wun80iREq4-GZ-cJ9hy"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-primary px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold border border-outline-variant/30">
+                250ml
+              </span>
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-100 scale-100 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Água Mineral com Gás</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Garrafa individual gaseificada, super refrescante.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 7,00</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('agua_com_gas', -1, 'Água Mineral com Gás (250ml)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-agua_com_gas">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-agua_com_gas">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('agua_com_gas', 1, 'Água Mineral com Gás (250ml)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Produto 3: Água Mineral sem Gás (1,5 Litros) -->
+<article class="drink-card bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-outline-variant/40 hover:border-secondary/60 cursor-pointer relative" id="card-agua_15l" onclick="handleCardClick('agua_15l', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Água Mineral sem Gás 1,5 Litros" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvAKn0QZ9oIGmhkv_zmJewt39nSI48SsSxAfthbF0LuLFiNSIu1obetnircC9jYVIST51XkGUdGVTCXbzeBFFnoN6t4ZVhHs7i_8zXiYjgEVh5jVPE22EHWdDsfNVIqn_-5aFT490dW8BxnNaG7g8zQHrfDjY0pGk8Zmz4nKLhOnjnziAqH-vJ8pFNPCpTOzeO_2sGgP4YfJ6rhdFM67v3JpTLhFKm118_d-7MPsu1"/>
+<span class="absolute top-1.5 left-1.5 bg-primary-container text-surface-container-lowest px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold shadow-xs">
+                1,5 Litros
+              </span>
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-0 scale-75 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Água Mineral sem Gás</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Ideal para compartilhar à mesa.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 12,00</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('agua_15l', -1, 'Água Mineral sem Gás (1,5L)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-agua_15l">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-agua_15l">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('agua_15l', 1, 'Água Mineral sem Gás (1,5L)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Produto 4: Coca-Cola Lata (350ml) -->
+<article class="drink-card is-selected bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-secondary cursor-pointer relative" id="card-coca_lata" onclick="handleCardClick('coca_lata', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Coca-Cola Lata 350ml" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkO0jln9xxLaQ5S80JnovVTsebEvMoao5eHjM4jOdZ4123SoaLTTsZd4KWg3Vw3ULBeP1f1FaFE8tSy5h5M0P6A3CKHeonE3x7mmRbbGwrfF2HzdjQG_HtTY5u1o47ulhoWDm8mll2FOQwl66s91B3yt6ncfVfQ1LrsdBwUm7F3PjRsKq1BFpkDEC7u6lPKp5iVs668SU5lXCL4doA1bzCG8FNXz919SZ33ULhZ7Vc"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-primary px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold border border-outline-variant/30">
+                350ml
+              </span>
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-100 scale-100 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Coca-Cola Lata</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Original gelada no ponto perfeito.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 8,50</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('coca_lata', -1, 'Coca-Cola Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-coca_lata">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-coca_lata">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('coca_lata', 1, 'Coca-Cola Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Produto 5: Coca-Cola Zero Lata (350ml) -->
+<article class="drink-card bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-outline-variant/40 hover:border-secondary/60 cursor-pointer relative" id="card-coca_zero" onclick="handleCardClick('coca_zero', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Coca-Cola Zero Lata 350ml" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCim0-NNqlHv9elNaGNfMKSBqoGg93KA7B9is8WYXgULKV29hSiMyp1xswBJzLpvq1ggXbaLvL_G1UGNTsDuoo0-UcU_J5uH9GdwG1o1ncrZNFFINBmiBuYos9FXpO4y4SKngXTHVzsLSSIeA2sU4zwsEoMDgK9m4_fDbmvSyO6LYwd_BFBvmwqOQ8p94uI_B92TW19e9ppZDN6C5uwTr16zJ5RCFp7emR_5dZttpWo"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-primary px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold border border-outline-variant/30">
+                350ml
+              </span>
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-0 scale-75 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Coca-Cola Zero Lata</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Zero açúcar, servida bem gelada.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 8,50</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('coca_zero', -1, 'Coca-Cola Zero Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-coca_zero">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-coca_zero">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('coca_zero', 1, 'Coca-Cola Zero Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Produto 6: Água Tônica Lata (350ml) -->
+<article class="drink-card bg-surface-container-lowest rounded-xl p-3 flex flex-col justify-between border border-outline-variant/40 hover:border-secondary/60 cursor-pointer relative" id="card-agua_tonica" onclick="handleCardClick('agua_tonica', event)">
+<div>
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-low relative mb-2.5 border border-outline-variant/20">
+<img alt="Água Tônica Lata 350ml" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdkCKSo-CjKR8_55af8ArLxoSbSYHAc-80k37NxfvtDp9JNJDmGy5C-eX5QtNsNVYjCsIXV17ChJE817CHxntG901zWpvDCVcgQ-zP4DpiHM49zLIcWT2C7oIygv3xVtBwOQt8UmziSC-X95vv_WqIsNjQtdoWFpGpqv2jeDpZ5nyAm6vPQCMpQSicGQ_yko5atl0EEXhIiI5apLyKyVfyNix1Rtpkg8eZ4iNyV4U5"/>
+<span class="absolute top-1.5 left-1.5 bg-surface-container-lowest/90 backdrop-blur-xs text-primary px-2 py-0.5 rounded text-[10px] font-label-sm font-semibold border border-outline-variant/30">
+                350ml
+              </span>
+<span class="drink-badge-check absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center opacity-0 scale-75 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h4 class="font-title-sm text-[14px] text-primary-container leading-snug line-clamp-2">Água Tônica Lata</h4>
+<p class="font-body-sm text-[11px] text-outline mt-1 line-clamp-2 leading-relaxed">Tônica clássica gelada com toque cítrico.</p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between" onclick="event.stopPropagation()">
+<span class="font-title-sm text-[15px] text-primary font-bold">R$ 8,50</span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5">
+<button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateItemQty('agua_tonica', -1, 'Água Tônica Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-agua_tonica">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-agua_tonica">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateItemQty('agua_tonica', 1, 'Água Tônica Lata (350ml)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Informative note card at footer of catalog -->
+<div class="p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">ac_unit</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed">
+          Todas as nossas latas e garrafas são mantidas em refrigeração constante a 2°C para consumo imediato.
+        </p>
+</div>
+</main>
+<!-- 4. Dynamic Toast Notification (Item Added Feedback) -->
+<!-- 5. Barra Inferior de Resumo de Pedido Fixa (acima do menu global) -->
+<div class="fixed bottom-[80px] left-0 right-0 max-w-md mx-auto z-40 pointer-events-auto w-full border-t border-outline-variant/30 bg-primary-container text-surface-container-lowest px-4 py-3.5 shadow-2xl flex items-center justify-between gap-3"><div class="flex flex-col justify-center min-w-0 flex-1"><div class="flex items-center space-x-1.5 mb-0.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse shrink-0"></span><span class="font-label-sm text-[11px] text-surface-container-high/90 truncate" id="summary-items-count">2 bebidas (1x Água c/ gás, 1x Coca Lata)</span></div><span class="font-headline-md text-[16px] font-bold tracking-tight text-surface leading-tight" id="summary-total-price">TOTAL: R$ 15,50</span></div><button class="bg-secondary hover:bg-[#164727] text-white px-4 py-2.5 rounded-xl font-label-md text-[13px] font-bold flex items-center justify-center space-x-2 active:scale-95 transition-all shadow-md shrink-0 h-11" id="btn-add-to-bag" onclick="this.innerHTML = '&lt;span class=\'material-symbols-outlined text-[18px]\'&gt;check&lt;/span&gt;&lt;span class=\'whitespace-nowrap\' &gt;Adicionado!&lt;/span&gt;';" type="button"><span class="material-symbols-outlined text-[18px]">check</span><span class="whitespace-nowrap">Adicionado!</span></button></div>
+<!-- 6. Menu Global Fixo Inferior (4 Itens: Início, Carrinho, Pedidos, Perfil) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest border-t border-outline-variant/40 shadow-sm max-w-md mx-auto right-0">
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+<span class="font-label-sm text-[11px] mt-0.5 font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors duration-150 active:scale-95 relative" href="#"><div class="relative inline-block">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span class="absolute -top-1 -right-2 bg-error text-on-error font-label-sm text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold ring-1 ring-surface-container-lowest" id="nav-bag-count">2</span>
+</div>
+<span class="font-label-sm text-[11px] mt-0.5 font-medium">Sacola</span></a>
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="font-label-sm text-[11px] mt-0.5 font-medium">Pedidos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors duration-150 active:scale-95" href="#"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-[11px] mt-0.5 font-medium">Perfil</span></a>
+</nav>
+</div>
+<!-- Micro-interactions & Selection Script -->
+<script>
+const productsCatalog = {
+  agua_sem_gas: { name: 'Água Mineral sem Gás', short: 'Água s/ gás', price: 6.00 },
+  agua_com_gas: { name: 'Água Mineral com Gás', short: 'Água c/ gás', price: 7.00 },
+  agua_15l:     { name: 'Água sem Gás 1,5L',    short: 'Água 1.5L',   price: 12.00 },
+  coca_lata:    { name: 'Coca-Cola Lata',       short: 'Coca Lata',   price: 8.50 },
+  coca_zero:    { name: 'Coca-Cola Zero Lata',  short: 'Coca Zero',   price: 8.50 },
+  agua_tonica:  { name: 'Água Tônica Lata',     short: 'Tônica',      price: 8.50 }
+};
+
+const drinksState = {
+  agua_sem_gas: 0,
+  agua_com_gas: 1,
+  agua_15l: 0,
+  coca_lata: 1,
+  coca_zero: 0,
+  agua_tonica: 0
+};
+
+let toastTimeout;
+
+function updateUI() {
+  let totalQty = 0;
+  let totalPrice = 0;
+  let selectedNames = [];
+
+  for (const key in drinksState) {
+    const qty = drinksState[key];
+    totalQty += qty;
+    totalPrice += qty * productsCatalog[key].price;
+
+    if (qty > 0) {
+      selectedNames.push(`${qty}x ${productsCatalog[key].short}`);
+    }
+
+    // Update quantity counter in card
+    const qtyLabel = document.getElementById('qty-' + key);
+    if (qtyLabel) qtyLabel.textContent = qty;
+
+    // Card visual highlight
+    const cardEl = document.getElementById('card-' + key);
+    if (cardEl) {
+      if (qty > 0) {
+        cardEl.classList.add('is-selected');
+      } else {
+        cardEl.classList.remove('is-selected');
+      }
+    }
+  }
+
+  // Update Summary Bar text & price
+  const summaryCountEl = document.getElementById('summary-items-count');
+  const summaryPriceEl = document.getElementById('summary-total-price');
+
+  if (summaryCountEl) {
+    if (totalQty === 0) {
+      summaryCountEl.textContent = 'Nenhuma bebida selecionada';
+    } else {
+      summaryCountEl.textContent = `${totalQty} bebida${totalQty > 1 ? 's' : ''} (${selectedNames.slice(0, 2).join(', ')}${selectedNames.length > 2 ? '...' : ''})`;
+    }
+  }
+
+  if (summaryPriceEl) {
+    summaryPriceEl.textContent = `TOTAL: R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+  }
+
+  // Update top bag and bottom nav bag badges
+  const bagBadge = document.getElementById('bag-count');
+  if (bagBadge) bagBadge.textContent = totalQty;
+
+  const navBagBadge = document.getElementById('nav-bag-count');
+  if (navBagBadge) navBagBadge.textContent = totalQty;
+}
+
+function handleCardClick(itemKey, evt) {
+  if (drinksState[itemKey] === 0) {
+    updateItemQty(itemKey, 1, productsCatalog[itemKey].name);
+  } else {
+    // If already selected, increase quantity
+    updateItemQty(itemKey, 1, productsCatalog[itemKey].name);
+  }
+}
+
+function updateItemQty(itemKey, delta, productName) {
+  if (drinksState[itemKey] === undefined) return;
+  const next = drinksState[itemKey] + delta;
+  if (next < 0) return;
+  drinksState[itemKey] = next;
+
+  updateUI();
+
+  if (delta > 0) {
+    showToast(`${productName || productsCatalog[itemKey].name} adicionado!`);
+  }
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('cart-toast');
+  const toastMsg = document.getElementById('toast-message');
+  if (toast) {
+    if (toastMsg) toastMsg.textContent = msg;
+    clearTimeout(toastTimeout);
+    toast.classList.remove('opacity-0', 'translate-y-3');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-3');
+    }, 2000);
+  }
+}
+
+function submitAddToBag() {
+  let totalQty = 0;
+  for (const k in drinksState) totalQty += drinksState[k];
+  if (totalQty === 0) {
+    showToast('Selecione pelo menos uma bebida!');
+  } else {
+    showToast(`${totalQty} bebida(s) adicionada(s) à sacola!`);
+  }
+}
+
+// Initial Sync
+updateUI();
+</script>
+<script>window.SCREEN_ID=28;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

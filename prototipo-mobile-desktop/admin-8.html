@@ -1,0 +1,1830 @@
+<!DOCTYPE html><html class="h-full" lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caixa e PDV · Terminal Operacional Integrado · Arducci dal 1984</title>
+<!-- Material Symbols Outlined -->
+
+<!-- Google Fonts: Inter & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Tailwind CSS with custom configuration -->
+<link rel="stylesheet" href="styles/admin-8.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D0C5AF;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #C5A059;
+    }
+    /* Estilos das Abas */
+    .cat-tab.active-tab {
+      background-color: #24170D !important;
+      border-color: #D4AF37 !important;
+      color: #D4AF37 !important;
+      font-weight: 700;
+    }
+    .cat-tab.active-tab .cat-icon {
+      color: #D4AF37 !important;
+      font-variation-settings: 'FILL' 1;
+    }
+    .cat-tab.inactive-tab {
+      background-color: #ffffff;
+      border-color: #EAE3D6;
+      color: #4d4635;
+      font-weight: 500;
+    }
+    .cat-tab.inactive-tab:hover {
+      background-color: #F4EFE6;
+      color: #24170D;
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-[#fbf9f6] text-[#1d1b19] font-body-md antialiased h-full flex overflow-hidden select-none flex-row" style="height: 100vh; max-height: 100vh; overflow: hidden; display: flex; flex-direction: row; margin: 0px; padding: 0px;">
+<div class="flex flex-1 h-screen overflow-hidden" style="height: 100vh; max-height: 100vh; width: 100%; overflow: hidden;">
+<!-- ========================================== -->
+<!-- 1. SIDEBAR LATERAL ESCURA                  -->
+<!-- ========================================== -->
+<aside id="sidebar" class="w-64 bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 select-none z-50 fixed top-0 bottom-0 left-0 h-screen min-h-screen border-r border-[#2d221c]" style="position: fixed; top: 0px; bottom: 0px; left: 0px; height: 100vh; min-height: 100vh; z-index: 50; width: 16rem; display: flex; flex-direction: column; justify-content: space-between;">
+  <div class="p-5 border-b border-[#2d221c] flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-[#d4af37] text-[#18110e] flex items-center justify-center font-bold shadow-md">
+        <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">icecream</span>
+      </div>
+      <div class="sidebar-text">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-base tracking-wider text-[#fff8f4]">SORVETEC</span>
+          <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#d4af37] text-[#18110e]">PRO</span>
+        </div>
+        <p class="text-[11px] text-[#9d8d80] tracking-wider">Arducci Gelato &amp; Açai</p>
+      </div>
+    </div>
+    <button id="btn-toggle-sidebar" onclick="toggleSidebar()" class="p-1.5 rounded-lg text-[#9d8d80] hover:text-[#fff8f4] hover:bg-white/5 transition-colors cursor-pointer" title="Recolher Menu" type="button">
+      <span class="material-symbols-outlined text-[20px]" id="sidebar-toggle-icon">menu_open</span>
+    </button>
+  </div>
+
+  <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scrollbar"><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Dashboard"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="sidebar-text">Dashboard</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Acompanhamento de Pedido"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="sidebar-text">Acompanhamento de Pedido</span></a><a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-[#2b1810] text-[#d4af37] font-semibold text-sm border-l-4 border-[#d4af37] transition-all shadow-sm" title="Caixa e PDV"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">point_of_sale</span><span class="sidebar-text">Caixa e PDV</span></div><span class="w-2 h-2 rounded-full bg-emerald-500 sidebar-text animate-pulse"></span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Clientes Arducci Club"><span class="material-symbols-outlined text-[20px]">group</span><span class="sidebar-text">Clientes Arducci Club</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Estoque"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span class="sidebar-text">Estoque</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Sabores de Gelato"><span class="material-symbols-outlined text-[20px]">icecream</span><span class="sidebar-text">Sabores de Gelato</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Financeiro"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="sidebar-text">Financeiro</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Funcionários"><span class="material-symbols-outlined text-[20px]">badge</span><span class="sidebar-text">Funcionários</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Mesas &amp; Comandas"><span class="material-symbols-outlined text-[20px]">table_restaurant</span><span class="sidebar-text">Mesas &amp; Comandas</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Relatórios"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="sidebar-text">Relatórios</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Painel de Controle"><span class="material-symbols-outlined text-[20px]">settings</span><span class="sidebar-text">Painel de Controle</span></a><a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 font-medium transition-all text-sm" title="Suporte Técnico"><span class="material-symbols-outlined text-[20px]">contact_support</span><span class="sidebar-text">Suporte Técnico</span></a></nav>
+
+  <div class="p-4 border-t border-[#2d221c]">
+    <button onclick="openLogoutModal()" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-rose-500 hover:text-rose-400 hover:bg-rose-500/10 transition-colors text-sm font-semibold cursor-pointer" title="Encerrar Sessão (Sair)" type="button"><span class="material-symbols-outlined text-[20px]">logout</span><span class="sidebar-text">Encerrar Sessão (Sair)</span></button>
+  </div>
+</aside>
+<!-- ========================================== -->
+<!-- 2. WORKSPACE CENTRAL                       -->
+<!-- ========================================== -->
+<div class="flex-1 flex flex-col overflow-hidden bg-[#fbf9f6] ml-64" style="flex: 1 1 0%; height: 100vh; max-height: 100vh; margin-left: 16rem; display: flex; flex-direction: column; overflow: hidden;">
+<!-- Header Superior -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-14 px-5 w-full bg-surface-container-lowest border-b border-surface-crema-muted shadow-xs flex-shrink-0"><div class="flex items-center gap-2.5"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#f4f7f4] border border-[#d2e4d4] shadow-2xs transition-colors" id="store-status-card"><span class="w-2.5 h-2.5 rounded-full bg-pistache-emerald ring-2 ring-pistache-soft animate-pulse shrink-0" id="store-status-dot"></span><span class="text-xs text-cacao-deep font-bold leading-none" id="store-status-text">Loja Aberta •&nbsp;</span></div><button class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-[#d0c5af] hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep transition-all shadow-2xs flex items-center gap-1.5 cursor-pointer" id="btn-toggle-store" onclick="(function(){ const card=document.getElementById('store-status-card'); const dot=document.getElementById('store-status-dot'); const text=document.getElementById('store-status-text'); const btnText=document.getElementById('store-action-text'); const btnIcon=document.querySelector('#btn-toggle-store span.material-symbols-outlined'); const isOpen = text.innerText.includes('Loja Aberta'); if(isOpen){ card.className='flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#fdf2f2] border border-[#f5c6cb] shadow-2xs transition-colors'; dot.className='w-2.5 h-2.5 rounded-full bg-cherry-ruby ring-2 ring-cherry-soft shrink-0'; text.innerText='Loja Fechada • Operações Pausadas'; text.className='text-xs text-cherry-ruby font-bold leading-none'; btnText.innerText='Abrir loja'; if(btnIcon) btnIcon.innerText='storefront'; if(typeof showToast==='function') showToast('Atenção: A loja foi fechada!', 'Operações pausadas.'); } else { card.className='flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#f4f7f4] border border-[#d2e4d4] shadow-2xs transition-colors'; dot.className='w-2.5 h-2.5 rounded-full bg-pistache-emerald ring-2 ring-pistache-soft animate-pulse shrink-0'; text.innerText='Loja Aberta • Balcão e Salão'; text.className='text-xs text-cacao-deep font-bold leading-none'; btnText.innerText='Fechar loja'; if(btnIcon) btnIcon.innerText='storefront'; if(typeof showToast==='function') showToast('Sucesso: A loja foi reaberta com sucesso!', 'Atendimento normalizado.'); } })()" type="button"><span class="material-symbols-outlined text-[16px] text-tertiary">storefront</span><span id="store-action-text" class="">Fechar loja</span></button></div><div class="flex items-center gap-3 relative"><div class="relative header-menu-container"><button aria-expanded="false" aria-haspopup="true" class="relative p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-notifications" onclick="toggleHeaderDropdown(event, 'dropdown-notifications')" title="Notificações operacionais" type="button"><span class="material-symbols-outlined text-[21px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center min-w-[15px] h-[15px] px-1 rounded-full bg-cherry-alert text-white text-[9px] font-bold leading-none" id="notif-badge">3</span></button><div class="header-dropdown absolute right-0 top-11 mt-1 w-80 bg-surface-container-lowest rounded-xl border border-surface-crema-muted shadow-xl py-2 z-50 divide-y divide-surface-crema-subtle hidden" id="dropdown-notifications"><div class="px-4 py-2.5 flex items-center justify-between bg-surface-crema-subtle/70"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cacao-deep text-[18px]">notifications_active</span><span class="text-xs font-bold text-cacao-deep">Notificações do Caixa</span></div><button class="text-[10px] font-semibold text-gold-deep hover:underline cursor-pointer" onclick="limparNotificacoes()" type="button">Limpar todas</button></div><div class="max-h-64 overflow-y-auto custom-scrollbar divide-y divide-surface-crema-subtle" id="lista-notificacoes"><div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex gap-2.5 items-start cursor-pointer" onclick="showToast('Pedido Concluído', 'Visualizando cupom #CMD-8490'); closeAllHeaderDropdowns();"><span class="material-symbols-outlined text-secondary text-[19px] shrink-0 mt-0.5">receipt_long</span><div class="min-w-0 flex-1"><p class="text-xs font-semibold text-cacao-deep truncate">Venda #CMD-8490 aprovada</p><p class="text-[11px] text-tertiary leading-tight">Mesa 02 finalizou pagamento de R$ 74,00 via Pix.</p><span class="text-[10px] text-tertiary font-data-tabular mt-0.5 block">Há 3 min</span></div></div><div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex gap-2.5 items-start cursor-pointer" onclick="showToast('Alerta de Estoque', 'Nível baixo no freezer 02: Pistache di Bronte'); closeAllHeaderDropdowns();"><span class="material-symbols-outlined text-cherry-ruby text-[19px] shrink-0 mt-0.5">warning</span><div class="min-w-0 flex-1"><p class="text-xs font-semibold text-cacao-deep truncate">Estoque Baixo: Gelato Pistache</p><p class="text-[11px] text-tertiary leading-tight">Resta apenas 1 cuba (1.2 kg) no balcão principal.</p><span class="text-[10px] text-tertiary font-data-tabular mt-0.5 block">Há 14 min</span></div></div><div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex gap-2.5 items-start cursor-pointer" onclick="showToast('Balança Toledo', 'Comunicação serial COM3 verificada com sucesso.'); closeAllHeaderDropdowns();"><span class="material-symbols-outlined text-gold-deep text-[19px] shrink-0 mt-0.5">scale</span><div class="min-w-0 flex-1"><p class="text-xs font-semibold text-cacao-deep truncate">Balança em modo Manual</p><p class="text-[11px] text-tertiary leading-tight">Cabo desconectado ou porta serial desativada no momento.</p><span class="text-[10px] text-tertiary font-data-tabular mt-0.5 block">Há 25 min</span></div></div></div><div class="px-3 py-1.5 text-center bg-surface-crema-subtle/30"><button class="text-[11px] text-cacao-deep font-semibold hover:text-gold-deep cursor-pointer" onclick="showToast('Central de Mensagens', 'Histórico sincronizado com o servidor central.'); closeAllHeaderDropdowns();" type="button">Ver histórico completo</button></div></div></div><div class="relative header-menu-container"><button aria-expanded="false" aria-haspopup="true" class="p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-settings" onclick="toggleHeaderDropdown(event, 'dropdown-settings')" title="Configurações do terminal" type="button"><span class="material-symbols-outlined text-[21px]">settings</span></button><div class="header-dropdown absolute right-0 top-11 mt-1 w-72 bg-surface-container-lowest rounded-xl border border-surface-crema-muted shadow-xl py-2 z-50 divide-y divide-surface-crema-subtle hidden" id="dropdown-settings"><div class="px-4 py-2.5 flex items-center justify-between bg-surface-crema-subtle/70"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-cacao-deep text-[18px]">tune</span><span class="text-xs font-bold text-cacao-deep">Configurações do PDV</span></div><span class="text-[10px] text-tertiary font-data-tabular">CAIXA 01</span></div><div class="p-2 space-y-1"><button class="w-full flex items-center justify-between px-3 py-2 text-xs rounded-lg text-cacao-deep hover:bg-surface-crema-subtle transition-colors cursor-pointer text-left" onclick="showToast('Calibração', 'Abrindo utilitário de calibração da Balança Toledo...'); closeAllHeaderDropdowns();" type="button"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-tertiary">scale</span><span class="">Calibração de Balança</span></span><span class="text-[10px] font-bold text-tertiary">Toledo Prix 4</span></button><button class="w-full flex items-center justify-between px-3 py-2 text-xs rounded-lg text-cacao-deep hover:bg-surface-crema-subtle transition-colors cursor-pointer text-left" onclick="showToast('Impressora Térmica', 'Impressora Epson TM-T20 pronta e calibrada.'); closeAllHeaderDropdowns();" type="button"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-tertiary">print</span><span class="">Impressora Térmica</span></span><span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-pistache-soft text-secondary">Conectada</span></button><button class="w-full flex items-center justify-between px-3 py-2 text-xs rounded-lg text-cacao-deep hover:bg-surface-crema-subtle transition-colors cursor-pointer text-left" onclick="showToast('Atalhos PDV', 'F2: Finalizar · Esc: Fechar Modais · Alt+B: Balança'); closeAllHeaderDropdowns();" type="button"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-tertiary">keyboard</span><span class="">Atalhos de Teclado</span></span><span class="text-[10px] font-bold text-tertiary">F2 / Esc</span></button></div><div class="px-3 py-1.5 bg-surface-crema-subtle/30 text-center"><button class="text-[11px] text-cacao-deep font-semibold hover:text-gold-deep cursor-pointer" onclick="showToast('Painel Geral', 'Abrindo parâmetros avançados do sistema...'); closeAllHeaderDropdowns();" type="button">Painel de Parâmetros</button></div></div></div><button class="p-2 rounded-lg text-cherry-alert hover:bg-cherry-soft transition-colors focus:outline-none cursor-pointer" onclick="openLogoutModal()" title="Encerrar sistema" type="button"><span class="material-symbols-outlined text-[21px]">power_settings_new</span></button><div class="relative flex items-center header-menu-container"><button aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2 p-1 pl-1.5 pr-2 rounded-lg hover:bg-surface-crema-subtle transition-all text-left focus:outline-none cursor-pointer" id="user-menu-button" onclick="toggleHeaderDropdown(event, 'user-profile-menu')" type="button"><div class="w-8 h-8 rounded-full bg-[#24170D] flex items-center justify-center text-white font-bold text-xs shadow-2xs"><span class="text-[11px] font-bold text-white">AM</span></div><div class="hidden sm:flex flex-col text-left leading-tight"><span class="text-xs text-cacao-deep font-bold">Adm MASTER</span><span class="text-[10px] text-tertiary">Administrador Geral</span></div><span class="material-symbols-outlined text-[16px] text-tertiary">expand_more</span></button><div class="header-dropdown hidden absolute right-0 top-11 mt-1 w-60 bg-surface-container-lowest rounded-xl border border-surface-crema-muted shadow-xl py-1.5 z-50 divide-y divide-surface-crema-subtle" id="user-profile-menu"><div class="px-4 py-2 bg-surface-crema-subtle"><p class="text-xs font-bold text-cacao-deep">Matheus L. (Adm MASTER)</p><p class="text-[10px] text-tertiary truncate">matheus@arducci.com.br</p><span class="inline-block mt-1 px-1.5 py-0.2 rounded bg-surface-container-lowest text-gold-deep text-[9px] font-bold border border-border-crema">Gerente Geral · Matriz</span></div><div class="py-1"><button class="w-full flex items-center gap-2 px-3.5 py-1.5 text-xs text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer" onclick="showToast('Perfil', 'Abrindo meus dados cadastrais...'); closeAllHeaderDropdowns();" type="button"><span class="material-symbols-outlined text-[17px] text-tertiary">manage_accounts</span><span class="">Editar meus dados</span></button><button class="w-full flex items-center gap-2 px-3.5 py-1.5 text-xs text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer" onclick="showToast('Troca de Operador', 'Solicitando PIN de autenticação...'); closeAllHeaderDropdowns();" type="button"><span class="material-symbols-outlined text-[17px] text-tertiary">switch_account</span><span class="">Trocar Operador</span></button></div><div class="py-1"><button class="w-full flex items-center gap-2 px-3.5 py-1.5 text-xs text-cherry-alert hover:bg-cherry-soft transition-colors text-left font-semibold cursor-pointer" onclick="closeAllHeaderDropdowns(); openLogoutModal();" type="button"><span class="material-symbols-outlined text-[17px] text-cherry-alert">logout</span><span class="">Encerrar Sessão</span></button></div></div></div></div></header>
+<!-- BARRA DE ABAS SUPERIOR (9 Categorias Operacionais) -->
+<div class="bg-surface-container-lowest border-b border-surface-crema-muted px-4 py-2 flex items-center gap-1.5 flex-shrink-0 w-full z-20 shadow-2xs overflow-x-auto" id="category-tabs-bar">
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border min-w-0 active-tab shadow-2xs" id="btn-cat-balanca" onclick="switchTab('balanca')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 1;">scale</span>
+<span class="truncate">Balança</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-picoles" onclick="switchTab('picoles')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">icecream</span>
+<span class="truncate">Picolés</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-paletas" onclick="switchTab('paletas')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">layers</span>
+<span class="truncate">Paletas</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-bebidas" onclick="switchTab('bebidas')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">local_bar</span>
+<span class="truncate">Bebidas</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-potes" onclick="switchTab('potes')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<span class="truncate">Potes</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-acai" onclick="switchTab('acai')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">nutrition</span>
+<span class="truncate">Açaí</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-petit" onclick="switchTab('petit')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">bakery_dining</span>
+<span class="truncate">Petit Gâteau</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-bananasplit" onclick="switchTab('bananasplit')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">lunch_dining</span>
+<span class="truncate">Banana Split</span>
+</button>
+<button class="cat-tab px-3 py-1.5 rounded-lg text-xs flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer transition-all border inactive-tab min-w-0" id="btn-cat-milkshake" onclick="switchTab('milkshake')">
+<span class="material-symbols-outlined cat-icon text-[17px]" style="font-variation-settings: 'FILL' 0;">blender</span>
+<span class="truncate">Milk Shake</span>
+</button>
+</div>
+<!-- Content Workspace: Central + Comanda Lateral Direita -->
+<div class="flex-1 flex overflow-hidden">
+<!-- ÁREA CENTRAL COM ABAS -->
+<main class="flex-1 flex flex-col overflow-hidden bg-[#fbf9f6] border-r border-surface-crema-muted">
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6" id="dynamic-tab-viewport">
+<!-- ABA 1: BALANÇA SELF-SERVICE -->
+<div class="tab-panel space-y-4 max-w-2xl mx-auto" id="tab-balanca">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-6 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted mb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[24px] text-cacao-deep">scale</span>
+<h2 class="text-base font-bold text-cacao-deep">Balança Self-Service</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-tertiary">Status:</span>
+<span class="text-xs bg-cherry-soft text-cherry-ruby font-semibold border border-cherry-ruby/30 rounded-lg px-2.5 py-1" id="balanca-status-badge">Manual (Balança Desconectada)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div class="p-3.5 rounded-lg bg-surface-crema-subtle/40 border border-surface-crema-muted">
+<label class="text-xs font-semibold text-tertiary block mb-1">Preço configurado por kg</label>
+<div class="flex items-center gap-1 text-base font-bold font-data-tabular text-cacao-deep">
+<span class="">R$</span>
+<input class="w-24 bg-transparent font-bold text-cacao-deep focus:outline-none border-b border-gold-burnished" id="balanca-preco-kg" oninput="calcularBalanca()" step="0.10" type="number" value="89.90">
+<span class="text-xs text-tertiary font-normal">/kg</span>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-crema-subtle/40 border border-surface-crema-muted">
+<label class="text-xs font-semibold text-tertiary block mb-1">Peso digitado (gramas)</label>
+<div class="flex items-center gap-1.5">
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted font-data-tabular font-bold text-lg text-cacao-deep focus:border-gold-burnished focus:outline-none" id="balanca-peso-gramas" max="5000" min="1" oninput="calcularBalanca()" type="number" value="485">
+<span class="text-xs font-bold text-tertiary">g</span>
+</div>
+</div>
+</div>
+<!-- Display Calculado Escuro -->
+<div class="py-5 px-6 bg-[#24170D] rounded-xl text-center shadow-inner mb-4 border border-[#3D2B20]">
+<div class="text-[11px] text-[#D4AF37] uppercase tracking-wider font-semibold mb-1">CONVERSÃO E VALOR CALCULADO</div>
+<div class="text-3xl font-extrabold text-[#22c55e] font-data-tabular mb-1" id="balanca-display-total">R$ 43,60</div>
+<div class="text-xs text-[#d0c5af] font-data-tabular" id="balanca-display-kg">Peso convertido: 0,485 kg (0.485 kg × R$ 89,90)</div>
+</div>
+<!-- Atalhos de gramas -->
+<div class="flex items-center gap-2 mb-5">
+<span class="text-xs text-tertiary font-medium">Atalhos rápidos:</span>
+<button class="px-2.5 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted border border-surface-crema-muted text-xs font-semibold text-cacao-deep cursor-pointer" onclick="setBalancaGramas(250)" type="button">250g</button>
+<button class="px-2.5 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted border border-surface-crema-muted text-xs font-semibold text-cacao-deep cursor-pointer" onclick="setBalancaGramas(350)" type="button">350g</button>
+<button class="px-2.5 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted border border-surface-crema-muted text-xs font-semibold text-cacao-deep cursor-pointer" onclick="setBalancaGramas(485)" type="button">485g</button>
+<button class="px-2.5 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted border border-surface-crema-muted text-xs font-semibold text-cacao-deep cursor-pointer" onclick="setBalancaGramas(600)" type="button">600g</button>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary hover:bg-[#1e5827] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="adicionarBalancaComanda()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+              Adicionar à comanda (R$ <span id="balanca-btn-val" class="">43,60</span>)
+            </button>
+</div>
+</div>
+<!-- ABA 2: PICOLÉS -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-3" id="tab-picoles">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-4 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted mb-1">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">icecream</span> Picolés Artesanais
+              </h2>
+<span class="text-xs text-tertiary">Linhas compactas de atendimento rápido</span>
+</div>
+<div class="divide-y divide-surface-crema-muted" id="lista-picoles">
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Morango Natural</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 10,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Morango Natural', 10)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Ninho com Nutella</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 12,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Ninho com Nutella', 12)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Chocolate Belga 70%</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 12,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Chocolate Belga 70%', 12)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Maracujá da Fruta</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 10,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Maracujá da Fruta', 10)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Limão Siciliano</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 10,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Limão Siciliano', 10)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Uva Integral</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 10,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Uva Integral', 10)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Picolé Pistache di Bronte</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 12,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Picolé Pistache di Bronte', 12)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<!-- ABA 3: PALETAS -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-3" id="tab-paletas">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-4 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted mb-1">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">layers</span> Paletas Recheadas
+              </h2>
+<span class="text-xs text-tertiary">Linhas compactas de atendimento rápido</span>
+</div>
+<div class="divide-y divide-surface-crema-muted" id="lista-paletas">
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Paleta Morango c/ Leite Condensado</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 14,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Paleta Morango c/ Leite Condensado', 14)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Paleta Ninho c/ Nutella</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 16,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Paleta Ninho c/ Nutella', 16)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Paleta Maracujá c/ Leite Moça</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 14,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Paleta Maracujá c/ Leite Moça', 14)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Paleta Doce de Leite Caseiro</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 14,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Paleta Doce de Leite Caseiro', 14)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Paleta Pistache Bronte Recheada</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 16,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Paleta Pistache Bronte Recheada', 16)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<!-- ABA 4: BEBIDAS -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-3" id="tab-bebidas">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-4 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted mb-1">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">local_bar</span> Bebidas &amp; Cafés
+              </h2>
+<span class="text-xs text-tertiary">Linhas compactas de atendimento rápido</span>
+</div>
+<div class="divide-y divide-surface-crema-muted" id="lista-bebidas">
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Água sem Gás 500ml</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 5,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Água sem Gás 500ml', 5)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Água com Gás 500ml</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 6,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Água com Gás 500ml', 6)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Refrigerante Lata 350ml</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 7,50</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Refrigerante Lata 350ml', 7.5)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Suco Natural 300ml</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 10,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Suco Natural 300ml', 10)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Café Espresso Duplo</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 11,50</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Café Espresso Duplo', 11.5)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<!-- ABA 5: POTES -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-3" id="tab-potes">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-4 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted mb-1">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">inventory_2</span> Potes de Sorvete &amp; Açaí
+              </h2>
+<span class="text-xs text-tertiary">Embalagens para viagem</span>
+</div>
+<div class="divide-y divide-surface-crema-muted" id="lista-potes">
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Pote de Sorvete 1 Litro</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 48,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Pote de Sorvete 1 Litro', 48)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Pote de Sorvete 1,5 Litros</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 68,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Pote de Sorvete 1,5 Litros', 68)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Pote de Sorvete 2 Litros</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 85,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Pote de Sorvete 2 Litros', 85)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">Pote Açaí 1 Litro</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ 48,00</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, 'Pote Açaí 1 Litro', 48)" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<!-- ABA 6: AÇAÍ -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-4" id="tab-acai">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-5 shadow-xs space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">nutrition</span> Montagem de Açaí
+              </h2>
+<span class="text-xs font-bold text-cacao-deep font-data-tabular bg-surface-crema-subtle px-2.5 py-1 rounded-full border border-gold-burnished" id="acai-running-price">R$ 22,00</span>
+</div>
+<div>
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider block mb-2">Etapa 1 — Tipo e Tamanho</label>
+<div class="grid grid-cols-3 gap-2.5">
+<button class="p-3 rounded-lg border-2 border-cacao-deep bg-surface-crema-subtle text-left transition-all cursor-pointer acai-size-btn" id="btn-acai-tigela" onclick="selectAcaiTamanho('Tigela', 22.00, 0)" type="button">
+<span class="font-bold text-xs text-cacao-deep block">Tigela</span>
+<span class="text-[11px] text-tertiary block mt-0.5">Extras cobrados (+R$ 3)</span>
+<span class="font-bold text-sm text-cacao-deep font-data-tabular block mt-1">R$ 22,00</span>
+</button>
+<button class="p-3 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-left transition-all cursor-pointer acai-size-btn" id="btn-acai-barca-simples" onclick="selectAcaiTamanho('Barca Simples', 36.00, 4)" type="button">
+<span class="font-bold text-xs text-cacao-deep block">Barca Simples</span>
+<span class="text-[11px] text-secondary font-semibold block mt-0.5">Até 4 inclusos</span>
+<span class="font-bold text-sm text-cacao-deep font-data-tabular block mt-1">R$ 36,00</span>
+</button>
+<button class="p-3 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-left transition-all cursor-pointer acai-size-btn" id="btn-acai-barca-completa" onclick="selectAcaiTamanho('Barca Completa', 48.00, 10)" type="button">
+<span class="font-bold text-xs text-cacao-deep block">Barca Completa</span>
+<span class="text-[11px] text-secondary font-semibold block mt-0.5">Até 10 inclusos</span>
+<span class="font-bold text-sm text-cacao-deep font-data-tabular block mt-1">R$ 48,00</span>
+</button>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider block mb-2">Etapa 2 — Base</label>
+<div class="grid grid-cols-2 gap-2.5">
+<button class="p-2.5 rounded-lg border-2 border-cacao-deep bg-cacao-deep text-gold-light font-bold text-xs flex items-center justify-between acai-base-btn cursor-pointer" id="btn-base-acai-puro" onclick="selectAcaiBase('Açaí Puro')" type="button">
+<span class="">Açaí Puro</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-2.5 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-cacao-deep font-semibold text-xs flex items-center justify-between acai-base-btn cursor-pointer" id="btn-base-acai-misto" onclick="selectAcaiBase('Metade Açaí e Metade Cupuaçu')" type="button">
+<span class="">Metade Açaí / Cupuaçu</span>
+<span class="material-symbols-outlined text-[18px] text-stone-300">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider">Etapa 3 — Complementos</label>
+<span class="text-xs font-semibold text-tertiary" id="acai-regras-hint">0 selecionado(s) · Extras: 0 (+R$ 0,00)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs" id="acai-complements-grid">
+        <button type="button" onclick="toggleAcaiComplemento('Banana')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Banana</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Morango')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Morango</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Granola')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Granola</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Leite Ninho')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Leite Ninho</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Leite Condensado')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Leite Condensado</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Paçoca')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Paçoca</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Mel')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Mel</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      
+        <button type="button" onclick="toggleAcaiComplemento('Nutella')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Nutella</span>
+          <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+        </button>
+      </div>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary hover:bg-[#1e5827] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="adicionarAcaiComanda()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+              Adicionar Açaí à Comanda
+            </button>
+</div>
+</div>
+<!-- ABA 7: PETIT GÂTEAU -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-4" id="tab-petit">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-5 shadow-xs space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">bakery_dining</span> Petit Gâteau com Gelato
+              </h2>
+<span class="text-xs font-bold text-cacao-deep font-data-tabular bg-surface-crema-subtle px-2.5 py-1 rounded-full border border-gold-burnished" id="petit-running-price">R$ 34,00</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider">Sabores de Gelato (Selecione até 2)</label>
+<span class="text-[11px] font-semibold text-tertiary" id="petit-limit-hint">1 de 2 selecionados</span>
+</div>
+<input class="w-full h-8 px-3 rounded-lg border border-surface-crema-muted text-xs mb-2 focus:border-gold-burnished focus:outline-none" onkeyup="filtrarSabores(this.value, 'petit')" placeholder="Buscar sabor (ex: Baunilha, Pistache)..." type="text">
+<div class="flex flex-wrap gap-1.5 mb-2 min-h-[28px]" id="petit-chips-selecionados">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cacao-deep text-gold-light text-[11px] font-bold">
+        Baunilha
+        <button type="button" onclick="removeSabor('petit', 'Baunilha')" class="hover:text-white cursor-pointer flex items-center">
+          <span class="material-symbols-outlined text-[13px]">close</span>
+        </button>
+      </span>
+    </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-36 overflow-y-auto p-1.5 border border-surface-crema-muted/60 rounded-lg custom-scrollbar" id="petit-sabores-grid">
+        <button type="button" onclick="toggleSabor('petit', 'Baunilha')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-cacao-deep bg-cacao-deep text-gold-light font-bold">
+          <span class="truncate">Baunilha</span>
+          <span class="material-symbols-outlined text-[15px]">check</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Chocolate')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Chocolate</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Morango')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Morango</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Pistache')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Pistache</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Ninho')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Ninho</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Flocos')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Flocos</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Doce de Leite')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Doce de Leite</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Creme')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Creme</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Limão')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Limão</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('petit', 'Maracujá')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Maracujá</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      </div>
+</div>
+<div>
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider block mb-1.5">Cobertura</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="p-2 rounded-lg border-2 border-cacao-deep bg-surface-crema-subtle text-xs font-bold text-cacao-deep petit-cob-btn cursor-pointer" id="btn-petit-cob-chocolate" onclick="selectPetitCobertura('Chocolate')" type="button">Chocolate</button>
+<button class="p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-xs font-semibold text-cacao-deep petit-cob-btn cursor-pointer" id="btn-petit-cob-morango" onclick="selectPetitCobertura('Morango')" type="button">Morango</button>
+<button class="p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-xs font-semibold text-cacao-deep petit-cob-btn cursor-pointer" id="btn-petit-cob-caramelo" onclick="selectPetitCobertura('Caramelo')" type="button">Caramelo</button>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-pistache-soft/60 border border-secondary/20 flex items-center gap-2 text-xs text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="">Complementos inclusos: Chantilly e Morango fresco</span>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary hover:bg-[#1e5827] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="adicionarPetitComanda()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+              Adicionar Petit Gâteau à Comanda
+            </button>
+</div>
+</div>
+<!-- ABA 8: BANANA SPLIT -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-4" id="tab-bananasplit">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-5 shadow-xs space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">lunch_dining</span> Banana Split Tradicional
+              </h2>
+<span class="text-xs font-bold text-cacao-deep font-data-tabular bg-surface-crema-subtle px-2.5 py-1 rounded-full border border-gold-burnished" id="bsplit-running-price">R$ 38,00</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider">Sabores de Gelato (Selecione até 3)</label>
+<span class="text-[11px] font-semibold text-tertiary" id="bsplit-limit-hint">2 de 3 selecionados</span>
+</div>
+<input class="w-full h-8 px-3 rounded-lg border border-surface-crema-muted text-xs mb-2 focus:border-gold-burnished focus:outline-none" onkeyup="filtrarSabores(this.value, 'bsplit')" placeholder="Buscar sabor (ex: Baunilha, Chocolate)..." type="text">
+<div class="flex flex-wrap gap-1.5 mb-2 min-h-[28px]" id="bsplit-chips-selecionados">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cacao-deep text-gold-light text-[11px] font-bold">
+        Chocolate
+        <button type="button" onclick="removeSabor('bsplit', 'Chocolate')" class="hover:text-white cursor-pointer flex items-center">
+          <span class="material-symbols-outlined text-[13px]">close</span>
+        </button>
+      </span>
+    
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cacao-deep text-gold-light text-[11px] font-bold">
+        Morango
+        <button type="button" onclick="removeSabor('bsplit', 'Morango')" class="hover:text-white cursor-pointer flex items-center">
+          <span class="material-symbols-outlined text-[13px]">close</span>
+        </button>
+      </span>
+    </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-36 overflow-y-auto p-1.5 border border-surface-crema-muted/60 rounded-lg custom-scrollbar" id="bsplit-sabores-grid">
+        <button type="button" onclick="toggleSabor('bsplit', 'Baunilha')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Baunilha</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Chocolate')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-cacao-deep bg-cacao-deep text-gold-light font-bold">
+          <span class="truncate">Chocolate</span>
+          <span class="material-symbols-outlined text-[15px]">check</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Morango')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-cacao-deep bg-cacao-deep text-gold-light font-bold">
+          <span class="truncate">Morango</span>
+          <span class="material-symbols-outlined text-[15px]">check</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Pistache')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Pistache</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Ninho')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Ninho</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Flocos')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Flocos</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Doce de Leite')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Doce de Leite</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Creme')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Creme</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Limão')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Limão</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('bsplit', 'Maracujá')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Maracujá</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      </div>
+</div>
+<div class="p-2.5 rounded-lg bg-pistache-soft/60 border border-secondary/20 flex items-center gap-2 text-xs text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="">Complementos inclusos: Chantilly, Cereja e Canudinho crocante</span>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary hover:bg-[#1e5827] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="adicionarBsplitComanda()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+              Adicionar Banana Split à Comanda
+            </button>
+</div>
+</div>
+<!-- ABA 9: MILK SHAKE -->
+<div class="tab-panel hidden max-w-2xl mx-auto space-y-4" id="tab-milkshake">
+<div class="bg-surface-container-lowest border border-surface-crema-muted rounded-xl p-5 shadow-xs space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<h2 class="text-sm font-bold text-cacao-deep flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">blender</span> Milk Shake Artesanal
+              </h2>
+<span class="text-xs font-bold text-cacao-deep font-data-tabular bg-surface-crema-subtle px-2.5 py-1 rounded-full border border-gold-burnished" id="mshake-running-price">R$ 26,00</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-xs font-bold text-cacao-deep uppercase tracking-wider">Sabores de Gelato (Selecione até 2)</label>
+<span class="text-[11px] font-semibold text-tertiary" id="mshake-limit-hint">1 de 2 selecionados</span>
+</div>
+<input class="w-full h-8 px-3 rounded-lg border border-surface-crema-muted text-xs mb-2 focus:border-gold-burnished focus:outline-none" onkeyup="filtrarSabores(this.value, 'mshake')" placeholder="Buscar sabor (ex: Morango, Baunilha)..." type="text">
+<div class="flex flex-wrap gap-1.5 mb-2 min-h-[28px]" id="mshake-chips-selecionados">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cacao-deep text-gold-light text-[11px] font-bold">
+        Morango
+        <button type="button" onclick="removeSabor('mshake', 'Morango')" class="hover:text-white cursor-pointer flex items-center">
+          <span class="material-symbols-outlined text-[13px]">close</span>
+        </button>
+      </span>
+    </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-36 overflow-y-auto p-1.5 border border-surface-crema-muted/60 rounded-lg custom-scrollbar" id="mshake-sabores-grid">
+        <button type="button" onclick="toggleSabor('mshake', 'Baunilha')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Baunilha</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Chocolate')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Chocolate</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Morango')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-cacao-deep bg-cacao-deep text-gold-light font-bold">
+          <span class="truncate">Morango</span>
+          <span class="material-symbols-outlined text-[15px]">check</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Pistache')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Pistache</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Ninho')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Ninho</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Flocos')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Flocos</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Doce de Leite')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Doce de Leite</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Creme')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Creme</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Limão')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Limão</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      
+        <button type="button" onclick="toggleSabor('mshake', 'Maracujá')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle">
+          <span class="truncate">Maracujá</span>
+          <span class="material-symbols-outlined text-[15px]">add</span>
+        </button>
+      </div>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary hover:bg-[#1e5827] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="adicionarMshakeComanda()" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+              Adicionar Milk Shake à Comanda
+            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- ======================================================== -->
+<!-- 3. COMANDA FIXA (LATERAL DIREITA)                       -->
+<!-- ======================================================== -->
+<aside class="w-[380px] xl:w-[400px] flex-shrink-0 bg-surface-container-lowest flex flex-col justify-between shadow-lg z-20 border-l border-surface-crema-muted">
+<!-- Header da Comanda -->
+<div class="p-4 border-b border-surface-crema-muted bg-surface-crema-subtle/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cacao-deep text-[22px]">receipt_long</span>
+<h2 class="text-base font-bold text-cacao-deep tracking-tight">Comanda do Pedido</h2>
+</div>
+<span class="text-xs px-2.5 py-1 rounded bg-[#eaf4ec] text-[#246c30] font-bold border border-[#c2e2c7] font-data-tabular">#CMD-8492</span>
+</div>
+<!-- Tipo de Atendimento: Balcão vs Mesa -->
+<div class="grid grid-cols-2 gap-1.5 p-1 bg-surface-container-lowest border border-surface-crema-muted rounded-lg text-center text-xs">
+<button class="py-1.5 rounded bg-cacao-deep text-white font-semibold transition-all cursor-pointer" id="mode-balcao" onclick="setAtendimento('balcao')" type="button">Balcão</button>
+<button class="py-1.5 rounded text-tertiary hover:text-cacao-deep font-medium transition-all cursor-pointer" id="mode-mesa" onclick="setAtendimento('mesa')" type="button">Mesa</button>
+</div>
+<!-- Identificação do Cliente -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-tertiary text-[17px]">person</span>
+<input class="w-full h-8 pl-8 pr-8 rounded-lg bg-surface-container-lowest border border-surface-crema-muted text-xs text-cacao-deep focus:border-gold-burnished focus:outline-none" id="customer-input" type="text" value="Visitante (Avulso)">
+<button class="absolute right-2.5 top-1/2 -translate-y-1/2 text-tertiary hover:text-cacao-deep" title="Editar cliente" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Lista de Itens na Comanda -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-2.5" id="order-items-list">
+<!-- Item inicial de demonstração (R$ 43,60) -->
+<div class="p-3 rounded-lg bg-surface-crema-subtle/30 border border-surface-crema-muted flex flex-col gap-1.5 relative order-item-row" data-qty="1" data-unit-price="43.60">
+<div class="flex items-start justify-between">
+<div class="pr-2">
+<div class="text-xs font-bold text-cacao-deep">Sorvete por Quilo (0.485 kg)</div>
+<div class="text-[11px] text-tertiary">Balança Manual · R$ 89,90/kg</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="text-xs font-bold text-cacao-deep font-data-tabular item-row-total">R$ 43,60</span>
+<button class="text-cherry-ruby hover:text-error block ml-auto text-xs mt-0.5 cursor-pointer" onclick="removerItemComanda(this)" title="Remover item">
+<span class="material-symbols-outlined text-[17px]">delete</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-surface-crema-muted/60 text-xs">
+<div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+<button class="px-2 py-0.5 text-tertiary hover:text-cacao-deep cursor-pointer" onclick="alterarQtdItem(this, -1)">-</button>
+<span class="px-2 font-data-tabular font-bold text-cacao-deep text-xs item-row-qty">1</span>
+<button class="px-2 py-0.5 text-tertiary hover:text-cacao-deep cursor-pointer" onclick="alterarQtdItem(this, 1)">+</button>
+</div>
+<span class="text-[10px] text-tertiary">Unit: R$ 43,60</span>
+</div>
+</div>
+</div>
+<!-- Totais, Formas de Pagamento & Botões de Ação -->
+<div class="p-4 border-t border-surface-crema-muted bg-surface-container-lowest space-y-3">
+<!-- Subtotal e Total Líquido -->
+<div class="space-y-1 text-xs">
+<div class="flex items-center justify-between text-tertiary">
+<span class="">Subtotal:</span>
+<span class="font-data-tabular text-cacao-deep font-semibold" id="order-subtotal">R$ 43,60</span>
+</div>
+<div class="flex items-center justify-between text-tertiary">
+<span class="flex items-center gap-1">
+<span class="">Desconto autorizado:</span>
+<button class="text-gold-burnished hover:underline text-[11px] font-bold cursor-pointer" onclick="solicitarDesconto()" type="button">(Editar)</button>
+</span>
+<span class="font-data-tabular text-secondary font-semibold" id="order-discount">- R$ 0,00</span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted flex items-baseline justify-between">
+<div>
+<span class="text-[11px] uppercase font-bold text-cacao-deep tracking-wider block">TOTAL LÍQUIDO</span>
+<span class="text-[10px] text-tertiary">Nota fiscal opcional</span>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold font-data-tabular text-cacao-deep leading-none" id="order-total">R$ 43,60</span>
+</div>
+</div>
+</div>
+<!-- Forma de Pagamento -->
+<div>
+<span class="text-[10px] text-tertiary uppercase font-bold tracking-wider block mb-1">FORMA DE PAGAMENTO:</span>
+<div class="grid grid-cols-4 gap-1.5">
+<button class="pay-btn p-2 rounded-lg border-2 border-secondary bg-pistache-soft text-secondary text-xs flex flex-col items-center gap-1 font-bold cursor-pointer" id="pay-pix" onclick="setPaymentForm('pix')" type="button">
+<span class="material-symbols-outlined text-[17px]">qr_code_2</span>
+<span class="">Pix</span>
+</button>
+<button class="pay-btn p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-tertiary text-xs flex flex-col items-center gap-1 hover:border-gold-burnished cursor-pointer" id="pay-credito" onclick="setPaymentForm('credito')" type="button">
+<span class="material-symbols-outlined text-[17px]">credit_card</span>
+<span class="">Crédito</span>
+</button>
+<button class="pay-btn p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-tertiary text-xs flex flex-col items-center gap-1 hover:border-gold-burnished cursor-pointer" id="pay-debito" onclick="setPaymentForm('debito')" type="button">
+<span class="material-symbols-outlined text-[17px]">payment</span>
+<span class="">Débito</span>
+</button>
+<button class="pay-btn p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-tertiary text-xs flex flex-col items-center gap-1 hover:border-gold-burnished cursor-pointer" id="pay-dinheiro" onclick="setPaymentForm('dinheiro')" type="button">
+<span class="material-symbols-outlined text-[17px]">payments</span>
+<span class="">Dinheiro</span>
+</button>
+</div>
+</div>
+<!-- Botões de Ação Final -->
+<div class="space-y-1.5 pt-1">
+<button class="w-full h-11 rounded-lg bg-secondary hover:bg-[#1e5827] text-white text-xs uppercase font-bold tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer" onclick="abrirModalFinalizacao()" type="button">
+<span class="material-symbols-outlined text-[19px]">check_circle</span>
+            FINALIZAR VENDA (F2)
+          </button>
+<button class="w-full h-8 rounded-lg border border-cherry-alert/30 text-cherry-alert hover:bg-cherry-soft text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer" onclick="abrirModalCancelamento()" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+            Cancelar Comanda
+          </button>
+</div>
+</div>
+</aside>
+</div>
+<!-- RODAPÉ TÉCNICO INFERIOR -->
+<footer class="h-9 px-5 w-full bg-surface-container-low border-t border-surface-crema-muted flex items-center justify-between text-[#8c827a] font-data-tabular text-[11px] z-30 select-none flex-shrink-0">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald" id="footer-status-indicator"></span>
+<span class="font-medium text-cacao-deep">Terminal: TERM-PG-BALCAO-01</span>
+<span class="">•</span>
+<span class="">Sincronização em Nuvem OK (Latência: 24ms)</span>
+<span class="">•</span>
+<span class="text-secondary font-medium" id="footer-conn-text">Status: Conectado</span>
+</div>
+<div class="flex items-center gap-1.5 text-center">
+<span class="">© 2024 Arducci Gelateria &amp; Açaiteria · Praia Grande / SP</span>
+<span class="">•</span>
+<span class="font-bold text-cacao-deep">v2.4.2</span>
+</div>
+</footer>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: FINALIZAR VENDA                     -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-cacao-deep/60 backdrop-blur-xs hidden select-none" id="modal-finalizar-venda">
+<div class="bg-surface-container-lowest border border-border-gold-subtle rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4">
+<div class="w-14 h-14 mx-auto rounded-full bg-pistache-soft border border-secondary/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[32px]">check_circle</span>
+</div>
+<h3 class="text-lg font-bold text-cacao-deep">Venda Finalizada!</h3>
+<p class="text-tertiary text-xs leading-relaxed">Comanda <strong class="text-cacao-deep font-data-tabular">#CMD-8492</strong> encerrada e cupom fiscal NFC-e transmitido à impressora térmica.</p>
+<div class="p-3 rounded-xl bg-surface-crema-subtle border border-surface-crema-muted text-left text-xs space-y-1 font-data-tabular">
+<div class="flex justify-between text-tertiary"><span class="">Valor Total:</span><strong class="text-cacao-deep" id="modal-final-valor">R$ 43,60</strong></div>
+<div class="flex justify-between text-tertiary"><span class="">Forma de Pagamento:</span><strong class="text-cacao-deep" id="modal-final-pagamento">Pix</strong></div>
+<div class="flex justify-between text-tertiary"><span class="">Atendimento:</span><strong class="text-cacao-deep" id="modal-final-modo">Balcão</strong></div>
+</div>
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 py-2.5 px-4 rounded-xl bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs shadow-sm transition-all cursor-pointer flex items-center justify-center gap-1.5" onclick="iniciarNovaComanda()" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt</span> Nova Comanda
+      </button>
+<button class="py-2.5 px-4 rounded-xl border border-surface-crema-muted bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-semibold text-xs transition-colors cursor-pointer" onclick="fecharModalFinalizacao()" type="button">
+        Fechar
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: CANCELAR COMANDA                    -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-cacao-deep/60 backdrop-blur-xs hidden select-none" id="modal-cancelar-comanda">
+<div class="bg-surface-container-lowest border border-border-gold-subtle rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4">
+<div class="w-14 h-14 mx-auto rounded-full bg-cherry-soft border border-cherry-ruby/30 flex items-center justify-center text-cherry-alert">
+<span class="material-symbols-outlined text-[32px]">warning</span>
+</div>
+<h3 class="text-lg font-bold text-cacao-deep">Cancelar Comanda?</h3>
+<p class="text-tertiary text-xs leading-relaxed">Deseja realmente limpar todos os itens da comanda <strong class="text-cacao-deep font-data-tabular">#CMD-8492</strong>? Esta ação não pode ser desfeita.</p>
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-cherry-ruby hover:bg-cherry-alert text-white font-bold text-xs shadow-sm transition-all cursor-pointer flex items-center justify-center gap-1" onclick="confirmarCancelamentoComanda()" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_forever</span> Sim, Cancelar
+      </button>
+<button class="flex-1 py-2.5 px-3 rounded-xl border border-surface-crema-muted bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-semibold text-xs transition-colors cursor-pointer" onclick="fecharModalCancelamento()" type="button">
+        Manter
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: LOGOUT                              -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-cacao-deep/60 backdrop-blur-xs select-none hidden" id="logout-confirm-modal" onclick="if (event.target === this) closeLogoutModal()"><div class="bg-surface-container-lowest border border-border-gold-subtle rounded-2xl p-6 max-w-sm text-center w-full space-y-4 shadow-2xl relative" onclick="event.stopPropagation()">
+<div class="w-14 h-14 mx-auto rounded-full bg-cherry-soft border border-cherry-ruby/30 flex items-center justify-center text-cherry-alert">
+<span class="material-symbols-outlined text-[32px]">logout</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-cacao-deep">Encerrar Sessão?</h3>
+<p class="text-tertiary text-xs leading-relaxed mt-1.5">Você tem certeza que deseja sair do sistema SORVETEC PRO? Quaisquer alterações não salvas poderão ser perdidas.</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-crema-subtle border border-surface-crema-muted text-left text-xs space-y-1.5 font-data-tabular">
+<div class="flex justify-between text-tertiary"><span class="">Operador:</span><strong class="text-cacao-deep font-semibold">Adm MASTER</strong></div>
+<div class="flex justify-between text-tertiary"><span class="">Terminal Ativo:</span><strong class="text-cacao-deep font-semibold">TERM-PG-BALCAO-01</strong></div>
+<div class="flex justify-between text-tertiary"><span class="">PDV:</span><strong class="text-cacao-deep font-semibold">CAIXA 01</strong></div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2.5 px-3 rounded-xl border border-surface-crema-muted bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-semibold text-xs transition-colors cursor-pointer" onclick="closeLogoutModal()" type="button">Cancelar</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-cherry-ruby hover:bg-cherry-alert text-white font-bold text-xs shadow-sm transition-all cursor-pointer flex items-center justify-center gap-1.5" onclick="confirmLogoutAction()" type="button"><span class="material-symbols-outlined text-[16px]">power_settings_new</span> Sim, encerrar sessão</button>
+</div>
+</div></div>
+<!-- ========================================== -->
+<!-- TOAST NOTIFICAÇÃO FLUTUANTE               -->
+<!-- ========================================== -->
+<div class="fixed bottom-12 right-6 bg-[#24170D] text-white px-4 py-2.5 rounded-lg shadow-xl border border-[#D4AF37] items-center gap-3 z-50 transition-all duration-200 hidden" id="toast">
+<span class="material-symbols-outlined text-gold-deep text-[20px]">check_circle</span>
+<div>
+<div class="text-xs font-bold leading-tight" id="toast-title">Sucesso: A loja foi reaberta com sucesso!</div>
+<div class="text-[11px] text-surface-crema-muted" id="toast-body">Atendimento normalizado.</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- JAVASCRIPT: LOGICA COMPLETA & INTERAÇÕES   -->
+<!-- ========================================== -->
+<script>
+  // 1. PRODUTOS COMPACTOS DAS ABAS
+  const picolesLista = [
+    { id: 'pic-1', name: 'Picolé Morango Natural', price: 10.00 },
+    { id: 'pic-2', name: 'Picolé Ninho com Nutella', price: 12.00 },
+    { id: 'pic-3', name: 'Picolé Chocolate Belga 70%', price: 12.00 },
+    { id: 'pic-4', name: 'Picolé Maracujá da Fruta', price: 10.00 },
+    { id: 'pic-5', name: 'Picolé Limão Siciliano', price: 10.00 },
+    { id: 'pic-6', name: 'Picolé Uva Integral', price: 10.00 },
+    { id: 'pic-7', name: 'Picolé Pistache di Bronte', price: 12.00 }
+  ];
+
+  const paletasLista = [
+    { id: 'pal-1', name: 'Paleta Morango c/ Leite Condensado', price: 14.00 },
+    { id: 'pal-2', name: 'Paleta Ninho c/ Nutella', price: 16.00 },
+    { id: 'pal-3', name: 'Paleta Maracujá c/ Leite Moça', price: 14.00 },
+    { id: 'pal-4', name: 'Paleta Doce de Leite Caseiro', price: 14.00 },
+    { id: 'pal-5', name: 'Paleta Pistache Bronte Recheada', price: 16.00 }
+  ];
+
+  const bebidasLista = [
+    { id: 'beb-1', name: 'Água sem Gás 500ml', price: 5.00 },
+    { id: 'beb-2', name: 'Água com Gás 500ml', price: 6.00 },
+    { id: 'beb-3', name: 'Refrigerante Lata 350ml', price: 7.50 },
+    { id: 'beb-4', name: 'Suco Natural 300ml', price: 10.00 },
+    { id: 'beb-5', name: 'Café Espresso Duplo', price: 11.50 }
+  ];
+
+  const potesLista = [
+    { id: 'pot-1', name: 'Pote de Sorvete 1 Litro', price: 48.00 },
+    { id: 'pot-2', name: 'Pote de Sorvete 1,5 Litros', price: 68.00 },
+    { id: 'pot-3', name: 'Pote de Sorvete 2 Litros', price: 85.00 },
+    { id: 'pot-4', name: 'Pote Açaí 1 Litro', price: 48.00 }
+  ];
+
+  const catalogoSabores = [
+    'Baunilha', 'Chocolate', 'Morango', 'Pistache', 'Ninho', 
+    'Flocos', 'Doce de Leite', 'Creme', 'Limão', 'Maracujá'
+  ];
+
+  const acaiComplementosLista = [
+    'Banana', 'Morango', 'Granola', 'Leite Ninho', 
+    'Leite Condensado', 'Paçoca', 'Mel', 'Nutella'
+  ];
+
+  let activeTab = 'balanca';
+  let atendimentoModo = 'balcao';
+  let formaPagamento = 'pix';
+  let descontoValor = 0.00;
+
+  let acaiState = {
+    tamanho: 'Tigela',
+    precoBase: 22.00,
+    inclusosPermitidos: 0,
+    base: 'Açaí Puro',
+    complementos: []
+  };
+
+  let petitState = {
+    sabores: ['Baunilha'],
+    cobertura: 'Chocolate',
+    extras: []
+  };
+
+  let bsplitState = {
+    sabores: ['Chocolate', 'Morango'],
+    cobertura: 'Chocolate',
+    extras: []
+  };
+
+  let mshakeState = {
+    sabores: ['Morango'],
+    cobertura: 'Chocolate',
+    extras: []
+  };
+
+  // 1. INTERAÇÃO: TOGGLE SIDEBAR (W-64 <-> W-20)
+  function toggleSidebar() {
+    const sidebar = document.getElementById('main-sidebar');
+    const icon = document.getElementById('sidebar-toggle-icon');
+    const isCollapsed = sidebar.classList.contains('w-20');
+
+    if (isCollapsed) {
+      // Expande para w-64
+      sidebar.classList.remove('w-20');
+      sidebar.classList.add('w-64');
+      icon.textContent = 'menu_open';
+      sidebar.querySelectorAll('.sidebar-text').forEach(el => el.classList.remove('hidden'));
+    } else {
+      // Recolhe para w-20
+      sidebar.classList.remove('w-64');
+      sidebar.classList.add('w-20');
+      icon.textContent = 'menu';
+      sidebar.querySelectorAll('.sidebar-text').forEach(el => el.classList.add('hidden'));
+    }
+  }
+
+  // 2. INTERAÇÃO: TOGGLE LOJA ABERTA / ABRIR LOJA
+  let isLojaAberta = true;
+  function toggleLojaStatus() {
+    isLojaAberta = !isLojaAberta;
+    const card = document.getElementById('store-status-card');
+    const dot = document.getElementById('store-status-dot');
+    const text = document.getElementById('store-status-text');
+    const sub = document.getElementById('store-status-sub');
+    const btnText = document.getElementById('store-action-text');
+
+    if (isLojaAberta) {
+      card.className = 'flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#f4f7f4] border border-[#d2e4d4] shadow-2xs transition-colors';
+      dot.className = 'w-2.5 h-2.5 rounded-full bg-pistache-emerald ring-2 ring-pistache-soft animate-pulse shrink-0';
+      text.innerText = 'Loja Aberta';
+      text.className = 'text-xs text-cacao-deep font-bold leading-none';
+      sub.innerText = 'Unidade Praia Grande · Av. Pres. Castelo Branco';
+      btnText.innerText = 'Pausar';
+      showToast('Loja Aberta', 'Atendimento do PDV e pedidos presenciais reativados.');
+    } else {
+      card.className = 'flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#fdf2f2] border border-[#f5c6cb] shadow-2xs transition-colors';
+      dot.className = 'w-2.5 h-2.5 rounded-full bg-cherry-ruby ring-2 ring-cherry-soft shrink-0';
+      text.innerText = 'Loja Fechada';
+      text.className = 'text-xs text-cherry-ruby font-bold leading-none';
+      sub.innerText = 'Atendimento pausado temporariamente no caixa';
+      btnText.innerText = 'Abrir loja';
+      showToast('Loja Fechada', 'Caixa em pausa operacional. Clique em "Abrir loja" para retomar.');
+    }
+  }
+
+  // 3 & 4. INTERAÇÃO: DROPDOWNS NOTIFICAÇÕES & CONFIGURAÇÕES (MUTUAMENTE EXCLUSIVOS E FECHAMENTO AO CLICAR FORA)
+  function closeAllHeaderDropdowns() {
+    document.querySelectorAll('.header-dropdown').forEach(d => d.classList.add('hidden'));
+  }
+
+  function toggleHeaderDropdown(event, dropdownId) {
+    if (event) event.stopPropagation();
+    const target = document.getElementById(dropdownId);
+    if (!target) return;
+    const isCurrentlyOpen = !target.classList.contains('hidden');
+    
+    // Fecha todos antes de abrir
+    closeAllHeaderDropdowns();
+
+    // Se estava fechado, abre o clicado
+    if (!isCurrentlyOpen) {
+      target.classList.remove('hidden');
+    }
+  }
+
+  // Fecha dropdowns se clicar fora
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('.header-menu-container')) {
+      closeAllHeaderDropdowns();
+    }
+  });
+
+  function limparNotificacoes() {
+    const badge = document.getElementById('notif-badge');
+    if (badge) badge.classList.add('hidden');
+    showToast('Notificações', 'Todas as notificações foram marcadas como lidas.');
+  }
+
+  function toggleModoEscuroSimulado() {
+    const badge = document.getElementById('badge-darkmode');
+    const isDark = badge.innerText === 'Ativado';
+    if (isDark) {
+      badge.innerText = 'Desativado';
+      badge.className = 'text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-crema-muted text-tertiary';
+      showToast('Tema Padrão', 'Modo Claro Crema Arducci ativado.');
+    } else {
+      badge.innerText = 'Ativado';
+      badge.className = 'text-[10px] font-bold px-1.5 py-0.5 rounded bg-pistache-soft text-secondary';
+      showToast('Modo Escuro', 'Preferência de contraste noturno aplicada.');
+    }
+  }
+
+  // BALANÇA SELF-SERVICE
+  function calcularBalanca() {
+    const precoKg = parseFloat(document.getElementById('balanca-preco-kg').value) || 89.90;
+    const gramas = parseFloat(document.getElementById('balanca-peso-gramas').value) || 0;
+    const kg = gramas / 1000;
+    const total = kg * precoKg;
+
+    const displayKg = document.getElementById('balanca-display-kg');
+    const displayTotal = document.getElementById('balanca-display-total');
+    const btnVal = document.getElementById('balanca-btn-val');
+
+    if (displayKg) displayKg.innerText = `Peso convertido: ${kg.toFixed(3).replace('.', ',')} kg (${kg.toFixed(3)} kg × R$ ${precoKg.toFixed(2).replace('.', ',')})`;
+    if (displayTotal) displayTotal.innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+    if (btnVal) btnVal.innerText = total.toFixed(2).replace('.', ',');
+  }
+
+  function setBalancaGramas(g) {
+    document.getElementById('balanca-peso-gramas').value = g;
+    calcularBalanca();
+  }
+
+  function adicionarBalancaComanda() {
+    const precoKg = parseFloat(document.getElementById('balanca-preco-kg').value) || 89.90;
+    const gramas = parseFloat(document.getElementById('balanca-peso-gramas').value) || 0;
+    const kg = gramas / 1000;
+    const total = kg * precoKg;
+    const desc = `${kg.toFixed(3).replace('.', ',')} kg × R$ ${precoKg.toFixed(2).replace('.', ',')}/kg`;
+
+    adicionarItemComanda(`Sorvete por Quilo (${kg.toFixed(3).replace('.', ',')} kg)`, total, 1, desc);
+  }
+
+  // GESTÃO DE ABAS
+  function switchTab(tabKey) {
+    activeTab = tabKey;
+
+    document.querySelectorAll('.cat-tab').forEach(b => {
+      b.classList.remove('active-tab');
+      b.classList.add('inactive-tab');
+      const icon = b.querySelector('.cat-icon');
+      if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+    });
+
+    const activeBtn = document.getElementById('btn-cat-' + tabKey);
+    if (activeBtn) {
+      activeBtn.classList.remove('inactive-tab');
+      activeBtn.classList.add('active-tab');
+      const icon = activeBtn.querySelector('.cat-icon');
+      if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+    }
+
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+    const targetPanel = document.getElementById('tab-' + tabKey);
+    if (targetPanel) targetPanel.classList.remove('hidden');
+  }
+
+  // RENDERIZADOR DE LISTAS COMPACTAS
+  function renderCompactList(containerId, items) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = items.map(item => `
+      <div class="py-2.5 flex items-center justify-between gap-3 text-xs">
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-cacao-deep truncate">${item.name}</div>
+          <div class="font-data-tabular font-bold text-tertiary mt-0.5">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, -1)">-</button>
+            <span class="w-6 text-center font-data-tabular font-bold text-cacao-deep row-qty">1</span>
+            <button type="button" class="w-6 h-6 flex items-center justify-center text-tertiary hover:text-cacao-deep font-bold cursor-pointer" onclick="alterarQtdLinha(this, 1)">+</button>
+          </div>
+          <button type="button" onclick="adicionarLinhaComanda(this, '${item.name.replace(/'/g, "\\'")}', ${item.price})" class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-[#1e5827] text-white font-bold text-xs flex items-center gap-1 shadow-xs transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[15px]">add</span> Adicionar
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function alterarQtdLinha(btn, delta) {
+    const parent = btn.closest('.flex');
+    const span = parent.querySelector('.row-qty');
+    let val = parseInt(span.innerText, 10) || 1;
+    val = Math.max(1, Math.min(20, val + delta));
+    span.innerText = val;
+  }
+
+  function adicionarLinhaComanda(btn, nome, preco) {
+    const row = btn.closest('.py-2\\.5');
+    const qtySpan = row.querySelector('.row-qty');
+    const qty = parseInt(qtySpan.innerText, 10) || 1;
+    adicionarItemComanda(nome, preco, qty, '');
+    qtySpan.innerText = '1';
+  }
+
+  // COMANDA: TOTAL, SUBTOTAIS E ITENS
+  function recalcularComandaTotais() {
+    let subtotal = 0;
+    document.querySelectorAll('.order-item-row').forEach(row => {
+      const uPrice = parseFloat(row.getAttribute('data-unit-price')) || 0;
+      const qty = parseInt(row.getAttribute('data-qty'), 10) || 1;
+      subtotal += uPrice * qty;
+    });
+
+    const liquido = Math.max(0, subtotal - descontoValor);
+    const subEl = document.getElementById('order-subtotal');
+    const totEl = document.getElementById('order-total');
+    const discEl = document.getElementById('order-discount');
+
+    if (subEl) subEl.innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+    if (totEl) totEl.innerText = 'R$ ' + liquido.toFixed(2).replace('.', ',');
+    if (discEl) discEl.innerText = '- R$ ' + descontoValor.toFixed(2).replace('.', ',');
+  }
+
+  function adicionarItemComanda(nome, precoUnitario, quantidade = 1, detalhes = '') {
+    const list = document.getElementById('order-items-list');
+    const emptyNotice = list.querySelector('.empty-notice');
+    if (emptyNotice) emptyNotice.remove();
+
+    const rowTotal = precoUnitario * quantidade;
+    const itemEl = document.createElement('div');
+    itemEl.className = 'p-3 rounded-lg bg-surface-crema-subtle/30 border border-surface-crema-muted flex flex-col gap-1.5 relative order-item-row';
+    itemEl.setAttribute('data-unit-price', precoUnitario);
+    itemEl.setAttribute('data-qty', quantidade);
+
+    itemEl.innerHTML = `
+      <div class="flex items-start justify-between">
+        <div class="pr-2">
+          <div class="text-xs font-bold text-cacao-deep">${nome}</div>
+          ${detalhes ? `<div class="text-[11px] text-tertiary">${detalhes}</div>` : ''}
+        </div>
+        <div class="text-right flex-shrink-0">
+          <span class="text-xs font-bold text-cacao-deep font-data-tabular item-row-total">R$ ${rowTotal.toFixed(2).replace('.', ',')}</span>
+          <button class="text-cherry-ruby hover:text-error block ml-auto text-xs mt-0.5 cursor-pointer" onclick="removerItemComanda(this)" title="Remover item">
+            <span class="material-symbols-outlined text-[17px]">delete</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between pt-1.5 border-t border-surface-crema-muted/60 text-xs">
+        <div class="flex items-center border border-surface-crema-muted rounded bg-surface-container-lowest">
+          <button class="px-2 py-0.5 text-tertiary hover:text-cacao-deep cursor-pointer" onclick="alterarQtdItem(this, -1)">-</button>
+          <span class="px-2 font-data-tabular font-bold text-cacao-deep text-xs item-row-qty">${quantidade}</span>
+          <button class="px-2 py-0.5 text-tertiary hover:text-cacao-deep cursor-pointer" onclick="alterarQtdItem(this, 1)">+</button>
+        </div>
+        <span class="text-[10px] text-tertiary">Unit: R$ ${precoUnitario.toFixed(2).replace('.', ',')}</span>
+      </div>
+    `;
+
+    list.appendChild(itemEl);
+    list.scrollTop = list.scrollHeight;
+    recalcularComandaTotais();
+    showToast('Item adicionado', `${nome} inserido na comanda.`);
+  }
+
+  function alterarQtdItem(btn, delta) {
+    const row = btn.closest('.order-item-row');
+    const uPrice = parseFloat(row.getAttribute('data-unit-price')) || 0;
+    let qty = parseInt(row.getAttribute('data-qty'), 10) || 1;
+
+    if (delta < 0 && qty === 1) {
+      removerItemComanda(btn);
+      return;
+    }
+
+    qty += delta;
+    row.setAttribute('data-qty', qty);
+    row.querySelector('.item-row-qty').innerText = qty;
+    row.querySelector('.item-row-total').innerText = 'R$ ' + (uPrice * qty).toFixed(2).replace('.', ',');
+    recalcularComandaTotais();
+  }
+
+  function removerItemComanda(btn) {
+    const row = btn.closest('.order-item-row');
+    if (row) {
+      row.remove();
+      recalcularComandaTotais();
+      const list = document.getElementById('order-items-list');
+      if (list.children.length === 0) {
+        list.innerHTML = '<div class="empty-notice text-center py-10 text-tertiary text-xs">Nenhum item na comanda. Selecione produtos à esquerda.</div>';
+      }
+      showToast('Item removido', 'Item retirado da comanda.');
+    }
+  }
+
+  function solicitarDesconto() {
+    const val = prompt('Informe o valor do desconto em R$:', descontoValor.toFixed(2));
+    if (val !== null) {
+      const parsed = parseFloat(val.replace(',', '.')) || 0;
+      descontoValor = Math.max(0, parsed);
+      recalcularComandaTotais();
+      showToast('Desconto atualizado', `Desconto ajustado para R$ ${descontoValor.toFixed(2).replace('.', ',')}`);
+    }
+  }
+
+  function setAtendimento(mode) {
+    atendimentoModo = mode;
+    const bBalcao = document.getElementById('mode-balcao');
+    const bMesa = document.getElementById('mode-mesa');
+    const input = document.getElementById('customer-input');
+
+    if (mode === 'balcao') {
+      bBalcao.className = 'py-1.5 rounded bg-cacao-deep text-white font-semibold transition-all cursor-pointer';
+      bMesa.className = 'py-1.5 rounded text-tertiary hover:text-cacao-deep font-medium transition-all cursor-pointer';
+      input.value = 'Visitante (Avulso)';
+    } else {
+      bMesa.className = 'py-1.5 rounded bg-cacao-deep text-white font-semibold transition-all cursor-pointer';
+      bBalcao.className = 'py-1.5 rounded text-tertiary hover:text-cacao-deep font-medium transition-all cursor-pointer';
+      input.value = 'Mesa 04 (Salão)';
+    }
+  }
+
+  function setPaymentForm(method) {
+    formaPagamento = method;
+    document.querySelectorAll('.pay-btn').forEach(btn => {
+      btn.className = 'pay-btn p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-tertiary text-xs flex flex-col items-center gap-1 hover:border-gold-burnished cursor-pointer';
+    });
+    const activeBtn = document.getElementById('pay-' + method);
+    if (activeBtn) {
+      activeBtn.className = 'pay-btn p-2 rounded-lg border-2 border-secondary bg-pistache-soft text-secondary text-xs flex flex-col items-center gap-1 font-bold cursor-pointer';
+    }
+  }
+
+  // MODAIS FINALIZAR / CANCELAR / LOGOUT
+  function abrirModalFinalizacao() {
+    const rows = document.querySelectorAll('.order-item-row');
+    if (rows.length === 0) {
+      alert('Adicione ao menos um item à comanda antes de finalizar a venda.');
+      return;
+    }
+    const tot = document.getElementById('order-total').innerText;
+    document.getElementById('modal-final-valor').innerText = tot;
+    document.getElementById('modal-final-pagamento').innerText = formaPagamento.toUpperCase();
+    document.getElementById('modal-final-modo').innerText = atendimentoModo === 'balcao' ? 'Balcão' : 'Mesa';
+    document.getElementById('modal-finalizar-venda').classList.remove('hidden');
+  }
+
+  function fecharModalFinalizacao() {
+    document.getElementById('modal-finalizar-venda').classList.add('hidden');
+  }
+
+  function iniciarNovaComanda() {
+    fecharModalFinalizacao();
+    const list = document.getElementById('order-items-list');
+    list.innerHTML = '<div class="empty-notice text-center py-10 text-tertiary text-xs">Nenhum item na comanda. Selecione produtos à esquerda.</div>';
+    descontoValor = 0;
+    recalcularComandaTotais();
+    showToast('Nova Comanda', 'Comanda zerada e pronta para novo atendimento.');
+  }
+
+  function abrirModalCancelamento() {
+    document.getElementById('modal-cancelar-comanda').classList.remove('hidden');
+  }
+
+  function fecharModalCancelamento() {
+    document.getElementById('modal-cancelar-comanda').classList.add('hidden');
+  }
+
+  function confirmarCancelamentoComanda() {
+    fecharModalCancelamento();
+    const list = document.getElementById('order-items-list');
+    list.innerHTML = '<div class="empty-notice text-center py-10 text-tertiary text-xs">Nenhum item na comanda. Selecione produtos à esquerda.</div>';
+    descontoValor = 0;
+    recalcularComandaTotais();
+    showToast('Comanda Cancelada', 'Todos os itens foram excluídos.');
+  }
+
+  function openLogoutModal() {
+    document.getElementById('logout-confirm-modal').classList.remove('hidden');
+  }
+
+  function closeLogoutModal() {
+    document.getElementById('logout-confirm-modal').classList.add('hidden');
+  }
+
+  function confirmLogoutAction() {
+    closeLogoutModal();
+    showToast('Sessão encerrada', 'Terminal desconectado com sucesso.');
+  }
+
+  function showToast(title, msg) {
+    const toast = document.getElementById('toast');
+    const tTitle = document.getElementById('toast-title');
+    const tBody = document.getElementById('toast-body');
+    tTitle.innerText = title;
+    tBody.innerText = msg;
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 2800);
+  }
+
+  // ATALHOS TECLADO (F2 / Esc)
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'F2') {
+      e.preventDefault();
+      abrirModalFinalizacao();
+    }
+    if (e.key === 'Escape') {
+      fecharModalFinalizacao();
+      fecharModalCancelamento();
+      closeLogoutModal();
+      closeAllHeaderDropdowns();
+    }
+  });
+
+  // AÇAÍ / SABORES / PETIT
+  function renderAcaiComplementos() {
+    const grid = document.getElementById('acai-complements-grid');
+    if (!grid) return;
+    grid.innerHTML = acaiComplementosLista.map(comp => {
+      const isChecked = acaiState.complementos.includes(comp);
+      return `
+        <button type="button" onclick="toggleAcaiComplemento('${comp}')" class="p-2 rounded-lg border text-left text-xs font-medium flex items-center justify-between cursor-pointer transition-all ${isChecked ? 'border-cacao-deep bg-cacao-deep text-gold-light font-bold' : 'border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle'}">
+          <span class="truncate">${comp}</span>
+          <span class="material-symbols-outlined text-[16px]">${isChecked ? 'check_circle' : 'radio_button_unchecked'}</span>
+        </button>
+      `;
+    }).join('');
+    updateAcaiPreco();
+  }
+
+  function selectAcaiTamanho(nome, preco, inclusos) {
+    acaiState.tamanho = nome;
+    acaiState.precoBase = preco;
+    acaiState.inclusosPermitidos = inclusos;
+    document.querySelectorAll('.acai-size-btn').forEach(b => {
+      b.className = 'p-3 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-left transition-all cursor-pointer acai-size-btn';
+    });
+    const active = nome === 'Tigela' ? document.getElementById('btn-acai-tigela') : (nome === 'Barca Simples' ? document.getElementById('btn-acai-barca-simples') : document.getElementById('btn-acai-barca-completa'));
+    if (active) active.className = 'p-3 rounded-lg border-2 border-cacao-deep bg-surface-crema-subtle text-left transition-all cursor-pointer acai-size-btn';
+    renderAcaiComplementos();
+  }
+
+  function selectAcaiBase(baseNome) {
+    acaiState.base = baseNome;
+    const btnPuro = document.getElementById('btn-base-acai-puro');
+    const btnMisto = document.getElementById('btn-base-acai-misto');
+    if (baseNome === 'Açaí Puro') {
+      btnPuro.className = 'p-2.5 rounded-lg border-2 border-cacao-deep bg-cacao-deep text-gold-light font-bold text-xs flex items-center justify-between acai-base-btn cursor-pointer';
+      btnMisto.className = 'p-2.5 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-cacao-deep font-semibold text-xs flex items-center justify-between acai-base-btn cursor-pointer';
+    } else {
+      btnMisto.className = 'p-2.5 rounded-lg border-2 border-cacao-deep bg-cacao-deep text-gold-light font-bold text-xs flex items-center justify-between acai-base-btn cursor-pointer';
+      btnPuro.className = 'p-2.5 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-cacao-deep font-semibold text-xs flex items-center justify-between acai-base-btn cursor-pointer';
+    }
+  }
+
+  function toggleAcaiComplemento(comp) {
+    const idx = acaiState.complementos.indexOf(comp);
+    if (idx >= 0) acaiState.complementos.splice(idx, 1);
+    else acaiState.complementos.push(comp);
+    renderAcaiComplementos();
+  }
+
+  function updateAcaiPreco() {
+    let tot = acaiState.precoBase;
+    const count = acaiState.complementos.length;
+    let extrasCount = acaiState.inclusosPermitidos === 0 ? count : Math.max(0, count - acaiState.inclusosPermitidos);
+    tot += extrasCount * 3.00;
+    const priceEl = document.getElementById('acai-running-price');
+    const hintEl = document.getElementById('acai-regras-hint');
+    if (priceEl) priceEl.innerText = 'R$ ' + tot.toFixed(2).replace('.', ',');
+    if (hintEl) hintEl.innerText = `${count} selecionado(s) · Extras: ${extrasCount} (+R$ ${(extrasCount*3).toFixed(2).replace('.', ',')})`;
+  }
+
+  function adicionarAcaiComanda() {
+    let tot = acaiState.precoBase;
+    const count = acaiState.complementos.length;
+    let extrasCount = acaiState.inclusosPermitidos === 0 ? count : Math.max(0, count - acaiState.inclusosPermitidos);
+    tot += extrasCount * 3.00;
+    const compsStr = acaiState.complementos.length > 0 ? acaiState.complementos.join(', ') : 'Puro';
+    adicionarItemComanda(`Açaí ${acaiState.tamanho}`, tot, 1, `Base: ${acaiState.base} · ${compsStr}`);
+  }
+
+  function renderSaboresGrid(targetType, term = '') {
+    const stateObj = targetType === 'petit' ? petitState : (targetType === 'bsplit' ? bsplitState : mshakeState);
+    const gridEl = document.getElementById(`${targetType}-sabores-grid`);
+    if (!gridEl) return;
+    const filtered = catalogoSabores.filter(s => s.toLowerCase().includes(term.toLowerCase()));
+    gridEl.innerHTML = filtered.map(s => {
+      const isSelected = stateObj.sabores.includes(s);
+      return `
+        <button type="button" onclick="toggleSabor('${targetType}', '${s}')" class="p-1.5 rounded border text-left text-xs font-medium flex items-center justify-between cursor-pointer ${isSelected ? 'border-cacao-deep bg-cacao-deep text-gold-light font-bold' : 'border-surface-crema-muted bg-surface-container-lowest text-cacao-deep hover:bg-surface-crema-subtle'}">
+          <span class="truncate">${s}</span>
+          <span class="material-symbols-outlined text-[15px]">${isSelected ? 'check' : 'add'}</span>
+        </button>
+      `;
+    }).join('');
+    renderChips(targetType);
+  }
+
+  function renderChips(targetType) {
+    const stateObj = targetType === 'petit' ? petitState : (targetType === 'bsplit' ? bsplitState : mshakeState);
+    const max = targetType === 'bsplit' ? 3 : 2;
+    const chipsEl = document.getElementById(`${targetType}-chips-selecionados`);
+    const hintEl = document.getElementById(`${targetType}-limit-hint`);
+    if (hintEl) hintEl.innerText = `${stateObj.sabores.length} de ${max} selecionados`;
+    if (!chipsEl) return;
+    chipsEl.innerHTML = stateObj.sabores.map(s => `
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cacao-deep text-gold-light text-[11px] font-bold">
+        ${s}
+        <button type="button" onclick="removeSabor('${targetType}', '${s}')" class="hover:text-white cursor-pointer flex items-center">
+          <span class="material-symbols-outlined text-[13px]">close</span>
+        </button>
+      </span>
+    `).join('');
+  }
+
+  function toggleSabor(targetType, s) {
+    const stateObj = targetType === 'petit' ? petitState : (targetType === 'bsplit' ? bsplitState : mshakeState);
+    const max = targetType === 'bsplit' ? 3 : 2;
+    const idx = stateObj.sabores.indexOf(s);
+    if (idx >= 0) stateObj.sabores.splice(idx, 1);
+    else {
+      if (stateObj.sabores.length < max) stateObj.sabores.push(s);
+      else showToast('Limite de sabores', `Máximo de ${max} sabores permitido.`);
+    }
+    renderSaboresGrid(targetType);
+  }
+
+  function removeSabor(targetType, s) {
+    const stateObj = targetType === 'petit' ? petitState : (targetType === 'bsplit' ? bsplitState : mshakeState);
+    const idx = stateObj.sabores.indexOf(s);
+    if (idx >= 0) {
+      stateObj.sabores.splice(idx, 1);
+      renderSaboresGrid(targetType);
+    }
+  }
+
+  function filtrarSabores(term, targetType) {
+    renderSaboresGrid(targetType, term);
+  }
+
+  function selectPetitCobertura(cob) {
+    petitState.cobertura = cob;
+    document.querySelectorAll('.petit-cob-btn').forEach(b => {
+      b.className = 'p-2 rounded-lg border border-surface-crema-muted bg-surface-container-lowest text-xs font-semibold text-cacao-deep petit-cob-btn cursor-pointer';
+    });
+    const el = document.getElementById('btn-petit-cob-' + cob.toLowerCase());
+    if (el) el.className = 'p-2 rounded-lg border-2 border-cacao-deep bg-surface-crema-subtle text-xs font-bold text-cacao-deep petit-cob-btn cursor-pointer';
+  }
+
+  function adicionarPetitComanda() {
+    if (petitState.sabores.length === 0) return alert('Selecione ao menos 1 sabor');
+    adicionarItemComanda('Petit Gâteau com Gelato', 34.00, 1, `Gelato: ${petitState.sabores.join(' + ')} · Cobertura: ${petitState.cobertura}`);
+  }
+
+  function adicionarBsplitComanda() {
+    if (bsplitState.sabores.length === 0) return alert('Selecione ao menos 1 sabor');
+    adicionarItemComanda('Banana Split Tradicional', 38.00, 1, `Gelato: ${bsplitState.sabores.join(' + ')} · Chantilly e Cereja`);
+  }
+
+  function adicionarMshakeComanda() {
+    if (mshakeState.sabores.length === 0) return alert('Selecione ao menos 1 sabor');
+    adicionarItemComanda('Milk Shake Artesanal', 26.00, 1, `Gelato: ${mshakeState.sabores.join(' + ')}`);
+  }
+
+  // INICIALIZAÇÃO
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCompactList('lista-picoles', picolesLista);
+    renderCompactList('lista-paletas', paletasLista);
+    renderCompactList('lista-bebidas', bebidasLista);
+    renderCompactList('lista-potes', potesLista);
+    renderAcaiComplementos();
+    renderSaboresGrid('petit');
+    renderSaboresGrid('bsplit');
+    renderSaboresGrid('mshake');
+    calcularBalanca();
+    recalcularComandaTotais();
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>window.ADMIN_SCREEN_ID=8;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script><script src="vendor/qrcode.js?v=20261108-layout-41"></script><script src="documents.js?v=20261108-layout-41"></script><script src="cashier.js?v=20261108-layout-41"></script></body></html>

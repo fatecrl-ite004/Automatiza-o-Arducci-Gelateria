@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="width: 390px; min-height: 100%; position: relative;"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Cascão &amp; Casquinha - Arducci Gelateria</title>
+<!-- Material Symbols Outlined -->
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Tailwind CSS CDN -->
+<link rel="stylesheet" href="styles/screen-14.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .transition-smooth {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex justify-center" data-mode="connect">
+<!-- Mobile Viewport Container -->
+<div class="w-full max-w-md bg-background min-h-screen relative flex flex-col shadow-xl client-layout-wrapper" style="">
+<!-- Top System Status Area -->
+<header class="w-full pt-3 px-6 pb-2 flex justify-between items-center text-on-surface select-none">
+<span class="font-label-md text-label-md tracking-tight font-bold">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="material-symbols-outlined text-base">battery_full</span>
+</div>
+</header>
+<!-- Top Perfil & Logout Header -->
+<div class="w-full px-5 py-2.5 flex items-center justify-between bg-surface border-b border-outline-variant/30">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-secondary/40 shadow-xs shrink-0">
+<img alt="Lucas Arducci" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=160&amp;q=80';" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSXaFtV84KWy5N7VafUmPAbPrSyBJpCWjcRJXLPrEmSpK2UNBDp35c_YLS-tJqmsuQCaJNTjWxs326kJLsp9JaamPAw6EDQ7hkbFwCquG7mBGqCSGiV83GfyhaPOp09BwciMa--F-dZwjS8E1J2FFFpcYn-gGzDeMBBt6d7zmsARc9xWbgKAPGIGY22ObBc635Rk04tma0CYCAr5s9mbmWhesbxye45dLO3hMCZSBOOShzQ62SDcyf2g">
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold tracking-wider text-outline leading-tight">BEM-VINDO!</span>
+<span class="font-headline-md text-headline-md text-primary text-base font-bold leading-tight">Cliente&nbsp; Arducci</span>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="relative w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-primary" type="button">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-error text-white rounded-full text-[9px] font-bold flex items-center justify-center shadow-xs transition-transform" id="top-bag-badge">3</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-outline hover:text-error" title="Sair" type="button">
+<span class="material-symbols-outlined text-xl">logout</span>
+</button>
+</div>
+</div>
+<!-- Top Navigation Header (Internal Category) -->
+<nav class="w-full px-5 py-3 flex items-center justify-between bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all duration-150 border border-outline-variant/30 text-primary" onclick="history.back()" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Arducci Gelateria</span>
+<h1 class="font-headline-md text-headline-md text-primary leading-tight font-bold">Cascão &amp; Casquinha</h1>
+</div>
+<div class="w-10 h-10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">icecream</span>
+</div>
+</nav>
+<!-- Hero Card Banner / Visual Context -->
+<div class="px-5 pt-3 pb-2">
+<div class="relative rounded-2xl overflow-hidden h-36 bg-surface-container-low border border-outline-variant/40 flex items-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-85" data-alt="Close up artisanal Italian waffle cone filled with creamy pistachio and chocolate gelato in a warm sunlit rustic gelateria setting with soft cream tones and espresso accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNYdgC8xQVIgOi5eKmjngl_ZQWWQCMGvYgnTQ2lC_WcRzm2PfG_NMqEkNQPghfv7Pid4xavhUzC877cKZ9nCKDvVQ9nTa_z57_t1w-JoPzbxwSYBUnJDNdYEj4v8bhgTP2hmenDhEMovWVdxyctqn1_6upTjjiNa8zkHkIzpMT33qcHwxiTZFgxij9j4-O4_UhzJQQhbygI-5krMvk-W1b1tOQjKkNF0vanCXCF2cHBDS1t88MHbfXzA">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/50 to-transparent"></div>
+<div class="relative z-10 p-5 max-w-[70%]">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-secondary text-white text-label-sm font-label-sm font-bold mb-1 shadow-sm">
+            Produção Diária
+          </span>
+<p class="text-white font-headline-md text-headline-md leading-tight">Escolha como prefere</p>
+<p class="text-primary-fixed font-body-sm text-body-sm mt-0.5">Waffles artesanais assados na própria gelateria.</p>
+</div>
+</div>
+</div>
+<!-- Instruction Guide -->
+<div class="px-5 py-2">
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 flex items-start space-x-3">
+<div class="w-6 h-6 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">info</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-xs">
+          Escolha os sabores disponíveis, selecione a opção que mais combina com você e finalize seu pedido.
+        </p>
+</div>
+</div>
+<!-- SEÇÃO 1 & 2: Formato e Quantidade de Sabores -->
+<section class="px-5 pt-2 pb-3">
+<!-- SELEÇÃO 1: Formato do Gelato -->
+<div class="flex items-center justify-between mb-2.5">
+<div>
+<h2 class="font-title-sm text-title-sm text-primary">1. Selecione o Formato</h2>
+<p class="font-body-sm text-body-sm text-outline text-xs">Escolha a base para saborear seu gelato</p>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Obrigatório</span>
+</div>
+<div class="grid grid-cols-3 gap-2.5 mb-3" id="format-container">
+<!-- Cascão -->
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl border-2 border-secondary bg-surface-container-lowest shadow-sm cursor-pointer active:scale-95 transition-all text-center relative" id="format-btn-cascao" onclick="setFormat('cascao')" type="button">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary mb-1.5 transition-colors">
+<span class="material-symbols-outlined text-2xl">icecream</span>
+</div>
+<span class="text-[10px] text-secondary font-bold">Cascão</span>
+<span class="text-[10px] text-secondary font-bold">Waffle artesanal</span>
+</button>
+<!-- Cestinha -->
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl border border-outline-variant/50 bg-surface-container-lowest hover:border-secondary shadow-2xs cursor-pointer active:scale-95 transition-all text-center relative" id="format-btn-cestinha" onclick="setFormat('cestinha')" type="button">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-outline mb-1.5 transition-colors">
+<span class="material-symbols-outlined text-2xl">cookie</span>
+</div>
+<span class="text-[10px] text-outline font-normal">Cestinha</span>
+<span class="text-[10px] text-outline font-normal">Base plana</span>
+</button>
+<!-- Casquinha -->
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl border border-outline-variant/50 bg-surface-container-lowest hover:border-secondary shadow-2xs cursor-pointer active:scale-95 transition-all text-center relative" id="format-btn-casquinha" onclick="setFormat('casquinha')" type="button">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-outline mb-1.5 transition-colors">
+<span class="material-symbols-outlined text-2xl">icecream</span>
+</div>
+<span class="text-[10px] text-outline font-normal">Casquinha</span>
+<span class="text-[10px] text-outline font-normal">Tradicional</span>
+</button>
+</div>
+<!-- SELEÇÃO 2: Quantidade de Sabores -->
+<div class="pt-2">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h2 class="font-title-sm text-title-sm text-primary">2. Quantidade de Sabores</h2>
+<p class="font-body-sm text-body-sm text-outline text-xs">Tamanho e número de bolas</p>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Obrigatório</span>
+</div>
+<div class="mb-3" id="sub-options-container"><div class="grid grid-cols-2 gap-2.5">
+<div class="p-3.5 rounded-2xl cursor-pointer transition-all active:scale-95 text-left relative flex flex-col justify-between border-2 border-secondary bg-surface-container-lowest shadow-sm" onclick="selectSubOption('cascao-2')">
+<div class="flex items-center justify-between w-full mb-2">
+<span class="w-7 h-7 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center font-bold text-xs">2</span>
+<span class="font-title-sm text-title-sm text-secondary font-bold text-sm">R$ 24,00</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-primary text-sm font-bold">2 Sabores</p>
+<p class="text-[11px] text-outline mt-0.5">Até 2 bolas artesanais</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-secondary/20 flex items-center justify-between w-full">
+<span class="text-[10px] font-bold text-secondary flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5">check_circle</span>
+            ✓ Selecionado
+          </span>
+</div>
+</div>
+<div class="p-3.5 rounded-2xl cursor-pointer transition-all active:scale-95 text-left relative flex flex-col justify-between border border-outline-variant/50 bg-surface-container-lowest hover:border-secondary shadow-2xs" onclick="selectSubOption('cascao-1')">
+<div class="flex items-center justify-between w-full mb-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-low text-outline flex items-center justify-center font-bold text-xs">1</span>
+<span class="font-title-sm text-title-sm text-primary font-bold text-sm">R$ 18,00</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-primary text-sm font-semibold">1 Sabor</p>
+<p class="text-[11px] text-outline mt-0.5">1 bola generosa</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex items-center justify-between w-full">
+<span class="text-[10px] font-medium text-outline flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5">radio_button_unchecked</span>
+            + Selecionar
+          </span>
+</div>
+</div>
+</div></div>
+</div>
+<!-- Dica Arducci -->
+<div class="p-3 rounded-xl bg-secondary/10 border border-secondary/30 flex items-start space-x-2.5 mb-3">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5">lightbulb</span>
+<p class="text-xs text-secondary font-medium leading-relaxed"><strong class="font-bold">Dica Arducci:</strong> Peça um de cada vez se desejar opções ou combinações diferentes.</p>
+</div>
+<!-- SELEÇÃO 3: Coberturas (Opcional) -->
+<div class="pt-1">
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40 mb-3">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-xl bg-surface-tint/40 text-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">format_paint</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary text-sm font-bold">3. Coberturas Artesanais</h3>
+<p class="text-[11px] text-outline" id="topping-limit-label">Escolha até 2 coberturas artesanais</p>
+</div>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-secondary font-bold" id="toppings-badge">1/2 Escolhida</span>
+</div>
+<div class="grid grid-cols-3 gap-2" id="toppings-container">
+<!-- 1. Choco Belga -->
+<div class="topping-card flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer text-center active:scale-95 transition-all relative" onclick="toggleTopping('choco_belga', 'Choco Belga', 4.00, this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Calda de Chocolate Belga" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpnAmmbXevy5x6Kw4oc17n-w_0CC9aWbieecyd29W8iEyOMbWDKkpRtXaqdnv_btPFZD60QOKIvZRMdpwoRibpU9QzyOaPAogEDXP2df6mEkUWisgoAhbJ2L_h5H5E189foYysUIbfm5mRz5rXZBARh6sa20u2dUho8t_z9PvcFyQFvhDN1Lf8hanC27yBTUGTJS__l7V8gkJtudkj6IWu0O3NGGtMwn9RP8t15Xmo2FgZeyoxi0xxNw">
+<div class="topping-check hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-primary leading-tight line-clamp-1">Choco Belga</span>
+<span class="text-[9px] text-outline font-medium topping-price mt-0.5">+ R$ 4,00</span>
+</div>
+<!-- 2. Caramelo Salgado -->
+<div class="topping-card flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest border hover:border-secondary shadow-2xs cursor-pointer text-center active:scale-95 transition-all relative border-2 border-secondary selected" onclick="toggleTopping('caramelo_salgado', 'Caramelo Salg.', 4.00, this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Caramelo Salgado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuj0tggQ-qttPsJPqhFOnIbpp8fD2-X-xgkYsJoVUGEiD3yKV7PGr6aVB2SVYhAkwFHnLSJx77o1fdeL9i0Kq_nw0h7eIQpu1bEZpPcNkASh1AyFgENphHIOlMGXceOJSo9Rtzi3Ag_bqExE2M-85OHJr2efTwFXuKsU9as0EaKkzwgXmZKYAoeoLigU6xVmAimzw1Ns3urJIBx8OARZ6EovrckQ85BDZ2hIyVlOO-sBIQcg0J8LTp_w">
+<div class="topping-check absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-primary leading-tight line-clamp-1">Caramelo Salg.</span>
+<span class="text-[9px] font-medium topping-price mt-0.5 text-secondary font-bold">+ R$ 4,00</span>
+</div>
+<!-- 3. Farofa Pistache -->
+<div class="topping-card flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer text-center active:scale-95 transition-all relative" onclick="toggleTopping('pistache_crocante', 'Farofa Pistache', 5.00, this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Pistache Crocante" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMygpydCJ_UtNhDguH0e2X8lEJzcdKCBLTjWmAmIEo9bWQFirscQSTC9KdtXoFVJZZoZ9eBaVENsu5hW1zCzHu_rnnshV7uZlsFOo2ZeCP6LEEJoqakDgPO3b3FjiIIBOJlB9y8lNqrPxTOM2DGjdEHn71XsU7Q2h7UINClfBb-uzBRt_jrmIFwYiXoYu-s6U3z8l7EGluNkfI3lEJpqin58qv095NhwnP_SyxSpFygqulR6algRQBpQ">
+<div class="topping-check hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-primary leading-tight line-clamp-1">Farofa Pistache</span>
+<span class="text-[9px] text-outline font-medium topping-price mt-0.5">+ R$ 5,00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 4: SABORES DE GELATOS COM ACORDEÃO E NAVEGAÇÃO DE FREEZERS -->
+<section class="px-5 pt-1 pb-6" id="flavors-section">
+<!-- Acordeão Header Card -->
+<div class="bg-primary text-on-primary rounded-2xl p-4 shadow-sm flex items-center justify-between border border-outline-variant/20 cursor-pointer select-none transition-all duration-200" id="accordion-btn" onclick="toggleAccordion()">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-surface-tint/40 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-2xl">kitchen</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="font-title-sm text-title-sm text-surface leading-tight font-bold">Sabores de Gelatos</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold" id="flavor-counter-badge">2/2 selecionados</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim text-xs mt-0.5">3 Freezers Disponíveis • 51 sabores ativos</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary-container transition-transform duration-200" id="accordion-icon">expand_more</span>
+</div>
+<!-- Conteúdo Expansível do Acordeão -->
+<div class="mt-3" id="accordion-content">
+<!-- Botões de Freezers LADO A LADO horizontalmente em pills -->
+<div class="grid grid-cols-3 gap-2 p-1 bg-surface-container-high rounded-xl mb-4"><button class="freezer-tab py-2 px-1 text-center rounded-lg text-xs font-semibold transition-all text-on-surface-variant hover:text-primary flex flex-col items-center justify-center" id="tab-freezer-1" onclick="switchFreezer(1)" type="button">
+<span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-outline-variant"></span><span class="">Freezer 1 (17)</span></span>
+<span class="text-[10px] font-normal text-outline">Clássicos</span>
+</button>
+<button class="freezer-tab py-2 px-1 text-center rounded-lg text-xs font-bold transition-all bg-white text-secondary shadow-sm border border-secondary/20 flex flex-col items-center justify-center" id="tab-freezer-2" onclick="switchFreezer(2)" type="button">
+<span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="">Freezer 2 (17)</span></span>
+<span class="text-[10px] font-normal text-outline">Frutas</span>
+</button>
+<button class="freezer-tab py-2 px-1 text-center rounded-lg text-xs font-semibold transition-all text-on-surface-variant hover:text-primary flex flex-col items-center justify-center" id="tab-freezer-3" onclick="switchFreezer(3)" type="button">
+<span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-outline-variant"></span><span class="">Freezer 3 (17)</span></span>
+<span class="text-[10px] font-normal text-outline">Especiais</span>
+</button></div>
+<!-- Header do Freezer Ativo -->
+<div class="flex items-center justify-between mb-3 px-1">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary text-base flex items-center space-x-1.5" id="freezer-title"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span><span class="">Freezer 2 — Frutas &amp; Sorbets Veganos</span></h4>
+<p class="text-[11px] text-outline mt-0.5" id="freezer-desc">Base de água pura e fruta fresca selecionada. 100% livre de lactose e corantes.</p>
+</div>
+<span class="text-[11px] font-bold text-secondary bg-secondary-container px-2 py-0.5 rounded-full" id="selection-counter-text">2/2 Sabores</span>
+</div>
+<!-- FREEZER 1 (Grade 4 por fileira: grid-cols-4) -->
+<div class="grid grid-cols-4 gap-2 freezer-panel hidden" id="freezer-panel-1"><!-- 01. Pistache di Bronte -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest cursor-pointer transition-all active:scale-95 border-2 border-secondary selected shadow-sm" data-flavor-id="f1_1" data-flavor-name="Pistache Bronte" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Pistache Bronte DOP" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMygpydCJ_UtNhDguH0e2X8lEJzcdKCBLTjWmAmIEo9bWQFirscQSTC9KdtXoFVJZZoZ9eBaVENsu5hW1zCzHu_rnnshV7uZlsFOo2ZeCP6LEEJoqakDgPO3b3FjiIIBOJlB9y8lNqrPxTOM2DGjdEHn71XsU7Q2h7UINClfBb-uzBRt_jrmIFwYiXoYu-s6U3z8l7EGluNkfI3lEJpqin58qv095NhwnP_SyxSpFygqulR6algRQBpQ">
+<div class="check-badge absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">01</span>
+</div>
+<h5 class="text-[11px] font-bold text-primary leading-tight text-center line-clamp-1 w-full">Pistache Bronte</h5>
+<span class="text-[9px] text-secondary font-bold status-pill mt-0.5">Escolhido</span>
+</div>
+<!-- 02. Cioccolato Belga 70% -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest cursor-pointer transition-all active:scale-95 border-2 border-secondary selected shadow-sm" data-flavor-id="f1_2" data-flavor-name="Ciocco 70%" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cioccolato Belga 70%" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpnAmmbXevy5x6Kw4oc17n-w_0CC9aWbieecyd29W8iEyOMbWDKkpRtXaqdnv_btPFZD60QOKIvZRMdpwoRibpU9QzyOaPAogEDXP2df6mEkUWisgoAhbJ2L_h5H5E189foYysUIbfm5mRz5rXZBARh6sa20u2dUho8t_z9PvcFyQFvhDN1Lf8hanC27yBTUGTJS__l7V8gkJtudkj6IWu0O3NGGtMwn9RP8t15Xmo2FgZeyoxi0xxNw">
+<div class="check-badge absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">02</span>
+</div>
+<h5 class="text-[11px] font-bold text-primary leading-tight text-center line-clamp-1 w-full">Ciocco 70%</h5>
+<span class="text-[9px] text-secondary font-bold status-pill mt-0.5">Escolhido</span>
+</div>
+<!-- 03. Fior di Latte -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_3" data-flavor-name="Fior di Latte" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Fior di Latte" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMgACY-6jiSCPsU3fZ6qEQjotaZEWvQqa0-6gaXEGZLRmyUxWw61_gq0Q864ltSKzVd_R-i-Mt1eurYydJ-hImk-qGg9Z2G3ePsymPQer_557pYtKVvk-0fEESUQS6Jc4ZXN-WOyyoddAQWTI6s_LmIL4oy3Md6kMY-lrjI8bREtSXBnUkXId_obzMfOkkOMKUpG8W0kutdlBm_I6FVgZJE2pN4xSfAByffpvTP6MBSj_V1tHYx9HIwg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">03</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Fior di Latte</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Leite Puro</span>
+</div>
+<!-- 04. Doce de Leite com Flor de Sal -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_4" data-flavor-name="Doce de Leite" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Doce de Leite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtn0ie8-M_je6TC5IW85xvlmgMltxNI1KYEnGLYMmru09SzkowNf_DzQWt1mR6qUtun_4TVLXAVRWhIs8njdSF5FaKCVmLcVTM3noOdCtRjJM9TxaWVnOIuxRU4kQ4xl8R4ewKvbuBsQVidzSjI2dY5fqRT94dZ_rX6UoAgm04aegAun0jvI_08qXuuqSzk4bD2K2xG3jufxGwnErsWnRCMrnYHoT1Mcr5acu7VWBlLwuFzo4ubre0Tg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">04</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Doce de Leite</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Flor de Sal</span>
+</div>
+<!-- 05. Nocciola Piemonte -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_5" data-flavor-name="Nocciola IGP" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Nocciola IGP" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8s7J99pngU0rHFxILWeS4_GDoNafg_qruXuYFzYGrc5ZWG4sWwBmsDyiFUx3X5q7I56EcmtpFod12o74uIp6DN-91HNL6pF3sZNEo6uXjH5QU0HxC9PPVqxX_LD8nTCMCqIrR0MWNdNDeRCwxW4vdkyJPuKHkdw7FJvtb1NmwK8VW2G2cAJX5pm4LzDxCyNPwPO5aHKINW6SLqOSvLFpUbHO97pVULm70lhaiCeZ8lpuQwv25SyaAyA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">05</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Nocciola IGP</h5>
+<span class="text-[9px] text-error font-medium status-pill mt-0.5">Piemonte</span>
+</div>
+<!-- 06. Baunilha Bourbon -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_6" data-flavor-name="Baunilha Mad." onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Baunilha Bourbon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFL2tVEuUNfeCdVK7IgskP762eZKrjmM9Py42pWtbGDHBf3jgd9tG7CteTNN2QjDf2VAheyaGZF9recU9D7rlpDE1yWWhyRxjquSpY4Olirv3H_RKJvq9g6DvMQTciUwUhP8-1w14lHFp4TcqZoBtuHNt_TxuTW0zMhF0pVbTmHDylbmV9wYNcu2Ai-mZMzBhh4C2XrLkQNd8UCa5U-1CEv-DmkrlRCGEHA8LFgH9QPMYpD9Jx6r_Wig">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">06</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Baunilha Mad.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Bourbon</span>
+</div>
+<!-- 07. Cantucci com Amêndoas -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border hover:border-secondary cursor-pointer transition-all active:scale-95 border-outline-variant/50 shadow-2xs" data-flavor-id="f1_7" data-flavor-name="Cantucci" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cantucci" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0JlI9iNl9Uy0AU5HahzBQ-OtvLuvMMm2PeRywgEKPLPZMFOze2gM_HMJAOylZN5mFNxQJyllecgEOHAfZekCKnQ0OjzDtB0pLlRWW9C8yCzbOln51LlWFu8x3V04MZFYnGdr-pQT7dd0j7Du6JSrizo2uTqny-TbjyTgqIFetZwtHMILFkM2Ho_QeYxkKV6a8wnmZc7SxxAg7pLmb5YYDj2KaYv62uUIXRBq3bH6V3xmZrFRVvM7s6A">
+<div class="check-badge absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs hidden">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">07</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cantucci</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Amêndoas</span>
+</div>
+<!-- 08. Stracciatella Romana -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_8" data-flavor-name="Stracciatella" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Stracciatella" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_RvrZJ3zjfWR37vUX0uKWKW8buHi8-ETILD0GVwGgqG5IDMniukJOvFDz0kEcm0yAsQOx0lxUSzNtgmlrReFHhRPJT5HgzDiPY9DZ-08Kh4pgxthcOGcEjhmTo3pAike_-0A1bA8MkUgz7kjejTmsIvWOEcwZWcltXgsobLGnsT3RyMJiNDsoh-xkx5K08Xzvx6-MJu7IW973w_Cw7gSD_G2KXnQzqXQ_LXeBPpaaO72j3773V9iqaA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">08</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Stracciatella</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Romana</span>
+</div>
+<!-- 09. Gianduia Torino -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_9" data-flavor-name="Gianduia" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Gianduia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_2JxuJSKp1CZXT-6CS3RS5jy4q_hUxztin0W6nBTNWOrQf3Q8pRZYGJARhE7-98eqUS-AP1jZsU7L0EqcffzSL4MpvKeI9XRA7gq_vkedk3Ipzs5_vY8g_KN01OBqMjwRctIHzxcyXyoZr_2QnZUqbfEfnxY8_8T-2jcgfAtclr4rf5IUPiWJ-1Lp94pkj0xRjKlzgRr6cbe_iNH_t8_k8HEHpubki1H8LSc4Cx2BbSr2wE2N2eD2gg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">09</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Gianduia</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Torino</span>
+</div>
+<!-- 10. Zabaione Marsala -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_10" data-flavor-name="Zabaione" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Zabaione" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV6r8c0yJhMfelTvkHdUPFhGdnBJlU4ujG07UEv3qPh9iseBenT542QiP9EG8VBHSehey3w2EawBG_mBHVgLIJvysLtAfQoPpAMpuKmw6SzXpqfFGAtmL_rmhYT4LOUvlSy6nXxYGpX9-2Iru5LAT8c-nXwRpLladtXSWqdnZ7mYoDruJFbHAbc19ep7A_5Waw0ysmQDO6jROpPqMv_NQd2Z70J1XdvorzuaGQ-rc76_xVWvQlpPtKRg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">10</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Zabaione</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Marsala</span>
+</div>
+<!-- 11. Menta Fresca & Choco -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_11" data-flavor-name="Menta Cacau" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Menta Fresca &amp; Choco" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvy9ufUeR5FtpfcEuMVw0YGHjvatT0LemAYGy1M3dAlZOQZRoy5v4JPZSC2WpZvF2PgvDNKQnBMNh_4JSMEG6VTTBmRb7n7objEaqJKiJVzGCsj7NwzXl3oTatuyHE8Y2qCmfKJJZdv7QKaq1a2THUWqb-2LY_BOFe_On_xxqgEK7vFAyQDmRBEAV-IXTTrJmglTzzDZhQ01v1UYeYggCh53itCGm5NkBUQKX8xILQkpBFeM5H9KmovQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">11</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Menta Cacau</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Fresca</span>
+</div>
+<!-- 12. Café Cold Brew -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_12" data-flavor-name="Café Cold Brew" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Café Cold Brew" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk8t_BI-mPYCtWfuiZ3fUBmokkbYEqYC23_8jT7oMAckTkgSrrr6i3T-g_9y9Hc7c1VctN4gGw1KTUrGKvGQrJig69f4lSCGyWTVHGWQzVl0mkd_ueKh7peQ0324cMy_SSQZtlzjiNJiRA2gzh2dvFg0Loi2HhRd6jQf0TjW0H5GBNoRfjtJcNKWbqptM_mNFsYhAYKNG5GKRhMY8BHB7O3WVOm5BaydVEv4x-xdM4c9wj5Q2NAsIDkQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">12</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Café Brew</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Cold Brew</span>
+</div>
+<!-- 13. Coco Fitas Tostado -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border hover:border-secondary cursor-pointer transition-all active:scale-95 border-outline-variant/50 shadow-2xs" data-flavor-id="f1_13" data-flavor-name="Coco Fitas" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Coco Cremoso" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrS5nqWSyyGgu1WoriaDcqjcsJEqV7p2SSr_bsDFQUVKQSG4OtAQ8gFV_CB6LWqycTiYoewtft7hchnpNnI5oVvqk3ypwWIDV87lHiC_K6b7K33Rbf20HSnxHVyyAY-D5UhDbI_idTJpKTh-gdDJdUIZcSnYnhmk-GbN9rLp643VBbFjr9S_BpOi4eEZ9dSHcZdoYOl8qpwbnZ3dQ-g0WcSXS0ijJF1gGGvhuGh05JOjfjSAPIjwt8BA">
+<div class="check-badge absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs hidden">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">13</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Coco Fitas</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Tostado</span>
+</div>
+<!-- 14. Amêndoas Praliné -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_14" data-flavor-name="Amêndoas Praliné" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Amêndoas Praliné" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHw25BFSUccK5yHt6NvZb5ovEhRXlwIb8Tfj7mzvNG6uQfOAUPzi280jSzpJfCtUgILjPEURYLnDsOAXiWQoer4GE7X_f3i50gmKTYew4rfXdZ2T23L3b8BIswH8e6KHQ5RhbYGef-lzOCt45359H0xUurpYd7Fpzg-Qxp6JFFIQ-pP25BOk53mYIGnLQC76n6nrJTnABdFQB5ubW9OCXTYbevs30JSuvna_ookJz3vfwcU58-DcfLA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">14</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Amêndoas Mel</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Praliné</span>
+</div>
+<!-- 15. Cioccolato com Pistache -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_15" data-flavor-name="Ciocco Pistache" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cioccolato com Pistache" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOIzS3_quNtFIhWVMEovo4lyajS-cNFWTie5WFwE6A1tgNvjKlvGm4xz2zaKjrkM-bGSGk-H79d5mWQny0aLFAQVMm9sjGVsjUOkwnVoXmN_Nl5pjkL0EKwQVFgPEpHk5HQbxjTZ_CIe8OCf9_CLQ9-A4tT4DGuRerZpzdC72ivZPEEd-Qd_Vt600z3v0CH0jr1e5mAF6khoeJ-ItvdakraGEzDb8s31InY--am0o-cmc_irw9UV_hlw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">15</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Ciocco Branco</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Pistache</span>
+</div>
+<!-- 16. Tiramisù Savoiardi -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_16" data-flavor-name="Tiramisù" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Tiramisù" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXYR3TeqlElY5266zQbmMO-L_N40APsLV-oYM7hVrgQ9Rhm6PjykNHVFjHJdWfQyVsCD-J41R66yvH_KkAc3O5bHylU9i78WaAzB3JcJBmdIFFRSKN8ClHqQTjVlYQjPrDrL0n9TPayJXdezdwMbcjcCntpH79OwnHGLp7lszAI92wy-AeaYY8K9OjPACUlhqQrIljOxRRVQsJ-bzQk7_Pdb7JRhc6OJcRJ_QAby9G8D4d12YwvZmZQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">16</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Tiramisù</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Savoiardi</span>
+</div>
+<!-- 17. Iogurte com Amarena Silvestre -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f1_17" data-flavor-name="Iogurte Amarena" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Iogurte Frutas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN1Cb2zuCIwhkaQEyhoBckZ6PnxwOtx2KjzDIy-jFB4y8s8Ezo-ltmHSYOQx2ctIwtPj7hjTXSCehoJeVWhDXBlHeNdKKMu3wHaOE0ozjibiqhB2gfxcK8D9Z5hh4nXizujy3N_shkm8kFBRdJ9zvjBvip6L3rDnTOw3Q-EApbLfxtJpfArmsMflMzILBfrQMfb65B7n7p5i1O6LWNbY31ocKo15kujQDFvSrn0PfEWFvJnfW_6yC0cQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">17</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Iogurte Frutas</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Amarena</span>
+</div></div>
+<!-- FREEZER 2 (Frutas & Sorbets Veganos - 17 Sabores) -->
+<div class="grid grid-cols-4 gap-2 freezer-panel" id="freezer-panel-2"><!-- 01. Morango Orgânico Silvestre -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_1" data-flavor-name="Morango Silv." onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Morango Orgânico Silvestre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgGX7TLARwhbTTLk17y-Z1at9JtjyDFJOdMjrD58cLoszSlKGM9eIxDb5NstXbVkj6RRFX7gc0BC2Qm9UXHNfFD1dqayF8xMuRxYJ7gQNtzFvgggVNhdbFNmiqRNVGnMBG9YkfBkz8vyYyd0sQbGvdX2YACKB0xAvpRe0mYWmL-v1wa_dVmFYN0I4JvHs47Jkp4NhCLkuBdtSlZLcYLFHaOngEmQGOEPtxqtxF9iaFwg3X0_XW9DylQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">01</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Morango Silv.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Orgânico</span>
+</div>
+<!-- 02. Maracujá da Caatinga -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_2" data-flavor-name="Maracujá Caatinga" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Maracujá da Caatinga" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CoalBxdgqCgafBq3-mvWAgNl8XYiXXB5xTzAx1mu5094hIkWU3sIx40aemrlJFnR0UKJvtHjBzBfSewXBWuajAwn3JenqxgTIbhLwrHTt0rUUDslTOPhqMSEPBkFfxo-du-EXLaZ8SIAZl_WkR9fdKd7BhyLGG_eHJxTrYwbV_UCfB7VRvjVEsvAJyD5-vutnMj-TRf9rZ4FOj7PTjsmAzU6FNMfL-zGflCBZNKP8JIfGhIuP_t6Og">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">02</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Maracujá Puro</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Caatinga</span>
+</div>
+<!-- 03. Limão Siciliano Tradizionale -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_3" data-flavor-name="Limão Siciliano" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Limão Siciliano" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzsxAo4F6V1tsSPAHoA_Eg7zcsMc7Z9I9_dghzk-Iz48QUNXVFjY3hVLr82i9PzWij2pnZ9IAnf6IoDeQbtUFs_Qy6Vt80xZwtgFstL7OFkPx5UKmngsMgYxITuU1uGhz6H9iFxi_eIzlQTuVwKmMXQ4avgbq6RkH6PnJaOCiB9_vQJAtlqKyR8m6YGydJ3W6o5_HuBQzs2c8lKhsIGWInnmDOb4wNpKfP8ZDWWJFE9ZpQLIjQCmRqlw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">03</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Limão Sicil.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Tradizionale</span>
+</div>
+<!-- 04. Manga Palmer com Gengibre -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_4" data-flavor-name="Manga Palmer" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Manga Palmer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPSj8HsBthDoamaIbFBsGcnlaxbfeNnA7OB4fMfWpDfuno4bhj7mxTR7LHp7INbfUOFpkR72hLqj27LXxRs7DBcX26nvq7L0UPyN-7bSTxzHTlaD_U2wEp0xAC3hWt5Uf7qj8l0TXcPk3iz_nPIG-XTM0FKtrEJ25JDU1xNN1akoGlrSz1pC-0KsXizuCgGjwXos6WyhTjihfaB2dzDbeO1SRgpOiwLwzMVnUOLaIKdG6PniytqM4VWg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">04</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Manga Palmer</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Gengibre</span>
+</div>
+<!-- 05. Framboesa Alpina -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_5" data-flavor-name="Framboesa Alpina" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Framboesa Alpina" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJjdwoVNAFRyE9lnaUY6A8Is82_EpwShS4KVmKYgbqbzMXO2j69tu_KU3L_l8ev_5OSGSTd-iRNKmmeB4knRfE0H5wFdt55uFybXFh8zSJLKwoaazn3vi38Zh7o2NzPDH5HfM4U4ryZOIE7LICvGCF0A83sesmzZGiaH_6ry-QdlQN3nWe09qWTZVKPVh-_Y75Qv6ih0RLDgF4FdsxnOsiBr6vEg8WiJa-flXBO9tk8jerYwCM_8ANpg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">05</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Framboesa</h5>
+<span class="text-[9px] text-error font-medium status-pill mt-0.5">Alpina</span>
+</div>
+<!-- 06. Frutas Vermelhas do Bosque -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_6" data-flavor-name="Frutas Bosque" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Frutas do Bosque" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN1Cb2zuCIwhkaQEyhoBckZ6PnxwOtx2KjzDIy-jFB4y8s8Ezo-ltmHSYOQx2ctIwtPj7hjTXSCehoJeVWhDXBlHeNdKKMu3wHaOE0ozjibiqhB2gfxcK8D9Z5hh4nXizujy3N_shkm8kFBRdJ9zvjBvip6L3rDnTOw3Q-EApbLfxtJpfArmsMflMzILBfrQMfb65B7n7p5i1O6LWNbY31ocKo15kujQDFvSrn0PfEWFvJnfW_6yC0cQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">06</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Frutas Bosque</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Silvestre</span>
+</div>
+<!-- 07. Amora Preta Silvestre -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_7" data-flavor-name="Amora Silvestre" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Amora Silvestre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYdPt57jyUIBlvlg4_PSjeHfZIWRrIWawTGfnmtn5VNNrbAK0mbVzpNWVYE6c2tGDtlK6DJ3atibhYmypGAqmxCwC9zAgZ6XAmEpH8wLuufr1e6RLPCbd6svG5WXKnb-NbGA6dfsc55-WSjIJlYHkZYl7QGw7XxWlGFMbbtgsavD__rft-wcwt1TiEDlgQQkOdSU-3BzzNeeh_RLeZRHnME4Omn98X_wwURCGCcO8S7akIGtfA9zuNHg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">07</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Amora Preta</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Bosque</span>
+</div>
+<!-- 08. Goiaba Paluma Artesanal -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_8" data-flavor-name="Goiaba Paluma" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Goiaba Paluma" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgGX7TLARwhbTTLk17y-Z1at9JtjyDFJOdMjrD58cLoszSlKGM9eIxDb5NstXbVkj6RRFX7gc0BC2Qm9UXHNfFD1dqayF8xMuRxYJ7gQNtzFvgggVNhdbFNmiqRNVGnMBG9YkfBkz8vyYyd0sQbGvdX2YACKB0xAvpRe0mYWmL-v1wa_dVmFYN0I4JvHs47Jkp4NhCLkuBdtSlZLcYLFHaOngEmQGOEPtxqtxF9iaFwg3X0_XW9DylQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">08</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Goiaba Paluma</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Artesanal</span>
+</div>
+<!-- 09. Abacaxi com Hortelã Fresca -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_9" data-flavor-name="Abacaxi Hortelã" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Abacaxi com Hortelã" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH_EnQzFanbEMsSBkx-rqwgzbLZIFZisptm4PiE49VhVer48YU9_w70XDD1oLR5EerRqbcoYJOy3kHpxGs9V9cvI6d_IACwWa_-ZfSYLcIyw7DaizYIXHhh1Y_mHyqYU9jbaW7rTRNGoqdlkoe5-pveZj6tap61mMs9ZOOYGB8lSVhQQ-4kWkqtY2_V96_MVuk9Y0VF7zU29vdK40jnubAgXjwWwlyksl25pWesMED6Laq1dsiQKC38g">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">09</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Abacaxi Hortelã</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Fresco</span>
+</div>
+<!-- 10. Tangerina Ponkan Cravo -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_10" data-flavor-name="Tangerina Ponkan" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Tangerina Ponkan" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPSj8HsBthDoamaIbFBsGcnlaxbfeNnA7OB4fMfWpDfuno4bhj7mxTR7LHp7INbfUOFpkR72hLqj27LXxRs7DBcX26nvq7L0UPyN-7bSTxzHTlaD_U2wEp0xAC3hWt5Uf7qj8l0TXcPk3iz_nPIG-XTM0FKtrEJ25JDU1xNN1akoGlrSz1pC-0KsXizuCgGjwXos6WyhTjihfaB2dzDbeO1SRgpOiwLwzMVnUOLaIKdG6PniytqM4VWg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">10</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Ponkan Cravo</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Cítrico</span>
+</div>
+<!-- 11. Cupuaçu da Amazônia -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_11" data-flavor-name="Cupuaçu Amazônia" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cupuaçu da Amazônia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrS5nqWSyyGgu1WoriaDcqjcsJEqV7p2SSr_bsDFQUVKQSG4OtAQ8gFV_CB6LWqycTiYoewtft7hchnpNnI5oVvqk3ypwWIDV87lHiC_K6b7K33Rbf20HSnxHVyyAY-D5UhDbI_idTJpKTh-gdDJdUIZcSnYnhmk-GbN9rLp643VBbFjr9S_BpOi4eEZ9dSHcZdoYOl8qpwbnZ3dQ-g0WcSXS0ijJF1gGGvhuGh05JOjfjSAPIjwt8BA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">11</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cupuaçu Nativo</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Amazônia</span>
+</div>
+<!-- 12. Graviola do Nordeste -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_12" data-flavor-name="Graviola Nordeste" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Graviola do Nordeste" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMgACY-6jiSCPsU3fZ6qEQjotaZEWvQqa0-6gaXEGZLRmyUxWw61_gq0Q864ltSKzVd_R-i-Mt1eurYydJ-hImk-qGg9Z2G3ePsymPQer_557pYtKVvk-0fEESUQS6Jc4ZXN-WOyyoddAQWTI6s_LmIL4oy3Md6kMY-lrjI8bREtSXBnUkXId_obzMfOkkOMKUpG8W0kutdlBm_I6FVgZJE2pN4xSfAByffpvTP6MBSj_V1tHYx9HIwg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">12</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Graviola Doce</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Nordeste</span>
+</div>
+<!-- 13. Uva Niágara Integral -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_13" data-flavor-name="Uva Niágara" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Uva Niágara Integral" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYdPt57jyUIBlvlg4_PSjeHfZIWRrIWawTGfnmtn5VNNrbAK0mbVzpNWVYE6c2tGDtlK6DJ3atibhYmypGAqmxCwC9zAgZ6XAmEpH8wLuufr1e6RLPCbd6svG5WXKnb-NbGA6dfsc55-WSjIJlYHkZYl7QGw7XxWlGFMbbtgsavD__rft-wcwt1TiEDlgQQkOdSU-3BzzNeeh_RLeZRHnME4Omn98X_wwURCGCcO8S7akIGtfA9zuNHg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">13</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Uva Niágara</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Integral</span>
+</div>
+<!-- 14. Kiwi Tropical Dourado -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_14" data-flavor-name="Kiwi Dourado" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Kiwi Tropical Dourado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMygpydCJ_UtNhDguH0e2X8lEJzcdKCBLTjWmAmIEo9bWQFirscQSTC9KdtXoFVJZZoZ9eBaVENsu5hW1zCzHu_rnnshV7uZlsFOo2ZeCP6LEEJoqakDgPO3b3FjiIIBOJlB9y8lNqrPxTOM2DGjdEHn71XsU7Q2h7UINClfBb-uzBRt_jrmIFwYiXoYu-s6U3z8l7EGluNkfI3lEJpqin58qv095NhwnP_SyxSpFygqulR6algRQBpQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">14</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Kiwi Gold</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Tropical</span>
+</div>
+<!-- 15. Caju com Castanha -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_15" data-flavor-name="Caju Castanha" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Caju com Castanha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHw25BFSUccK5yHt6NvZb5ovEhRXlwIb8Tfj7mzvNG6uQfOAUPzi280jSzpJfCtUgILjPEURYLnDsOAXiWQoer4GE7X_f3i50gmKTYew4rfXdZ2T23L3b8BIswH8e6KHQ5RhbYGef-lzOCt45359H0xUurpYd7Fpzg-Qxp6JFFIQ-pP25BOk53mYIGnLQC76n6nrJTnABdFQB5ubW9OCXTYbevs30JSuvna_ookJz3vfwcU58-DcfLA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">15</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Caju &amp; Castanha</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Crocante</span>
+</div>
+<!-- 16. Maracujá com Banana -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_16" data-flavor-name="Maracujá Banana" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Maracujá com Banana" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CoalBxdgqCgafBq3-mvWAgNl8XYiXXB5xTzAx1mu5094hIkWU3sIx40aemrlJFnR0UKJvtHjBzBfSewXBWuajAwn3JenqxgTIbhLwrHTt0rUUDslTOPhqMSEPBkFfxo-du-EXLaZ8SIAZl_WkR9fdKd7BhyLGG_eHJxTrYwbV_UCfB7VRvjVEsvAJyD5-vutnMj-TRf9rZ4FOj7PTjsmAzU6FNMfL-zGflCBZNKP8JIfGhIuP_t6Og">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">16</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Maracujá Banana</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Tropical</span>
+</div>
+<!-- 17. Pitanga Vermelha -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f2_17" data-flavor-name="Pitanga Vermelha" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Pitanga Vermelha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgGX7TLARwhbTTLk17y-Z1at9JtjyDFJOdMjrD58cLoszSlKGM9eIxDb5NstXbVkj6RRFX7gc0BC2Qm9UXHNfFD1dqayF8xMuRxYJ7gQNtzFvgggVNhdbFNmiqRNVGnMBG9YkfBkz8vyYyd0sQbGvdX2YACKB0xAvpRe0mYWmL-v1wa_dVmFYN0I4JvHs47Jkp4NhCLkuBdtSlZLcYLFHaOngEmQGOEPtxqtxF9iaFwg3X0_XW9DylQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">17</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Pitanga Pura</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Nativa</span>
+</div></div>
+<!-- FREEZER 3 (Especiais & Criações - 17 Sabores) -->
+<div class="grid grid-cols-4 gap-2 freezer-panel hidden" id="freezer-panel-3"><!-- 01. Caramelo Salgado Fleur de Sel -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_1" data-flavor-name="Caramelo Fleur" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Caramelo Salgado Fleur de Sel" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuj0tggQ-qttPsJPqhFOnIbpp8fD2-X-xgkYsJoVUGEiD3yKV7PGr6aVB2SVYhAkwFHnLSJx77o1fdeL9i0Kq_nw0h7eIQpu1bEZpPcNkASh1AyFgENphHIOlMGXceOJSo9Rtzi3Ag_bqExE2M-85OHJr2efTwFXuKsU9as0EaKkzwgXmZKYAoeoLigU6xVmAimzw1Ns3urJIBx8OARZ6EovrckQ85BDZ2hIyVlOO-sBIQcg0J8LTp_w">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">01</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Caramelo Salg.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Fleur de Sel</span>
+</div>
+<!-- 02. Ninho Trufado com Avelã -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_2" data-flavor-name="Ninho Avelã" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Ninho Trufado com Avelã" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4k7BdffXhhaMaIiQAizofar8CkQg6yz4_9EcdDiIeLdaHtJnF8yCeI1JwbXAzFgefDh3fYZpqt-N6zMW1-449YXBbLhDWLI0AdCo33KHdVmbErnegCMQXsOVCU4sp1NLx00nXKJ0-naE8YmqLT4hsJkGcUpUSh0pcupOm9kHYM-VhcBOXdqzxqAUGN39I3kfu0pc0XMecZl3yX9POvxopN47Kec8MSDSt2aM7CPVmsq1-bNfvZjnS4A">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">02</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Ninho Avelã</h5>
+<span class="text-[9px] text-secondary font-bold status-pill mt-0.5">Trufado</span>
+</div>
+<!-- 03. Paçoca com Doce de Leite -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_3" data-flavor-name="Paçoca Doce de Leite" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Paçoca com Doce de Leite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHw25BFSUccK5yHt6NvZb5ovEhRXlwIb8Tfj7mzvNG6uQfOAUPzi280jSzpJfCtUgILjPEURYLnDsOAXiWQoer4GE7X_f3i50gmKTYew4rfXdZ2T23L3b8BIswH8e6KHQ5RhbYGef-lzOCt45359H0xUurpYd7Fpzg-Qxp6JFFIQ-pP25BOk53mYIGnLQC76n6nrJTnABdFQB5ubW9OCXTYbevs30JSuvna_ookJz3vfwcU58-DcfLA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">03</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Paçoca Doce</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Crocante</span>
+</div>
+<!-- 04. Cheesecake de Frutas Vermelhas -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_4" data-flavor-name="Cheesecake Berries" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cheesecake de Frutas Vermelhas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN1Cb2zuCIwhkaQEyhoBckZ6PnxwOtx2KjzDIy-jFB4y8s8Ezo-ltmHSYOQx2ctIwtPj7hjTXSCehoJeVWhDXBlHeNdKKMu3wHaOE0ozjibiqhB2gfxcK8D9Z5hh4nXizujy3N_shkm8kFBRdJ9zvjBvip6L3rDnTOw3Q-EApbLfxtJpfArmsMflMzILBfrQMfb65B7n7p5i1O6LWNbY31ocKo15kujQDFvSrn0PfEWFvJnfW_6yC0cQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">04</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cheesecake</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Berries</span>
+</div>
+<!-- 05. Torta de Limão com Merengue -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_5" data-flavor-name="Torta Limão" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Torta Limão" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF6bLkcuXguuKGSDFizdU_QR9k4UFcOOu5JsttdCvnxX-x0EPRnyvKXqDbh2EEhJA1cO3DDbVRBybP87kCaMorzfzNk-1VO985_jaFGj8lHrYYuV9W9EzFevY2-QyT09BusUXCyMbmkiFPlCoPK-x4t8Zodmkj_Re-PTismZZM5sZYe-bzceJb7G2SZWk82xSTfRqVHOmhYH5tH5ujcAMwfLMSrfWqgteX_gZCz4cuNL3BXZzqLLUspw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">05</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Torta Limão</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Merengue</span>
+</div>
+<!-- 06. Brownie Fudge com Nozes -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_6" data-flavor-name="Brownie Fudge" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Brownie Fudge com Nozes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpnAmmbXevy5x6Kw4oc17n-w_0CC9aWbieecyd29W8iEyOMbWDKkpRtXaqdnv_btPFZD60QOKIvZRMdpwoRibpU9QzyOaPAogEDXP2df6mEkUWisgoAhbJ2L_h5H5E189foYysUIbfm5mRz5rXZBARh6sa20u2dUho8t_z9PvcFyQFvhDN1Lf8hanC27yBTUGTJS__l7V8gkJtudkj6IWu0O3NGGtMwn9RP8t15Xmo2FgZeyoxi0xxNw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">06</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Brownie Fudge</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Nozes</span>
+</div>
+<!-- 07. Pavê de Doce de Leite -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_7" data-flavor-name="Pavê Doce Leite" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Pavê de Doce de Leite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtn0ie8-M_je6TC5IW85xvlmgMltxNI1KYEnGLYMmru09SzkowNf_DzQWt1mR6qUtun_4TVLXAVRWhIs8njdSF5FaKCVmLcVTM3noOdCtRjJM9TxaWVnOIuxRU4kQ4xl8R4ewKvbuBsQVidzSjI2dY5fqRT94dZ_rX6UoAgm04aegAun0jvI_08qXuuqSzk4bD2K2xG3jufxGwnErsWnRCMrnYHoT1Mcr5acu7VWBlLwuFzo4ubre0Tg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">07</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Pavê de Doce</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Biscoito</span>
+</div>
+<!-- 08. Cookies & Cream Crunchy -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_8" data-flavor-name="Cookies &amp; Cream" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cookies &amp; Cream" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_RvrZJ3zjfWR37vUX0uKWKW8buHi8-ETILD0GVwGgqG5IDMniukJOvFDz0kEcm0yAsQOx0lxUSzNtgmlrReFHhRPJT5HgzDiPY9DZ-08Kh4pgxthcOGcEjhmTo3pAike_-0A1bA8MkUgz7kjejTmsIvWOEcwZWcltXgsobLGnsT3RyMJiNDsoh-xkx5K08Xzvx6-MJu7IW973w_Cw7gSD_G2KXnQzqXQ_LXeBPpaaO72j3773V9iqaA">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">08</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cookies Cream</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Crunchy</span>
+</div>
+<!-- 09. Banoffee com Canela -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_9" data-flavor-name="Banoffee Canela" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Banoffee com Canela" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0JlI9iNl9Uy0AU5HahzBQ-OtvLuvMMm2PeRywgEKPLPZMFOze2gM_HMJAOylZN5mFNxQJyllecgEOHAfZekCKnQ0OjzDtB0pLlRWW9C8yCzbOln51LlWFu8x3V04MZFYnGdr-pQT7dd0j7Du6JSrizo2uTqny-TbjyTgqIFetZwtHMILFkM2Ho_QeYxkKV6a8wnmZc7SxxAg7pLmb5YYDj2KaYv62uUIXRBq3bH6V3xmZrFRVvM7s6A">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">09</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Banoffee</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Canela</span>
+</div>
+<!-- 10. Cannoli Siciliano com Pistache -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_10" data-flavor-name="Cannoli Siciliano" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cannoli Siciliano com Pistache" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqk-pXky3qQveuGT4ZnLr45pRd2cLFy2qV1mVFfrapw-STLQNVIIAQdOfpqiR1dMUs3BExf9ZUfO_wIZbBjrEna-jP-FO1pwlz7jXxyudGus4HQ8MRtJrk348aMyciiLGrHruAd_sRclkCZ2LgmIlbWZbl8ZzNrzp1OkQaHdAp26-kJVskUejDBOKtlhXiTuQFYtdHxVx7AiANmC8yYwDb4jM1nlZcUKndNA0A6nUGApIwU7kl3PM6tQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">10</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cannoli Sicil.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Pistache</span>
+</div>
+<!-- 11. Cremino Duo Belga -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_11" data-flavor-name="Cremino Belga" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Cremino Duo Belga" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_2JxuJSKp1CZXT-6CS3RS5jy4q_hUxztin0W6nBTNWOrQf3Q8pRZYGJARhE7-98eqUS-AP1jZsU7L0EqcffzSL4MpvKeI9XRA7gq_vkedk3Ipzs5_vY8g_KN01OBqMjwRctIHzxcyXyoZr_2QnZUqbfEfnxY8_8T-2jcgfAtclr4rf5IUPiWJ-1Lp94pkj0xRjKlzgRr6cbe_iNH_t8_k8HEHpubki1H8LSc4Cx2BbSr2wE2N2eD2gg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">11</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Cremino Duo</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Belga</span>
+</div>
+<!-- 12. Chocolate Branco com Frutas do Bosque -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_12" data-flavor-name="Choco Branco Bosque" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Chocolate Branco com Frutas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOIzS3_quNtFIhWVMEovo4lyajS-cNFWTie5WFwE6A1tgNvjKlvGm4xz2zaKjrkM-bGSGk-H79d5mWQny0aLFAQVMm9sjGVsjUOkwnVoXmN_Nl5pjkL0EKwQVFgPEpHk5HQbxjTZ_CIe8OCf9_CLQ9-A4tT4DGuRerZpzdC72ivZPEEd-Qd_Vt600z3v0CH0jr1e5mAF6khoeJ-ItvdakraGEzDb8s31InY--am0o-cmc_irw9UV_hlw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">12</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Choco Bosque</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Branco</span>
+</div>
+<!-- 13. Red Velvet com Cream Cheese -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_13" data-flavor-name="Red Velvet Cheese" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Red Velvet" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgGX7TLARwhbTTLk17y-Z1at9JtjyDFJOdMjrD58cLoszSlKGM9eIxDb5NstXbVkj6RRFX7gc0BC2Qm9UXHNfFD1dqayF8xMuRxYJ7gQNtzFvgggVNhdbFNmiqRNVGnMBG9YkfBkz8vyYyd0sQbGvdX2YACKB0xAvpRe0mYWmL-v1wa_dVmFYN0I4JvHs47Jkp4NhCLkuBdtSlZLcYLFHaOngEmQGOEPtxqtxF9iaFwg3X0_XW9DylQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">13</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Red Velvet</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Cream Cheese</span>
+</div>
+<!-- 14. Pistache Crocante com Amêndoas -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_14" data-flavor-name="Pistache Crocante" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Pistache Crocante com Amêndoas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMygpydCJ_UtNhDguH0e2X8lEJzcdKCBLTjWmAmIEo9bWQFirscQSTC9KdtXoFVJZZoZ9eBaVENsu5hW1zCzHu_rnnshV7uZlsFOo2ZeCP6LEEJoqakDgPO3b3FjiIIBOJlB9y8lNqrPxTOM2DGjdEHn71XsU7Q2h7UINClfBb-uzBRt_jrmIFwYiXoYu-s6U3z8l7EGluNkfI3lEJpqin58qv095NhwnP_SyxSpFygqulR6algRQBpQ">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">14</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Pistache Croc.</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Amêndoas</span>
+</div>
+<!-- 15. Maracujá Trufado Dark -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_15" data-flavor-name="Maracujá Trufado" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Maracujá Trufado Dark" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CoalBxdgqCgafBq3-mvWAgNl8XYiXXB5xTzAx1mu5094hIkWU3sIx40aemrlJFnR0UKJvtHjBzBfSewXBWuajAwn3JenqxgTIbhLwrHTt0rUUDslTOPhqMSEPBkFfxo-du-EXLaZ8SIAZl_WkR9fdKd7BhyLGG_eHJxTrYwbV_UCfB7VRvjVEsvAJyD5-vutnMj-TRf9rZ4FOj7PTjsmAzU6FNMfL-zGflCBZNKP8JIfGhIuP_t6Og">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">15</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Maracujá Dark</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Trufado</span>
+</div>
+<!-- 16. Açaí Puro Cremoso -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_16" data-flavor-name="Açaí Cremoso" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Açaí Puro Cremoso" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj_ZUCoUCJQKBSFhJALBoR7ZpI4_sY_Hzisi0McJ10GoZNt_cCXQRNNTBbG7w3oybePIogyQusPo9uErQ_xfIXMurqAccww39t76_LJ6j3ffuvIDOwP3QFl531OXUMejBE-gKN9P9sV-LwdG2Fr3I5D8oFo4KJkFc1Z-VPfafSwoSE2SlIe9UeS_aWKOIfSHThPbqnzkuyRcSVC-Y3LoT6F-tmQhDvRw8YddYrDW8jZ6t35_2xfstRpw">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">16</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Açaí Puro</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Cremoso</span>
+</div>
+<!-- 17. Mel Silvestre com Alecrim e Nozes -->
+<div class="flavor-card relative flex flex-col items-center p-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-secondary shadow-2xs cursor-pointer transition-all active:scale-95" data-flavor-id="f3_17" data-flavor-name="Mel &amp; Nozes" onclick="toggleFlavor(this)">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-1.5 bg-surface-container">
+<img alt="Mel Silvestre com Alecrim e Nozes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV6r8c0yJhMfelTvkHdUPFhGdnBJlU4ujG07UEv3qPh9iseBenT542QiP9EG8VBHSehey3w2EawBG_mBHVgLIJvysLtAfQoPpAMpuKmw6SzXpqfFGAtmL_rmhYT4LOUvlSy6nXxYGpX9-2Iru5LAT8c-nXwRpLladtXSWqdnZ7mYoDruJFbHAbc19ep7A_5Waw0ysmQDO6jROpPqMv_NQd2Z70J1XdvorzuaGQ-rc76_xVWvQlpPtKRg">
+<div class="check-badge hidden absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[10px] font-bold">check</span></div>
+<span class="absolute bottom-0.5 left-0.5 px-1 rounded bg-black/60 text-[8px] text-white font-bold leading-none py-0.5">17</span>
+</div>
+<h5 class="text-[11px] font-semibold text-primary leading-tight text-center line-clamp-1 w-full">Mel Silvestre</h5>
+<span class="text-[9px] text-outline font-medium status-pill mt-0.5">Alecrim &amp; Nozes</span>
+</div></div>
+</div>
+</section>
+<!-- FLOATING CHECKOUT / SELECTION SUMMARY BAR -->
+<div class="fixed left-0 right-0 max-w-md mx-auto z-40 bg-[#241711] text-white py-3 shadow-2xl flex items-center justify-between px-4" id="summary-bar" style="bottom: 64px;"><div class="flex flex-col flex-1 min-w-0 pr-3"><div class="flex items-center space-x-1.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse shrink-0"></span><span class="font-bold text-xs text-white truncate uppercase tracking-wider" id="footer-base-label">Cascão — 2 sabores</span></div><p class="text-[11px] text-[#d2c4bc] truncate mt-0.5" id="footer-flavor-names">(Pistache Bronte + Ciocco 70%)</p><div class="flex items-baseline space-x-1.5 mt-1"><span class="text-[10px] uppercase font-bold text-[#d2c4bc]">Total</span><span class="text-base font-bold text-white" id="footer-price">R$ 24,00</span><span class="text-[10px] text-primary-fixed-dim" id="footer-qty-badge">(1 item)</span></div></div><div class="shrink-0"><button class="bg-secondary hover:bg-[#287a4c] text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center space-x-1.5 shadow-sm active:scale-95 transition-all" id="add-to-bag-btn" onclick="addToBag(); const t = document.getElementById('add-btn-text'); const ic = document.getElementById('add-btn-icon'); if(t) t.innerText='Adicionado!'; if(ic) ic.innerText='check'; setTimeout(()=>{ if(t) t.innerText='Adicionar à Sacola'; if(ic) ic.innerText='shopping_bag'; }, 1800);" type="button"><span class="material-symbols-outlined text-base leading-none" id="add-btn-icon">shopping_bag</span><span class="whitespace-nowrap" id="add-btn-text">Adicionar à Sacola</span></button></div></div><div class="hidden fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-200" id="bag-success-modal"><div class="w-full max-w-md bg-surface-container-lowest rounded-t-3xl p-5 shadow-2xl border-t border-outline-variant/30 flex flex-col"><div class="flex items-center justify-between pb-3 border-b border-outline-variant/30"><div class="flex items-center space-x-2"><div class="w-7 h-7 rounded-full bg-secondary-container text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-base font-bold">check</span></div><h4 class="font-title-sm text-title-sm text-primary font-bold text-sm">Item Adicionado à Sacola!</h4></div><button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary hover:bg-surface-container" onclick="document.getElementById('bag-success-modal').classList.add('hidden')" type="button"><span class="material-symbols-outlined text-lg">close</span></button></div><div class="py-3.5 flex flex-col space-y-1.5 bg-surface-container-low rounded-xl px-3 mt-3"><div class="flex justify-between items-center"><span class="font-bold text-xs text-primary" id="modal-item-title">Cascão — 2 Sabores</span><span class="font-bold text-sm text-secondary" id="modal-item-price">R$ 24,00</span></div><p class="text-xs text-outline" id="modal-item-details">Sabores: Pistache Bronte, Ciocco 70%</p><p class="text-[11px] text-outline" id="modal-item-toppings">Coberturas: Caramelo Salgado (+ R$ 4,00)</p></div><div class="grid grid-cols-2 gap-2.5 mt-4"><button class="py-2.5 px-3 rounded-xl border border-outline-variant text-primary font-semibold text-xs active:scale-95 transition-all text-center" onclick="document.getElementById('bag-success-modal').classList.add('hidden')" type="button">Continuar Comprando</button><button class="py-2.5 px-3 rounded-xl bg-secondary hover:bg-[#287a4c] text-white font-bold text-xs active:scale-95 transition-all text-center flex items-center justify-center space-x-1" onclick="document.getElementById('bag-success-modal').classList.add('hidden')" type="button"><span class="material-symbols-outlined text-sm">shopping_cart_checkout</span><span class="">Ir para a Sacola</span></button></div></div></div>
+<!-- BOTTOM NAVIGATION BAR -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 flex justify-around items-center h-16 bg-surface border-t border-outline-variant/30 px-2 pb-2"><a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 py-1 flex-1" href="#"><span class="material-symbols-outlined text-2xl">storefront</span><span class="text-[11px] font-semibold mt-0.5">Início</span></a><a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 relative py-1 flex-1" href="#"><div class="relative"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute -top-1 -right-2 w-4 h-4 bg-error text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-xs" id="nav-bag-badge">3</span></div><span class="text-[11px] font-semibold mt-0.5">Sacola</span></a><a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 py-1 flex-1" href="#"><span class="material-symbols-outlined text-2xl">receipt_long</span><span class="text-[11px] font-semibold mt-0.5">Pedidos</span></a><a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 py-1 flex-1" href="#"><span class="material-symbols-outlined text-2xl">person</span><span class="text-[11px] font-semibold mt-0.5">Perfil</span></a></nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-outline-variant/80 rounded-full z-50 pointer-events-none"></div>
+<!-- COMPLETO MOTOR JAVASCRIPT DE INTERATIVIDADE -->
+<script>
+// CONFIGURAÇÃO DOS FORMATOS E TAMANHOS
+const formatConfigs = {
+  cascao: {
+    key: 'cascao',
+    name: 'Cascão',
+    subTitle: 'Waffle artesanal',
+    icon: 'icecream',
+    options: [
+      { id: 'cascao-2', title: 'Cascão — 2 sabores', shortTitle: '2 Sabores', desc: 'Até 2 bolas artesanais', price: 24.00, limit: 2 },
+      { id: 'cascao-1', title: 'Cascão — 1 sabor', shortTitle: '1 Sabor', desc: '1 bola generosa', price: 18.00, limit: 1 }
+    ]
+  },
+  cestinha: {
+    key: 'cestinha',
+    name: 'Cestinha',
+    subTitle: 'Base plana',
+    icon: 'cookie',
+    options: [
+      { id: 'cestinha-2', title: 'Cestinha — 2 sabores', shortTitle: '2 Sabores', desc: 'Cesta com 2 bolas', price: 26.00, limit: 2 },
+      { id: 'cestinha-1', title: 'Cestinha — 1 sabor', shortTitle: '1 Sabor', desc: 'Cesta com 1 bola', price: 20.00, limit: 1 }
+    ]
+  },
+  casquinha: {
+    key: 'casquinha',
+    name: 'Casquinha',
+    subTitle: 'Tradicional',
+    icon: 'icecream',
+    options: [
+      { id: 'casquinha-1', title: 'Casquinha Tradicional — 1 sabor', shortTitle: '1 Sabor', desc: 'Casquinha crocante italiana', price: 15.00, limit: 1 }
+    ]
+  }
+};
+
+// ESTADO GLOBAL DA APLICAÇÃO
+let currentFormat = 'cascao';
+let currentSubOption = formatConfigs.cascao.options[0]; // Cascão 2 sabores
+let maxFlavors = 2;
+let selectedFlavors = [
+  { id: 'f1_1', name: 'Pistache Bronte' },
+  { id: 'f1_2', name: 'Ciocco 70%' }
+];
+let selectedToppings = []; // Máximo 2
+let bagCount = 2;
+let currentFreezer = 1;
+
+const freezerData = {
+  1: {
+    title: 'Freezer 1 — Clássicos Tradicionais',
+    desc: 'Receitas centenárias batidas diariamente com leite fresco e insumos DOC.'
+  },
+  2: {
+    title: 'Freezer 2 — Frutas & Sorbets Veganos',
+    desc: 'Base de água pura e fruta fresca selecionada. 100% livre de lactose e corantes.'
+  },
+  3: {
+    title: 'Freezer 3 — Especiais & Criações da Casa',
+    desc: 'Mesclas exclusivas, recheios trufados e receitas autorais da nossa chef gelatiere.'
+  }
+};
+
+function formatBRL(val) {
+  return 'R$ ' + val.toFixed(2).replace('.', ',');
+}
+
+// 1. SELEÇÃO 1: FORMATO
+function setFormat(formatKey) {
+  currentFormat = formatKey;
+  updateFormatCardsUI();
+
+  // Preservar número de sabores se a opção existir no novo formato, senão pegar a primeira
+  const opts = formatConfigs[formatKey].options;
+  const match = opts.find(o => o.limit === currentSubOption.limit) || opts[0];
+  selectSubOption(match.id);
+}
+
+function updateFormatCardsUI() {
+  ['cascao', 'cestinha', 'casquinha'].forEach(key => {
+    const btn = document.getElementById('format-btn-' + key);
+    if (!btn) return;
+    const isSelected = (key === currentFormat);
+    const iconBox = btn.querySelector('div');
+    const nameEl = btn.querySelector('span.font-title-sm');
+    const descEl = btn.querySelectorAll('span')[1];
+
+    if (isSelected) {
+      btn.className = 'flex flex-col items-center justify-center p-3 rounded-2xl border-2 border-secondary bg-surface-container-lowest shadow-sm cursor-pointer active:scale-95 transition-all text-center relative';
+      if (iconBox) iconBox.className = 'w-10 h-10 rounded-xl bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary mb-1.5 transition-colors';
+      if (nameEl) nameEl.className = 'font-title-sm text-title-sm text-primary font-bold text-xs';
+      if (descEl) descEl.className = 'text-[10px] text-secondary font-bold';
+    } else {
+      btn.className = 'flex flex-col items-center justify-center p-3 rounded-2xl border border-outline-variant/50 bg-surface-container-lowest hover:border-secondary shadow-2xs cursor-pointer active:scale-95 transition-all text-center relative';
+      if (iconBox) iconBox.className = 'w-10 h-10 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-outline mb-1.5 transition-colors';
+      if (nameEl) nameEl.className = 'font-title-sm text-title-sm text-primary font-semibold text-xs';
+      if (descEl) descEl.className = 'text-[10px] text-outline font-normal';
+    }
+  });
+}
+
+// 2. SELEÇÃO 2: QUANTIDADE DE SABORES E TAMANHO
+function renderSubOptions() {
+  const container = document.getElementById('sub-options-container');
+  if (!container) return;
+  const cfg = formatConfigs[currentFormat];
+  const isSingle = (cfg.options.length === 1);
+
+  let html = `<div class="grid ${isSingle ? 'grid-cols-1' : 'grid-cols-2'} gap-2.5">`;
+  cfg.options.forEach(opt => {
+    const isSelected = (currentSubOption && currentSubOption.id === opt.id);
+    html += `
+      <div onclick="selectSubOption('${opt.id}')" class="p-3.5 rounded-2xl cursor-pointer transition-all active:scale-95 text-left relative flex flex-col justify-between ${isSelected ? 'border-2 border-secondary bg-surface-container-lowest shadow-sm' : 'border border-outline-variant/50 bg-surface-container-lowest hover:border-secondary shadow-2xs'}">
+        <div class="flex items-center justify-between w-full mb-2">
+          <span class="w-7 h-7 rounded-lg ${isSelected ? 'bg-secondary/10 text-secondary' : 'bg-surface-container-low text-outline'} flex items-center justify-center font-bold text-xs">${opt.limit}</span>
+          <span class="font-title-sm text-title-sm ${isSelected ? 'text-secondary' : 'text-primary'} font-bold text-sm">${formatBRL(opt.price)}</span>
+        </div>
+        <div>
+          <p class="font-title-sm text-title-sm text-primary text-sm ${isSelected ? 'font-bold' : 'font-semibold'}">${opt.shortTitle}</p>
+          <p class="text-[11px] text-outline mt-0.5">${opt.desc}</p>
+        </div>
+        <div class="mt-2.5 pt-2 border-t ${isSelected ? 'border-secondary/20' : 'border-outline-variant/20'} flex items-center justify-between w-full">
+          <span class="text-[10px] ${isSelected ? 'font-bold text-secondary' : 'font-medium text-outline'} flex items-center">
+            <span class="material-symbols-outlined text-xs mr-0.5">${isSelected ? 'check_circle' : 'radio_button_unchecked'}</span>
+            ${isSelected ? '✓ Selecionado' : '+ Selecionar'}
+          </span>
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function selectSubOption(subId) {
+  const cfg = formatConfigs[currentFormat];
+  const opt = cfg.options.find(o => o.id === subId) || cfg.options[0];
+  currentSubOption = opt;
+  maxFlavors = opt.limit;
+
+  // Regra de sabores nos freezers:
+  if (maxFlavors === 1) {
+    if (selectedFlavors.length > 1) {
+      // Remove o excedente e desativa os cards
+      const removed = selectedFlavors.slice(1);
+      selectedFlavors = [selectedFlavors[0]];
+      removed.forEach(item => {
+        const c = document.querySelector(`[data-flavor-id="${item.id}"]`);
+        if (c) deactivateFlavorCard(c);
+      });
+    }
+  } else if (maxFlavors === 2) {
+    // Se só tem 1 sabor e permitimos 2, pode manter ou auto-selecionar o 2º favorito
+    if (selectedFlavors.length === 1) {
+      const candidate = document.querySelector('[data-flavor-id="f1_2"]');
+      if (candidate && selectedFlavors[0].id !== 'f1_2') {
+        selectedFlavors.push({ id: 'f1_2', name: 'Ciocco 70%' });
+        activateFlavorCard(candidate);
+      }
+    }
+  }
+
+  renderSubOptions();
+  updateFlavorBadges();
+  updateSummaryBar();
+}
+
+// 3. SELEÇÃO 3: COBERTURAS (TOGGLE ATÉ 2)
+function toggleTopping(id, name, price, card) {
+  const index = selectedToppings.findIndex(t => t.id === id);
+  if (index > -1) {
+    // Desmarcar
+    selectedToppings.splice(index, 1);
+    card.classList.remove('border-2', 'border-secondary', 'selected');
+    card.classList.add('border-outline-variant/50');
+    const check = card.querySelector('.topping-check');
+    if (check) check.classList.add('hidden');
+    const priceText = card.querySelector('.topping-price');
+    if (priceText) {
+      priceText.classList.remove('text-secondary', 'font-bold');
+      priceText.classList.add('text-outline');
+    }
+  } else {
+    // Marcar se dentro do limite de 2
+    if (selectedToppings.length >= 2) {
+      const removed = selectedToppings.shift();
+      const oldCard = document.querySelector(`[onclick*="${removed.id}"]`);
+      if (oldCard) {
+        oldCard.classList.remove('border-2', 'border-secondary', 'selected');
+        oldCard.classList.add('border-outline-variant/50');
+        const c = oldCard.querySelector('.topping-check');
+        if (c) c.classList.add('hidden');
+        const p = oldCard.querySelector('.topping-price');
+        if (p) {
+          p.classList.remove('text-secondary', 'font-bold');
+          p.classList.add('text-outline');
+        }
+      }
+    }
+    selectedToppings.push({ id, name, price });
+    card.classList.add('border-2', 'border-secondary', 'selected');
+    card.classList.remove('border-outline-variant/50');
+    const check = card.querySelector('.topping-check');
+    if (check) check.classList.remove('hidden');
+    const priceText = card.querySelector('.topping-price');
+    if (priceText) {
+      priceText.classList.add('text-secondary', 'font-bold');
+      priceText.classList.remove('text-outline');
+    }
+  }
+
+  // Atualizar badge de coberturas
+  const badge = document.getElementById('toppings-badge');
+  if (badge) {
+    badge.innerText = `${selectedToppings.length}/2 ${selectedToppings.length > 0 ? 'Escolhida' + (selectedToppings.length > 1 ? 's' : '') : 'Opcional'}`;
+    if (selectedToppings.length > 0) {
+      badge.className = 'text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-secondary font-bold';
+    } else {
+      badge.className = 'text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium';
+    }
+  }
+
+  updateSummaryBar();
+}
+
+// 4. FREEZERS & SABORES DE GELATOS
+function toggleAccordion() {
+  const content = document.getElementById('accordion-content');
+  const icon = document.getElementById('accordion-icon');
+  if (content.classList.contains('hidden')) {
+    content.classList.remove('hidden');
+    icon.style.transform = 'rotate(0deg)';
+  } else {
+    content.classList.add('hidden');
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
+function switchFreezer(num) {
+  currentFreezer = num;
+  for (let i = 1; i <= 3; i++) {
+    const tab = document.getElementById(`tab-freezer-${i}`);
+    const panel = document.getElementById(`freezer-panel-${i}`);
+    if (i === num) {
+      tab.className = 'freezer-tab py-2 px-1 text-center rounded-lg text-xs font-bold transition-all bg-white text-secondary shadow-sm border border-secondary/20 flex flex-col items-center justify-center';
+      tab.querySelector('.rounded-full').className = 'w-2 h-2 rounded-full bg-secondary';
+      if (panel) panel.classList.remove('hidden');
+    } else {
+      tab.className = 'freezer-tab py-2 px-1 text-center rounded-lg text-xs font-semibold transition-all text-on-surface-variant hover:text-primary flex flex-col items-center justify-center';
+      tab.querySelector('.rounded-full').className = 'w-2 h-2 rounded-full bg-outline-variant';
+      if (panel) panel.classList.add('hidden');
+    }
+  }
+
+  const titleEl = document.getElementById('freezer-title');
+  if (titleEl) {
+    titleEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span><span>${freezerData[num].title}</span>`;
+  }
+  const descEl = document.getElementById('freezer-desc');
+  if (descEl) descEl.innerText = freezerData[num].desc;
+}
+
+function activateFlavorCard(card) {
+  card.classList.add('border-2', 'border-secondary', 'selected', 'shadow-sm');
+  card.classList.remove('border-outline-variant/50', 'shadow-2xs');
+  const badge = card.querySelector('.check-badge');
+  if (badge) badge.classList.remove('hidden');
+  const pill = card.querySelector('.status-pill');
+  if (pill) {
+    pill.innerText = 'Escolhido';
+    pill.className = 'text-[9px] text-secondary font-bold status-pill mt-0.5';
+  }
+}
+
+function deactivateFlavorCard(card) {
+  card.classList.remove('border-2', 'border-secondary', 'selected', 'shadow-sm');
+  card.classList.add('border-outline-variant/50', 'shadow-2xs');
+  const badge = card.querySelector('.check-badge');
+  if (badge) badge.classList.add('hidden');
+  const pill = card.querySelector('.status-pill');
+  if (pill) {
+    pill.innerText = 'Disponível';
+    pill.className = 'text-[9px] text-outline font-medium status-pill mt-0.5';
+  }
+}
+
+function toggleFlavor(card) {
+  const id = card.getAttribute('data-flavor-id');
+  const name = card.getAttribute('data-flavor-name') || card.querySelector('h5')?.innerText || 'Sabor';
+  const index = selectedFlavors.findIndex(item => item.id === id);
+
+  if (index > -1) {
+    // Se clicar em um já selecionado: desmarca
+    selectedFlavors.splice(index, 1);
+    deactivateFlavorCard(card);
+  } else {
+    // Se atingiu o limite permitido (1 ou 2), rotaciona o mais antigo
+    if (selectedFlavors.length >= maxFlavors) {
+      const removed = selectedFlavors.shift();
+      const oldCard = document.querySelector(`[data-flavor-id="${removed.id}"]`);
+      if (oldCard) deactivateFlavorCard(oldCard);
+    }
+    selectedFlavors.push({ id, name });
+    activateFlavorCard(card);
+  }
+
+  updateFlavorBadges();
+  updateSummaryBar();
+}
+
+function updateFlavorBadges() {
+  const count = selectedFlavors.length;
+  const badgeEl = document.getElementById('flavor-counter-badge');
+  if (badgeEl) {
+    badgeEl.innerText = `${count}/${maxFlavors} selecionado${count === 1 && maxFlavors === 1 ? '' : 's'}`;
+  }
+  const counterTextEl = document.getElementById('selection-counter-text');
+  if (counterTextEl) {
+    counterTextEl.innerText = `${count}/${maxFlavors} Sabores`;
+  }
+}
+
+// 5. BARRA DE RESUMO INFERIOR FIXA
+function updateSummaryBar() {
+  if (!currentSubOption) return;
+
+  const basePrice = currentSubOption.price;
+  const toppingsPrice = selectedToppings.reduce((acc, t) => acc + t.price, 0);
+  const totalPrice = basePrice + toppingsPrice;
+
+  // Título e sabores
+  const labelEl = document.getElementById('footer-base-label');
+  if (labelEl) {
+    labelEl.innerText = currentSubOption.title;
+  }
+
+  const namesEl = document.getElementById('footer-flavor-names');
+  if (namesEl) {
+    let summaryText = '';
+    if (selectedFlavors.length > 0) {
+      summaryText = '(' + selectedFlavors.map(f => f.name).join(' + ') + ')';
+    } else {
+      summaryText = '(Nenhum sabor selecionado)';
+    }
+
+    if (selectedToppings.length > 0) {
+      summaryText += ' + ' + selectedToppings.map(t => t.name).join(', ');
+    }
+    namesEl.innerText = summaryText;
+  }
+
+  // Preço Total
+  const priceEl = document.getElementById('footer-price');
+  if (priceEl) {
+    priceEl.innerText = formatBRL(totalPrice);
+  }
+}
+
+// 6. ADICIONAR À SACOLA COM FEEDBACK VISUAL
+function addToBag() {
+  const btn = document.getElementById('add-to-bag-btn');
+  const icon = document.getElementById('add-btn-icon');
+  const text = document.getElementById('add-btn-text');
+  
+  if (!btn) return;
+
+  // Feedback de carregamento e sucesso
+  btn.classList.add('bg-[#246c30]', 'scale-95');
+  if (icon) icon.innerText = 'check_circle';
+  if (text) text.innerText = 'Adicionado com Sucesso!';
+
+  // Incrementa a sacola
+  bagCount++;
+  const topBag = document.getElementById('top-bag-badge');
+  const navBag = document.getElementById('nav-bag-badge');
+  if (topBag) {
+    topBag.innerText = bagCount;
+    topBag.classList.add('scale-125');
+  }
+  if (navBag) navBag.innerText = bagCount;
+
+  setTimeout(() => {
+    btn.classList.remove('bg-[#246c30]', 'scale-95');
+    if (icon) icon.innerText = 'shopping_bag';
+    if (text) text.innerText = 'Adicionar à Sacola';
+    if (topBag) topBag.classList.remove('scale-125');
+  }, 1800);
+}
+
+// Inicialização imediata
+document.addEventListener('DOMContentLoaded', () => {
+  renderSubOptions();
+  updateFormatCardsUI();
+  updateFlavorBadges();
+  updateSummaryBar();
+});
+
+// Fallback direto
+renderSubOptions();
+updateFormatCardsUI();
+updateFlavorBadges();
+updateSummaryBar();
+</script>
+</div>
+<script>window.SCREEN_ID=14;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

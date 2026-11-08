@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Banana Split Especial - Cliente Arducci</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+
+
+<link rel="stylesheet" href="styles/screen-41.css?v=20261108-layout-41">
+
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="styles/gelato-selector.css?v=20261108-layout-41"><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-background font-body antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- HEADER AUTENTICADO: CLIENTE ARDUCCI -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 px-4 py-2.5 shadow-sm transition-all">
+<div class="max-w-md mx-auto flex items-center justify-between gap-3">
+<!-- Avatar & Boas-vindas -->
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Lucas Arducci" class="w-10 h-10 rounded-full object-cover ring-2 ring-secondary/80 shadow-sm" data-alt="Close-up portrait of Lucas Arducci, a stylish young professional smiling gently outdoors in warm natural golden hour sunlight, featuring soft shadows, modern aesthetic, clean haircut, with a subtle Italian artisanal cafe blurred in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChTY34rJjHowOedSl2d_Ucvdt8D5wRBhxHX2dVD4TJJXUKKffOG_o7UkmGdorAeZIahLrDVXBKKWAsWaXHxnq-8G0ukl6P-nyesDE3vPBN57mRSYCH1LsxjA1q9_WLQTOR0LJhv-ikyvjTutI_RHeowIplI9mEBhaZ9q1UXMpaZflMkbPsAWTXdUV9iZF4b7h5RVO3FD1rntfuARfVBpMpye21g7GmCf45A8fDSfPznWjol-S2KOea3Q"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] tracking-wider uppercase font-semibold text-outline">BEM-VINDO!</span>
+<h1 class="text-sm font-bold font-headline text-primary tracking-tight leading-none">Cliente Arducci</h1>
+</div>
+</div>
+<!-- Ações: Sacola & Logout -->
+<div class="flex items-center gap-1.5">
+<!-- Botão Sacola com indicador de notificações -->
+<a class="relative p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container" href="#sacola">
+<span class="material-symbols-outlined text-[23px]">shopping_bag</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[10px] font-bold text-on-error">2</span>
+</a>
+<!-- Botão de Sair / Logout Padrão -->
+<button aria-label="Encerrar sessão" class="flex items-center justify-center p-2 text-on-surface-variant hover:text-error transition-colors rounded-full hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[23px]">logout</span>
+</button>
+</div>
+</div>
+</header>
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="max-w-md mx-auto w-full flex-1 pb-40">
+<!-- Top Bar Interna do Item: Voltar + Ícone de Categoria -->
+<div class="px-4 py-3 flex items-center justify-between">
+<button class="flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined text-lg leading-none">arrow_back</span>
+        Voltar ao Cardápio
+      </button>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-xs font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-sm leading-none text-secondary">icecream</span>
+<span>Sobremesa Clássica</span>
+</div>
+</div>
+<!-- Hero Card: Banana Split Artesanal -->
+<div class="px-4 mb-4">
+<div class="relative w-full h-64 rounded-2xl overflow-hidden shadow-md group">
+<img alt="Banana Split Especial Arducci" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An artisanal gourmet Banana Split dessert presented on a vintage ceramic boat plate with three generous scoops of premium Italian gelato, fresh split ripe banana, rich warm dark chocolate sauce drizzled lavishly, chantilly cream rosettes, maraschino cherries, and toasted hazelnut sprinkles in warm rustic bakery light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkwjetrQbf5m2TDT2_4MzxYzcbE1SButKzF8BDpFQiNjb2yj2XdkipoEPm58ePpFtfSipaje3Z5f4QJiMhodXiNB2rJLpdV4P63GKJtgvBCHa4VJdazhSG1rvRpbuWT3KbWr3XRnuOylhoOSV_afRD_u1wzkUFubrSpVBYxqBCkiOdCy5KFYec2kIjjZKsbPyT7ztoAqRLqFkyth09l_ePTqR6F84CwdAo9ApI7Qcd8Cch0AShcUdp9g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-surface-container-lowest">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Assinatura Arducci</span>
+<span class="text-xs text-surface-container-high/90 font-medium">Serve até 2 pessoas</span>
+</div>
+<h2 class="text-2xl font-bold font-headline tracking-wide leading-tight">Banana Split Especial</h2>
+<p class="text-xs text-surface-variant/90 line-clamp-2 mt-0.5 font-light">Banana caramelizada na chapa, 3 bolas de gelato artesanal à sua escolha, calda quente e castanhas tostadas.</p>
+</div>
+</div>
+</div>
+<!-- Módulo 1: Gelatos Inclusos (3 bolas) com Abas dos Freezers -->
+<section class="px-4 pt-2 pb-4">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="text-base font-bold font-headline text-primary">Escolha os Gelatos</h3>
+<p class="text-xs text-outline">Selecione exatamente 3 bolas inclusas</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border border-outline-variant/40">
+<span class="material-symbols-outlined text-sm text-secondary">done_all</span>
+<span class="text-xs font-bold text-secondary" id="bolas-counter">3/3 selecionadas</span>
+</div>
+</div>
+<!-- Abas dos 3 Freezers -->
+<div class="flex p-1 rounded-xl bg-surface-container-high/70 mb-4 gap-1 text-xs font-medium">
+<button class="freezer-tab flex-1 py-2 px-1 text-center rounded-lg font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all" id="tab-freezer-1" onclick="switchFreezer(1)" type="button">
+          Freezer 1 (Clássicos)
+        </button>
+<button class="freezer-tab flex-1 py-2 px-1 text-center rounded-lg text-outline hover:text-primary transition-all" id="tab-freezer-2" onclick="switchFreezer(2)" type="button">
+          Freezer 2 (Especiais)
+        </button>
+<button class="freezer-tab flex-1 py-2 px-1 text-center rounded-lg text-outline hover:text-primary transition-all" id="tab-freezer-3" onclick="switchFreezer(3)" type="button">
+          Freezer 3 (Sorbets)
+        </button>
+</div>
+<!-- Lista Freezer 1 (Clássicos - 6 sabores) -->
+<div class="freezer-content space-y-2.5" id="content-freezer-1">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fce7c8] flex items-center justify-center text-xs font-bold text-primary shadow-inner">01</span>
+<div>
+<p class="text-sm font-semibold text-primary">Fior di Latte Tradizionale</p>
+<p class="text-[11px] text-outline">Creme puro de leite fresco da fazenda</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('fior')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-fior">1</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('fior')">+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#5b3823] text-white flex items-center justify-center text-xs font-bold shadow-inner">02</span>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="text-sm font-semibold text-primary">Cioccolato Belga 70%</p>
+<span class="text-[9px] bg-primary-fixed text-on-primary-fixed px-1.5 py-0.2 rounded font-medium">Mais pedido</span>
+</div>
+<p class="text-[11px] text-outline">Cacau nobre com notas amendoadas</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('ciocco')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-ciocco">1</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('ciocco')">+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fef3c7] flex items-center justify-center text-xs font-bold text-primary shadow-inner">03</span>
+<div>
+<p class="text-sm font-semibold text-primary">Baunilha de Madagascar</p>
+<p class="text-[11px] text-outline">Favas aromáticas infusionadas lentamente</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('baunilha')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-baunilha">1</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('baunilha')">+</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center text-xs font-bold text-primary shadow-inner">04</span>
+<div>
+<p class="text-sm font-semibold text-primary">Flocos Arducci (Stracciatella)</p>
+<p class="text-[11px] text-outline">Lascas finas de chocolate meio amargo crocante</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('straccia')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-straccia">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('straccia')">+</button>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fde68a] flex items-center justify-center text-xs font-bold text-primary shadow-inner">05</span>
+<div>
+<p class="text-sm font-semibold text-primary">Doce de Leite Viçosa</p>
+<p class="text-[11px] text-outline">Puro doce de leite mineiro cremoso</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('docedeleite')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-docedeleite">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('docedeleite')">+</button>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#c7d2fe] flex items-center justify-center text-xs font-bold text-primary shadow-inner">06</span>
+<div>
+<p class="text-sm font-semibold text-primary">Café Espresso Italiano</p>
+<p class="text-[11px] text-outline">Grãos arábica torra média moídos na hora</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('cafe')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-cafe">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('cafe')">+</button>
+</div>
+</div>
+</div>
+<!-- Lista Freezer 2 (Especiais - 6 sabores) -->
+<div class="freezer-content space-y-2.5 hidden" id="content-freezer-2">
+<!-- Item 7 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#bbf7d0] flex items-center justify-center text-xs font-bold text-secondary shadow-inner">07</span>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="text-sm font-semibold text-primary">Pistacchio di Bronte DOP</p>
+<span class="text-[9px] bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.2 rounded font-bold">Premium</span>
+</div>
+<p class="text-[11px] text-outline">Pistache puro siciliano levemente tostado</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('pistache')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-pistache">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('pistache')">+</button>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fed7aa] flex items-center justify-center text-xs font-bold text-primary shadow-inner">08</span>
+<div>
+<p class="text-sm font-semibold text-primary">Nocciola Piemonte IGP</p>
+<p class="text-[11px] text-outline">Avelãs nobres italianas torradas em pasta</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('nocciola')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-nocciola">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('nocciola')">+</button>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fbcfe8] flex items-center justify-center text-xs font-bold text-primary shadow-inner">09</span>
+<div>
+<p class="text-sm font-semibold text-primary">Amarena Fabbri &amp; Mascarpone</p>
+<p class="text-[11px] text-outline">Cerejas silvestres em calda e queijo mascarpone</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('amarena')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-amarena">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('amarena')">+</button>
+</div>
+</div>
+<!-- Item 10 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#e9d5ff] flex items-center justify-center text-xs font-bold text-primary shadow-inner">10</span>
+<div>
+<p class="text-sm font-semibold text-primary">Caramelo Salgado Fleur de Sel</p>
+<p class="text-[11px] text-outline">Caramelo toffee com flor de sal francesa</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('caramelo')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-caramelo">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('caramelo')">+</button>
+</div>
+</div>
+<!-- Item 11 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center text-xs font-bold text-primary shadow-inner">11</span>
+<div>
+<p class="text-sm font-semibold text-primary">Tiramisù Tradizionale</p>
+<p class="text-[11px] text-outline">Biscoito savoiardi embebido em café e cacau</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('tiramisu')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-tiramisu">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('tiramisu')">+</button>
+</div>
+</div>
+<!-- Item 12 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fed7aa] flex items-center justify-center text-xs font-bold text-primary shadow-inner">12</span>
+<div>
+<p class="text-sm font-semibold text-primary">Cheesecake de Frutas Vermelhas</p>
+<p class="text-[11px] text-outline">Base amanteigada e calda caseira de mirtilo e amora</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('cheesecake')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-cheesecake">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('cheesecake')">+</button>
+</div>
+</div>
+</div>
+<!-- Lista Freezer 3 (Frutas & Sorbets - 5 sabores = 17 no total) -->
+<div class="freezer-content space-y-2.5 hidden" id="content-freezer-3">
+<!-- Item 13 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fecdd3] flex items-center justify-center text-xs font-bold text-error shadow-inner">13</span>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="text-sm font-semibold text-primary">Fragola (Morango Puro)</p>
+<span class="text-[9px] bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.2 rounded font-medium">0% Lactose</span>
+</div>
+<p class="text-[11px] text-outline">Morangos frescos macerados sem conservantes</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('fragola')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-fragola">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('fragola')">+</button>
+</div>
+</div>
+<!-- Item 14 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fef08a] flex items-center justify-center text-xs font-bold text-primary shadow-inner">14</span>
+<div>
+<p class="text-sm font-semibold text-primary">Limone Siciliano</p>
+<p class="text-[11px] text-outline">Refrescância cítrica italiana 100% fruta</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('limone')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-limone">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('limone')">+</button>
+</div>
+</div>
+<!-- Item 15 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fed7aa] flex items-center justify-center text-xs font-bold text-primary shadow-inner">15</span>
+<div>
+<p class="text-sm font-semibold text-primary">Maracujá do Cerrado</p>
+<p class="text-[11px] text-outline">Acidez equilibrada com sementinhas crocantes</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('maracuja')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-maracuja">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('maracuja')">+</button>
+</div>
+</div>
+<!-- Item 16 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#fde047] flex items-center justify-center text-xs font-bold text-primary shadow-inner">16</span>
+<div>
+<p class="text-sm font-semibold text-primary">Manga Palmer com Gengibre</p>
+<p class="text-[11px] text-outline">Toque picante suave e manga aveludada</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('manga')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-manga">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('manga')">+</button>
+</div>
+</div>
+<!-- Item 17 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#f43f5e] text-white flex items-center justify-center text-xs font-bold shadow-inner">17</span>
+<div>
+<p class="text-sm font-semibold text-primary">Framboesa Selvagem</p>
+<p class="text-[11px] text-outline">Sabor intenso, aveludado e vegano</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="decrementGelato('framboesa')">-</button>
+<span class="text-xs font-bold w-4 text-center" id="count-framboesa">0</span>
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold" onclick="incrementGelato('framboesa')">+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Módulo 2: Coberturas Inclusas -->
+<section class="px-4 py-3 bg-surface-container-low/70 border-y border-outline-variant/20 mb-4">
+<h3 class="text-sm font-bold font-headline text-primary mb-1">Calda Inclusa (Escolha 1)</h3>
+<p class="text-xs text-outline mb-3">Servida quente sobre a banana e os gelatos</p>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 cursor-pointer has-[:checked]:border-secondary has-[:checked]:bg-secondary-fixed/20 transition-all">
+<input checked="" class="text-secondary focus:ring-secondary h-4 w-4" name="calda_inclusa" type="radio"/>
+<span class="font-medium text-primary">Chocolate Belga Quente</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 cursor-pointer has-[:checked]:border-secondary has-[:checked]:bg-secondary-fixed/20 transition-all">
+<input class="text-secondary focus:ring-secondary h-4 w-4" name="calda_inclusa" type="radio"/>
+<span class="font-medium text-primary">Caramelo Toffee</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 cursor-pointer has-[:checked]:border-secondary has-[:checked]:bg-secondary-fixed/20 transition-all">
+<input class="text-secondary focus:ring-secondary h-4 w-4" name="calda_inclusa" type="radio"/>
+<span class="font-medium text-primary">Frutas Vermelhas Artesanal</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 cursor-pointer has-[:checked]:border-secondary has-[:checked]:bg-secondary-fixed/20 transition-all">
+<input class="text-secondary focus:ring-secondary h-4 w-4" name="calda_inclusa" type="radio"/>
+<span class="font-medium text-primary">Sem calda</span>
+</label>
+</div>
+</section>
+<!-- Módulo 3: Coberturas Extras (Opcionais) -->
+<section class="px-4 pb-6">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="text-sm font-bold font-headline text-primary">Toppings e Extras Especiais</h3>
+<p class="text-xs text-outline">Turbine sua sobremesa exclusiva</p>
+</div>
+<span class="text-[11px] text-outline font-medium">Opcional</span>
+</div>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 cursor-pointer hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<input class="rounded text-secondary focus:ring-secondary h-4 w-4" onchange="toggleExtra(this, 5.50)" type="checkbox"/>
+<div>
+<p class="text-xs font-semibold text-primary">Chantilly Fresco Batido na Hora</p>
+<p class="text-[10px] text-outline">Creme de leite fresco com leve toque de baunilha</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">+ R$ 5,50</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 cursor-pointer hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<input class="rounded text-secondary focus:ring-secondary h-4 w-4" onchange="toggleExtra(this, 7.00)" type="checkbox"/>
+<div>
+<p class="text-xs font-semibold text-primary">Castanhas de Caju &amp; Amêndoas Tostadas</p>
+<p class="text-[10px] text-outline">Crocância dourada com pitada de canela</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">+ R$ 7,00</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 cursor-pointer hover:border-outline-variant transition-all">
+<div class="flex items-center gap-3">
+<input class="rounded text-secondary focus:ring-secondary h-4 w-4" onchange="toggleExtra(this, 9.90)" type="checkbox"/>
+<div>
+<p class="text-xs font-semibold text-primary">Cerejas Amarena Fabbri Inteiras (3 un)</p>
+<p class="text-[10px] text-outline">Importadas da Emilia-Romagna com xarope denso</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">+ R$ 9,90</span>
+</label>
+</div>
+</section>
+</main>
+<!-- BARRA INFERIOR FIXA DE PEDIDO (MARROM COM TOTAL BEGE/CREME E BOTÃO VERDE) -->
+<div class="fixed bottom-[61px] inset-x-0 z-30 bg-[#24170d] border-t border-[#3b2b20] py-3 px-4 shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
+<div class="max-w-md mx-auto flex items-center justify-between gap-4">
+<!-- Total em tom bege/creme -->
+<div class="flex flex-col">
+<span class="text-[11px] font-medium text-[#dcc1b1] tracking-wide uppercase">Subtotal Banana Split</span>
+<div class="flex items-baseline gap-1 text-[#f9ddcd]">
+<span class="text-xs font-bold">R$</span>
+<span class="text-2xl font-bold font-headline tracking-tight" id="preco-total">42,00</span>
+</div>
+</div>
+<!-- Botão verde com feedback dinâmico -->
+<button class="flex-1 max-w-[210px] h-12 bg-secondary hover:bg-[#1e5827] text-white font-bold text-sm rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2" id="btn-add-sacola" onclick="adicionarSacolaFeedback()">
+<span class="material-symbols-outlined text-lg leading-none" id="btn-icon">add_shopping_cart</span>
+<span id="btn-text">Adicionar à Sacola</span>
+</button>
+</div>
+</div>
+<!-- BOTTOM NAVIGATION BAR (4 DESTINOS ATIVOS: CLIENTE ARDUCCI) -->
+<footer class="fixed bottom-0 inset-x-0 z-40 bg-surface-container-lowest border-t border-[#f3f2f1]">
+<div class="max-w-md mx-auto flex gap-1 px-4 pb-2 pt-1.5 items-center justify-between">
+<!-- Início -->
+<a class="flex flex-1 flex-col items-center justify-center gap-0.5 py-1 text-on-surface hover:text-primary transition-colors" href="#">
+<div class="text-[#161413] flex h-7 items-center justify-center" data-icon="House" data-size="22px" data-weight="fill">
+<svg fill="currentColor" height="22px" viewbox="0 0 256 256" width="22px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
+</svg>
+</div>
+<p class="text-[#161413] text-[11px] font-medium leading-none tracking-[0.015em]">Início</p>
+</a>
+<!-- Sacola com badge vermelho -->
+<a class="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-1 text-on-surface hover:text-primary transition-colors" href="#sacola">
+<div class="text-[#161413] flex h-7 items-center justify-center relative" data-icon="Bag" data-size="22px" data-weight="regular">
+<svg fill="currentColor" height="22px" viewbox="0 0 256 256" width="22px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm88,168H40V80H80V96a8,8,0,0,0,16,0V80h64V96a8,8,0,0,0,16,0V80h40Z"></path>
+</svg>
+<span class="absolute -top-1 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[9px] font-bold text-white">2</span>
+</div>
+<p class="text-[#161413] text-[11px] font-medium leading-none tracking-[0.015em]">Sacola</p>
+</a>
+<!-- Pedidos -->
+<a class="flex flex-1 flex-col items-center justify-center gap-0.5 py-1 text-on-surface hover:text-primary transition-colors" href="#pedidos">
+<div class="text-[#161413] flex h-7 items-center justify-center" data-icon="Receipt" data-size="22px" data-weight="regular">
+<svg fill="currentColor" height="22px" viewbox="0 0 256 256" width="22px" xmlns="http://www.w3.org/2000/svg">
+<path d="M72,104a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,104Zm8,40h96a8,8,0,0,0,0-16H80a8,8,0,0,0,0,16ZM232,56V208a8,8,0,0,1-11.58,7.15L192,200.94l-28.42,14.21a8,8,0,0,1-7.16,0L128,200.94,99.58,215.15a8,8,0,0,1-7.16,0L64,200.94,35.58,215.15A8,8,0,0,1,24,208V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Zm-16,0H40V195.06l20.42-10.22a8,8,0,0,1,7.16,0L96,199.06l28.42-14.22a8,8,0,0,1,7.16,0L160,199.06l28.42-14.22a8,8,0,0,1,7.16,0L216,195.06Z"></path>
+</svg>
+</div>
+<p class="text-[#161413] text-[11px] font-medium leading-none tracking-[0.015em]">Pedidos</p>
+</a>
+<!-- Perfil (Ativo/Normal para Cliente Arducci) -->
+<a class="flex flex-1 flex-col items-center justify-center gap-0.5 py-1 text-on-surface hover:text-primary transition-colors" href="#perfil">
+<div class="text-[#161413] flex h-7 items-center justify-center" data-icon="User" data-size="22px" data-weight="regular">
+<svg fill="currentColor" height="22px" viewbox="0 0 256 256" width="22px" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+</svg>
+</div>
+<p class="text-[#161413] text-[11px] font-semibold leading-none tracking-[0.015em]">Perfil</p>
+</a>
+</div>
+</footer>
+<!-- SCRIPT DE INTERAÇÕES E LÓGICA -->
+<script>
+    // Gerenciador de abas de freezers
+    function switchFreezer(freezerNum) {
+      document.querySelectorAll('.freezer-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.freezer-tab').forEach(el => {
+        el.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-sm');
+        el.classList.add('text-outline');
+      });
+
+      document.getElementById(`content-freezer-${freezerNum}`).classList.remove('hidden');
+      const activeTab = document.getElementById(`tab-freezer-${freezerNum}`);
+      activeTab.classList.add('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-sm');
+      activeTab.classList.remove('text-outline');
+    }
+
+    // Contagem de bolas
+    let basePrice = 42.00;
+    let extraPrice = 0.00;
+    const maxBolas = 3;
+
+    function getTotalBolas() {
+      let total = 0;
+      document.querySelectorAll('[id^="count-"]').forEach(el => {
+        total += parseInt(el.textContent, 10);
+      });
+      return total;
+    }
+
+    function updateBolasIndicator() {
+      const current = getTotalBolas();
+      const indicator = document.getElementById('bolas-counter');
+      if (current === 3) {
+        indicator.textContent = '3/3 selecionadas';
+        indicator.className = 'text-xs font-bold text-secondary';
+      } else {
+        indicator.textContent = `${current}/3 selecionadas`;
+        indicator.className = 'text-xs font-bold text-error';
+      }
+    }
+
+    function incrementGelato(id) {
+      const currentTotal = getTotalBolas();
+      if (currentTotal >= maxBolas) {
+        alert('Você já selecionou as 3 bolas de gelato inclusas nesta Banana Split!');
+        return;
+      }
+      const el = document.getElementById(`count-${id}`);
+      el.textContent = parseInt(el.textContent, 10) + 1;
+      updateBolasIndicator();
+    }
+
+    function decrementGelato(id) {
+      const el = document.getElementById(`count-${id}`);
+      const val = parseInt(el.textContent, 10);
+      if (val > 0) {
+        el.textContent = val - 1;
+        updateBolasIndicator();
+      }
+    }
+
+    // Extras
+    function toggleExtra(checkbox, value) {
+      if (checkbox.checked) {
+        extraPrice += value;
+      } else {
+        extraPrice -= value;
+      }
+      const total = basePrice + extraPrice;
+      document.getElementById('preco-total').textContent = total.toFixed(2).replace('.', ',');
+    }
+
+    // Feedback do botão Adicionar à Sacola
+    function adicionarSacolaFeedback() {
+      const currentTotal = getTotalBolas();
+      if (currentTotal !== 3) {
+        alert(`Por favor, selecione exatamente 3 bolas de gelato antes de continuar (atualmente: ${currentTotal}).`);
+        return;
+      }
+
+      const btn = document.getElementById('btn-add-sacola');
+      const text = document.getElementById('btn-text');
+      const icon = document.getElementById('btn-icon');
+
+      btn.classList.remove('bg-secondary');
+      btn.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed');
+      icon.textContent = 'check_circle';
+      text.textContent = 'Adicionado!';
+
+      setTimeout(() => {
+        btn.classList.add('bg-secondary');
+        btn.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed');
+        icon.textContent = 'add_shopping_cart';
+        text.textContent = 'Adicionar à Sacola';
+      }, 2000);
+    }
+  </script>
+<script>window.SCREEN_ID=41;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

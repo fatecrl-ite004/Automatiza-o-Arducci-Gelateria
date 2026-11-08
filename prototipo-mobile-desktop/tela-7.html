@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Self-Service de Gelatos - Arducci Vitrine Interativa</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Material Symbols Outlined -->
+
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="styles/screen-7.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars smoothly */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Container Wrapper: 390px max-w -->
+<main class="w-full max-w-[402px] bg-background min-h-screen relative flex flex-col pb-32 shadow-2xl">
+<!-- 1. Native Status Bar Mockup -->
+<header class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-on-surface select-none z-30">
+<span class="font-label-md text-label-md font-bold tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[17px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[17px]">wifi</span>
+<span class="material-symbols-outlined text-[20px] fill">battery_full</span>
+</div>
+</header>
+<!-- 2. Standardized App Header -->
+<div class="w-full sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30"><div class="px-4 py-2.5 flex items-center justify-between"><div class="flex items-center gap-3"><div class="relative"><div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-secondary to-primary-container shadow-xs"><div class="w-full h-full rounded-full bg-surface-container flex items-center justify-center text-outline"><span class="material-symbols-outlined text-2xl">person</span></div></div><span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full ring-2 ring-background"></span></div><div class="flex flex-col text-left"><span class="text-[10px] tracking-[0.2em] font-bold text-outline uppercase font-label-sm leading-none">BEM VINDO!</span><h2 class="font-title-sm text-title-sm text-primary font-bold leading-tight mt-0.5">Visitante</h2></div></div><div class="flex items-center gap-2"><button aria-label="Sacola de Compras" class="w-9 h-9 rounded-full flex items-center justify-center text-primary relative hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute top-1 right-1 bg-error text-on-error text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-background">2</span></button><a aria-label="Entrar na conta" class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-primary border border-outline-variant/40 shadow-sm active:scale-95 transition-all hover:bg-surface-container hover:text-secondary flex items-center space-x-1.5 cursor-pointer" href="#login"><span class="material-symbols-outlined text-lg" data-icon="login">login</span><span class="font-label-sm text-xs font-bold">Entrar</span></a></div></div><div class="px-4 py-2 flex items-center gap-2 border-t border-outline-variant/20 bg-surface-container-low/40"><button aria-label="Voltar" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-lg">arrow_back</span></button><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><h1 class="font-headline-md text-[17px] font-bold text-primary-container leading-none">Self-Service de Gelatos</h1></div></div></div>
+<!-- Main Content Canvas -->
+<div class="flex-1 px-4 pt-3 flex flex-col space-y-4">
+<!-- Hero Banner Presencial -->
+<section class="relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/40 bg-surface-container-low">
+<div class="h-44 w-full relative">
+<img class="w-full h-full object-cover brightness-[0.92]" data-alt="Close up artisanal Italian gelato station counter with warm atmospheric bakery lighting, marble counter texture, freshly churned gelato swirl mounds in dark earthenware bowls with fruits and chocolate drizzle, rich warm espresso wood interior background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB24p1mTIyjlG1a9tW6lZqpGzhmSxTtAVlZBllBhc1tlJhiOAZq8UbEPbV8Vnvq5wiXOWKIvs4P_Qbdg9Vj448DNO8_k1p6khBYnDvwQVdmDG9sUKpCjYqUifrJVMFOmBClnOlM430GTv5qh2PP39VzZ1wi3Fwm9SVGw8-VeY2rZjmu1Nk7Y0DoPvkFjcjZUjcJ4kqVoBapfB5WqicEjp8nv_g0cwN4s9uZ8JWG7MwwHAEwmZqODFEZzg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1 shadow-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">store</span>
+<span class="">Experiência Presencial na Loja</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 text-on-primary">
+<h2 class="font-headline-md text-headline-md text-on-primary drop-shadow-sm font-semibold">Self-Service Artesanal Arducci</h2>
+<p class="font-body-sm text-body-sm text-surface-variant line-clamp-1">Tradição italiana, ingredientes puros e liberdade para criar.</p>
+</div>
+</div>
+</section>
+<!-- Caixa Introdutória de Instruções -->
+<section class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/40 shadow-[0_2px_8px_rgba(59,43,32,0.04)]">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex-shrink-0 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">info</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary mb-1">Como funciona a montagem</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              “Escolha a embalagem de sua preferência e explore os sabores de gelato nos 3 freezers. Adicione cremes, caldas e frutas, depois os complementos, balas e até chantilly. Para finalizar, pese na balança.”
+            </p>
+</div>
+</div>
+</section>
+<!-- Seção com os 4 Botões Retangulares Interativos (Fluxo Expansível) -->
+<section class="flex flex-col space-y-3">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs uppercase tracking-wider font-label-sm font-bold text-outline">Etapas da Vitrine</span>
+<span class="text-xs text-secondary font-label-sm font-medium">Toque para explorar opções</span>
+</div>
+<!-- 1. Botão 'Embalagens' -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden transition-all shadow-[0_2px_6px_rgba(59,43,32,0.03)]">
+<button class="w-full p-4 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors" onclick="toggleAccordion('acc-embalagens', 'icon-embalagens')" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">source</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">1. Embalagens</h4>
+<p class="font-body-sm text-body-sm text-outline">Copos de 150ml a 350ml e cascão rústico</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" id="icon-embalagens">expand_more</span>
+</button>
+<!-- Conteúdo Embalagens (Carrossel Horizontal) -->
+<div class="hidden border-t border-outline-variant/30 p-3 bg-surface-container-low/50" id="acc-embalagens">
+<p class="text-xs font-label-sm text-on-surface-variant mb-2.5 px-1">Deslize para ver os formatos disponíveis no balcão:</p>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+<!-- Item Embalagem 1 -->
+<div class="flex-shrink-0 w-28 bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/40 text-center">
+<div class="w-full h-18 py-2 flex items-center justify-center bg-surface-container rounded-lg mb-2">
+<span class="material-symbols-outlined text-3xl text-primary-container">coffee</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-bold">Copinho P</p>
+<p class="font-body-sm text-xs text-outline">150ml • Ideal 1-2 bolas</p>
+</div>
+<!-- Item Embalagem 2 -->
+<div class="flex-shrink-0 w-28 bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/40 text-center">
+<div class="w-full h-18 py-2 flex items-center justify-center bg-surface-container rounded-lg mb-2">
+<span class="material-symbols-outlined text-3xl text-primary-container">local_cafe</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-bold">Copinho M</p>
+<p class="font-body-sm text-xs text-outline">250ml • Mais pedido</p>
+</div>
+<!-- Item Embalagem 3 -->
+<div class="flex-shrink-0 w-28 bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/40 text-center">
+<div class="w-full h-18 py-2 flex items-center justify-center bg-surface-container rounded-lg mb-2">
+<span class="material-symbols-outlined text-3xl text-primary-container">emoji_food_beverage</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-bold">Copinho G</p>
+<p class="font-body-sm text-xs text-outline">350ml • Para generosos</p>
+</div>
+<!-- Item Embalagem 4 -->
+<div class="flex-shrink-0 w-32 bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/40 text-center">
+<div class="w-full h-18 py-2 flex items-center justify-center bg-surface-container rounded-lg mb-2">
+<span class="material-symbols-outlined text-3xl text-amber-700">icecream</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-bold">Cascão Rústico</p>
+<p class="font-body-sm text-xs text-outline">Receita artesanal crocante</p>
+</div>
+<!-- Item Embalagem 5 -->
+<div class="flex-shrink-0 w-32 bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/40 text-center">
+<div class="w-full h-18 py-2 flex items-center justify-center bg-surface-container rounded-lg mb-2">
+<span class="material-symbols-outlined text-3xl text-secondary">inventory_2</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-bold">Pote Térmico</p>
+<p class="font-body-sm text-xs text-outline">500g • Leve para casa</p>
+</div>
+</div>
+</div>
+</article>
+<!-- 2. Botão 'Sabores de Gelatos' -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden transition-all shadow-[0_2px_6px_rgba(59,43,32,0.03)]">
+<button class="w-full p-4 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors" onclick="toggleAccordion('acc-gelatos', 'icon-gelatos')" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">icecream</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">2. Sabores de Gelatos</h4>
+<p class="font-body-sm text-body-sm text-outline">3 freezers temáticos com 17 sabores cada</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" id="icon-gelatos">expand_more</span>
+</button>
+<!-- Conteúdo Gelatos (Tabs Freezer 1, 2, 3 + Grid 4 por fileira) -->
+<div class="border-t border-outline-variant/30 p-3.5 bg-surface-container-low/40 hidden" id="acc-gelatos">
+<!-- 3 Botões Verticais / Seletores de Freezer -->
+<p class="text-xs font-label-sm text-on-surface-variant mb-2">Selecione o freezer para ver a cuba:</p>
+<div class="grid grid-cols-3 gap-2 mb-3.5">
+<button class="py-2.5 px-2 rounded-xl text-xs font-label-md font-bold transition-all bg-primary-container text-on-primary shadow-sm" id="tab-freezer-1" onclick="selectFreezer(1)" type="button">
+                Freezer 1
+                <span class="block text-[10px] font-normal opacity-80">Clássicos</span>
+</button>
+<button class="py-2.5 px-2 rounded-xl text-xs font-label-md font-bold transition-all bg-surface-container-high text-on-surface hover:bg-surface-variant" id="tab-freezer-2" onclick="selectFreezer(2)" type="button">
+                Freezer 2
+                <span class="block text-[10px] font-normal opacity-80">Frutas &amp; Sorbet</span>
+</button>
+<button class="py-2.5 px-2 rounded-xl text-xs font-label-md font-bold transition-all bg-surface-container-high text-on-surface hover:bg-surface-variant" id="tab-freezer-3" onclick="selectFreezer(3)" type="button">
+                Freezer 3
+                <span class="block text-[10px] font-normal opacity-80">Especiais</span>
+</button>
+</div>
+<!-- Header do Freezer Ativo -->
+<div class="flex items-center justify-between mb-2 px-1">
+<span class="font-label-md text-xs font-bold text-primary" id="freezer-title">Freezer 1: Clássicos Italianos</span>
+<span class="text-[11px] font-label-sm text-outline">17 cubas disponíveis</span>
+</div>
+<!-- Grid de exatamente 4 fotos por fileira com 17 posições -->
+<div class="grid grid-cols-4 gap-2" id="freezer-grid"><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">eco</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Pistache Bronte</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-amber-900/10 text-amber-900 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">cookie</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Cioccolato Belga</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">water_drop</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Doce de Leite</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">egg</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Fior di Latte</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-stone-200 text-stone-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">grain</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Nocciola Piemonte</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-zinc-100 text-zinc-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">view_carousel</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Stracciatella</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-yellow-50 text-amber-700 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">flare</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Baunilha Bourbon</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-amber-200/50 text-amber-900 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">waves</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Caramelo Salgado</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-stone-800 text-stone-100 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">dark_mode</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Chocolate 70%</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-yellow-100/60 text-amber-900 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">coffee</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Tiramisù Tradizionale</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-rose-100 text-rose-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">circle</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Amarena Fabbri</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-amber-950/15 text-amber-950 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">local_cafe</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Café Espresso</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-amber-900/20 text-amber-900 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">diamond</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Gianduia Real</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-orange-100 text-orange-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">wine_bar</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Zabaione</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-stone-200/70 text-stone-900 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">layers</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Cremino Arducci</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-sky-50 text-sky-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">spa</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Cocco Fresco</span>
+</div><div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded-lg bg-teal-50 text-teal-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-xl">forest</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">Menta com Cacau</span>
+</div></div>
+</div>
+</article>
+<!-- 3. Botão 'Coberturas' -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden transition-all shadow-[0_2px_6px_rgba(59,43,32,0.03)]">
+<button class="w-full p-4 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors" onclick="toggleAccordion('acc-coberturas', 'icon-coberturas')" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center text-amber-800">
+<span class="material-symbols-outlined text-2xl">water_drop</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">3. Coberturas</h4>
+<p class="font-body-sm text-body-sm text-outline">Caldas quentes, cremes puros e ganaches</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" id="icon-coberturas">expand_more</span>
+</button>
+<!-- Conteúdo Coberturas (Grid 4 colunas) -->
+<div class="hidden border-t border-outline-variant/30 p-3.5 bg-surface-container-low/40" id="acc-coberturas">
+<p class="text-xs font-label-sm text-on-surface-variant mb-2.5">Bomba térmica e dispenser livre:</p>
+<div class="grid grid-cols-4 gap-2">
+<!-- Cobertura 1 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-[#3b2b20]/10 flex items-center justify-center mb-1 text-primary-container">
+<span class="material-symbols-outlined text-2xl">soup_kitchen</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Calda Quente Chocolate</span>
+</div>
+<!-- Cobertura 2 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center mb-1 text-amber-900">
+<span class="material-symbols-outlined text-2xl">lunch_dining</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Nutella® Pura</span>
+</div>
+<!-- Cobertura 3 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-rose-50 flex items-center justify-center mb-1 text-rose-700">
+<span class="material-symbols-outlined text-2xl">opacity</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Frutas Vermelhas</span>
+</div>
+<!-- Cobertura 4 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-amber-100/60 flex items-center justify-center mb-1 text-amber-700">
+<span class="material-symbols-outlined text-2xl">water_full</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Caramelo Flor de Sal</span>
+</div>
+<!-- Cobertura 5 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center mb-1 text-yellow-700">
+<span class="material-symbols-outlined text-2xl">hive</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Fio de Mel Puro</span>
+</div>
+<!-- Cobertura 6 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center mb-1 text-orange-600">
+<span class="material-symbols-outlined text-2xl">eco</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Calda de Maracujá</span>
+</div>
+<!-- Cobertura 7 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-stone-100 flex items-center justify-center mb-1 text-stone-700">
+<span class="material-symbols-outlined text-2xl">colors</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Ganache Choc. Branco</span>
+</div>
+<!-- Cobertura 8 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center mb-1 text-secondary">
+<span class="material-symbols-outlined text-2xl">magic_button</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Trufada de Ninho</span>
+</div>
+</div>
+</div>
+</article>
+<!-- 4. Botão 'Complementos' -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden transition-all shadow-[0_2px_6px_rgba(59,43,32,0.03)]">
+<button class="w-full p-4 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors" onclick="toggleAccordion('acc-complementos', 'icon-complementos')" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-orange-100 flex items-center justify-center text-orange-800">
+<span class="material-symbols-outlined text-2xl">cookie</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">4. Complementos</h4>
+<p class="font-body-sm text-body-sm text-outline">Castanhas, confeitos, frutas frescas e chantilly</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" id="icon-complementos">expand_more</span>
+</button>
+<!-- Conteúdo Complementos (Grid de 4 por fileira com 16 itens demonstrativos) -->
+<div class="hidden border-t border-outline-variant/30 p-3.5 bg-surface-container-low/40" id="acc-complementos">
+<p class="text-xs font-label-sm text-on-surface-variant mb-2.5">Balcão de toppings secos e frescos:</p>
+<div class="grid grid-cols-4 gap-2">
+<!-- 1 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-amber-50 flex items-center justify-center mb-1 text-amber-800">
+<span class="material-symbols-outlined text-xl">grain</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Granola Artesanal</span>
+</div>
+<!-- 2 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-stone-100 flex items-center justify-center mb-1 text-stone-800">
+<span class="material-symbols-outlined text-xl">scatter_plot</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Castanha Caju</span>
+</div>
+<!-- 3 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center mb-1 text-blue-800">
+<span class="material-symbols-outlined text-xl">cloud</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Leite Ninho</span>
+</div>
+<!-- 4 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-amber-100 flex items-center justify-center mb-1 text-amber-900">
+<span class="material-symbols-outlined text-xl">view_column</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Paçoca Rolha</span>
+</div>
+<!-- 5 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-zinc-100 flex items-center justify-center mb-1 text-zinc-900">
+<span class="material-symbols-outlined text-xl">apps</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Gotas Choc Belga</span>
+</div>
+<!-- 6 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-red-50 flex items-center justify-center mb-1 text-red-600">
+<span class="material-symbols-outlined text-xl">palette</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">M&amp;Ms Coloridos</span>
+</div>
+<!-- 7 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-amber-50 flex items-center justify-center mb-1 text-primary-container">
+<span class="material-symbols-outlined text-xl">save_as</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Raspas Cacau</span>
+</div>
+<!-- 8 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-purple-50 flex items-center justify-center mb-1 text-purple-700">
+<span class="material-symbols-outlined text-xl">arrow_back_ios_new</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Confetes Crisp</span>
+</div>
+<!-- 9 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-pink-50 flex items-center justify-center mb-1 text-pink-600">
+<span class="material-symbols-outlined text-xl">local_fire_department</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Marshmallow</span>
+</div>
+<!-- 10 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-stone-100 flex items-center justify-center mb-1 text-stone-800">
+<span class="material-symbols-outlined text-xl">cake</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Pedaços Brownie</span>
+</div>
+<!-- 11 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-rose-50 flex items-center justify-center mb-1 text-rose-600">
+<span class="material-symbols-outlined text-xl">nutrition</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Morango Fresco</span>
+</div>
+<!-- 12 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-yellow-50 flex items-center justify-center mb-1 text-yellow-600">
+<span class="material-symbols-outlined text-xl">nature</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Banana Fatiada</span>
+</div>
+<!-- 13 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-orange-50 flex items-center justify-center mb-1 text-orange-700">
+<span class="material-symbols-outlined text-xl">bakery_dining</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Farofa Doce</span>
+</div>
+<!-- 14 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-amber-50 flex items-center justify-center mb-1 text-amber-700">
+<span class="material-symbols-outlined text-xl">cookie</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Biscoito Waffle</span>
+</div>
+<!-- 15 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-yellow-100 flex items-center justify-center mb-1 text-yellow-800">
+<span class="material-symbols-outlined text-xl">pest_control_rodent</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Amendoim Croc</span>
+</div>
+<!-- 16 -->
+<div class="bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-11 h-11 rounded-lg bg-emerald-50 flex items-center justify-center mb-1 text-secondary">
+<span class="material-symbols-outlined text-xl">bubble_chart</span>
+</div>
+<span class="text-[10px] leading-tight font-medium text-primary">Chantilly Fresco</span>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Preço e Pesagem por Kg -->
+<section class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/40 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">scale</span>
+</div>
+<div>
+<span class="text-[11px] font-label-sm uppercase tracking-wider text-outline font-bold">Valor do Self-Service</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">R$ 119,90</span>
+<span class="text-sm font-label-md text-on-surface-variant font-medium">/ kg</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block bg-surface-container px-2.5 py-1 rounded-full text-[11px] font-label-sm font-semibold text-primary">Balança Digital</span>
+</div>
+</section>
+<!-- Caixa de Aviso Amarelo Suave (Alerta Presencial - Sem Adicionar ao Carrinho) -->
+<section class="bg-[#fef9e7] border border-amber-200/80 p-4 rounded-2xl flex items-start gap-3 shadow-sm">
+<span class="material-symbols-outlined text-amber-700 flex-shrink-0 text-xl mt-0.5">warning</span>
+<div class="space-y-1">
+<h5 class="font-label-md text-label-md text-amber-900 font-bold">Informação importante</h5>
+<p class="font-body-sm text-xs leading-relaxed text-amber-950 font-normal">
+            Atenção: este produto é apenas uma vitrine para mostrar como funciona. Para fazer seu sorvete, basta ir até o local onde estão as embalagens.
+          </p>
+</div>
+</section>
+<!-- Botão Informativo / Ação Presencial (Substitui o botão de carrinho) -->
+<div class="pt-1">
+<button class="w-full h-[52px] bg-primary-container text-on-primary rounded-2xl font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-transform" onclick="openStoreModal()" type="button">
+<span class="material-symbols-outlined text-xl">storefront</span>
+<span class="">Experiência Presencial na Gelateria</span>
+</button>
+</div>
+</div>
+<!-- 5. BottomNavBar Oficial Arducci (Shared Component JSON Conformance) -->
+<!-- JSON: label_texts: ["Início", "Cardápio", "Carrinho", "Pedidos", "Perfil"], icons: ["storefront", "icecream", "shopping_bag", "receipt_long", "person"] -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest dark:bg-surface-container border-t border-outline-variant/40 shadow-sm"><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform" href="#"><span class="material-symbols-outlined text-2xl">storefront</span><span class="text-label-sm font-label-sm mt-0.5">Início</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform relative" href="#"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="text-label-sm font-label-sm mt-0.5">Sacola</span><span class="absolute top-0 right-2 bg-error text-on-error text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center ring-1 ring-white">2</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform" href="#"><span class="material-symbols-outlined text-2xl">receipt_long</span><span class="text-label-sm font-label-sm mt-0.5">Pedidos</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform opacity-40 pointer-events-none cursor-not-allowed" href="#" title="Acesso exclusivo para clientes logados"><span class="material-symbols-outlined text-2xl">person</span><span class="text-label-sm font-label-sm mt-0.5">Perfil</span></a></nav>
+<!-- Modal Informativo Presencial -->
+<div class="fixed inset-0 z-50 bg-[#3b2b20]/50 backdrop-blur-sm hidden items-end justify-center transition-opacity duration-300" id="store-modal">
+<div class="bg-surface-container-lowest w-full max-w-[402px] rounded-t-3xl p-6 border-t border-outline-variant/40 shadow-xl space-y-4">
+<div class="w-12 h-1.5 bg-outline-variant/60 rounded-full mx-auto mb-2"></div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">pin_drop</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">Como Pesar na Loja</h4>
+<p class="font-body-sm text-body-sm text-outline">Passo a passo simples e intuitivo</p>
+</div>
+</div>
+<ol class="space-y-3 pt-2 text-sm text-on-surface-variant font-body-sm">
+<li class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-bold text-xs">1</span>
+<span class="">Retire o copo ou cascão na bancada inicial higienizada.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-bold text-xs">2</span>
+<span class="">Sirva-se à vontade dos sabores dos 3 freezers e adicione coberturas.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-bold text-xs">3</span>
+<span class="">Coloque o pote sobre a balança digital no fim da ilha e receba a comanda.</span>
+</li>
+</ol>
+<button class="w-full h-12 bg-secondary text-on-secondary rounded-xl font-label-md text-label-md font-semibold mt-4 shadow-sm" onclick="closeStoreModal()" type="button">
+          Entendido, estou na loja!
+        </button>
+</div>
+</div>
+</main>
+<!-- Interactive JavaScript -->
+<script>
+    // Freezers Data: 17 Flavors per freezer strictly formatted in 4-column grid
+    const freezersData = {
+      1: {
+        title: "Freezer 1: Clássicos Italianos",
+        flavors: [
+          { name: "Pistache Bronte", color: "bg-emerald-100 text-emerald-800", icon: "eco" },
+          { name: "Cioccolato Belga", color: "bg-amber-900/10 text-amber-900", icon: "cookie" },
+          { name: "Doce de Leite", color: "bg-amber-100 text-amber-800", icon: "water_drop" },
+          { name: "Fior di Latte", color: "bg-slate-100 text-slate-700", icon: "egg" },
+          { name: "Nocciola Piemonte", color: "bg-stone-200 text-stone-800", icon: "grain" },
+          { name: "Stracciatella", color: "bg-zinc-100 text-zinc-800", icon: "view_carousel" },
+          { name: "Baunilha Bourbon", color: "bg-yellow-50 text-amber-700", icon: "flare" },
+          { name: "Caramelo Salgado", color: "bg-amber-200/50 text-amber-900", icon: "waves" },
+          { name: "Chocolate 70%", color: "bg-stone-800 text-stone-100", icon: "dark_mode" },
+          { name: "Tiramisù Tradizionale", color: "bg-yellow-100/60 text-amber-900", icon: "coffee" },
+          { name: "Amarena Fabbri", color: "bg-rose-100 text-rose-800", icon: "circle" },
+          { name: "Café Espresso", color: "bg-amber-950/15 text-amber-950", icon: "local_cafe" },
+          { name: "Gianduia Real", color: "bg-amber-900/20 text-amber-900", icon: "diamond" },
+          { name: "Zabaione", color: "bg-orange-100 text-orange-800", icon: "wine_bar" },
+          { name: "Cremino Arducci", color: "bg-stone-200/70 text-stone-900", icon: "layers" },
+          { name: "Cocco Fresco", color: "bg-sky-50 text-sky-800", icon: "spa" },
+          { name: "Menta com Cacau", color: "bg-teal-50 text-teal-800", icon: "forest" }
+        ]
+      },
+      2: {
+        title: "Freezer 2: Frutas & Sorbets",
+        flavors: [
+          { name: "Frutas Vermelhas", color: "bg-rose-100 text-rose-800", icon: "energy_savings_leaf" },
+          { name: "Maracujá Caatinga", color: "bg-yellow-100 text-yellow-800", icon: "sunny" },
+          { name: "Morango Silvestre", color: "bg-red-100 text-red-700", icon: "nutrition" },
+          { name: "Limão Siciliano", color: "bg-lime-100 text-lime-800", icon: "nature" },
+          { name: "Manga Tropical", color: "bg-amber-100 text-amber-700", icon: "wb_sunny" },
+          { name: "Açai Puro Artesanal", color: "bg-purple-100 text-purple-900", icon: "circle" },
+          { name: "Abacaxi com Hortelã", color: "bg-emerald-50 text-emerald-700", icon: "eco" },
+          { name: "Framboesa Intensa", color: "bg-pink-100 text-pink-800", icon: "compost" },
+          { name: "Amora Negra", color: "bg-violet-100 text-violet-900", icon: "blur_on" },
+          { name: "Goiaba Cascão", color: "bg-rose-50 text-rose-700", icon: "palette" },
+          { name: "Jabuticaba Nativa", color: "bg-slate-200 text-slate-900", icon: "lens" },
+          { name: "Kiwi Fresco", color: "bg-emerald-100 text-emerald-900", icon: "grass" },
+          { name: "Laranja Bahia", color: "bg-orange-100 text-orange-700", icon: "radio_button_checked" },
+          { name: "Cajuína do Nordeste", color: "bg-amber-50 text-amber-800", icon: "star" },
+          { name: "Tangerina Pura", color: "bg-orange-100 text-orange-800", icon: "flare" },
+          { name: "Melão Cantaloupe", color: "bg-amber-100/50 text-amber-700", icon: "nightlight" },
+          { name: "Pitanga Vermelha", color: "bg-red-100/70 text-red-800", icon: "grain" }
+        ]
+      },
+      3: {
+        title: "Freezer 3: Criações Especiais",
+        flavors: [
+          { name: "Cookies & Cream", color: "bg-stone-200 text-stone-800", icon: "cookie" },
+          { name: "Castanha de Caju", color: "bg-amber-100 text-amber-900", icon: "grain" },
+          { name: "Brownie com Fudge", color: "bg-amber-950/20 text-amber-950", icon: "cake" },
+          { name: "Pavê Italiano", color: "bg-yellow-50 text-yellow-900", icon: "lunch_dining" },
+          { name: "Torta de Limão", color: "bg-lime-50 text-lime-800", icon: "pie_chart" },
+          { name: "Choco Malte Crunch", color: "bg-amber-900/15 text-amber-900", icon: "auto_awesome" },
+          { name: "Queijo com Goiabada", color: "bg-red-50 text-red-900", icon: "local_pizza" },
+          { name: "Cheesecake Berries", color: "bg-pink-50 text-pink-800", icon: "cake" },
+          { name: "Alfajor Porteño", color: "bg-amber-100 text-amber-900", icon: "radio_button_checked" },
+          { name: "Banana Caramelada", color: "bg-yellow-100 text-amber-800", icon: "wb_sunny" },
+          { name: "Biscoito Biscoff", color: "bg-orange-100 text-orange-900", icon: "cookie" },
+          { name: "Brigadeiro Gourmet", color: "bg-stone-900 text-stone-100", icon: "lens" },
+          { name: "Iogurte com Amora", color: "bg-purple-50 text-purple-800", icon: "egg" },
+          { name: "Churros Artesanal", color: "bg-amber-100/80 text-amber-900", icon: "horizontal_rule" },
+          { name: "Coco Queimado", color: "bg-stone-200 text-stone-700", icon: "whatshot" },
+          { name: "Pé de Moleque", color: "bg-amber-200 text-amber-950", icon: "grid_view" },
+          { name: "Red Velvet Trufado", color: "bg-rose-100 text-rose-900", icon: "favorite" }
+        ]
+      }
+    };
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function renderFreezerGrid(freezerNum) {
+      const data = freezersData[freezerNum];
+      document.getElementById('freezer-title').innerText = data.title;
+      const grid = document.getElementById('freezer-grid');
+      grid.innerHTML = '';
+
+      data.flavors.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'bg-surface-container-lowest p-1.5 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-[0_1px_3px_rgba(0,0,0,0.02)]';
+        itemEl.innerHTML = `
+          <div class="w-12 h-12 rounded-lg ${item.color} flex items-center justify-center mb-1">
+            <span class="material-symbols-outlined text-xl">${item.icon}</span>
+          </div>
+          <span class="text-[10px] leading-tight font-medium text-primary line-clamp-2">${item.name}</span>
+        `;
+        grid.appendChild(itemEl);
+      });
+    }
+
+    function selectFreezer(num) {
+      [1, 2, 3].forEach(n => {
+        const btn = document.getElementById(`tab-freezer-${n}`);
+        if (n === num) {
+          btn.className = 'py-2.5 px-2 rounded-xl text-xs font-label-md font-bold transition-all bg-primary-container text-on-primary shadow-sm';
+        } else {
+          btn.className = 'py-2.5 px-2 rounded-xl text-xs font-label-md font-bold transition-all bg-surface-container-high text-on-surface hover:bg-surface-variant';
+        }
+      });
+      renderFreezerGrid(num);
+    }
+
+    function openStoreModal() {
+      const modal = document.getElementById('store-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeStoreModal() {
+      const modal = document.getElementById('store-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Inicialização da tela: carrega freezer 1 e abre o acordeom de gelatos como padrão convidativo
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFreezerGrid(1);
+      // Abrir o acordeom de sabores por padrão para exibição rica inicial
+      toggleAccordion('acc-gelatos', 'icon-gelatos');
+    });
+  </script>
+<script>window.SCREEN_ID=7;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

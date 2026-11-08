@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee8df">
+<meta name="description" content="Protótipo Arducci: cliente e administração integrados, com simulação em mobile, tablet e desktop.">
+<title>Arducci · Sistema de pedidos</title>
+<link rel="stylesheet" href="preview.css?v=20261108-layout-41">
+</head>
+<body>
+<header class="preview-controls">
+<div class="preview-brand"><img src="assets/logo-arducci.svg" alt="Arducci Gelateria e Açaiteria" width="96" height="48"><div><strong>Simulador Arducci</strong><span>Cliente e administração</span></div></div>
+<div class="preview-switch" role="group" aria-label="Escolher fluxo"><button data-flow="home" aria-pressed="true">Início</button><button data-flow="customer" aria-pressed="false">Cliente</button><button data-flow="admin" aria-pressed="false">Administrador</button></div>
+<div class="preview-switch devices-switch" role="group" aria-label="Escolher dispositivo"><button data-device="mobile" aria-pressed="true"><span aria-hidden="true">▯</span> Mobile</button><button data-device="tablet" aria-pressed="false"><span aria-hidden="true">▭</span> Tablet</button><button data-device="desktop" aria-pressed="false"><span aria-hidden="true">▱</span> Desktop</button></div>
+</header>
+<main class="preview-stage" aria-label="Área de simulação do dispositivo">
+<div class="device-holder"><div class="device" data-kind="mobile">
+<span class="side-key power" aria-hidden="true"></span><span class="side-key volume-up" aria-hidden="true"></span><span class="side-key volume-down" aria-hidden="true"></span>
+<div class="browser-chrome" aria-hidden="true"><span>● ● ●</span><span>Arducci · Ambiente de demonstração</span><span>↗</span></div>
+<div class="device-screen"><div class="camera-island" aria-hidden="true"></div><iframe id="app-screen" src="admin-0.html?v=20261108-layout-41" title="Sistema Arducci"></iframe></div>
+</div></div>
+</main>
+<footer class="preview-footer"><span id="preview-size">Mobile · 390 × 844</span><span id="preview-page">Início · Arducci</span><span>Navegue dentro do dispositivo · Sem operações reais</span></footer>
+<script src="preview.js?v=20261108-layout-41"></script>
+</body></html>

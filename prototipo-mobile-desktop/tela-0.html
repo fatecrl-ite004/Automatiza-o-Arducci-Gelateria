@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Arducci Gelateria - Checkout &amp; Pagamento</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS with Forms & Container Queries -->
+<link rel="stylesheet" href="styles/screen-0.css?v=20261108-layout-41">
+<!-- Tailwind Theme Configuration verbatim as specified -->
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .dotted-leader {
+      flex: 1;
+      border-bottom: 1.5px dotted #d2c4bc;
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen pb-32">
+<!-- Mobile Viewport Wrapper -->
+<div class="max-w-md mx-auto bg-surface min-h-screen relative shadow-2xl flex flex-col border-x border-outline-variant/30">
+<!-- 1. STATUS BAR (iOS Native Mimic - Fixo no topo do viewport mobile) -->
+<div class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/20">
+<div class="w-full pt-3 px-6 pb-2 flex justify-between items-center text-on-surface select-none">
+<span class="font-label-md text-label-md font-bold tracking-tight">9:41</span>
+<div class="flex items-center space-x-2 text-on-surface">
+<span class="material-symbols-outlined text-[17px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px]">wifi</span>
+<span class="material-symbols-outlined text-[20px]">battery_full</span>
+</div>
+</div>
+<!-- TOP APP BAR -->
+<header class="px-5 py-3 border-b border-outline-variant/20 bg-surface/95 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="relative">
+<img alt="Lucas Arducci" class="rounded-full object-cover ring-2 ring-primary-container/20 w-12 h-12" data-alt="Foto do perfil do cliente Lucas Arducci" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX_dshHC6yQIoo8taRlrXvaO3ZJ03_HH5rM7FFgPPDB8gIHZGn8R1nsK8WKwQDmY6PFSse1ZpF4CrO-RqcdEucrRR8SguFtmRvuYiEr5Q-JmvofsS65xvZrp0mw14bDyCVtfgqdtSXSCCx_kDhDvDUtuJ30nnr7GcgXJaMR5HzOFvtbWvk3M0uWXEy4Y4jes7CnPqmysTyeVolE3DtpwchmeQkB82X8sNJGfkMmkBO">
+<span class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</span>
+</div>
+<div>
+<div class="text-[10px] tracking-widest text-outline uppercase font-bold leading-none">BEM-VINDO!</div>
+<div class="flex items-center space-x-2 mt-0.5">
+<h2 class="font-headline-md text-headline-md text-primary font-bold leading-tight">Cliente Arducci</h2>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button aria-label="Sacola com 4 itens" class="w-10 h-10 rounded-full border border-outline-variant/30 bg-surface-container-lowest text-primary hover:bg-surface-container hover:border-secondary active:scale-95 flex items-center justify-center relative transition-all shadow-sm" onclick="handleCancelModal(true)">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-red-600 text-white rounded-full text-[10px] font-bold w-4 h-4 flex items-center justify-center leading-none" id="headerCartBadgeCount">4</span>
+</button>
+<button aria-label="Sair" class="w-10 h-10 rounded-full border border-outline-variant/40 bg-surface-container-low flex items-center justify-center hover:bg-surface-container text-primary-container active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+<div class="flex items-center space-x-3 pt-1 border-t border-outline-variant/20">
+<button aria-label="Voltar à sacola" class="w-9 h-9 rounded-full border border-outline-variant/40 bg-surface-container-low flex items-center justify-center hover:bg-surface-container text-primary-container active:scale-95 transition-all shadow-sm shrink-0" onclick="handleCancelModal(true)">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<h1 class="text-primary leading-tight font-bold font-headline-md text-[22px]">Finalizar Pedido</h1>
+<p class="font-body-sm text-[13px] text-on-surface-variant">Escolha as opções para fazer o pagamento</p>
+</div>
+</div>
+</header>
+</div>
+<!-- MAIN CHECKOUT CONTENT -->
+<main class="px-5 pt-4 space-y-5 flex-1">
+<!-- 3. RESUMO DO PEDIDO -->
+<section class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/50 shadow-sm space-y-3.5">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/30">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">receipt_long</span>
+<h3 class="font-headline-md text-[18px] text-primary">Resumo do Pedido</h3>
+</div>
+<span class="bg-surface-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant font-semibold" id="itemsCountBadge">4 itens</span>
+</div>
+<!-- Linhas justiçadas com pontilhados refinados -->
+<div class="space-y-2.5 pt-1" id="orderItemsList">
+<!-- Item 1 -->
+<div>
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-semibold text-primary">1x Gelato Tradicional Cascão</span>
+<span class="dotted-leader"></span>
+<span class="font-bold text-primary tabular-nums">R$ 24,00</span>
+</div>
+<p class="text-[12px] text-on-surface-variant pl-4 italic">Pistache Bronte e Fior di Latte</p>
+</div>
+<!-- Item 2 -->
+<div>
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-semibold text-primary">1x Milk Shake Especial 500ml</span>
+<span class="dotted-leader"></span>
+<span class="font-bold text-primary tabular-nums">R$ 32,00</span>
+</div>
+<p class="text-[12px] text-on-surface-variant pl-4 italic">Doce de Leite + Chantilly fresco</p>
+</div>
+<!-- Item 3 -->
+<div>
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-semibold text-primary">2x Água Mineral sem Gás 250ml</span>
+<span class="dotted-leader"></span>
+<span class="font-bold text-primary tabular-nums">R$ 12,00</span>
+</div>
+</div>
+<!-- Linhas dinâmicas de Comandas vinculadas dentro do Resumo do Pedido -->
+<div class="space-y-2 pt-1 border-t border-dashed border-outline-variant/40" id="orderSummaryLinkedItems">
+<!-- Inserido dinamicamente quando vinculado -->
+<div class="flex justify-between items-baseline font-body-sm text-body-sm text-secondary bg-secondary-fixed/20 p-1.5 rounded-lg border border-secondary/30" id="summary-cmd-1">
+<span class="font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+          Comanda DE vinculada
+        </span>
+<span class="dotted-leader !border-secondary/40"></span>
+<span class="font-bold tabular-nums">+ R$ 22,00</span>
+</div></div>
+</div>
+<!-- Seção Interativa: Adicionar pedidos de outras contas ou comanda feita pelo caixa -->
+<div class="pt-2 border-t border-dashed border-outline-variant/50 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">add_link</span>
+<span class="font-label-md text-[13px] text-primary font-bold">Vincular Comanda ou Outra Conta</span>
+</div>
+<span class="text-[11px] text-outline">Caixa / Balcão</span>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+    Deseja somar uma comanda física ou pedido lançado no caixa a esta conta?
+  </p>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">pin</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl pl-9 pr-3 py-2 text-body-sm text-primary placeholder:text-outline focus:border-secondary focus:ring-0 uppercase font-semibold text-[13px]" id="comandaInputCode" maxlength="12" oninput="handleComandaInputChange()" placeholder="Ex: CMD-108 ou #42" type="text">
+</div>
+<button class="hover:bg-emerald-700 hover:shadow-md active:scale-95 text-on-secondary px-3.5 py-2 rounded-xl text-label-md font-semibold flex items-center space-x-1 transition-all shadow-sm shrink-0 bg-emerald-800" id="vincularBtn" onclick="handleAddComanda()" type="button">
+<span class="material-symbols-outlined text-[17px]" id="vincularBtnIcon">check</span>
+<span class="" id="vincularBtnText">Vinculado</span>
+</button>
+</div>
+<!-- Lista / Tags de comandas vinculadas -->
+<div class="space-y-1.5" id="linkedComandasSection">
+<div class="text-[11px] font-bold uppercase tracking-wider text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="">Comandas adicionadas ao pedido:</span>
+</div>
+<div class="space-y-1.5" id="linkedComandasContainer">
+<!-- Inserido dinamicamente via JS -->
+<div class="flex items-center justify-between p-2.5 bg-secondary-fixed/15 rounded-lg border border-secondary/40 text-body-sm" id="comanda-card-1">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">receipt</span>
+<div>
+<span class="font-bold text-primary block leading-tight">Comanda Física DE</span>
+<span class="text-[11px] text-on-surface-variant">Lançada no Caixa • Café Espresso duplo</span>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<span class="font-bold text-secondary tabular-nums">+ R$ 22,00</span>
+<button class="text-outline hover:text-error p-1 rounded transition-colors" onclick="removeComanda('comanda-card-1', 'summary-cmd-1', 22.00)" title="Remover comanda" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div></div>
+</div>
+</div>
+<!-- Totais e quebra de valores -->
+<div class="border-t border-outline-variant/40 pt-3 space-y-1.5 font-body-sm text-body-sm text-on-surface-variant"><div class="flex justify-between"><span class="">Subtotal (3 itens)</span><span class="tabular-nums font-medium text-primary" id="subtotalDisplay">R$ 68,00</span></div><div class="flex justify-between text-secondary"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">loyalty</span> Desconto Arducci Club (Fidelidade)</span><span class="tabular-nums font-semibold" id="descontoDisplay">- R$ 13,10</span></div><div class="flex justify-between items-center pt-2.5 border-t border-outline-variant/30 gap-2"><span class="font-title-sm text-title-sm text-primary font-bold shrink-0">Total a Pagar</span><span class="font-headline-lg text-primary tracking-tight font-bold text-right tabular-nums whitespace-nowrap text-[24px] leading-none" id="totalDisplay">R$ 54,90</span></div></div>
+</section>
+<!-- 4. OBSERVAÇÃO DO CLIENTE EM VERMELHO -->
+<section class="bg-error-container/40 border border-error/30 rounded-xl p-3.5 flex items-start space-x-3">
+<span class="material-symbols-outlined text-error text-[22px] flex-shrink-0 mt-0.5" style="font-variation-settings: &quot;FILL&quot; 1;">
+          edit_note
+        </span>
+<div class="text-error leading-snug">
+<span class="font-bold text-[13px] block">Observação do Cliente:</span>
+<p class="font-body-sm text-[13px] mt-0.5 text-on-error-container font-medium">
+            "Caprichar no chantilly fresco e trazer colheres biodegradáveis extras."
+          </p>
+</div>
+</section>
+<!-- 5. OPÇÕES DE RECEBIMENTO & CHECKBOXES -->
+<section class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/50 shadow-sm space-y-4">
+<h3 class="font-title-sm text-title-sm text-primary flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">room_service</span>
+<span class="">Como deseja receber?</span>
+</h3>
+<!-- Radio Cards de Recebimento com hover verde e tempos estimados -->
+<div class="grid grid-cols-2 gap-3" id="deliveryModeContainer">
+<!-- Opção 1: Mesa -->
+<label class="cursor-pointer border border-outline-variant/60 bg-surface-container-low rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/50" id="optionMesaCard" onclick="selectDeliveryMode('mesa')">
+<input checked="" class="sr-only" name="delivery_mode" type="radio" value="mesa">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-outline text-[24px]" id="iconMesa">restaurant</span>
+<span class="w-4 h-4 rounded-full border border-outline flex items-center justify-center bg-transparent" id="radioDotMesa"></span>
+</div>
+<div class="mt-2 space-y-1">
+<span class="block font-title-sm text-[14px] text-primary" id="titleMesa">Receber na mesa</span>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-secondary font-semibold">Mesa 04 (Salão)</span>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-bold text-secondary bg-secondary-fixed/50 px-1.5 py-0.2 rounded">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 10-15 min
+  </span>
+</div>
+</div>
+</label>
+<!-- Opção 2: Balcão -->
+<label class="cursor-pointer border-2 border-secondary bg-secondary-fixed/15 rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/60 shadow-sm" id="optionBalcaoCard" onclick="selectDeliveryMode('balcao')">
+<input class="sr-only" name="delivery_mode" type="radio" value="balcao">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-[24px]" id="iconBalcao">takeout_dining</span>
+<span class="w-4 h-4 rounded-full border-2 border-secondary flex items-center justify-center bg-secondary" id="radioDotBalcao"><span class="w-1.5 h-1.5 rounded-full bg-surface"></span></span>
+</div>
+<div class="mt-2 space-y-1">
+<span class="block font-title-sm text-[14px] text-primary font-bold" id="titleBalcao">Retirar no balcão</span>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-secondary font-semibold" id="subBalcao">Aguarde chamada</span>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-bold text-secondary bg-secondary-fixed/50 px-1.5 py-0.2 rounded" id="timeBalcao">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 12-18 min
+  </span>
+</div>
+</div>
+</label>
+</div>
+<div class="pt-1"><label class="flex items-start space-x-3 cursor-pointer select-none">
+<input checked="" class="mt-0.5 rounded border-secondary text-secondary focus:ring-secondary focus:ring-offset-0 w-4 h-4" id="cpfToggle" onchange="const f = document.getElementById('cpfFieldGroup'); if(this.checked){ f.classList.remove('hidden'); } else { f.classList.add('hidden'); }" type="checkbox">
+<div class="flex-1">
+<div class="flex items-center space-x-2">
+<span class="font-label-md text-label-md text-primary font-bold block">CPF na Nota Fiscal</span>
+<span class="bg-secondary-fixed/30 text-secondary text-[10px] font-bold px-2 py-0.5 rounded-full">Salvo</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Informe seu CPF para emissão da nota fiscal do pedido.</span>
+</div>
+</label>
+<div class="mt-3 pl-7 space-y-2 hidden" id="cpfFieldGroup">
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2.5 text-body-md text-primary focus:border-secondary focus:ring-0 font-medium tabular-nums" id="cpfInput" maxlength="14" placeholder="000.000.000-00" type="text" value="123.123.123-00">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-secondary text-[20px]">verified</span>
+</div>
+<div class="p-2.5 bg-tertiary-fixed/40 rounded-lg flex items-center space-x-2 text-[12px] text-primary-container font-medium border border-outline-variant/40">
+<span class="material-symbols-outlined text-[18px] text-secondary">info</span>
+<span class="">CPF salvo vinculado ao seu perfil para Nota Fiscal Paulista.</span>
+</div>
+</div></div>
+</section>
+<!-- 6. FORMAS DE PAGAMENTO COM 3 CARDS E EXPANSÃO/TOGGLE INTERATIVO -->
+<section class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/50 shadow-sm space-y-3.5" id="paymentSection">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/30">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">payments</span>
+<h3 class="font-headline-md text-[18px] text-primary font-bold whitespace-nowrap">Forma de Pagamento</h3>
+</div>
+<span class="text-[11px] text-outline uppercase font-semibold tracking-wider text-right block shrink-0">Toque para<br>&nbsp;selecionar</span>
+</div>
+<!-- 3 CARDS INTERATIVOS HORIZONTAIS -->
+<div class="grid grid-cols-3 gap-2.5 pt-1">
+<!-- Opção 1: PIX (Inicia Aberta/Selecionada) -->
+<button class="relative flex flex-col items-center justify-between p-2.5 pt-3.5 rounded-xl border border-outline-variant/60 bg-surface-container-low text-center transition-all duration-150 hover:border-emerald-600 hover:bg-emerald-50/20 active:scale-95 shadow-sm min-h-[118px]" id="payBtn-pix" onclick="togglePayment('pix')" type="button">
+<span class="absolute -top-2.5 bg-surface-container text-on-surface-variant text-[9px] font-medium px-2 py-0.5 rounded-full tracking-wider border border-outline-variant/40" id="badge-pix">Instantâneo</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container flex items-center justify-center shrink-0 mt-1" id="iconBox-pix">
+<span class="material-symbols-outlined text-[24px]">qr_code_2</span>
+</div>
+<div class="w-full mt-1.5">
+<span class="font-bold text-[13px] text-primary block leading-tight" id="label-pix">PIX</span>
+<span class="text-[11px] text-on-surface-variant block leading-tight mt-0.5" id="sub-pix">Aprovação rápida</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline mt-1 leading-none" id="arrow-pix">expand_more</span>
+</button>
+<!-- Opção 2: CARTÕES -->
+<button class="relative flex flex-col items-center justify-between p-2.5 pt-3.5 rounded-xl border border-outline-variant/60 bg-surface-container-low text-center transition-all duration-150 hover:border-emerald-600 hover:bg-emerald-50/20 active:scale-95 shadow-sm min-h-[118px]" id="payBtn-cards" onclick="togglePayment('cards')" type="button">
+<span class="absolute -top-2.5 bg-surface-container text-on-surface-variant text-[9px] font-medium px-2 py-0.5 rounded-full tracking-wider border border-outline-variant/40" id="badge-cards">Online</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container flex items-center justify-center shrink-0 mt-1" id="iconBox-cards">
+<span class="material-symbols-outlined text-[24px]">credit_card</span>
+</div>
+<div class="w-full mt-1.5">
+<span class="font-bold text-[13px] text-primary block leading-tight" id="label-cards">Cartões</span>
+<span class="text-[11px] text-on-surface-variant block leading-tight mt-0.5" id="sub-cards">Débito / Crédito</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline mt-1 leading-none" id="arrow-cards">expand_more</span>
+</button>
+<!-- Opção 3: DINHEIRO -->
+<button class="relative flex flex-col items-center justify-between p-2.5 pt-3.5 rounded-xl border border-outline-variant/60 bg-surface-container-low text-center transition-all duration-150 hover:border-emerald-600 hover:bg-emerald-50/20 active:scale-95 shadow-sm min-h-[118px]" id="payBtn-cash" onclick="togglePayment('cash')" type="button">
+<span class="absolute -top-2.5 bg-surface-container text-on-surface-variant text-[9px] font-medium px-2 py-0.5 rounded-full tracking-wider border border-outline-variant/40" id="badge-cash">Presencial</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container flex items-center justify-center shrink-0 mt-1" id="iconBox-cash">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<div class="w-full mt-1.5">
+<span class="font-bold text-[13px] text-primary block leading-tight" id="label-cash">Dinheiro</span>
+<span class="text-[11px] text-on-surface-variant block leading-tight mt-0.5" id="sub-cash">Caixa da Loja</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline mt-1 leading-none" id="arrow-cash">expand_more</span>
+</button>
+</div>
+<!-- CONTAINER EXPANSÍVEL: OPÇÃO 1 - PIX (ABERTO POR PADRÃO) -->
+<div class="rounded-xl border-2 border-secondary/40 bg-secondary-fixed/15 p-4 space-y-3.5 shadow-sm transition-all duration-200 hidden" id="box-pix">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">qr_code_2</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-bold text-[14px] text-primary">Pagamento Instantâneo via PIX</h4>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+          Pagamento Instantâneo via PIX. Aprovação imediata com QR Code ou Chave Copia e Cola sem taxas.
+        </p>
+</div>
+</div>
+<button class="w-full bg-secondary hover:bg-emerald-800 active:scale-[0.98] text-on-secondary font-label-md text-label-md py-3 px-4 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer font-bold" onclick="showPaymentFeedback('Iniciando ambiente seguro PIX... Chave e QR Code gerados!')" type="button">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span class="">Finalizar Pagamento com PIX</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- CONTAINER EXPANSÍVEL: OPÇÃO 2 - CARTÕES (OCULTO POR PADRÃO) -->
+<div class="rounded-xl border-2 border-secondary/40 bg-secondary-fixed/15 p-4 space-y-3.5 shadow-sm transition-all duration-200 hidden" id="box-cards">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">credit_card</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-bold text-[14px] text-primary">Cartão de Débito, Crédito ou VR</h4>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Pagamento online seguro via Débito, Crédito ou Vale-Refeição em tela dedicada.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2.5 pt-1">
+<button class="w-full bg-secondary hover:bg-emerald-800 active:scale-[0.98] text-on-secondary font-label-md text-label-md py-3 px-4 rounded-xl shadow-md flex items-center justify-between transition-all cursor-pointer" type="button"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-[20px]">credit_card</span><span class="font-bold text-[13px]">Finalizar Pagamento no Débito&nbsp;</span></div><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+<button class="w-full bg-surface-container-lowest border-2 border-secondary/40 hover:bg-secondary-fixed/20 active:scale-[0.98] text-primary font-label-md text-label-md py-2.5 px-4 rounded-xl shadow-sm flex items-center justify-between transition-all cursor-pointer" type="button"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-secondary text-[20px]">credit_score</span><span class="font-bold text-[13px] text-primary">Finalizar no Crédito ou VR&nbsp;</span></div><span class="material-symbols-outlined text-secondary text-[18px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- CONTAINER EXPANSÍVEL: OPÇÃO 3 - DINHEIRO (OCULTO POR PADRÃO) -->
+<div class="rounded-xl border-2 border-secondary/40 bg-secondary-fixed/15 p-4 space-y-3.5 shadow-sm transition-all duration-200 hidden" id="box-cash">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-bold text-[14px] text-primary">Pagamento no Caixa Físico</h4>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+          Para dar continuidade e finalizar seu pedido em dinheiro, compareça ao caixa físico da loja.
+        </p>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-secondary/30 flex items-center justify-between">
+<span class="text-[12px] text-on-surface-variant font-medium">Identificador do seu pedido:</span>
+<div class="inline-flex items-center gap-1.5 bg-secondary-fixed/30 text-secondary px-3 py-1 rounded-lg font-bold text-[14px] border border-secondary/40">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+<span class="">Pedido #123</span>
+</div>
+</div>
+<button class="w-full bg-secondary hover:bg-emerald-800 active:scale-[0.98] text-on-secondary font-label-md text-label-md py-3 px-4 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer font-bold" onclick="this.innerHTML = '<span class=\'material-symbols-outlined text-[20px]\' >check_circle</span> <span>Enviado para o caixa!</span>'; this.classList.remove('hover:bg-emerald-800'); this.classList.add('bg-primary-container', 'cursor-default'); this.disabled = true; showPaymentFeedback('Pedido #123 registrado com sucesso! Apresente o código no caixa.');" type="button"><span class="material-symbols-outlined text-[20px]">check</span><span class="">Finalizar Pedido no Caixa →</span></button>
+</div>
+<!-- Feedback Toast Visual -->
+</section>
+<!-- 7. BOTÕES DE CONFIRMAÇÃO & CANCELAMENTO -->
+<section class="space-y-3 pt-2 pb-6"><p class="text-center text-[11px] text-outline flex items-center justify-center space-x-1"><span class="material-symbols-outlined text-[14px]">shield</span><span class="">Ambiente 100% Criptografado • Arducci Gelateria &amp; Açaiteria</span></p></section>
+</main>
+<!-- 8. BOTTOM NAVIGATION BAR (4 abas sem item selecionado conforme requisito) -->
+<nav aria-label="Navegação Inferior" class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest dark:bg-surface-container border-t border-outline-variant/40 shadow-sm max-w-md mx-auto right-0">
+<!-- Início (Neutral) -->
+<button aria-label="Início" class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150 hover:text-secondary py-1 px-2">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+<span class="text-label-sm font-label-sm mt-0.5">Início</span>
+</button>
+<!-- Carrinho (Neutral State) -->
+<button aria-label="Sacola" class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150 hover:text-secondary py-1 px-2 relative" onclick="handleCancelModal(true)">
+<span class="relative">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="absolute -top-1.5 -right-2 bg-red-600 text-white rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold" id="cartBadgeCount">4</span>
+</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sacola</span>
+</button>
+<!-- Pedidos (Neutral) -->
+<button aria-label="Pedidos" class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150 hover:text-secondary py-1 px-2">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-0.5">Pedidos</span>
+</button>
+<!-- Perfil (Neutral) -->
+<button aria-label="Perfil" class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150 hover:text-secondary py-1 px-2">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Perfil</span>
+</button>
+</nav>
+</div>
+<!-- INLINE JAVASCRIPT FOR DYNAMIC TOUCH INTERACTIONS -->
+<script>
+    let baseTotal = 68.00;
+    let addedComandasTotal = 0.00;
+    let totalItems = 3;
+    let currentDeliveryMode = 'mesa';
+    let comandaLinkedCount = 0;
+
+    function formatCurrency(val) {
+      return 'R$ ' + val.toFixed(2).replace('.', ',');
+    }
+
+    function updateTotalDisplay() {
+      const grandTotal = baseTotal + addedComandasTotal;
+      const subtotalEl = document.getElementById('subtotalDisplay');
+      const totalEl = document.getElementById('totalDisplay');
+      const itemsCountEl = document.getElementById('itemsCountBadge');
+      const cartBadgeEl = document.getElementById('cartBadgeCount');
+      const headerCartBadgeEl = document.getElementById('headerCartBadgeCount');
+
+      if (subtotalEl) subtotalEl.textContent = formatCurrency(grandTotal);
+      if (totalEl) totalEl.textContent = formatCurrency(grandTotal);
+      if (itemsCountEl) itemsCountEl.textContent = totalItems + ' itens';
+      if (cartBadgeEl) cartBadgeEl.textContent = totalItems;
+      if (headerCartBadgeEl) headerCartBadgeEl.textContent = totalItems;
+    }
+
+    // TOGGLE ROBUSTO DE FORMAS DE PAGAMENTO
+    function togglePayment(method) {
+      const allMethods = ['pix', 'cards', 'cash'];
+      const targetBox = document.getElementById('box-' + method);
+      const isAlreadyOpen = targetBox && !targetBox.classList.contains('hidden');
+
+      // Fecha todas as boxes e redefine estilos dos botões
+      allMethods.forEach(function(m) {
+        const box = document.getElementById('box-' + m);
+        const btn = document.getElementById('payBtn-' + m);
+        const badge = document.getElementById('badge-' + m);
+        const iconBox = document.getElementById('iconBox-' + m);
+        const label = document.getElementById('label-' + m);
+        const sub = document.getElementById('sub-' + m);
+        const arrow = document.getElementById('arrow-' + m);
+
+        if (box) box.classList.add('hidden');
+
+        if (btn) {
+          btn.className = "relative flex flex-col items-center justify-between p-2.5 pt-3.5 rounded-xl border border-outline-variant/60 bg-surface-container-low text-center transition-all duration-150 hover:border-emerald-600 hover:bg-emerald-50/20 active:scale-95 shadow-sm min-h-[118px]";
+        }
+        if (badge) {
+          badge.className = "absolute -top-2.5 bg-surface-container text-on-surface-variant text-[9px] font-medium px-2 py-0.5 rounded-full tracking-wider border border-outline-variant/40";
+        }
+        if (iconBox) {
+          iconBox.className = "w-10 h-10 rounded-full bg-surface-container-high text-primary-container flex items-center justify-center shrink-0 mt-1";
+        }
+        if (label) {
+          label.className = "font-bold text-[13px] text-primary block leading-tight";
+        }
+        if (sub) {
+          sub.className = "text-[11px] text-on-surface-variant block leading-tight mt-0.5";
+        }
+        if (arrow) {
+          arrow.textContent = 'expand_more';
+          arrow.className = "material-symbols-outlined text-[16px] text-outline mt-1 leading-none";
+        }
+      });
+
+      // Se não estava aberto, abre o selecionado e ativa o estilo destacado
+      if (!isAlreadyOpen && targetBox) {
+        targetBox.classList.remove('hidden');
+
+        const activeBtn = document.getElementById('payBtn-' + method);
+        const activeBadge = document.getElementById('badge-' + method);
+        const activeIconBox = document.getElementById('iconBox-' + method);
+        const activeLabel = document.getElementById('label-' + method);
+        const activeSub = document.getElementById('sub-' + method);
+        const activeArrow = document.getElementById('arrow-' + method);
+
+        if (activeBtn) {
+          activeBtn.className = "relative flex flex-col items-center justify-between p-2.5 pt-3.5 rounded-xl border-2 border-emerald-700 bg-emerald-50/40 text-center transition-all duration-150 active:scale-95 shadow-sm min-h-[118px]";
+        }
+        if (activeBadge) {
+          activeBadge.className = "absolute -top-2.5 bg-emerald-800 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm";
+        }
+        if (activeIconBox) {
+          activeIconBox.className = "w-10 h-10 rounded-full bg-emerald-700/15 text-emerald-800 flex items-center justify-center shrink-0 mt-1";
+        }
+        if (activeLabel) {
+          activeLabel.className = "font-bold text-[13px] text-emerald-950 block leading-tight";
+        }
+        if (activeSub) {
+          activeSub.className = "text-[11px] text-emerald-800 font-semibold block leading-tight mt-0.5";
+        }
+        if (activeArrow) {
+          activeArrow.textContent = 'expand_less';
+          activeArrow.className = "material-symbols-outlined text-[16px] text-emerald-800 mt-1 leading-none";
+        }
+      }
+    }
+
+    // Exibição de Toast / Feedback Interativo
+    function showPaymentFeedback(msg) {
+      const toast = document.getElementById('paymentToastNotification');
+      const msgEl = document.getElementById('paymentToastMessage');
+      if (toast && msgEl) {
+        msgEl.textContent = msg;
+        toast.classList.remove('hidden');
+        setTimeout(function() {
+          toast.classList.add('hidden');
+        }, 4000);
+      }
+    }
+
+    // Input do Vincular comanda
+    function handleComandaInputChange() {
+      const input = document.getElementById('comandaInputCode');
+      const btn = document.getElementById('vincularBtn');
+      const btnText = document.getElementById('vincularBtnText');
+      const btnIcon = document.getElementById('vincularBtnIcon');
+
+      if (btnText.textContent === 'Vinculado' && input.value.trim().length > 0) {
+        btnText.textContent = 'Vincular';
+        btnIcon.textContent = 'add';
+        btn.classList.remove('bg-emerald-800');
+        btn.classList.add('bg-secondary');
+      }
+    }
+
+    function handleAddComanda() {
+      const input = document.getElementById('comandaInputCode');
+      const val = input.value.trim().toUpperCase() || 'CMD-104';
+      const btn = document.getElementById('vincularBtn');
+      const btnText = document.getElementById('vincularBtnText');
+      const btnIcon = document.getElementById('vincularBtnIcon');
+
+      btnText.textContent = 'Vinculado';
+      btnIcon.textContent = 'check';
+      btn.classList.remove('bg-secondary');
+      btn.classList.add('bg-emerald-800');
+
+      const comandaValor = 22.00;
+      addedComandasTotal += comandaValor;
+      totalItems += 1;
+      comandaLinkedCount += 1;
+
+      const summaryItems = document.getElementById('orderSummaryLinkedItems');
+      if (summaryItems) {
+        summaryItems.classList.remove('hidden');
+        const summaryLine = document.createElement('div');
+        summaryLine.id = 'summary-cmd-' + comandaLinkedCount;
+        summaryLine.className = "flex justify-between items-baseline font-body-sm text-body-sm text-secondary bg-secondary-fixed/20 p-1.5 rounded-lg border border-secondary/30";
+        summaryLine.innerHTML = `
+          <span class="font-bold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            Comanda ${val} vinculada
+          </span>
+          <span class="dotted-leader !border-secondary/40"></span>
+          <span class="font-bold tabular-nums">+ R$ 22,00</span>
+        `;
+        summaryItems.appendChild(summaryLine);
+      }
+
+      const container = document.getElementById('linkedComandasContainer');
+      const section = document.getElementById('linkedComandasSection');
+      if (section) section.classList.remove('hidden');
+
+      if (container) {
+        const card = document.createElement('div');
+        const cardId = 'comanda-card-' + comandaLinkedCount;
+        card.id = cardId;
+        card.className = "flex items-center justify-between p-2.5 bg-secondary-fixed/15 rounded-lg border border-secondary/40 text-body-sm";
+        card.innerHTML = `
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-secondary text-[18px]">receipt</span>
+            <div>
+              <span class="font-bold text-primary block leading-tight">Comanda Física ${val}</span>
+              <span class="text-[11px] text-on-surface-variant">Lançada no Caixa • Café Espresso duplo</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-secondary tabular-nums">+ R$ 22,00</span>
+            <button type="button" class="text-outline hover:text-error p-1 rounded transition-colors" onclick="removeComanda('${cardId}', 'summary-cmd-${comandaLinkedCount}', 22.00)" title="Remover comanda">
+              <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      }
+      input.value = '';
+      updateTotalDisplay();
+    }
+
+    function removeComanda(cardId, summaryLineId, valor) {
+      const card = document.getElementById(cardId);
+      if (card) card.remove();
+
+      const summaryLine = document.getElementById(summaryLineId);
+      if (summaryLine) summaryLine.remove();
+
+      addedComandasTotal = Math.max(0, addedComandasTotal - valor);
+      totalItems = Math.max(3, totalItems - 1);
+
+      const container = document.getElementById('linkedComandasContainer');
+      if (container && container.children.length === 0) {
+        const linkedSec = document.getElementById('linkedComandasSection');
+        const summarySec = document.getElementById('orderSummaryLinkedItems');
+        if (linkedSec) linkedSec.classList.add('hidden');
+        if (summarySec) summarySec.classList.add('hidden');
+
+        const btn = document.getElementById('vincularBtn');
+        const btnText = document.getElementById('vincularBtnText');
+        const btnIcon = document.getElementById('vincularBtnIcon');
+        if (btnText) btnText.textContent = 'Vincular';
+        if (btnIcon) btnIcon.textContent = 'add';
+        if (btn) {
+          btn.classList.remove('bg-emerald-800');
+          btn.classList.add('bg-secondary');
+        }
+      }
+      updateTotalDisplay();
+    }
+
+    // Gerenciamento de Modo de Recebimento (Mesa vs Balcão)
+    function selectDeliveryMode(mode) {
+      currentDeliveryMode = mode;
+      const mesaCard = document.getElementById('optionMesaCard');
+      const balcaoCard = document.getElementById('optionBalcaoCard');
+
+      const iconMesa = document.getElementById('iconMesa');
+      const iconBalcao = document.getElementById('iconBalcao');
+
+      const radioDotMesa = document.getElementById('radioDotMesa');
+      const radioDotBalcao = document.getElementById('radioDotBalcao');
+
+      const titleMesa = document.getElementById('titleMesa');
+      const titleBalcao = document.getElementById('titleBalcao');
+
+      const subBalcao = document.getElementById('subBalcao');
+      const timeBalcao = document.getElementById('timeBalcao');
+
+      if (mode === 'mesa') {
+        mesaCard.className = "cursor-pointer border-2 border-secondary bg-secondary-fixed/15 rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/60 shadow-sm";
+        iconMesa.className = "material-symbols-outlined text-secondary text-[24px]";
+        radioDotMesa.className = "w-4 h-4 rounded-full border-2 border-secondary flex items-center justify-center bg-secondary";
+        radioDotMesa.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>';
+        titleMesa.className = "block font-title-sm text-[14px] text-primary font-bold";
+
+        balcaoCard.className = "cursor-pointer border border-outline-variant/60 bg-surface-container-low rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/50";
+        iconBalcao.className = "material-symbols-outlined text-outline text-[24px]";
+        radioDotBalcao.className = "w-4 h-4 rounded-full border border-outline flex items-center justify-center bg-transparent";
+        radioDotBalcao.innerHTML = '';
+        titleBalcao.className = "block font-title-sm text-[14px] text-primary";
+        subBalcao.className = "text-label-sm text-on-surface-variant font-normal";
+        timeBalcao.className = "inline-flex items-center gap-0.5 text-[11px] font-semibold text-on-surface-variant bg-surface-container px-1.5 py-0.2 rounded";
+      } else {
+        balcaoCard.className = "cursor-pointer border-2 border-secondary bg-secondary-fixed/15 rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/60 shadow-sm";
+        iconBalcao.className = "material-symbols-outlined text-secondary text-[24px]";
+        radioDotBalcao.className = "w-4 h-4 rounded-full border-2 border-secondary flex items-center justify-center bg-secondary";
+        radioDotBalcao.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>';
+        titleBalcao.className = "block font-title-sm text-[14px] text-primary font-bold";
+        subBalcao.className = "text-label-sm text-secondary font-semibold";
+        timeBalcao.className = "inline-flex items-center gap-0.5 text-[11px] font-bold text-secondary bg-secondary-fixed/50 px-1.5 py-0.2 rounded";
+
+        mesaCard.className = "cursor-pointer border border-outline-variant/60 bg-surface-container-low rounded-xl p-3 flex flex-col justify-between transition-all duration-200 relative hover:border-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/50";
+        iconMesa.className = "material-symbols-outlined text-outline text-[24px]";
+        radioDotMesa.className = "w-4 h-4 rounded-full border border-outline flex items-center justify-center bg-transparent";
+        radioDotMesa.innerHTML = '';
+        titleMesa.className = "block font-title-sm text-[14px] text-primary";
+      }
+    }
+
+    function handleCancelModal(show) {
+      // Placeholder para voltar ou fechar
+    }
+  </script>
+<script>window.SCREEN_ID=0;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="native-payment.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html><html lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesas e Comandas · SORVETEC PRO Gelato &amp; Açaí</title>
+<!-- Material Symbols Outlined -->
+
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans / Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Tailwind CSS with Official Theme Config -->
+<link rel="stylesheet" href="styles/admin-10.css?v=20261108-layout-41">
+
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #D0C5AF;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #B8860B;
+    }
+    .sidebar-collapsed {
+      width: 72px !important;
+    }
+    .sidebar-collapsed .sidebar-text {
+      display: none !important;
+    }
+    .sidebar-collapsed .sidebar-header-box {
+      justify-content: center;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .sidebar-collapsed nav a {
+      justify-content: center;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .sidebar-collapsed .sidebar-footer-btn {
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .workspace-expanded {
+      margin-left: 72px !important;
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-canvas-crema text-on-surface antialiased text-body-md select-none min-h-screen flex flex-col">
+<!-- ========================================== -->
+<!-- 1. OFFICIAL SIDEBAR (SideNavBar Blueprint) -->
+<!-- ========================================== -->
+<aside class="w-64 bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 min-h-screen border-r border-[#2d221c] z-30 fixed top-0 bottom-0 left-0" id="sidebar"><div class="p-5 border-b border-[#2d221c] flex items-center justify-between" id="sidebar-header"><div class="flex items-center gap-3" id="sidebar-brand-box"><div class="w-10 h-10 bg-[#d4af37] rounded-xl flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-[#18110e] text-2xl font-bold">icecream</span></div><div class="flex flex-col" id="brand-text"><div class="flex items-center gap-1.5"><span class="font-bold text-sm tracking-wide text-white">SORVETEC</span><span class="bg-[#d4af37]/20 text-[#d4af37] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#d4af37]/30 leading-none">PRO</span></div><span class="text-[11px] text-[#a89a8f] font-normal leading-tight">Arducci Gelato &amp; Açai</span></div></div><button class="p-1.5 rounded-lg text-[#a89a8f] hover:text-[#fff8f4] hover:bg-white/5 transition-colors shrink-0" id="sidebar-toggle-btn" onclick="toggleNewSidebar()" title="Recolher menu"><span class="material-symbols-outlined text-xl" id="sidebar-toggle-icon">menu_open</span></button></div><nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scroll"><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Dashboard"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">dashboard</span><span class="nav-text truncate">Dashboard</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Acompanhamento de Pedido"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">list_alt</span><span class="nav-text truncate">Acompanhamento de Pedido</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Caixa e PDV"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">point_of_sale</span><span class="nav-text truncate">Caixa&nbsp;</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Clientes"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">group</span><span class="nav-text truncate">Clientes</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Estoque"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">inventory_2</span><span class="nav-text truncate">Estoque</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Sabores de Gelato"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">icecream</span><span class="nav-text truncate">Sabores de Gelato</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Financeiro"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">account_balance_wallet</span><span class="nav-text truncate">Financeiro</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Funcionários"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">badge</span><span class="nav-text truncate">Funcionários</span></a><a class="nav-link flex items-center justify-between px-3 py-2 rounded-lg bg-[#2b1810] text-[#d4af37] font-semibold text-xs border-l-4 border-[#d4af37] shadow-sm whitespace-nowrap" href="#" title="Mesas e Comandas"><div class="flex items-center gap-3 min-w-0"><span class="material-symbols-outlined text-xl text-[#d4af37] shrink-0">table_restaurant</span><span class="nav-text truncate">Mesas e Comandas</span></div><span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Relatórios"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">bar_chart</span><span class="nav-text truncate">Relatórios</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Painel de Controle"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">settings</span><span class="nav-text truncate">Painel de Controle</span></a><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#" title="Suporte Técnico"><span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">support_agent</span><span class="nav-text truncate">Suporte Técnico</span></a></nav><div class="p-4 border-t border-[#2d221c]"><button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-rose-500 hover:text-rose-400 hover:bg-rose-500/10 transition-colors text-xs font-semibold whitespace-nowrap" id="btn-logout" onclick="document.getElementById('modalLogoutConfirm').classList.remove('hidden')"><span class="material-symbols-outlined text-xl shrink-0">logout</span><span class="logout-text truncate">Encerrar Sessão (Sair)</span></button></div></aside>
+<!-- ========================================== -->
+<!-- MAIN WORKSPACE (Desktop Shell)             -->
+<!-- ========================================== -->
+<div class="ml-64 flex flex-col flex-1 min-h-screen transition-all duration-300" id="mainWorkspace">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-16 px-6 w-full bg-surface-container-lowest border-b border-surface-crema-muted select-none shadow-sm">
+<!-- Lado Esquerdo: Badge dinâmico de status e botão de alternância rápida -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-pistache-soft border border-pistache-accent/30 text-pistache-emerald transition-all shadow-xs" id="storeStatusBadge">
+<span class="w-2.5 h-2.5 rounded-full bg-pistache-emerald animate-pulse" id="storeStatusPulse"></span>
+<span class="text-[11px] font-bold uppercase tracking-wider" id="storeStatusText">Loja Aberta • Salão e Balcão</span>
+</div>
+<button class="px-3 py-1 text-xs font-bold text-cherry-ruby hover:bg-cherry-soft border border-cherry-ruby/40 rounded-md transition-colors flex items-center gap-1.5" id="storeToggleBtn" onclick="toggleStoreStatus()">
+<span class="material-symbols-outlined text-sm" id="storeToggleIcon">store</span>
+<span class="" id="storeToggleLabel">Fechar loja</span>
+</button>
+<div class="h-4 w-px bg-surface-crema-muted hidden sm:block"></div>
+<div class="hidden md:flex items-center gap-1.5 text-on-surface-variant text-[12px]">
+</div>
+</div>
+<!-- Lado Direito: Notificações, Histórico, Configurações, Power e Perfil Oficial Adm MASTER -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 relative">
+<!-- Notificações -->
+<div class="relative">
+<button class="relative p-2 text-on-surface-variant hover:text-cacao-deep hover:bg-surface-crema-subtle rounded-lg transition-colors" id="btnNotifications" onclick="toggleNotificationDropdown()" title="Notificações">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 px-1 min-w-[16px] h-4 bg-cherry-ruby text-white text-[9px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">3</span>
+</button>
+<!-- Dropdown Notificações -->
+<div class="hidden absolute right-0 mt-2 w-72 bg-surface-container-lowest border border-border-gold-subtle rounded-lg shadow-xl py-2 z-50 animate-in fade-in duration-150" id="notificationDropdown">
+<div class="px-3 py-1.5 border-b border-surface-crema-muted flex justify-between items-center">
+<span class="font-bold text-xs text-cacao-deep">Notificações Recentes</span>
+<span class="text-[10px] bg-gold-light/30 text-gold-deep font-bold px-1.5 py-0.5 rounded">3 novas</span>
+</div>
+<div class="divide-y divide-surface-crema-muted text-xs">
+<div class="px-3 py-2 hover:bg-surface-crema-subtle cursor-pointer">
+<p class="font-bold text-cacao-deep">Mesa 04 solicita fechamento</p>
+<span class="text-[10px] text-tertiary">Há 4 minutos • Salão Principal</span>
+</div>
+<div class="px-3 py-2 hover:bg-surface-crema-subtle cursor-pointer">
+<p class="font-bold text-cacao-deep">Novo pedido: Mesa 03</p>
+<span class="text-[10px] text-tertiary">Há 12 minutos • R$ 145,00</span>
+</div>
+<div class="px-3 py-2 hover:bg-surface-crema-subtle cursor-pointer">
+<p class="font-bold text-cacao-deep">Alerta de Estoque: Pistacchio Puro</p>
+<span class="text-[10px] text-cherry-ruby font-semibold">Estoque crítico</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Histórico de Comandas -->
+<button class="p-2 text-on-surface-variant hover:text-cacao-deep hover:bg-surface-crema-subtle rounded-lg transition-colors" onclick="toggleHistoryDrawer()" title="Histórico de Comandas">
+<span class="material-symbols-outlined text-xl">history</span>
+</button>
+<!-- Configurações com rotação e dropdown -->
+<div class="relative">
+<button class="p-2 text-on-surface-variant hover:text-cacao-deep hover:bg-surface-crema-subtle rounded-lg transition-all" id="btnSettings" onclick="toggleSettingsDropdown()" title="Configurações">
+<span class="material-symbols-outlined text-xl transition-transform duration-300" id="settingsIcon">settings</span>
+</button>
+<!-- Dropdown Configurações -->
+<div class="hidden absolute right-0 mt-2 w-64 bg-surface-container-lowest border border-border-gold-subtle rounded-lg shadow-xl py-2 z-50 animate-in fade-in duration-150 text-xs" id="settingsDropdown">
+<div class="px-3 py-1.5 border-b border-surface-crema-muted font-bold text-cacao-deep">Ajustes Rápidos do Salão</div>
+<a class="block px-3 py-2 text-on-surface hover:bg-surface-crema-subtle" href="#">Impressora de Comandas (Térmica)</a>
+<a class="block px-3 py-2 text-on-surface hover:bg-surface-crema-subtle" href="#">Taxa de Serviço Padrão (10%)</a>
+<a class="block px-3 py-2 text-on-surface hover:bg-surface-crema-subtle" href="#">Configuração de Layout e Mesas</a>
+</div>
+</div>
+<!-- Liga / Desliga terminal -->
+<button class="p-2 text-on-surface-variant hover:text-cherry-ruby hover:bg-surface-crema-subtle rounded-lg transition-colors" onclick="toggleTerminalPower()" title="Bloquear / Reiniciar Terminal">
+<span class="material-symbols-outlined text-xl">power_settings_new</span>
+</button>
+</div>
+<div class="h-6 w-px bg-surface-crema-muted"></div>
+<!-- Perfil Oficial: Adm MASTER -->
+<div class="relative">
+<div class="flex items-center gap-2.5 pl-1 group cursor-pointer" onclick="toggleUserMenu()">
+<div class="w-9 h-9 rounded-full bg-[#1e130c] border border-border-gold-subtle flex items-center justify-center font-bold text-[#d4af37] text-xs shadow-inner shrink-0">AM</div>
+<div class="text-left hidden sm:block">
+<div class="text-xs text-cacao-deep leading-tight font-bold flex items-center gap-1">Adm MASTER<span class="material-symbols-outlined text-xs text-tertiary transition-transform" id="userChevronIcon">expand_more</span></div>
+<div class="text-[10px] text-tertiary font-medium">Administrador Geral</div>
+</div>
+</div>
+<!-- Dropdown do Perfil -->
+<div class="hidden absolute right-0 mt-2 w-52 bg-surface-container-lowest border border-border-gold-subtle rounded-lg shadow-xl py-1.5 z-50 animate-in fade-in duration-150 text-xs" id="userMenuDropdown">
+<div class="px-3 py-2 border-b border-surface-crema-muted">
+<p class="font-bold text-cacao-deep">Adm MASTER</p>
+<p class="text-[11px] text-tertiary">admin@sorvetec.com.br</p>
+</div>
+<a class="block px-3 py-2 text-on-surface hover:bg-surface-crema-subtle" href="#">Meus Dados</a>
+<a class="block px-3 py-2 text-on-surface hover:bg-surface-crema-subtle" href="#">Segurança e Permissões</a>
+<div class="border-t border-surface-crema-muted mt-1"></div>
+<a class="block px-3 py-2 text-[#dc2626] font-bold hover:bg-cherry-soft" href="#" onclick="alert('Logout efetuado.')">Sair</a>
+</div>
+</div>
+</div>
+</header>
+<!-- ============================================================== -->
+<!-- CONTEÚDO PRINCIPAL: MESAS E COMANDAS                           -->
+<!-- ============================================================== -->
+<main class="flex-1 p-6 max-w-[1600px] w-full mx-auto space-y-6">
+<!-- Cabeçalho da Página com Título e Ações Rápidas -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-lowest p-5 rounded-xl border border-surface-crema-muted shadow-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-2xl text-gold-burnished">table_restaurant</span>
+<h1 class="font-serif text-2xl font-bold text-cacao-deep">Mesas e Comandas</h1>
+</div>
+<p class="text-xs text-tertiary mt-1">Gerencie a ocupação do salão, pedidos em tempo real e abertura de comandas</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2.5 rounded-lg bg-pistache-emerald hover:bg-secondary text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all hover:shadow" onclick="openOpenTableModal()">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span class="">+ Nova Comanda</span>
+</button>
+<button class="px-4 py-2.5 rounded-lg border border-border-gold-subtle bg-canvas-crema hover:bg-surface-crema-subtle text-cacao-deep font-bold text-xs flex items-center gap-1.5 transition-colors" onclick="alert('Carregando mapa arquitetônico 2D do salão...')">
+<span class="material-symbols-outlined text-base text-gold-burnished">map</span>
+<span class="">Visualizar Mapa do Salão</span>
+</button>
+</div>
+</div>
+<!-- KPIs de Ocupação -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Total de Mesas -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-surface-crema-muted shadow-xs flex items-center justify-between">
+<div>
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">Total de Mesas</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep mt-1">18 Mesas</div>
+<span class="text-[11px] text-tertiary">Capacidade para 72 lugares</span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-surface-crema-subtle border border-surface-crema-muted flex items-center justify-center text-cacao-deep">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+</div>
+</div>
+<!-- Mesas Ocupadas -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-amber-200/60 shadow-xs flex items-center justify-between">
+<div>
+<span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Mesas Ocupadas</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep mt-1">11 Mesas</div>
+<span class="text-[11px] text-amber-600 font-medium">61% de ocupação no momento</span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined text-2xl">groups</span>
+</div>
+</div>
+<!-- Mesas Livres -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-emerald-200/60 shadow-xs flex items-center justify-between">
+<div>
+<span class="text-[11px] font-bold text-pistache-emerald uppercase tracking-wider">Mesas Livres</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep mt-1">7 Mesas</div>
+<span class="text-[11px] text-pistache-emerald font-medium">Prontas para novos clientes</span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-pistache-soft border border-pistache-accent/30 flex items-center justify-center text-pistache-emerald">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+</div>
+<!-- Valor em Aberto -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-border-gold-subtle shadow-xs flex items-center justify-between">
+<div>
+<span class="text-[11px] font-bold text-gold-deep uppercase tracking-wider">Valor em Aberto</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep mt-1 font-mono">R$ 1.840,50</div>
+<span class="text-[11px] text-tertiary">Comandas ativas no salão</span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-gold-light/20 border border-gold-burnished/30 flex items-center justify-center text-gold-deep">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+</div>
+</div>
+</div>
+<!-- Barra de Filtros de Ambiente e Busca -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-surface-container-lowest p-3 rounded-xl border border-surface-crema-muted">
+<!-- Tabs de Ambiente -->
+<div class="flex items-center gap-1.5 p-1 bg-canvas-crema rounded-lg border border-surface-crema-muted overflow-x-auto">
+<button class="px-3.5 py-1.5 rounded-md text-xs font-bold bg-surface-container-lowest text-cacao-deep shadow-xs transition-all" id="tab-all" onclick="filterZone('all')">Todos (18)</button>
+<button class="px-3.5 py-1.5 rounded-md text-xs font-medium text-tertiary hover:text-cacao-deep transition-all" id="tab-salao" onclick="filterZone('salao')">Salão Principal (8)</button>
+<button class="px-3.5 py-1.5 rounded-md text-xs font-medium text-tertiary hover:text-cacao-deep transition-all" id="tab-varanda" onclick="filterZone('varanda')">Varanda Gourmet (5)</button>
+<button class="px-3.5 py-1.5 rounded-md text-xs font-medium text-tertiary hover:text-cacao-deep transition-all" id="tab-deck" onclick="filterZone('deck')">Deck Externo (5)</button>
+</div>
+<!-- Campo de Busca e Filtro de Status -->
+<div class="flex items-center gap-2">
+<div class="relative w-48 sm:w-60">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-tertiary text-sm">search</span>
+<input class="w-full h-8 pl-8 pr-2.5 text-xs bg-canvas-crema border border-surface-crema-muted rounded-lg text-on-surface focus:outline-none focus:border-gold-burnished" id="searchInput" oninput="filterTablesSearch()" placeholder="Buscar mesa ou comanda..." type="text">
+</div>
+<select class="h-8 px-2 text-xs bg-canvas-crema border border-surface-crema-muted rounded-lg text-on-surface focus:outline-none focus:border-gold-burnished" id="statusFilter" onchange="filterTablesStatus()">
+<option value="all">Todos os Status</option>
+<option value="ocupada">Apenas Ocupadas</option>
+<option value="livre">Apenas Livres</option>
+<option value="reservada">Apenas Reservadas</option>
+</select>
+</div>
+</div>
+<!-- GRADE DE MESAS (Exemplo Mesa 01 a 12) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="tablesGrid">
+<!-- Mesa 01 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="01" data-status="ocupada" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 01</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8491</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Lucas M.</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">42 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 112,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('01', 'CMD-8491', 'Família Alencar', 112.00, '42 min', 'Lucas M.', 'ocupada', 4)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('01')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 02 - Livre -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-pistache-accent/30 hover:border-pistache-emerald transition-all hover:shadow-md flex flex-col justify-between" data-mesa="02" data-status="livre" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 02</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 2 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[10px] font-bold border border-pistache-accent/30">Livre</span>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-center py-3">
+<span class="material-symbols-outlined text-3xl text-pistache-emerald/70">check_circle</span>
+<p class="text-xs text-pistache-emerald font-semibold mt-1">Pronta para novo atendimento</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted">
+<button class="w-full py-1.5 px-2 bg-pistache-soft hover:bg-pistache-emerald hover:text-white border border-pistache-accent/40 text-pistache-emerald rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-colors" onclick="openOpenTableModal('02')">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">Ocupar Mesa</span>
+</button>
+</div>
+</div>
+<!-- Mesa 03 - Ocupada (Selecionada por padrão) -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest transition-all hover:shadow-md flex flex-col justify-between" data-mesa="03" data-status="ocupada" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 03</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8492</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Lucas M.</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">1h 15 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 145,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-[#d4af37] text-white hover:bg-gold-deep rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('03', 'CMD-8492', 'Mariana &amp; Amigos', 145.00, '1h 15 min', 'Lucas M.', 'ocupada', 4)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('03')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 04 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="04" data-status="ocupada" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 04</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 6 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8493</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Roberto C.</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">25 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 88,50</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('04', 'CMD-8493', 'Eduardo Costa', 88.50, '25 min', 'Roberto C.', 'ocupada', 6)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('04')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 05 - Reservada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-blue-200 hover:border-blue-400 transition-all hover:shadow-md flex flex-col justify-between" data-mesa="05" data-status="reservada" data-zone="varanda">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 05</div>
+<div class="text-[11px] text-tertiary">Varanda Gourmet • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">Reservada</span>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-center py-2">
+<span class="material-symbols-outlined text-2xl text-blue-600">bookmark</span>
+<p class="text-xs font-bold text-cacao-deep mt-1">Reserva: 19:30</p>
+<p class="text-[11px] text-tertiary">Cliente: Rodrigo F.</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted">
+<button class="w-full py-1.5 px-2 bg-blue-50 hover:bg-blue-600 hover:text-white border border-blue-200 text-blue-700 rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-colors" onclick="openOpenTableModal('05')">
+<span class="material-symbols-outlined text-sm">login</span>
+<span class="">Iniciar Atendimento</span>
+</button>
+</div>
+</div>
+<!-- Mesa 06 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="06" data-status="ocupada" data-zone="varanda">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 06</div>
+<div class="text-[11px] text-tertiary">Varanda Gourmet • 2 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8494</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Ana Clara</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">18 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 56,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('06', 'CMD-8494', 'Camila P.', 56.00, '18 min', 'Ana Clara', 'ocupada', 2)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('06')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 07 - Livre -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-pistache-accent/30 hover:border-pistache-emerald transition-all hover:shadow-md flex flex-col justify-between" data-mesa="07" data-status="livre" data-zone="varanda">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 07</div>
+<div class="text-[11px] text-tertiary">Varanda Gourmet • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[10px] font-bold border border-pistache-accent/30">Livre</span>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-center py-3">
+<span class="material-symbols-outlined text-3xl text-pistache-emerald/70">check_circle</span>
+<p class="text-xs text-pistache-emerald font-semibold mt-1">Pronta para novo atendimento</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted">
+<button class="w-full py-1.5 px-2 bg-pistache-soft hover:bg-pistache-emerald hover:text-white border border-pistache-accent/40 text-pistache-emerald rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-colors" onclick="openOpenTableModal('07')">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">Ocupar Mesa</span>
+</button>
+</div>
+</div>
+<!-- Mesa 08 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="08" data-status="ocupada" data-zone="deck">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 08</div>
+<div class="text-[11px] text-tertiary">Deck Externo • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8495</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Roberto C.</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">55 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 194,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('08', 'CMD-8495', 'Mesa Executiva', 194.00, '55 min', 'Roberto C.', 'ocupada', 4)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('08')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 09 - Livre -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-pistache-accent/30 hover:border-pistache-emerald transition-all hover:shadow-md flex flex-col justify-between" data-mesa="09" data-status="livre" data-zone="deck">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 09</div>
+<div class="text-[11px] text-tertiary">Deck Externo • 2 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[10px] font-bold border border-pistache-accent/30">Livre</span>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-center py-3">
+<span class="material-symbols-outlined text-3xl text-pistache-emerald/70">check_circle</span>
+<p class="text-xs text-pistache-emerald font-semibold mt-1">Pronta para novo atendimento</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted">
+<button class="w-full py-1.5 px-2 bg-pistache-soft hover:bg-pistache-emerald hover:text-white border border-pistache-accent/40 text-pistache-emerald rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-colors" onclick="openOpenTableModal('09')">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">Ocupar Mesa</span>
+</button>
+</div>
+</div>
+<!-- Mesa 10 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="10" data-status="ocupada" data-zone="deck">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 10</div>
+<div class="text-[11px] text-tertiary">Deck Externo • 6 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8496</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Ana Clara</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">30 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 210,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('10', 'CMD-8496', 'Juliana Santos', 210.00, '30 min', 'Ana Clara', 'ocupada', 6)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('10')">Liberar</button>
+</div>
+</div>
+<!-- Mesa 11 - Livre -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-pistache-accent/30 hover:border-pistache-emerald transition-all hover:shadow-md flex flex-col justify-between" data-mesa="11" data-status="livre" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 11</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 2 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[10px] font-bold border border-pistache-accent/30">Livre</span>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-center py-3">
+<span class="material-symbols-outlined text-3xl text-pistache-emerald/70">check_circle</span>
+<p class="text-xs text-pistache-emerald font-semibold mt-1">Pronta para novo atendimento</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted">
+<button class="w-full py-1.5 px-2 bg-pistache-soft hover:bg-pistache-emerald hover:text-white border border-pistache-accent/40 text-pistache-emerald rounded-lg text-xs font-bold flex items-center justify-center gap-1 transition-colors" onclick="openOpenTableModal('11')">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">Ocupar Mesa</span>
+</button>
+</div>
+</div>
+<!-- Mesa 12 - Ocupada -->
+<div class="mesa-card p-4 rounded-xl bg-surface-container-lowest border border-amber-300 hover:border-gold-burnished transition-all hover:shadow-md flex flex-col justify-between" data-mesa="12" data-status="ocupada" data-zone="salao">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-serif text-lg font-bold text-cacao-deep">Mesa 12</div>
+<div class="text-[11px] text-tertiary">Salão Principal • 4 Lugares</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-300">Ocupada</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-surface-crema-muted space-y-1 text-xs">
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Comanda:</span>
+<span class="font-mono font-bold text-cacao-deep">#CMD-8497</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Garçom:</span>
+<span class="font-medium text-cacao-deep">Lucas M.</span>
+</div>
+<div class="flex justify-between items-center text-tertiary">
+<span class="">Tempo:</span>
+<span class="font-medium text-amber-700">10 min</span>
+</div>
+<div class="flex justify-between items-center pt-1 font-bold">
+<span class="text-cacao-deep">Total Atual:</span>
+<span class="text-sm font-mono text-cacao-deep">R$ 68,00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center gap-2">
+<button class="flex-1 py-1.5 px-2 bg-cacao-surface hover:bg-cacao-deep text-white rounded-lg text-xs font-bold transition-colors text-center" onclick="selectMesa('12', 'CMD-8497', 'Felipe D.', 68.00, '10 min', 'Lucas M.', 'ocupada', 4)">Ver Comanda</button>
+<button class="py-1.5 px-2 border border-cherry-ruby/40 text-cherry-ruby hover:bg-cherry-soft rounded-lg text-xs font-bold transition-colors" onclick="openReleaseModal('12')">Liberar</button>
+</div>
+</div>
+</div>
+</main>
+<!-- ============================================================== -->
+<!-- 4. RODAPÉ TÉCNICO DE TELEMETRIA                               -->
+<!-- ============================================================== -->
+<footer class="mt-auto bg-surface-container-lowest border-t border-surface-crema-muted px-6 py-3 select-none text-[11px] text-tertiary">
+<div class="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-bold text-cacao-deep">© 2025 SORVETEC PRO</span>
+<span class="">•</span>
+<span class="">Gestão Integrada para Gelateria &amp; Açaí</span>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-tertiary">
+<div class="flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-sm text-gold-deep">terminal</span>
+<span class="">TERM-01-SALAO</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-medium text-emerald-700">Sincronização Nuvem OK (18ms)</span>
+</div>
+<div class="flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-sm text-pistache-emerald">cloud_done</span>
+<span class="">Conectado à Nuvem</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-crema-subtle font-mono font-bold text-cacao-deep border border-surface-crema-muted">v3.1.0-PRO</span>
+</div>
+</div>
+</footer>
+</div>
+<!-- ============================================================== -->
+<!-- GAVETA LATERAL (DRAWER) DE DETALHES DA COMANDA SELECIONADA     -->
+<!-- ============================================================== -->
+<div class="fixed inset-y-0 right-0 z-50 w-[420px] bg-surface-container-lowest border-l border-surface-crema-muted shadow-2xl flex flex-col transition-all duration-300" id="comandaDrawer" style="transform: translateX(100%);">
+<!-- Topo da Comanda -->
+<div class="p-4 bg-cacao-surface text-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#d4af37]">receipt_long</span>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-serif text-lg font-bold text-white" id="drawerMesaTitle">Mesa 03</h2>
+<span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30" id="drawerComandaTag">#CMD-8492</span>
+</div>
+<p class="text-xs text-stone-300" id="drawerClientName">Mariana &amp; Amigos • 4 Lugares</p>
+</div>
+</div>
+<button class="text-stone-300 hover:text-white p-1 rounded-md transition-colors" onclick="closeComandaDrawer()" title="Fechar painel">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Ações Rápidas de Topo da Comanda -->
+<div class="p-3 border-b border-surface-crema-muted bg-surface-crema-subtle flex items-center justify-between gap-2">
+<button class="flex-1 py-1.5 px-2 bg-pistache-emerald hover:bg-secondary text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-xs transition-colors" onclick="openAddItemModal()">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">Adicionar Item</span>
+</button>
+<button class="py-1.5 px-2 border border-border-gold-subtle hover:bg-white text-cacao-deep rounded text-xs font-semibold flex items-center gap-1 transition-colors" onclick="openTransferModal()">
+<span class="material-symbols-outlined text-sm">sync_alt</span>
+<span class="">Transferir</span>
+</button>
+<button class="py-1.5 px-2 border border-border-gold-subtle hover:bg-white text-cacao-deep rounded text-xs font-semibold flex items-center gap-1 transition-colors" onclick="printPreBill()" title="Imprimir Pré-Conta">
+<span class="material-symbols-outlined text-sm">print</span>
+<span class="">Pré-Conta</span>
+</button>
+</div>
+<!-- Lista de Itens Consumidos -->
+<div class="flex-1 overflow-y-auto custom-scroll p-4 space-y-2.5" id="comandaItemsContainer">
+<!-- Item 1 -->
+<div class="p-2.5 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<div class="font-bold text-xs text-cacao-deep">Gelato Copo Médio (2 Sabores)</div>
+<div class="text-[11px] text-tertiary mt-0.5">Pistacchio Puro di Bronte &amp; Doce de Leite Havanna</div>
+</div>
+<span class="font-bold text-xs text-cacao-deep font-mono">R$ 26,00</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-surface-crema-muted/60 text-xs">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-1.5 py-0.5 rounded border border-surface-crema-muted">
+<button class="text-tertiary hover:text-cacao-deep font-bold">-</button>
+<span class="font-bold text-[11px] font-mono">1</span>
+<button class="text-tertiary hover:text-cacao-deep font-bold">+</button>
+</div>
+<span class="text-[10px] text-gold-deep font-semibold">14:15 • Entregue</span>
+<button class="text-cherry-ruby hover:text-cherry-alert" onclick="this.closest('.group').remove(); updateFinancialTotals();">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-2.5 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<div class="font-bold text-xs text-cacao-deep">Taça Fontana di Trevi Especial</div>
+<div class="text-[11px] text-tertiary mt-0.5">3 bolas gelato, calda belga quente, chantilly &amp; amêndoas</div>
+</div>
+<span class="font-bold text-xs text-cacao-deep font-mono">R$ 48,00</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-surface-crema-muted/60 text-xs">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-1.5 py-0.5 rounded border border-surface-crema-muted">
+<button class="text-tertiary hover:text-cacao-deep font-bold">-</button>
+<span class="font-bold text-[11px] font-mono">1</span>
+<button class="text-tertiary hover:text-cacao-deep font-bold">+</button>
+</div>
+<span class="text-[10px] text-gold-deep font-semibold">14:22 • Entregue</span>
+<button class="text-cherry-ruby hover:text-cherry-alert" onclick="this.closest('.group').remove(); updateFinancialTotals();">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-2.5 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<div class="font-bold text-xs text-cacao-deep">Tigela Açaí Trufado Premium 500ml</div>
+<div class="text-[11px] text-tertiary mt-0.5">Açaí artesanal, morangos, ninho &amp; creme de avelã</div>
+</div>
+<span class="font-bold text-xs text-cacao-deep font-mono">R$ 38,00</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-surface-crema-muted/60 text-xs">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-1.5 py-0.5 rounded border border-surface-crema-muted">
+<button class="text-tertiary hover:text-cacao-deep font-bold">-</button>
+<span class="font-bold text-[11px] font-mono">1</span>
+<button class="text-tertiary hover:text-cacao-deep font-bold">+</button>
+</div>
+<span class="text-[10px] text-gold-deep font-semibold">14:30 • Entregue</span>
+<button class="text-cherry-ruby hover:text-cherry-alert" onclick="this.closest('.group').remove(); updateFinancialTotals();">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-2.5 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<div class="font-bold text-xs text-cacao-deep">Espresso Romano &amp; Água c/ Gás</div>
+<div class="text-[11px] text-tertiary mt-0.5">Grãos especiais torra média com fatia de limão siciliano</div>
+</div>
+<span class="font-bold text-xs text-cacao-deep font-mono">R$ 33,00</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-surface-crema-muted/60 text-xs">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-1.5 py-0.5 rounded border border-surface-crema-muted">
+<button class="text-tertiary hover:text-cacao-deep font-bold">-</button>
+<span class="font-bold text-[11px] font-mono">2</span>
+<button class="text-tertiary hover:text-cacao-deep font-bold">+</button>
+</div>
+<span class="text-[10px] text-gold-deep font-semibold">14:48 • Preparando</span>
+<button class="text-cherry-ruby hover:text-cherry-alert" onclick="this.closest('.group').remove(); updateFinancialTotals();">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Totais e Encerramento -->
+<div class="p-4 bg-surface-crema-subtle border-t border-surface-crema-muted space-y-2">
+<div class="flex items-center justify-between text-xs text-tertiary">
+<span class="">Subtotal dos Itens:</span>
+<span class="font-mono font-bold text-cacao-deep" id="subtotalVal">R$ 145,00</span>
+</div>
+<div class="flex items-center justify-between text-xs text-tertiary">
+<label class="flex items-center gap-1.5 cursor-pointer">
+<input checked="" class="rounded border-border-gold-subtle text-[#d4af37] focus:ring-gold-burnished" id="taxaServicoCheckbox" onchange="toggleServiceTax()" type="checkbox">
+<span class="">Taxa de Serviço Opcional (10%):</span>
+</label>
+<span class="font-mono font-bold text-cacao-deep" id="taxaVal">R$ 14,50</span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted flex items-center justify-between">
+<div>
+<span class="text-[10px] uppercase font-bold text-tertiary">Total da Comanda</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep font-mono" id="totalComandaVal">R$ 159,50</div>
+</div>
+<button class="px-5 py-2.5 rounded-lg bg-pistache-emerald hover:bg-secondary text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all hover:scale-[1.02]" onclick="openPaymentModal()">
+<span class="material-symbols-outlined text-sm">point_of_sale</span>
+<span class="">Fechar Conta (F4)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- MODAL 1: ADICIONAR PRODUTO À COMANDA (CATÁLOGO RÁPIDO)         -->
+<!-- ============================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4" id="modalAddItem">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in fade-in zoom-in-95 duration-150">
+<div class="p-4 bg-surface-crema-subtle border-b border-surface-crema-muted flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep">restaurant_menu</span>
+<div>
+<h3 class="font-serif text-lg font-bold text-cacao-deep">Adicionar Item à Comanda</h3>
+<span class="text-xs text-tertiary">Mesa Selecionada</span>
+</div>
+</div>
+<button class="text-tertiary hover:text-cacao-deep p-1 rounded" onclick="closeModal('modalAddItem')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="p-4 border-b border-surface-crema-muted space-y-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-tertiary text-sm">search</span>
+<input class="w-full h-9 pl-9 pr-3 text-xs bg-canvas-crema border border-surface-crema-muted rounded text-on-surface focus:outline-none focus:border-gold-burnished" placeholder="Pesquisar gelato, taça, espresso, açai..." type="text">
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+<button class="px-3 py-1 rounded bg-cacao-deep text-white font-bold">Todos</button>
+<button class="px-3 py-1 rounded bg-surface-crema-subtle text-cacao-deep hover:bg-surface-crema-muted font-medium">Gelatos Artesanais</button>
+<button class="px-3 py-1 rounded bg-surface-crema-subtle text-cacao-deep hover:bg-surface-crema-muted font-medium">Taças &amp; Sobremesas</button>
+<button class="px-3 py-1 rounded bg-surface-crema-subtle text-cacao-deep hover:bg-surface-crema-muted font-medium">Açaiteria Gourmet</button>
+<button class="px-3 py-1 rounded bg-surface-crema-subtle text-cacao-deep hover:bg-surface-crema-muted font-medium">Cafeteria &amp; Bebidas</button>
+</div>
+</div>
+<div class="p-4 overflow-y-auto custom-scroll space-y-2.5 max-h-[360px]">
+<div class="flex items-center justify-between p-2.5 rounded border border-surface-crema-muted hover:border-gold-burnished bg-canvas-crema">
+<div>
+<div class="font-bold text-xs text-cacao-deep">Gelato Copo Grande (3 Sabores)</div>
+<div class="text-[11px] text-tertiary">Escolha até 3 sabores da linha tradicional ou speciale</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono font-bold text-xs text-cacao-deep">R$ 32,00</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-xs font-bold" onclick="insertItemFast('Gelato Copo Grande (3 Sabores)', 32.00)">+ Adicionar</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded border border-surface-crema-muted hover:border-gold-burnished bg-canvas-crema">
+<div>
+<div class="font-bold text-xs text-cacao-deep">Açaí Puro da Amazônia 500ml</div>
+<div class="text-[11px] text-tertiary">Batido na hora, acompanha granola artesanal e leite em pó</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono font-bold text-xs text-cacao-deep">R$ 28,00</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-xs font-bold" onclick="insertItemFast('Açaí Puro da Amazônia 500ml', 28.00)">+ Adicionar</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded border border-surface-crema-muted hover:border-gold-burnished bg-canvas-crema">
+<div>
+<div class="font-bold text-xs text-cacao-deep">Waffle Belga c/ Gelato &amp; Morangos</div>
+<div class="text-[11px] text-tertiary">Massa fresca artesanal, 1 bola gelato e morangos frescos</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono font-bold text-xs text-cacao-deep">R$ 36,00</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-xs font-bold" onclick="insertItemFast('Waffle Belga c/ Gelato &amp; Morangos', 36.00)">+ Adicionar</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded border border-surface-crema-muted hover:border-gold-burnished bg-canvas-crema">
+<div>
+<div class="font-bold text-xs text-cacao-deep">Cappuccino Especial 180ml</div>
+<div class="text-[11px] text-tertiary">Espresso, leite vaporizado e cacau 100% polvilhado</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono font-bold text-xs text-cacao-deep">R$ 14,00</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-xs font-bold" onclick="insertItemFast('Cappuccino Especial 180ml', 14.00)">+ Adicionar</button>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-crema-subtle border-t border-surface-crema-muted flex justify-end">
+<button class="px-4 py-1.5 rounded border border-border-gold-subtle text-cacao-deep text-xs font-bold hover:bg-white" onclick="closeModal('modalAddItem')">Fechar</button>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- MODAL 2: PAGAMENTO & ENCERRAMENTO (F4)                         -->
+<!-- ============================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4" id="modalPayment">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-lg shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+<div class="p-4 bg-cacao-surface text-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-light">point_of_sale</span>
+<h3 class="font-serif text-lg font-bold text-white">Fechamento de Conta</h3>
+</div>
+<button class="text-surface-container-lowest/70 hover:text-white" onclick="closeModal('modalPayment')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="p-5 space-y-4">
+<div class="bg-surface-crema-subtle p-3.5 rounded border border-border-gold-subtle flex justify-between items-center">
+<div>
+<span class="text-xs text-tertiary uppercase font-bold">Valor Total a Pagar</span>
+<div class="font-serif text-2xl font-bold text-cacao-deep font-mono" id="paymentModalTotal">R$ 159,50</div>
+</div>
+<span class="text-xs px-2 py-1 rounded bg-pistache-soft text-pistache-emerald font-bold border border-pistache-accent/30" id="paymentModalComanda">Comanda Ativa</span>
+</div>
+<div>
+<label class="block text-xs text-cacao-deep font-bold mb-2">Forma de Pagamento Principal:</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="p-2.5 border-2 border-pistache-emerald rounded bg-pistache-soft/40 text-cacao-deep font-bold text-xs flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-pistache-emerald">qr_code_2</span>
+<span class="">PIX Direto</span>
+</button>
+<button class="p-2.5 border border-surface-crema-muted hover:border-gold-burnished rounded bg-canvas-crema text-cacao-deep font-bold text-xs flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-gold-deep">credit_card</span>
+<span class="">Cartão Crédito</span>
+</button>
+<button class="p-2.5 border border-surface-crema-muted hover:border-gold-burnished rounded bg-canvas-crema text-cacao-deep font-bold text-xs flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-tertiary">payments</span>
+<span class="">Dinheiro</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-tertiary">Desconto Fidelidade:</span>
+<span class="text-pistache-emerald font-semibold">- R$ 0,00</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-tertiary">Troco Calculado:</span>
+<span class="text-cacao-deep font-bold font-mono">R$ 0,00</span>
+</div>
+</div>
+<div class="pt-2">
+<label class="flex items-center gap-2 text-xs text-on-surface-variant cursor-pointer">
+<input checked="" class="rounded border-border-gold-subtle text-pistache-emerald focus:ring-gold-burnished" type="checkbox">
+<span class="">Imprimir Cupom Fiscal SAT e liberar mesa automaticamente</span>
+</label>
+</div>
+</div>
+<div class="p-4 bg-surface-crema-subtle border-t border-surface-crema-muted flex items-center justify-between">
+<button class="px-4 py-2 rounded border border-border-gold-subtle text-xs font-bold text-cacao-deep hover:bg-white" onclick="closeModal('modalPayment')">Cancelar</button>
+<button class="px-5 py-2.5 rounded bg-pistache-emerald hover:bg-secondary text-white text-xs font-bold shadow-md" onclick="confirmPaymentAndClose()">Confirmar Pagamento &amp; Liberar</button>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- MODAL 3: CONFIRMAÇÃO DE LIBERAÇÃO DE MESA                      -->
+<!-- ============================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4" id="modalRelease">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-md shadow-2xl p-5 animate-in fade-in duration-150">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-cherry-soft text-cherry-alert flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl">warning</span>
+</div>
+<div>
+<h3 class="font-serif text-lg font-bold text-cacao-deep">Liberar Mesa?</h3>
+<p class="text-xs text-tertiary mt-1">
+          A comanda possui saldo em aberto. Deseja registrar a liberação manual da mesa?
+        </p>
+</div>
+</div>
+<div class="mt-5 flex items-center justify-end gap-2">
+<button class="px-3.5 py-1.5 rounded border border-border-gold-subtle text-xs font-bold text-cacao-deep hover:bg-surface-crema-subtle" onclick="closeModal('modalRelease')">Voltar</button>
+<button class="px-4 py-1.5 rounded bg-cherry-ruby hover:bg-cherry-alert text-white text-xs font-bold shadow-sm" onclick="confirmReleaseTable()">Sim, Liberar Mesa</button>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- DRAWER: HISTÓRICO DE COMANDAS ENCERRADAS DO DIA                -->
+<!-- ============================================================== -->
+<div class="fixed inset-y-0 right-0 z-50 w-[420px] bg-surface-container-lowest border-l border-surface-crema-muted shadow-2xl transform translate-x-full transition-transform duration-200 ease-in-out flex flex-col" id="drawerHistory">
+<div class="p-4 bg-cacao-surface text-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-light">history</span>
+<h3 class="font-serif text-lg font-bold text-white">Histórico de Comandas (Hoje)</h3>
+</div>
+<button class="text-surface-container-lowest/70 hover:text-white" onclick="toggleHistoryDrawer()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="p-3 border-b border-surface-crema-muted bg-surface-crema-subtle flex items-center justify-between text-xs">
+<span class="font-bold text-cacao-deep">Total Encerradas Hoje: 42 comandas</span>
+<span class="font-mono font-bold text-pistache-emerald">R$ 3.840,20</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scroll p-4 space-y-3">
+<div class="p-3 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-xs text-cacao-deep">Mesa 08 • Salão Interno</span>
+<span class="font-mono text-[11px] text-tertiary">#CMD-8486</span>
+</div>
+<div class="text-[11px] text-tertiary flex items-center justify-between">
+<span class="">Fechamento: 14:22 • PIX</span>
+<span class="font-mono font-bold text-cacao-deep text-xs">R$ 84,00</span>
+</div>
+</div>
+<div class="p-3 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-xs text-cacao-deep">Mesa 12 • Deck Praia</span>
+<span class="font-mono text-[11px] text-tertiary">#CMD-8485</span>
+</div>
+<div class="text-[11px] text-tertiary flex items-center justify-between">
+<span class="">Fechamento: 14:05 • Cartão Crédito</span>
+<span class="font-mono font-bold text-cacao-deep text-xs">R$ 112,50</span>
+</div>
+</div>
+<div class="p-3 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-xs text-cacao-deep">Mesa 02 • Salão Interno</span>
+<span class="font-mono text-[11px] text-tertiary">#CMD-8484</span>
+</div>
+<div class="text-[11px] text-tertiary flex items-center justify-between">
+<span class="">Fechamento: 13:48 • Dinheiro</span>
+<span class="font-mono font-bold text-cacao-deep text-xs">R$ 45,00</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-crema-subtle border-t border-surface-crema-muted text-center">
+<button class="w-full py-1.5 rounded border border-border-gold-subtle text-xs font-bold text-cacao-deep hover:bg-white" onclick="toggleHistoryDrawer()">Fechar Histórico</button>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- MODAL 4: ABRIR COMANDA / OCUPAR MESA                           -->
+<!-- ============================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4" id="modalOpenTable">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-md shadow-2xl p-5 animate-in fade-in duration-150">
+<div class="flex items-center justify-between mb-3 border-b border-surface-crema-muted pb-2">
+<h3 class="font-serif text-lg font-bold text-cacao-deep">Ocupar Mesa &amp; Abrir Comanda</h3>
+<button class="text-tertiary hover:text-cacao-deep" onclick="closeModal('modalOpenTable')">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="space-y-3 text-xs">
+<div class="p-2.5 rounded bg-pistache-soft border border-pistache-accent/30 text-pistache-emerald flex items-center gap-2">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="">Mesa disponível e pronta para novo atendimento.</span>
+</div>
+<div>
+<label class="block font-bold text-cacao-deep mb-1">Identificação da Mesa:</label>
+<input class="w-full h-8 px-2.5 bg-canvas-crema border border-surface-crema-muted rounded text-on-surface font-semibold" id="openTableInput" type="text" value="Mesa 02">
+</div>
+<div>
+<label class="block font-bold text-cacao-deep mb-1">Nome do Cliente (Opcional):</label>
+<input class="w-full h-8 px-2.5 bg-canvas-crema border border-surface-crema-muted rounded text-on-surface" placeholder="Ex: Patrícia Lima ou CPF do Clube..." type="text">
+</div>
+<div>
+<label class="block font-bold text-cacao-deep mb-1">Garçom Atendente:</label>
+<select class="w-full h-8 px-2 bg-canvas-crema border border-surface-crema-muted rounded text-on-surface">
+<option>Lucas M. (Salão Principal)</option>
+<option>Roberto C. (Varanda / Deck)</option>
+<option>Ana Clara (Salão Principal)</option>
+</select>
+</div>
+<div>
+<label class="block font-bold text-cacao-deep mb-1">Número de Pessoas:</label>
+<input class="w-24 h-8 px-2.5 bg-canvas-crema border border-surface-crema-muted rounded text-on-surface font-mono" max="10" min="1" type="number" value="2">
+</div>
+</div>
+<div class="mt-5 flex items-center justify-end gap-2">
+<button class="px-3.5 py-1.5 rounded border border-border-gold-subtle font-bold text-cacao-deep hover:bg-surface-crema-subtle" onclick="closeModal('modalOpenTable')">Cancelar</button>
+<button class="px-4 py-1.5 rounded bg-pistache-emerald hover:bg-secondary text-white font-bold shadow-sm" onclick="confirmOpenTable()">Confirmar Ocupação</button>
+</div>
+</div>
+</div><div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-150" id="modalLogoutConfirm" onclick="if(event.target === this) this.classList.add('hidden')"><div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-md shadow-2xl p-5" onclick="event.stopPropagation()"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-full bg-cherry-soft text-cherry-alert flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-xl">logout</span></div><div><h3 class="font-serif text-lg font-bold text-cacao-deep">Deseja mesmo sair do sistema?</h3><p class="text-xs text-tertiary mt-1">Todas as comandas e alterações ativas salvas em nuvem serão mantidas com segurança.</p></div></div><div class="mt-5 flex items-center justify-end gap-2"><button class="px-3.5 py-1.5 rounded border border-border-gold-subtle text-xs font-bold text-cacao-deep hover:bg-surface-crema-subtle transition-colors" onclick="document.getElementById('modalLogoutConfirm').classList.add('hidden')">Cancelar</button><button class="px-4 py-1.5 rounded bg-cherry-ruby hover:bg-cherry-alert text-white text-xs font-bold shadow-sm transition-colors" onclick="alert('Sessão encerrada com sucesso.'); document.getElementById('modalLogoutConfirm').classList.add('hidden');">Confirmar Saída</button></div></div></div><div class="fixed inset-0 z-50 hidden bg-nero-rich/65 backdrop-blur-sm flex items-center justify-center p-4" id="modalLogout" onclick="if(event.target === this) closeLogoutModal()"><div class="bg-surface-container-lowest rounded-xl border border-border-gold-subtle w-full max-w-md shadow-2xl overflow-hidden p-6 animate-in fade-in duration-150"><div class="flex items-start gap-4"><div class="w-11 h-11 rounded-full bg-cherry-soft text-cherry-ruby flex items-center justify-center shrink-0 border border-cherry-ruby/40"><span class="material-symbols-outlined text-2xl">power_settings_new</span></div><div class="flex-1"><h3 class="font-serif text-lg font-bold text-cacao-deep">Deseja mesmo sair do sistema?</h3><p class="text-xs text-tertiary mt-1.5 leading-relaxed">Sua sessão ativa no terminal será encerrada com segurança.</p></div></div><div class="mt-6 pt-4 border-t border-surface-crema-muted flex items-center justify-end gap-2.5"><button class="px-4 py-2 rounded-lg border border-border-gold-subtle text-xs font-bold text-cacao-deep hover:bg-surface-crema-subtle transition-colors" onclick="closeLogoutModal()">Cancelar</button><button class="px-4 py-2 rounded-lg bg-cherry-ruby hover:bg-cherry-alert text-white text-xs font-bold shadow-sm transition-colors flex items-center gap-1.5" onclick="confirmLogout()"><span class="material-symbols-outlined text-sm">logout</span><span class="">Confirmar Saída</span></button></div></div></div>
+<!-- ============================================================== -->
+<!-- JAVASCRIPT: LOGIC & INTERACTIONS                               -->
+<!-- ============================================================== -->
+<script>
+    let serviceTaxActive = true;
+    let baseSubtotal = 145.00;
+    let activeMesaNum = '03';
+    let isSidebarCollapsed = false;
+    let isStoreOpen = true;
+
+    // Toggle da Sidebar (260px <-> 72px)
+    function toggleSidebar() {
+      const sidebar = document.getElementById('mainSidebar');
+      const workspace = document.getElementById('mainWorkspace');
+      const toggleIcon = document.getElementById('sidebarToggleIcon');
+
+      isSidebarCollapsed = !isSidebarCollapsed;
+
+      if (isSidebarCollapsed) {
+        sidebar.classList.add('sidebar-collapsed');
+        workspace.classList.add('workspace-expanded');
+        toggleIcon.innerText = 'menu';
+      } else {
+        sidebar.classList.remove('sidebar-collapsed');
+        workspace.classList.remove('workspace-expanded');
+        toggleIcon.innerText = 'menu_open';
+      }
+    }
+
+    function expandSidebarIfCollapsed() {
+      if (isSidebarCollapsed) {
+        toggleSidebar();
+      }
+    }
+
+    // Toggle do Status da Loja
+    function toggleStoreStatus() {
+      isStoreOpen = !isStoreOpen;
+      const badge = document.getElementById('storeStatusBadge');
+      const pulse = document.getElementById('storeStatusPulse');
+      const text = document.getElementById('storeStatusText');
+      const btn = document.getElementById('storeToggleBtn');
+      const btnLabel = document.getElementById('storeToggleLabel');
+
+      if (isStoreOpen) {
+        badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-pistache-soft border border-pistache-accent/30 text-pistache-emerald transition-all shadow-xs";
+        pulse.className = "w-2.5 h-2.5 rounded-full bg-pistache-emerald animate-pulse";
+        text.innerText = "Loja Aberta • Salão e Balcão";
+        btn.className = "px-3 py-1 text-xs font-bold text-cherry-ruby hover:bg-cherry-soft border border-cherry-ruby/40 rounded-md transition-colors flex items-center gap-1.5";
+        btnLabel.innerText = "Fechar loja";
+      } else {
+        badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-cherry-soft border border-cherry-ruby/30 text-cherry-ruby transition-all shadow-xs";
+        pulse.className = "w-2.5 h-2.5 rounded-full bg-cherry-ruby";
+        text.innerText = "Loja Fechada";
+        btn.className = "px-3 py-1 text-xs font-bold text-pistache-emerald hover:bg-pistache-soft border border-pistache-accent/40 rounded-md transition-colors flex items-center gap-1.5";
+        btnLabel.innerText = "Abrir loja";
+      }
+    }
+
+    // Dropdowns do Topo
+    function toggleNotificationDropdown() {
+      const drop = document.getElementById('notificationDropdown');
+      drop.classList.toggle('hidden');
+      document.getElementById('settingsDropdown').classList.add('hidden');
+      document.getElementById('userMenuDropdown').classList.add('hidden');
+    }
+
+    function toggleSettingsDropdown() {
+      const drop = document.getElementById('settingsDropdown');
+      const icon = document.getElementById('settingsIcon');
+      drop.classList.toggle('hidden');
+      icon.classList.toggle('rotate-90');
+      document.getElementById('notificationDropdown').classList.add('hidden');
+      document.getElementById('userMenuDropdown').classList.add('hidden');
+    }
+
+    function toggleUserMenu() {
+      const drop = document.getElementById('userMenuDropdown');
+      const chevron = document.getElementById('userChevronIcon');
+      drop.classList.toggle('hidden');
+      chevron.classList.toggle('rotate-180');
+      document.getElementById('notificationDropdown').classList.add('hidden');
+      document.getElementById('settingsDropdown').classList.add('hidden');
+    }
+
+    function toggleTerminalPower() {
+      if (confirm("Deseja bloquear ou reiniciar o Terminal 01?")) {
+        alert("Comando de terminal executado.");
+      }
+    }
+
+    // Abrir/Fechar Gaveta lateral de comanda
+    function openComandaDrawer() {
+      const drawer = document.getElementById('comandaDrawer');
+      drawer.classList.remove('translate-x-full');
+      drawer.style.transform = "translateX(0)";
+    }
+
+    function closeComandaDrawer() {
+      const drawer = document.getElementById('comandaDrawer');
+      drawer.style.transform = "translateX(100%)";
+      
+      // Remover highlight visual da mesa selecionada
+      document.querySelectorAll('.mesa-card').forEach(c => {
+        c.classList.remove('ring-2', 'ring-gold-deep', 'border-gold-burnished');
+      });
+    }
+
+    // Filtrar por Zonas/Ambientes
+    function filterZone(zone) {
+      const tabs = ['all', 'salao', 'varanda', 'deck'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-' + t);
+        if (btn) {
+          btn.className = "px-3.5 py-1.5 rounded-md text-xs font-medium text-tertiary hover:text-cacao-deep transition-all";
+        }
+      });
+      const activeBtn = document.getElementById('tab-' + zone);
+      if (activeBtn) {
+        activeBtn.className = "px-3.5 py-1.5 rounded-md text-xs font-bold bg-surface-container-lowest text-cacao-deep shadow-xs transition-all";
+      }
+
+      const cards = document.querySelectorAll('.mesa-card');
+      cards.forEach(c => {
+        const z = c.getAttribute('data-zone');
+        if (zone === 'all' || z === zone) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Filtro por Busca
+    function filterTablesSearch() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.mesa-card');
+      cards.forEach(c => {
+        const text = c.innerText.toLowerCase();
+        c.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    // Filtro por Status
+    function filterTablesStatus() {
+      const val = document.getElementById('statusFilter').value;
+      const cards = document.querySelectorAll('.mesa-card');
+      cards.forEach(c => {
+        const status = c.getAttribute('data-status');
+        if (val === 'all' || status === val) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Selecionar mesa para abrir na comanda
+    function selectMesa(mesaNum, comanda, cliente, valor, tempo, atendente, status, lugares) {
+      if (status !== 'ocupada') {
+        openOpenTableModal(mesaNum);
+        return;
+      }
+      
+      activeMesaNum = mesaNum;
+      
+      // Update UI Header
+      document.getElementById('drawerMesaTitle').innerText = 'Mesa ' + mesaNum;
+      document.getElementById('drawerComandaTag').innerText = '#' + comanda;
+      document.getElementById('drawerClientName').innerText = `${cliente} • ${lugares} Lugares`;
+
+      baseSubtotal = valor;
+      updateFinancialTotals();
+
+      // Destaque visual no card selecionado
+      document.querySelectorAll('.mesa-card').forEach(c => {
+        c.classList.remove('ring-2', 'ring-gold-deep', 'border-gold-burnished');
+      });
+
+      const clicked = document.querySelector(`.mesa-card[data-mesa="${mesaNum}"]`);
+      if (clicked) {
+        clicked.classList.add('ring-2', 'ring-gold-deep', 'border-gold-burnished');
+      }
+
+      openComandaDrawer();
+    }
+
+    // Cálculos Financeiros
+    function toggleServiceTax() {
+      serviceTaxActive = document.getElementById('taxaServicoCheckbox').checked;
+      updateFinancialTotals();
+    }
+
+    function updateFinancialTotals() {
+      const taxa = serviceTaxActive ? (baseSubtotal * 0.10) : 0;
+      const total = baseSubtotal + taxa;
+
+      const subTxt = 'R$ ' + baseSubtotal.toFixed(2).replace('.', ',');
+      const taxTxt = 'R$ ' + taxa.toFixed(2).replace('.', ',');
+      const totTxt = 'R$ ' + total.toFixed(2).replace('.', ',');
+
+      document.getElementById('subtotalVal').innerText = subTxt;
+      document.getElementById('taxaVal').innerText = taxTxt;
+      document.getElementById('totalComandaVal').innerText = totTxt;
+
+      const modalTot = document.getElementById('paymentModalTotal');
+      if (modalTot) modalTot.innerText = totTxt;
+    }
+
+    // Modais
+    function openAddItemModal() {
+      document.getElementById('modalAddItem').classList.remove('hidden');
+    }
+    function openPaymentModal() {
+      document.getElementById('modalPayment').classList.remove('hidden');
+    }
+    function openReleaseModal(mesa) {
+      if (mesa) activeMesaNum = mesa;
+      document.getElementById('modalRelease').classList.remove('hidden');
+    }
+    function openOpenTableModal(mesa) {
+      if (mesa) {
+        document.getElementById('openTableInput').value = 'Mesa ' + mesa;
+      }
+      document.getElementById('modalOpenTable').classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // Drawer Histórico
+    function toggleHistoryDrawer() {
+      const drawer = document.getElementById('drawerHistory');
+      drawer.classList.toggle('translate-x-full');
+    }
+
+    // Ações
+    function insertItemFast(nome, preco) {
+      const container = document.getElementById('comandaItemsContainer');
+      const itemEl = document.createElement('div');
+      itemEl.className = "p-2.5 rounded-lg border border-surface-crema-muted bg-canvas-crema hover:border-gold-burnished transition-colors group animate-in fade-in";
+      itemEl.innerHTML = `
+        <div class="flex items-start justify-between">
+          <div class="flex-1">
+            <div class="font-bold text-xs text-cacao-deep">${nome}</div>
+            <div class="text-[11px] text-tertiary mt-0.5">Item avulso inserido agora</div>
+          </div>
+          <span class="font-mono font-bold text-xs text-cacao-deep">R$ ${preco.toFixed(2).replace('.', ',')}</span>
+        </div>
+        <div class="flex items-center justify-between mt-2 pt-2 border-t border-surface-crema-muted/60 text-xs">
+          <div class="flex items-center gap-2 bg-surface-container-lowest px-1.5 py-0.5 rounded border border-surface-crema-muted">
+            <button class="text-tertiary hover:text-cacao-deep font-bold">-</button>
+            <span class="font-bold text-[11px] font-mono">1</span>
+            <button class="text-tertiary hover:text-cacao-deep font-bold">+</button>
+          </div>
+          <span class="text-[10px] text-gold-deep font-semibold">Enviado Cozinha</span>
+          <button class="text-cherry-ruby hover:text-cherry-alert" onclick="this.closest('.group').remove(); updateFinancialTotals();">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+      `;
+      container.appendChild(itemEl);
+      baseSubtotal += preco;
+      updateFinancialTotals();
+      closeModal('modalAddItem');
+    }
+
+    function confirmPaymentAndClose() {
+      alert(`Pagamento da Mesa ${activeMesaNum} registrado com sucesso! Cupom SAT emitido.`);
+      closeModal('modalPayment');
+      closeComandaDrawer();
+    }
+
+    function confirmReleaseTable() {
+      alert(`Mesa ${activeMesaNum} liberada e higienizada com sucesso!`);
+      closeModal('modalRelease');
+      closeComandaDrawer();
+    }
+
+    function confirmOpenTable() {
+      const mesa = document.getElementById('openTableInput').value;
+      alert(`${mesa} ocupada com sucesso! Nova comanda aberta.`);
+      closeModal('modalOpenTable');
+    }
+
+    function printPreBill() {
+      alert(`Imprimindo Pré-Conta da Mesa ${activeMesaNum} no terminal térmico...`);
+    }
+
+    function openTransferModal() {
+      const novaMesa = prompt("Digite o número da nova mesa para transferência (ex: 02, 07):", "02");
+      if (novaMesa) {
+        alert(`Comanda transferida para a Mesa ${novaMesa} com sucesso!`);
+        document.getElementById('drawerMesaTitle').innerText = 'Mesa ' + novaMesa;
+      }
+    }
+
+    // Fechar popups com clique fora
+    window.addEventListener('click', function(e) {
+      if (!e.target.closest('#btnNotifications') && !e.target.closest('#notificationDropdown')) {
+        document.getElementById('notificationDropdown').classList.add('hidden');
+      }
+      if (!e.target.closest('#btnSettings') && !e.target.closest('#settingsDropdown')) {
+        document.getElementById('settingsDropdown').classList.add('hidden');
+      }
+      if (!e.target.closest('#userMenuDropdown') && !e.target.closest('.group')) {
+        document.getElementById('userMenuDropdown').classList.add('hidden');
+      }
+    });
+
+    // Atalho F4 e Escape
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'F4') {
+        e.preventDefault();
+        openPaymentModal();
+      }
+      if (e.key === 'Escape') {
+        closeModal('modalAddItem');
+        closeModal('modalPayment');
+        closeModal('modalRelease');
+        closeModal('modalOpenTable');
+        closeComandaDrawer();
+        document.getElementById('drawerHistory').classList.add('translate-x-full');
+      }
+    });
+</script>
+<script>
+function toggleNewSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const workspace = document.getElementById('mainWorkspace');
+  const icon = document.getElementById('sidebar-toggle-icon');
+  const brandText = document.getElementById('brand-text');
+  const navTexts = document.querySelectorAll('#sidebar .nav-text');
+  const logoutText = document.querySelector('#sidebar .logout-text');
+  const navLinks = document.querySelectorAll('#sidebar .nav-link');
+  const btnLogout = document.getElementById('btn-logout');
+  const header = document.getElementById('sidebar-header');
+
+  if (!sidebar) return;
+  const isExpanded = sidebar.classList.contains('w-64');
+
+  if (isExpanded) {
+    sidebar.classList.remove('w-64');
+    sidebar.classList.add('w-20');
+    if (workspace) {
+      workspace.classList.remove('ml-64');
+      workspace.classList.add('ml-20');
+    }
+    if (icon) icon.innerText = 'menu';
+    if (brandText) brandText.classList.add('hidden');
+    navTexts.forEach(el => el.classList.add('hidden'));
+    if (logoutText) logoutText.classList.add('hidden');
+    navLinks.forEach(el => {
+      el.classList.add('justify-center', 'px-2');
+      el.classList.remove('px-3');
+    });
+    if (btnLogout) {
+      btnLogout.classList.add('justify-center', 'px-2');
+      btnLogout.classList.remove('px-3');
+    }
+    if (header) {
+      header.classList.add('px-3', 'justify-center');
+      header.classList.remove('p-5', 'justify-between');
+    }
+  } else {
+    sidebar.classList.remove('w-20');
+    sidebar.classList.add('w-64');
+    if (workspace) {
+      workspace.classList.remove('ml-20');
+      workspace.classList.add('ml-64');
+    }
+    if (icon) icon.innerText = 'menu_open';
+    if (brandText) brandText.classList.remove('hidden');
+    navTexts.forEach(el => el.classList.remove('hidden'));
+    if (logoutText) logoutText.classList.remove('hidden');
+    navLinks.forEach(el => {
+      el.classList.remove('justify-center', 'px-2');
+      el.classList.add('px-3');
+    });
+    if (btnLogout) {
+      btnLogout.classList.remove('justify-center', 'px-2');
+      btnLogout.classList.add('px-3');
+    }
+    if (header) {
+      header.classList.remove('px-3', 'justify-center');
+      header.classList.add('p-5', 'justify-between');
+    }
+  }
+}
+</script>
+
+<script>window.ADMIN_SCREEN_ID=10;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

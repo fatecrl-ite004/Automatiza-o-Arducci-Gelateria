@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pagamento no Débito - Cliente Arducci</title>
+<link rel="stylesheet" href="styles/screen-39.css?v=20261108-layout-41">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f1ea;
+      color: #2d241e;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-headline {
+      font-family: 'Playfair Display', serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Pulse NFC animation */
+    @keyframes nfc-pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .pulse-effect {
+      animation: nfc-pulse 2.2s infinite ease-in-out;
+    }
+    /* Hide scrollbars for clean mobile appearance */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="flex min-h-screen py-0 bg-surface">
+<!-- Mobile Container Wrapper -->
+<main class="w-full bg-surface min-h-screen relative flex flex-col justify-between overflow-x-hidden">
+<!-- Content Scrollable Area -->
+<div class="flex-1 pb-44 overflow-y-auto">
+<!-- Status Bar Mobile UI -->
+<div class="px-6 pt-3 pb-2 flex justify-between items-center text-xs font-semibold tracking-tight text-text-main select-none">
+<span class="">9:41</span>
+<div class="flex items-center space-x-1.5 text-text-main">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- Top Header: Cliente Arducci Profile & Quick Actions -->
+<header class="pt-2 pb-3.5 flex items-center justify-between border-b border-border-subtle/70 bg-surface/90 backdrop-blur sticky top-0 z-30 px-4">
+<div class="flex items-center space-x-3">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm bg-[#e8dfd8] flex items-center justify-center"><img alt="Lucas Arducci" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEXIqJ8OT1XaXedGHZy_48YQoIXvj-Eio92Sk3ijQnM6jmrCr6uEMzgN1dv0eghy8nDfIwe-pHAFMsz3KX27-JisM9la2XDFgdyuflwqJD_MP6SnXxnQPCisqV6dNHJOZp3H-9ZT89mBcb5xhYjCjOGqNBp7mYUVyI_0kcQilaCgH3dgZucnhrymvmSbCKiMVXUUFFGfAA6W4R4XsQFjqeXGvgpXx95bUXB7eDfnK1vkf_Kr0idbhGQQ"></div>
+<div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#2d6a4f] text-white flex items-center justify-center text-[9px] shadow-sm"><span class="material-symbols-outlined text-[11px] leading-none text-white">star</span></div>
+</div>
+<div>
+<span class="text-[10px] font-bold tracking-wider text-text-muted uppercase block leading-none mb-0.5">BEM-VINDO!</span>
+<div class="flex items-center space-x-1.5">
+<h2 class="text-sm font-headline font-bold text-primary">Cliente Arducci</h2>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<!-- Cart button with counter -->
+<div class="relative"><button class="w-10 h-10 rounded-full bg-white border border-border-subtle flex items-center justify-center text-primary shadow-sm hover:border-secondary transition-colors" title="Sacola de Compras"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button><span class="absolute -top-1 -right-1 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow" style="background-color: rgb(220, 38, 38); color: rgb(255, 255, 255);">4</span></div>
+<!-- Logout button -->
+<button class="w-10 h-10 rounded-full bg-white border border-border-subtle flex items-center justify-center text-text-muted hover:text-red-700 hover:border-red-200 transition-colors shadow-sm" title="Sair da Conta">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</header>
+<!-- Navigation & Page Title -->
+<div class="pt-4 pb-2 px-4">
+<div class="flex items-center space-x-3 mb-1">
+<button class="w-9 h-9 rounded-full bg-white border border-border-subtle flex items-center justify-center text-primary hover:bg-surface-subtle transition-colors shadow-xs" onclick="window.history.back()">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<h1 class="text-2xl font-headline font-bold text-primary tracking-tight">Pagamento no Débito</h1>
+<p class="text-xs text-text-muted">Finalize com segurança com seu cartão cadastrado ou aproximação</p>
+</div>
+</div>
+</div>
+<!-- Main Body Container -->
+<div class="space-y-4 pt-2 px-4">
+<!-- Box: Valor Total do Pedido -->
+<div class="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary-light/40 rounded-full pointer-events-none"></div>
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center space-x-2">
+<span class="w-7 h-7 rounded-lg bg-surface-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[17px]">receipt_long</span>
+</span>
+<span class="text-xs font-semibold text-text-muted uppercase tracking-wider">Resumo a Pagar</span>
+</div>
+<span class="text-[11px] font-bold text-secondary bg-secondary-light px-2.5 py-0.5 rounded-full border border-secondary/20">4 Itens Selecionados</span>
+</div>
+<div class="space-y-1 text-xs text-text-muted border-b border-dashed border-border-subtle pb-2.5 mb-2.5">
+<div class="flex justify-between">
+<span class="">Subtotal do Pedido</span>
+<span class="font-medium text-text-main">R$ 68,00</span>
+</div>
+<div class="flex justify-between text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">sell</span>
+                Desconto Fidelidade Club (5%)
+              </span>
+<span class="font-semibold">- R$ 3,40</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<span class="text-[11px] text-text-muted block font-medium">Total com Desconto Débito</span>
+<span class="text-[26px] font-headline font-bold text-primary leading-tight">R$ 64,60</span>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center space-x-1 text-[11px] font-semibold text-[#1b4332] px-2 py-1 rounded-md border border-[#2d6a4f]/30" style="background-color: rgba(45, 106, 79, 0.15);"><span class="material-symbols-outlined text-[13px] filled text-[#2d6a4f]">verified</span><span class="">Sem taxa adicional</span></span>
+</div>
+</div>
+</div>
+<!-- Seção: Formas de Pagamento no Débito -->
+<div>
+<div class="flex items-center justify-between mb-2.5 px-0.5">
+<h3 class="text-xs font-bold text-text-main uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">credit_card</span>
+              Escolha como deseja pagar no Débito:
+            </h3>
+<span class="text-[10px] text-text-muted">Selecione uma opção</span>
+</div>
+<!-- Grid de Seleção de Modalidade (Opção 1 vs Opção 2) -->
+<div class="grid grid-cols-2 gap-2.5" id="method-selector">
+<!-- Opção 1: Pagar por Aproximação -->
+<button class="relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-secondary bg-secondary-light/30 shadow-xs group" id="btn-option-nfc" onclick="selectPaymentMethod('nfc')" type="button">
+<div class="absolute top-2.5 right-2.5">
+<div class="w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center" id="check-nfc">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">contactless</span>
+</div>
+<div class="text-[10px] font-bold uppercase tracking-wider text-secondary">Opção 01</div>
+<div class="text-sm font-bold text-text-main font-headline leading-tight mt-0.5">Pagar por Aproximação</div>
+<p class="text-[10px] text-text-muted mt-1 leading-snug">Apple Pay, Google Wallet ou Cartão NFC direto no leitor</p>
+</button>
+<!-- Opção 2: Digite os dados do seu cartão -->
+<button class="relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-border-subtle hover:border-secondary/60 shadow-xs group" id="btn-option-card" onclick="selectPaymentMethod('card')" type="button">
+<div class="absolute top-2.5 right-2.5">
+<div class="w-5 h-5 rounded-full border border-border-subtle bg-white flex items-center justify-center" id="check-card">
+<!-- empty radio state -->
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">pin</span>
+</div>
+<div class="text-[10px] font-bold uppercase tracking-wider text-text-muted">Opção 02</div>
+<div class="text-sm font-bold text-text-main font-headline leading-tight mt-0.5">Digite os Dados do Cartão</div>
+<p class="text-[10px] text-text-muted mt-1 leading-snug">Insira número, validade e CVV do cartão de débito</p>
+</button>
+</div>
+</div>
+<!-- Conteúdo Dinâmico: OPÇÃO 1 - PAGAR POR APROXIMAÇÃO (Ativo por padrão) -->
+<div class="space-y-3 block transition-all duration-300" id="nfc-container">
+<div class="bg-surface-card rounded-2xl p-5 border border-border-subtle shadow-sm text-center">
+<!-- Animated NFC Icon Circle -->
+<div class="w-20 h-20 mx-auto rounded-full bg-secondary-light border-2 border-secondary/30 flex items-center justify-center text-secondary mb-3 pulse-effect shadow-inner">
+<span class="material-symbols-outlined text-[42px]">contactless</span>
+</div>
+<h4 class="text-base font-bold text-primary font-headline">Aproxime seu cartão ou celular</h4>
+<p class="text-xs text-text-muted max-w-[280px] mx-auto mt-1 leading-relaxed">
+              Encoste o verso do cartão com NFC ou o seu smartphone com carteira digital ativa na tela do totem ou na maquininha Arducci.
+            </p>
+<!-- Card Visual Representation -->
+<div class="mt-4 p-3.5 bg-gradient-to-r from-[#3b2b20] to-[#261b14] rounded-xl text-white text-left shadow-md relative overflow-hidden">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-amber-300 text-[20px]">credit_card</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-amber-200/90">Cartão de Débito Arducci</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-white/80">contactless</span>
+</div>
+<div class="text-xs font-mono tracking-widest text-white/90 mb-2">•••• •••• •••• 9241</div>
+<div class="flex justify-between items-end">
+<div>
+<span class="text-[8px] text-white/60 uppercase tracking-wider block">Nome do Titular</span>
+<span class="text-xs font-bold tracking-wide uppercase text-white font-sans">CLIENTE ARDUCCI</span>
+</div>
+<div class="flex items-center space-x-1 text-right">
+<span class="text-[9px] font-bold text-white px-1.5 py-0.5 rounded border border-[#2d6a4f]/50" style="background-color: rgb(45, 106, 79);">NFC PRONTO</span>
+</div>
+</div>
+</div>
+<!-- Informative Steps -->
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-border-subtle/80 text-left">
+<div class="bg-surface-subtle p-2 rounded-lg">
+<span class="text-[10px] font-bold text-secondary block">1. Aproxime</span>
+<span class="text-[9px] text-text-muted leading-tight block mt-0.5">Mantenha próximo por 3 segundos</span>
+</div>
+<div class="bg-surface-subtle p-2 rounded-lg">
+<span class="text-[10px] font-bold text-secondary block">2. Confirme</span>
+<span class="text-[9px] text-text-muted leading-tight block mt-0.5">Digite a senha se solicitado</span>
+</div>
+<div class="bg-surface-subtle p-2 rounded-lg">
+<span class="text-[10px] font-bold text-secondary block">3. Pronto</span>
+<span class="text-[9px] text-text-muted leading-tight block mt-0.5">Comprovante gerado na hora</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Conteúdo Dinâmico: OPÇÃO 2 - DIGITE OS DADOS DO SEU CARTÃO (Oculto inicialmente) -->
+<div class="space-y-3 hidden transition-all duration-300" id="card-form-container">
+<div class="bg-surface-card rounded-2xl p-4 sm:p-5 border border-border-subtle shadow-sm space-y-3.5">
+<div class="flex justify-between items-center border-b border-border-subtle/80 pb-2.5">
+<div>
+<h4 class="text-sm font-bold text-primary font-headline">Dados do Cartão de Débito</h4>
+<p class="text-[11px] text-text-muted">Ambiente com criptografia bancária de ponta a ponta</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[22px]">lock</span>
+</div>
+<!-- Campo: Nome Impresso no Cartão (CLIENTE ARDUCCI) -->
+<div>
+<label class="block text-[11px] font-bold text-text-main mb-1 uppercase tracking-wide">
+                Nome Impresso no Cartão *
+              </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-muted">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<input class="w-full pl-9 pr-8 py-2.5 bg-surface-subtle border border-border-subtle rounded-xl text-xs font-bold text-primary uppercase focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary tracking-wider" id="card-holder" placeholder="DIGITE COMO ESTÁ NO CARTÃO" type="text" value="CLIENTE ARDUCCI">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<span class="text-[10px] text-text-muted mt-1 block">Titular vinculado à sua conta Arducci Fidelidade</span>
+</div>
+<!-- Campo: Número do Cartão -->
+<div>
+<label class="block text-[11px] font-bold text-text-main mb-1 uppercase tracking-wide">
+                Número do Cartão de Débito *
+              </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-muted">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+<input class="w-full pl-9 pr-12 py-2.5 bg-surface-subtle border border-border-subtle rounded-xl text-xs font-mono font-bold text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" id="card-number" maxlength="19" oninput="formatCardNumber(this)" placeholder="0000 0000 0000 0000" type="text" value="5421 8890 3412 9241">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none space-x-1">
+<span class="text-[10px] font-bold bg-[#ff5f00]/10 text-[#eb001b] px-1 py-0.5 rounded font-sans">Mastercard</span>
+</div>
+</div>
+</div>
+<!-- Grid: Validade e CVV -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-[11px] font-bold text-text-main mb-1 uppercase tracking-wide">
+                  Validade *
+                </label>
+<div class="relative">
+<input class="w-full px-3 py-2.5 bg-surface-subtle border border-border-subtle rounded-xl text-xs font-mono font-bold text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary text-center" id="card-expiry" maxlength="5" oninput="formatExpiry(this)" placeholder="MM/AA" type="text" value="08/29">
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="block text-[11px] font-bold text-text-main uppercase tracking-wide">
+                    CVV / Cód. *
+                  </label>
+<span class="text-[9px] text-text-muted flex items-center gap-0.5 cursor-pointer">
+<span class="material-symbols-outlined text-[12px]">help</span> 3 dígitos
+                  </span>
+</div>
+<div class="relative">
+<input class="w-full px-3 py-2.5 bg-surface-subtle border border-border-subtle rounded-xl text-xs font-mono font-bold text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary text-center tracking-widest" id="card-cvv" maxlength="4" placeholder="•••" type="password" value="842">
+<button class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-text-muted hover:text-primary" onclick="toggleCvvVisibility()" type="button">
+<span class="material-symbols-outlined text-[16px]" id="cvv-icon">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Checkbox Salvar Cartão para próximos pedidos -->
+<div class="pt-1">
+<label class="flex items-center space-x-2.5 text-xs text-text-main cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded border-border-subtle text-secondary focus:ring-secondary accent-secondary" type="checkbox">
+<span class="text-[11px] leading-tight">Manter este cartão salvo com segurança para compras futuras</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Informação de CPF na Nota Fiscal já vinculado -->
+<div class="bg-surface-card rounded-2xl p-3.5 border border-border-subtle shadow-xs flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<span class="w-8 h-8 rounded-full bg-secondary-light text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+<div>
+<span class="text-[10px] uppercase font-bold text-text-muted tracking-wider block">CPF na Nota Fiscal (Salvo)</span>
+<span class="text-xs font-bold text-text-main font-mono">123.123.123-00</span>
+</div>
+</div>
+<span class="text-[11px] font-bold text-[#1b4332] px-2 py-0.5 rounded-full border border-[#2d6a4f]/30" style="background-color: rgba(45, 106, 79, 0.15);">Vinculado</span>
+</div>
+<!-- ============================================== -->
+<!-- PAINEL DE TESTE / SIMULADOR DE RESPOSTA -->
+<!-- ============================================== -->
+<div class="bg-surface-card rounded-2xl p-3 border border-border-subtle shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] uppercase font-bold tracking-wider text-text-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">science</span>
+Simular Resposta de Pagamento
+</span>
+<button class="text-[10px] text-text-muted hover:text-primary underline" onclick="setFeedbackState('none')">Limpar</button>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<!-- Botão Aprovado (✓ Verde) -->
+<button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-[#1b4332] border border-[#2d6a4f]/30 font-bold text-xs transition-colors active:scale-95 shadow-xs" onclick="setFeedbackState('success')" style="background-color: rgba(45, 106, 79, 0.15);" title="Testar Pagamento Aprovado"><span class="material-symbols-outlined text-[15px] text-[#2d6a4f] font-bold">check</span><span class="">Aprovado</span></button>
+<!-- Botão Recusado (✕ Vermelho) -->
+<button class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-300 font-bold text-xs hover:bg-rose-100 transition-colors active:scale-95 shadow-xs" onclick="setFeedbackState('declined')" title="Testar Pagamento Recusado">
+<span class="material-symbols-outlined text-[15px] text-rose-600 font-bold">close</span>
+<span class="">Recusado</span>
+</button>
+<!-- Botão NFC: Não Autorizado -->
+<button class="flex items-center space-x-1 px-2 py-1.5 rounded-lg bg-amber-50 text-amber-900 border border-amber-300 text-[11px] font-semibold hover:bg-amber-100 transition-colors active:scale-95 shadow-xs" onclick="setFeedbackState('unauthorized')" title="Testar Aproximação Não Autorizada">
+<span class="material-symbols-outlined text-[14px] text-amber-700">do_not_disturb_on</span>
+<span class="">Aproximação: Não Autorizado</span>
+</button>
+<!-- Botão NFC: Erro de Leitura -->
+<button class="flex items-center space-x-1 px-2 py-1.5 rounded-lg bg-stone-100 text-stone-800 border border-stone-300 text-[11px] font-semibold hover:bg-stone-200 transition-colors active:scale-95 shadow-xs" onclick="setFeedbackState('read_error')" title="Testar Erro de Leitura NFC">
+<span class="material-symbols-outlined text-[14px] text-stone-700">contactless_off</span>
+<span class="">Aproximação: Erro Leitura</span>
+</button>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- CAIXAS DE FEEDBACK / ESTADOS DE RETORNO -->
+<!-- ============================================== -->
+<div class="space-y-3" id="feedback-boxes-container">
+<!-- Feedback 1: Pagamento Aprovado (Verde Suave Elegante Arducci) -->
+<div class="hidden bg-secondary-light/40 border-2 border-secondary/40 rounded-2xl p-4 shadow-sm transition-all duration-300" id="feedback-success"><div class="flex items-start space-x-3"><div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-[22px]">check</span></div><div class="flex-1 min-w-0"><div class="flex items-center justify-between"><h4 class="text-sm font-headline font-bold text-primary">Pagamento Aprovado!</h4><span class="text-[10px] font-bold text-secondary bg-white/70 px-2 py-0.5 rounded-full border border-secondary/20">Sucesso</span></div><p class="text-xs text-text-main/90 mt-1 leading-relaxed">Transação confirmada com sucesso. Redirecionando para o Acompanhamento do Pedido...</p><div class="mt-3 flex items-center gap-2"><button class="flex-1 py-2 px-3 bg-secondary hover:bg-secondary-hover text-white rounded-xl font-bold text-xs shadow-xs transition-colors flex items-center justify-center space-x-1.5" onclick="alert('Redirecionando para a tela de Acompanhamento do Pedido...')"><span class="">Ir para Acompanhamento do Pedido</span><span class="material-symbols-outlined text-[15px]">arrow_forward</span></button></div></div></div></div>
+<!-- Feedback 2: Pagamento Recusado (Terracota / Avermelhado Suave) -->
+<div class="hidden bg-[#fdf2f0] border-2 border-rose-400/50 rounded-2xl p-4 shadow-sm transition-all duration-300" id="feedback-declined">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-headline font-bold text-rose-950">Pagamento Recusado</h4>
+<span class="text-[10px] font-bold text-rose-800 bg-white/70 px-2 py-0.5 rounded-full border border-rose-200">Erro</span>
+</div>
+<p class="text-xs text-rose-900/90 mt-1 leading-relaxed">
+Não foi possível concluir o pagamento. Avalie e tente de novo.
+</p>
+<div class="mt-3 flex items-center gap-2">
+<button class="flex-1 py-2 px-3 bg-rose-700 hover:bg-rose-800 text-white rounded-xl font-bold text-xs shadow-xs transition-colors flex items-center justify-center space-x-1.5" onclick="retryPayment()">
+<span class="material-symbols-outlined text-[15px]">replay</span>
+<span class="">Tentar Novamente</span>
+</button>
+<button class="py-2 px-3 bg-white border border-rose-200 text-rose-900 hover:bg-rose-50 rounded-xl font-semibold text-xs transition-colors" onclick="selectPaymentMethod('card')">
+Digitar Cartão
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feedback 3: Aproximação - Não Autorizado -->
+<div class="hidden bg-[#fef8ed] border-2 border-amber-400/50 rounded-2xl p-4 shadow-sm transition-all duration-300" id="feedback-unauthorized">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">do_not_disturb_on</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-headline font-bold text-amber-950">Pagamento Não Autorizado</h4>
+<span class="text-[10px] font-bold text-amber-800 bg-white/70 px-2 py-0.5 rounded-full border border-amber-200">Operadora</span>
+</div>
+<p class="text-xs text-amber-950/90 mt-1 leading-relaxed">
+Transação não aprovada pela operadora do cartão. Avalie os limites disponíveis ou tente outro cartão de débito.
+</p>
+<div class="mt-3 flex items-center gap-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs shadow-xs transition-colors flex items-center justify-center space-x-1.5" onclick="retryPayment()">
+<span class="material-symbols-outlined text-[15px]">replay</span>
+<span class="">Tentar com Outro Cartão</span>
+</button>
+<button class="py-2 px-3 bg-white border border-amber-200 text-amber-950 hover:bg-amber-50 rounded-xl font-semibold text-xs transition-colors" onclick="setFeedbackState('none')">
+Fechar
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feedback 4: Aproximação - Erro de Leitura -->
+<div class="hidden bg-[#f6f5f3] border-2 border-stone-400/60 rounded-2xl p-4 shadow-sm transition-all duration-300" id="feedback-read-error">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-full bg-stone-700 text-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">contactless_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-headline font-bold text-stone-900">Erro de Leitura — Aproxime Novamente</h4>
+<span class="text-[10px] font-bold text-stone-700 bg-white/70 px-2 py-0.5 rounded-full border border-stone-300">NFC</span>
+</div>
+<p class="text-xs text-stone-700 mt-1 leading-relaxed">
+Falha na comunicação por aproximação NFC. Mantenha o cartão firme no leitor por 3 segundos ou tente inserir os dados manualmente.
+</p>
+<div class="mt-3 flex items-center gap-2">
+<button class="flex-1 py-2 px-3 bg-stone-800 hover:bg-stone-900 text-white rounded-xl font-bold text-xs shadow-xs transition-colors flex items-center justify-center space-x-1.5" onclick="retryNfc()">
+<span class="material-symbols-outlined text-[15px]">contactless</span>
+<span class="">Aproximar Novamente</span>
+</button>
+<button class="py-2 px-3 bg-white border border-stone-300 text-stone-800 hover:bg-stone-100 rounded-xl font-semibold text-xs transition-colors" onclick="selectPaymentMethod('card'); setFeedbackState('none');">
+Inserir Dados
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Instruções de Segurança e Cancelamento -->
+<div class="text-center pt-1 pb-2">
+<button class="text-xs font-semibold text-text-muted hover:text-primary underline transition-colors" onclick="window.history.back()">
+            Cancelar e escolher outra forma de pagamento
+          </button>
+<div class="flex items-center justify-center space-x-1.5 text-[10px] text-text-muted mt-2">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+<span class="">Ambiente 100% Criptografado • Arducci Gelateria &amp; Açaiteria</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Sticky Section: Action Button + Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full bg-surface-card/95 backdrop-blur-md border-t border-border-subtle z-40 shadow-xl">
+<!-- Primary Action CTA Button -->
+<div class="pt-3 pb-2 px-4">
+<button class="w-full py-3.5 px-4 active:scale-[0.99] text-white rounded-xl font-bold text-sm tracking-wide shadow-md transition-all flex items-center justify-center space-x-2" id="btn-submit-payment" onclick="processPayment()" style="background-color: rgb(45, 106, 79);"><span class="material-symbols-outlined text-[20px]" id="cta-icon">lock</span><span class="" id="cta-text">Pagar R$ 64,60 no Débito (Aproximação)</span></button>
+</div>
+<!-- Bottom Navigation Bar (4 Abas Padronizadas, estado neutro sem Cardápio) -->
+<nav class="flex justify-around items-center px-3 pt-1 pb-3 text-text-muted select-none">
+<!-- Início -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-text-muted hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">storefront</span>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">Início</span>
+</a>
+<!-- Carrinho (Com badge indicador) -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-text-muted hover:text-primary transition-colors group relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">shopping_bag</span>
+<span class="absolute -top-1 -right-1.5 text-white text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center shadow" style="background-color: rgb(220, 38, 38); color: rgb(255, 255, 255);">4</span>
+</div>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">Sacola</span>
+</a>
+<!-- Pedidos -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-text-muted hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">receipt_long</span>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">Pedidos</span>
+</a>
+<!-- Perfil -->
+<a class="flex flex-col items-center justify-center py-1 px-3 text-text-muted hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">person</span>
+<span class="text-[10px] font-medium mt-0.5 tracking-tight">Perfil</span>
+</a>
+</nav>
+<!-- Home Indicator bar -->
+<div class="w-32 h-1 bg-text-main/20 rounded-full mx-auto mb-1.5"></div>
+</div>
+</main>
+<!-- Interactive JavaScript Logic -->
+<script>
+    let currentMethod = 'nfc';
+
+    function selectPaymentMethod(method) {
+      currentMethod = method;
+      const btnNfc = document.getElementById('btn-option-nfc');
+      const btnCard = document.getElementById('btn-option-card');
+      const checkNfc = document.getElementById('check-nfc');
+      const checkCard = document.getElementById('check-card');
+      const nfcContainer = document.getElementById('nfc-container');
+      const cardContainer = document.getElementById('card-form-container');
+      const ctaText = document.getElementById('cta-text');
+      const ctaIcon = document.getElementById('cta-icon');
+
+      if (method === 'nfc') {
+        // Estilização Opção 1 selecionada
+        btnNfc.className = "relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-secondary bg-secondary-light/30 shadow-xs group";
+        checkNfc.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span>';
+        checkNfc.className = "w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center";
+
+        // Estilização Opção 2 desmarcada
+        btnCard.className = "relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-border-subtle hover:border-secondary/60 shadow-xs group";
+        checkCard.innerHTML = '';
+        checkCard.className = "w-5 h-5 rounded-full border border-border-subtle bg-white flex items-center justify-center";
+
+        // Visibilidade dos containers
+        nfcContainer.classList.remove('hidden');
+        cardContainer.classList.add('hidden');
+
+        // CTA
+        ctaText.innerText = "Pagar R$ 64,60 no Débito (Aproximação)";
+        ctaIcon.innerText = "contactless";
+      } else {
+        // Estilização Opção 2 selecionada
+        btnCard.className = "relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-secondary bg-secondary-light/30 shadow-xs group";
+        checkCard.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span>';
+        checkCard.className = "w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center";
+
+        // Estilização Opção 1 desmarcada
+        btnNfc.className = "relative text-left p-3.5 rounded-2xl border-2 transition-all duration-200 bg-white border-border-subtle hover:border-secondary/60 shadow-xs group";
+        checkNfc.innerHTML = '';
+        checkNfc.className = "w-5 h-5 rounded-full border border-border-subtle bg-white flex items-center justify-center";
+
+        // Visibilidade dos containers
+        nfcContainer.classList.add('hidden');
+        cardContainer.classList.remove('hidden');
+
+        // CTA
+        ctaText.innerText = "Confirmar e Pagar R$ 64,60 com Cartão";
+        ctaIcon.innerText = "lock";
+      }
+    }
+
+    function formatCardNumber(input) {
+      let value = input.value.replace(/\D/g, '');
+      let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+      input.value = formatted.substring(0, 19);
+    }
+
+    function formatExpiry(input) {
+      let value = input.value.replace(/\D/g, '');
+      if (value.length >= 2) {
+        input.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+      } else {
+        input.value = value;
+      }
+    }
+
+    function toggleCvvVisibility() {
+      const cvvInput = document.getElementById('card-cvv');
+      const cvvIcon = document.getElementById('cvv-icon');
+      if (cvvInput.type === 'password') {
+        cvvInput.type = 'text';
+        cvvIcon.innerText = 'visibility_off';
+      } else {
+        cvvInput.type = 'password';
+        cvvIcon.innerText = 'visibility';
+      }
+    }
+
+    // Gerenciador de exibição das Caixas de Feedback / Estados de Retorno
+    function setFeedbackState(state) {
+      const successBox = document.getElementById('feedback-success');
+      const declinedBox = document.getElementById('feedback-declined');
+      const unauthorizedBox = document.getElementById('feedback-unauthorized');
+      const readErrorBox = document.getElementById('feedback-read-error');
+
+      // Ocultar todas
+      successBox.classList.add('hidden');
+      declinedBox.classList.add('hidden');
+      unauthorizedBox.classList.add('hidden');
+      readErrorBox.classList.add('hidden');
+
+      if (state === 'success') {
+        successBox.classList.remove('hidden');
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (state === 'declined') {
+        declinedBox.classList.remove('hidden');
+        declinedBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (state === 'unauthorized') {
+        unauthorizedBox.classList.remove('hidden');
+        unauthorizedBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (state === 'read_error') {
+        readErrorBox.classList.remove('hidden');
+        readErrorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function retryPayment() {
+      setFeedbackState('none');
+      processPayment();
+    }
+
+    function retryNfc() {
+      setFeedbackState('none');
+      selectPaymentMethod('nfc');
+      const cta = document.getElementById('btn-submit-payment');
+      cta.classList.add('ring-2', 'ring-secondary');
+      setTimeout(() => cta.classList.remove('ring-2', 'ring-secondary'), 800);
+    }
+
+    function processPayment() {
+      const btn = document.getElementById('btn-submit-payment');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Processando Débito...</span>';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Pagamento Concluído!</span>';
+        btn.classList.remove('bg-secondary', 'hover:bg-secondary-hover');
+        btn.classList.add('bg-emerald-600');
+        
+        // Exibir a caixa de feedback aprovado elegante
+        setFeedbackState('success');
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          btn.classList.add('bg-secondary', 'hover:bg-secondary-hover');
+          btn.classList.remove('bg-emerald-600');
+        }, 1500);
+      }, 1200);
+    }
+  </script>
+<script>window.SCREEN_ID=39;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="native-payment.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>
