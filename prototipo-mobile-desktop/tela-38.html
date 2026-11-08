@@ -1,0 +1,433 @@
+<!DOCTYPE html><html class="h-full" lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Picolés Artesanais - Cliente Visitante</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="styles/screen-38.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .elevation-ambient {
+      box-shadow: 0 4px 16px rgba(59, 43, 32, 0.05);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md h-screen w-screen overflow-hidden flex flex-col select-none">
+<!-- TOP STATUS BAR & HEADER (FIXED TOP SECTION) -->
+<header class="shrink-0 z-30 bg-surface">
+<!-- STATUS BAR -->
+<div class="w-full bg-surface/95 backdrop-blur-md px-6 pt-3 pb-1 flex justify-between items-center text-primary font-bold text-[14px] border-b border-outline-variant/10">
+<span class="font-semibold text-[13px] tracking-tight">9:41</span>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- VISITOR BAR -->
+<div class="w-full px-5 py-2.5 flex items-center justify-between bg-surface border-b border-outline-variant/30">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high border-2 border-outline-variant/40 shadow-xs shrink-0 text-outline">
+<span class="material-symbols-outlined text-2xl">person</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold tracking-wider text-outline leading-tight">BEM-VINDO!</span>
+<span class="font-headline-md text-headline-md text-primary text-base font-bold leading-tight">Visitante</span>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="relative w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-primary" type="button">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-error text-white rounded-full text-[9px] font-bold flex items-center justify-center shadow-xs transition-transform" id="header-cart-badge">3</span>
+</button>
+<button class="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant/40 active:scale-95 transition-all text-primary font-semibold text-xs shadow-xs" title="Entrar na conta" type="button">
+<span class="material-symbols-outlined text-base text-secondary">login</span>
+<span>Entrar</span>
+</button>
+</div>
+</div>
+<!-- PAGE TITLE BAR -->
+<nav class="w-full px-5 py-2.5 flex items-center justify-between bg-surface border-b border-outline-variant/20 shadow-xs">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all duration-150 border border-outline-variant/30 text-primary" onclick="history.back()" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Arducci Gelateria</span>
+<h1 class="font-headline-md text-headline-md text-primary leading-tight font-bold">Picolés Artesanais</h1>
+</div>
+<div class="w-10 h-10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">icecream</span>
+</div>
+</nav>
+</header>
+<!-- MAIN SCROLLABLE CONTENT (scrolls behind fixed summary & nav) -->
+<main class="flex-1 overflow-y-auto overscroll-y-contain px-4 pt-3 pb-48 space-y-4 max-w-md mx-auto w-full">
+<!-- HERO BANNER -->
+<section class="relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 min-h-[170px] flex flex-col justify-end p-4">
+<img alt="Picolés artesanais de frutas" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XbFV7BhSQAVGho_T3ZdwVAtxd-AUllLaReAq2o5UePfgJu9v_bsOJ5d9sDHVVWxYCeHSUDlMpiR-QdNkRb0Zhda5e61ujKekBpwKVXPibSYlfA9vi_ec3XOPOszn_prWWYd_-3b3nME-SX9lastAjTglsTYR23SjnlU_yv0Rfde8Azn1_77amliiP2QX7JxjnBCotcA5OzqMXAXBaVgxwuy9EXRsJMNLkPSrOVnbXpccg6ZokfD59tRl3X">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-primary/20"></div>
+<div class="relative z-10 space-y-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed/90 text-on-secondary-fixed font-label-sm text-[10px] font-bold tracking-wide uppercase backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        Produção Artesanal Diária
+      </span>
+<h1 class="font-headline-lg text-headline-lg text-on-primary font-bold leading-tight">
+        Picolés de Fruta e Cremosos
+      </h1>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/90 line-clamp-2">
+        Feitos com polpa 100% natural e cacau puro. Sem conservantes artificiais ou aromatizantes sintéticos.
+      </p>
+</div>
+</section>
+<!-- INFORMATIVE HELP CARD -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex items-start gap-2.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">touch_app</span>
+<p class="font-body-sm text-[12px] leading-relaxed text-on-surface-variant">
+      Selecione os sabores desejados, ajuste as quantidades e adicione diretamente à sua sacola de pedidos.
+    </p>
+</div>
+<!-- SECTION TITLE & COUNT -->
+<div class="flex items-center justify-between pt-1 pb-0.5">
+<h2 class="font-title-sm text-title-sm text-primary tracking-tight font-bold">
+      Sabores Disponíveis
+    </h2>
+<span class="font-label-sm text-label-sm text-outline font-medium bg-surface-container-high px-2.5 py-1 rounded-full">6 opções frescas</span>
+</div>
+<!-- PRODUCT 2-COLUMN GRID (6 SABORES) -->
+<div class="grid grid-cols-2 gap-3">
+<!-- ITEM 1: Picolé de Uva -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An artisanal grape popsicle frozen pop made from fresh Concord grapes resting on a rustic slate board with dew droplets and fresh vine leaves, authentic Italian gelateria style with soft natural lighting and warm ambient tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB15dPJJxN26d7IYkUatzrguBfNmH1dlrkuAU0k3pvgRmZRW9nl05hhllbQWGJZfHeeHQ7ZM1Uh6MbSNQirvjBuRThKr41yt1PONKTaltK63qw7BIfMtOXck9lJXpre1VrwzSpr1QpdRqgGJ3ScYO4o4pn_ygwmUcEX8_PnRnKo1g03YPowU9Wmd442OeVQTzQvHzp2HUscchXY1-MayGztnquJKRN9mGKeB6OL8lJX16Fdh32NIlhOHw">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+            100% Fruta
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Uva
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Fruta natural pura, refrescância intensa e sem adição de conservantes.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 9,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="uva" data-price="9.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('uva', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-uva">delete</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-uva">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('uva', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 2: Picolé de Limão Siciliano -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An artisanal lemon gelato popsicle garnished with fine yellow zest strips and fresh mint leaves placed on a chilled marble slab, bright natural morning sunlight, warm Mediterranean gelateria aesthetic with creamy organic background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsLmgmvTHuVq8hhxF_-yoOQIWWMSHOzImRS99xr1V4TWUjhAZXqKNoFIrfN69PSpc664CYpEshnq1NuUT94z7sJ7JlFq0cNaQbtEMoP87VgkSqqGj9hGMd7R384G3lfrJWlfZxoufyxySVylT3eRZwAFLYj-m8XF0STHFPsMdHFEZZvrGU7u1d9W-Ae7ya4gCge1Y951ilwRfDww_QBsV9bI0B8mVE_W66YthzrQ8UQCv_GSdks4AeBA">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+            Cítrico Refinado
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Limão Siciliano
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Sumo natural com raspas finas de limão siciliano. Doçura e acidez balanceadas.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 9,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="limao" data-price="9.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('limao', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-limao">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-limao">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('limao', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 3: Picolé de Abacaxi c/ Hortelã -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Golden fresh pineapple popsicle blended with fine green mint specks resting on a dark slate stone next to ripe pineapple chunks, artisanal craft food photography with warm Italian culinary ambiance and diffused soft light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyJM8UiDbgwnOXOKuuMaIxuaWduogCsMZ9GlIOtRN3Q6m-k5SMEZS_oA9KG__CuX5XuTyhlSNEFAIdrB7cNoo-Zl4C5dncjDiJoPl-qPdHTXzQNCYNQd4pvc1cUem4ORC5A-4A_xJs7bs-xi7pXwk-ADIzPHkGVrOdeibx2Fw0TLB1_-k6xieUyskilzp2hJF4lAXnYMGmBN8DznZGYR21WXQ9YTUe96F8X1AbHy4J1HSMPHpiamLd_w">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+            Refrescante
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Abacaxi c/ Hortelã
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Polpa de abacaxi pérola fresco com infusão suave de folhas de hortelã.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 9,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="abacaxi" data-price="9.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('abacaxi', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-abacaxi">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-abacaxi">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('abacaxi', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 4: Picolé de Cacau 70% -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Rich velvety dark chocolate artisanal Belgian cocoa popsicle with delicate roasted cocoa nibs scattered around on a ceramic terracotta tray, luxurious warm espresso and chocolate styling with soft atmospheric shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKLeoFdMAgxzp0pqSqFGZe5PgeBFWEPkgGztSRCFWyss7HWqQk9w1AEiQdlXMuZhHbm6U4K40_O7znHrCQrJoterkOvg3NEBTAR8n1Yjwfx0Z57s5fX1D6M5VCxT30s1Gm0hqoXa52VeLbtz2MGVq120QKCdWc8kNZVDIh1EbgFupdhCJsOknOYzIx4ITFxyX7uq5IQcpiQpVpW-OmoRB6FjP3EnX3j-P8YqOcDzhjOiH41112_hk-UA">
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-xs">
+            Mais Vendido
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Cacau 70%
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Cacau nobre belga encorpado com textura aveludada e toque de leite fresco.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 12,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="cacau" data-price="12.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('cacau', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-cacau">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-cacau">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('cacau', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 5: Picolé de Morango Silvestre -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A vivid red strawberry fruit popsicle with visible natural seed textures and strawberry slices inside, shot on neutral rustic linen background with gentle sunlight, authentic artisanal Italian gelateria product display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu8f2BBRBc_0lwnAFM5oaNKfl7wTRYOETbfvN_DVa6IyZK5O-HEynJ5oFA1UAuq1wmZnfxPzQPnZ9_F9sfy6vT66BjdB-TqKykK5E49raQN_t00MpUjNYJLyAKk6HrWQfkJgF-Ord8uWFUBQMdDcyaJ6-h081W0U7ROW-jXDWaMHY1K3YV4DRvi2-wrFNbpis0DUGKyRZfRgKcokA7Uh2PeS5QnjIQ8xLh6hoChD3WrtGR7VnGsGHSMQ">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+            Sem Lactose
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Morango Silvestre
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Morangos frescos macerados, sabor vibrante e doce.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 10,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="morango" data-price="10.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('morango', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-morango">delete</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-morango">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('morango', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 6: Picolé de Açaí Puro -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal gourmet açaí popsicle on a rustic wooden stick" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpItx0JHX_PnKLAv9TmLhMRbGKEzQulw0KoQ5RA03po2H8SdIQeubMO3iptfXQeMP3E3iiaUwqsKVcLcgvNaUlIa2EKKrmnJagobXsnTu_l1B4Coy3OKg1Y4sqFEH8b-Om_wXCBaPI5ORkCwxv-G28Z08zcElr761u7cvjm9ZT_og8Z5xAijTtgVOSln9qz7rBAG2z_jR5PiL7iIUwHzUU5WKiKb7PKteZK0hI5S1n9To4ypYQiacX_g">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+            Energético Natural
+          </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+            Picolé de Açaí Puro
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+            Polpa pura de açaí do Pará com toque artesanal e guaraná.
+          </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+          R$ 10,00
+        </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="acai" data-price="10.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('acai', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-acai">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-acai">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('acai', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- 1. FLOATING BOTTOM SUMMARY & CALL TO ACTION (Fixed right above bottom nav) -->
+<div class="fixed left-0 right-0 w-full z-40 bg-[#20150e] text-white px-5 py-3 shadow-[0_-8px_24px_rgba(0,0,0,0.18)] flex items-center justify-between transition-all sim-actionbar" id="summary-bar" style="">
+<div class="flex-1 min-w-0 pr-3">
+<div class="flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed shrink-0"></span>
+<span class="font-bold text-sm text-white truncate" id="cart-summary-title">Sacola de Picolés</span>
+</div>
+<p class="text-xs text-[#d2c4bc] truncate mt-0.5" id="cart-summary-text">3 picolés selecionados</p>
+<div class="flex items-baseline space-x-1 mt-0.5">
+<span class="text-xs text-[#d2c4bc]">Total:</span>
+<span class="text-lg font-bold text-white tracking-tight" id="cart-summary-price">R$ 31,00</span>
+</div>
+</div>
+<div class="shrink-0">
+<button class="bg-[#1e5e3a] hover:bg-[#287a4c] text-white font-bold text-sm px-4 py-2.5 rounded-xl flex items-center space-x-2 shadow-md active:scale-95 transition-all" id="add-to-bag-btn" onclick="handleAddToBag(this)" type="button">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+<span>Adicionar à Sacola</span>
+</button>
+</div>
+</div>
+<!-- 2. FIXED BOTTOM APP NAVIGATION BAR (Always anchored at physical bottom) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-2 bg-[#fbf9f6] border-t border-[#e6e1dc] shadow-[0_-2px_10px_rgba(0,0,0,0.04)] h-16" style="height: 64px;">
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150 py-1 flex-1" href="#">
+<span class="material-symbols-outlined text-2xl">storefront</span>
+<span class="text-[11px] font-semibold mt-0.5">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150 relative py-1 flex-1" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute -top-1 -right-2 w-4 h-4 bg-error text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-xs" id="nav-cart-badge">3</span>
+</div>
+<span class="text-[11px] font-semibold mt-0.5">Sacola</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150 py-1 flex-1" href="#">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+<span class="text-[11px] font-semibold mt-0.5">Pedidos</span>
+</a>
+<div aria-disabled="true" class="flex flex-col items-center justify-center text-outline font-medium py-1 flex-1 opacity-40 cursor-not-allowed pointer-events-none select-none" title="Disponível após login">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[11px] font-semibold mt-0.5">Perfil</span>
+</div>
+</nav>
+<!-- INTERACTION LOGIC FOR QUANTITY & SUMMARY UPDATE -->
+<script>
+    const state = {
+      uva: { qty: 1, price: 9.00 },
+      limao: { qty: 0, price: 9.00 },
+      abacaxi: { qty: 0, price: 9.00 },
+      cacau: { qty: 1, price: 12.00 },
+      morango: { qty: 1, price: 10.00 },
+      acai: { qty: 0, price: 10.00 }
+    };
+
+    function updateQty(itemKey, delta) {
+      if (!state[itemKey]) return;
+      const next = state[itemKey].qty + delta;
+      if (next < 0) return;
+      state[itemKey].qty = next;
+
+      // Update count label
+      const label = document.getElementById(`qty-${itemKey}`);
+      if (label) label.textContent = next;
+
+      // Update delete/remove icon
+      const icon = document.getElementById(`icon-${itemKey}`);
+      if (icon) {
+        icon.textContent = next <= 1 ? (next === 1 ? 'delete' : 'remove') : 'remove';
+      }
+
+      // Re-calculate totals
+      recalc();
+    }
+
+    function recalc() {
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      for (const key in state) {
+        totalQty += state[key].qty;
+        totalPrice += state[key].qty * state[key].price;
+      }
+
+      // Update Top Header Cart
+      const headerBadge = document.getElementById('header-cart-badge');
+      if (headerBadge) {
+        headerBadge.textContent = totalQty;
+        headerBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Nav Cart
+      const navBadge = document.getElementById('nav-cart-badge');
+      if (navBadge) {
+        navBadge.textContent = totalQty;
+        navBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Summary Bar
+      const summaryText = document.getElementById('cart-summary-text');
+      if (summaryText) {
+        const itemWord = totalQty === 1 ? 'picolé selecionado' : 'picolés selecionados';
+        summaryText.textContent = `${totalQty} ${itemWord}`;
+      }
+
+      const summaryPrice = document.getElementById('cart-summary-price');
+      if (summaryPrice) {
+        summaryPrice.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+      }
+    }
+
+    function handleAddToBag(btn) {
+      const origHtml = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-lg">check</span><span>Adicionado!</span>';
+      btn.classList.add('bg-secondary');
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.classList.remove('bg-secondary');
+      }, 2000);
+    }
+  </script>
+<script>window.SCREEN_ID=38;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

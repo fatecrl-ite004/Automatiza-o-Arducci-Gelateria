@@ -1,0 +1,1577 @@
+<!DOCTYPE html><html class="h-full bg-[#fff8f4] stitch-anim-fade-in" data-stitch-orig-opacity="1" lang="pt-BR" style="background-color: rgb(255, 248, 244); color: rgb(27, 28, 26); min-height: 100vh; height: 100%; width: 100%; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arducci Gelateria &amp; Açaiteria | Gestão Integrada Financeiro &amp; DRE</title>
+<!-- Material Symbols Outlined -->
+
+<!-- Fonts: Playfair Display & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Tailwind CSS with Forms and Container Queries plugins -->
+<link rel="stylesheet" href="styles/admin-14.css?v=20261108-layout-41">
+
+<style>
+    /* Custom Scrollbar for metric density view */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B8860B;
+    }
+    .sidebar-collapsed {
+      width: 4.5rem !important;
+    }
+    .sidebar-collapsed .sidebar-hide-text {
+      display: none !important;
+    }
+    .main-collapsed {
+      margin-left: 4.5rem !important;
+      width: calc(100% - 4.5rem) !important;
+    }
+    .toast-anim {
+      animation: toastFade 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes toastFade {
+      0% { opacity: 0; transform: translateY(-12px); }
+      12% { opacity: 1; transform: translateY(0); }
+      85% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-16px); }
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="m-0 p-0 h-screen flex flex-row font-body-md text-on-surface antialiased select-none bg-[#fff8f4]" style="min-height: 100vh; width: 100%; background-color: rgb(255, 248, 244); color: rgb(27, 28, 26); margin: 0px; padding: 0px;">
+<!-- TOAST CONTAINER FOR FEEDBACK NOTIFICATIONS -->
+<div class="fixed top-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none" id="toast-container"></div>
+<!-- ========================================== -->
+<!-- SIDEBAR (Fixed Left Navigation)            -->
+<!-- ========================================== -->
+<aside class="fixed top-0 bottom-0 left-0 h-screen z-50 bg-[#1b1715] flex flex-col justify-between border-r border-[#302824] select-none text-outline-variant transition-all duration-300 w-64" id="main-sidebar" style="position: fixed; top: 0; bottom: 0; left: 0; height: 100vh; width: 260px; background-color: #1b1715; z-index: 50; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid #302824;">
+<!-- Sidebar Header / Brand Identity -->
+<div class="px-5 py-4 flex items-center justify-between border-b border-[#2b221d]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-burnished to-gold-deep flex items-center justify-center text-nero-rich shadow-md flex-shrink-0 cursor-pointer" onclick="showToast('Arducci Gelateria · Terminal Conectado')">
+<span class="material-symbols-outlined text-2xl font-bold text-nero-rich">icecream</span>
+</div>
+<div class="flex flex-col min-w-0 sidebar-hide-text">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest tracking-wide leading-tight">SORVETEC</span>
+<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-primary-container text-cacao-deep leading-tight">PRO</span>
+</div>
+<span class="text-[10px] tracking-widest text-[#a89a8c] font-semibold leading-tight mt-0.5">DAL 1984 · ARDUCCI</span>
+</div>
+</div>
+<button class="text-outline-variant hover:text-surface-container-lowest p-1.5 rounded hover:bg-cacao-surface transition-colors flex-shrink-0" id="btn-toggle-sidebar" title="Recolher / Expandir Menu">
+<span class="material-symbols-outlined text-xl" id="sidebar-toggle-icon">menu_open</span>
+</button>
+</div>
+<!-- Navigation Rail -->
+<nav class="flex-1 overflow-y-auto px-3 py-3 space-y-1">
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Dashboard" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">dashboard</span>
+<span class="whitespace-nowrap sidebar-hide-text">Dashboard</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Acompanhamento de Pedido" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">receipt_long</span>
+<span class="whitespace-nowrap sidebar-hide-text">Acompanhamento de Pedido</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Caixa" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">point_of_sale</span>
+<span class="whitespace-nowrap sidebar-hide-text">Caixa</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Clientes" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">group</span>
+<span class="whitespace-nowrap sidebar-hide-text">Clientes&nbsp;</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Estoque" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">inventory_2</span>
+<span class="whitespace-nowrap sidebar-hide-text">Estoque</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Sabores de Gelato" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">icecream</span>
+<span class="whitespace-nowrap sidebar-hide-text">Sabores de Gelato</span>
+</a>
+<!-- ITEM ATIVO: Financeiro & DRE -->
+<a class="nav-item active-nav flex items-center justify-between px-3 py-2 rounded-lg bg-[#2b221d] text-surface-container-lowest border-l-4 border-gold-burnished text-xs font-semibold shadow-inner transition-all" data-page="Financeiro" href="#">
+<div class="flex items-center gap-3 min-w-0">
+<span class="material-symbols-outlined text-lg text-gold-light flex-shrink-0" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="text-white whitespace-nowrap sidebar-hide-text">Financeiro&nbsp;</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-pistache-accent animate-pulse ml-2 flex-shrink-0 sidebar-hide-text"></span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Funcionários" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">badge</span>
+<span class="whitespace-nowrap sidebar-hide-text">Funcionários&nbsp;</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Mesas &amp; Comandas" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">table_bar</span>
+<span class="whitespace-nowrap sidebar-hide-text">Mesas &amp; Comandas</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Relatórios" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">monitoring</span>
+<span class="whitespace-nowrap sidebar-hide-text">Relatórios&nbsp;</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Painel de Controle" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">tune</span>
+<span class="whitespace-nowrap sidebar-hide-text">Painel de Controle</span>
+</a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg text-outline-variant hover:text-surface-container-lowest hover:bg-cacao-surface text-xs font-medium transition-all group" data-page="Suporte Técnico" href="#">
+<span class="material-symbols-outlined text-lg text-outline-variant group-hover:text-surface-container-lowest flex-shrink-0">contact_support</span>
+<span class="whitespace-nowrap sidebar-hide-text">Suporte Técnico</span>
+</a>
+</nav>
+<!-- Sidebar Bottom Footer CTA -->
+<div class="p-3 border-t border-[#2b221d]">
+<button class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-rose-400 hover:text-rose-200 hover:bg-rose-950/40 text-xs font-medium transition-all group" onclick="toggleModal('modal-logout')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-lg text-rose-400 group-hover:scale-110 transition-transform">logout</span>
+<span class="font-medium whitespace-nowrap sidebar-hide-text">Encerrar Sessão (Sair)</span>
+</div>
+</button>
+</div>
+</aside>
+<!-- ========================================== -->
+<!-- MAIN WORKSPACE WRAPPER                     -->
+<!-- ========================================== -->
+<div class="flex-1 min-h-screen flex flex-col justify-between bg-[#fff8f4] transition-all duration-300" id="main-content-wrapper" style="margin-left: 260px; width: calc(100% - 260px); min-height: 100vh;">
+<!-- Top Web Header -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-16 w-full bg-[#ffffff] border-b border-[#e8dfd8] select-none px-8 relative">
+<!-- Store Live Status & Action -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-pistache-soft border border-pistache-emerald/20 shadow-sm transition-all" id="store-badge-status">
+<span class="w-2 h-2 rounded-full bg-pistache-accent animate-pulse" id="store-dot-status"></span>
+<span class="font-label-sm uppercase tracking-wider text-pistache-emerald font-semibold text-[11px]" id="store-text-status">Loja Aberta • Balcão e Salão</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-cacao-deep bg-white hover:bg-surface-crema-subtle border border-surface-crema-muted rounded-full transition-colors shadow-sm cursor-pointer" id="btn-toggle-store">
+<span class="material-symbols-outlined text-sm text-cherry-ruby" id="store-action-icon">storefront</span>
+<span class="" id="store-action-label">Fechar loja</span>
+</button>
+</div>
+<!-- Header Utilities & User Profile -->
+<div class="flex items-center gap-4">
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1 relative">
+<!-- Notification Bell Button -->
+<button class="relative p-2 rounded-lg text-cacao-deep hover:bg-surface-crema-subtle transition-colors cursor-pointer" id="btn-notifications" title="Notificações">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-cherry-ruby text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none" id="notification-count-badge">3</span>
+</button>
+<!-- Settings Button -->
+<button class="p-2 rounded-lg text-cacao-deep hover:bg-surface-crema-subtle transition-colors cursor-pointer" id="btn-settings" title="Configurações">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<!-- Logout Icon Button -->
+<button class="p-2 rounded-lg text-cherry-alert hover:bg-cherry-soft transition-colors cursor-pointer" onclick="toggleModal('modal-logout')" title="Desligar Terminal">
+<span class="material-symbols-outlined text-xl">power_settings_new</span>
+</button>
+<!-- NOTIFICATIONS DROPDOWN PANEL -->
+<div class="hidden absolute top-12 right-12 w-80 bg-surface-container-lowest rounded-xl border border-border-crema shadow-2xl z-50 overflow-hidden animate-in fade-in duration-150" id="dropdown-notifications">
+<div class="p-3.5 bg-surface-crema-subtle border-b border-surface-crema-muted flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-gold-deep">notifications_active</span>
+<span class="font-headline-sm text-sm font-bold text-cacao-deep">Notificações Financeiras</span>
+</div>
+<button class="text-[11px] text-tertiary hover:text-cacao-deep underline" id="btn-clear-notifications">Limpar tudo</button>
+</div>
+<div class="divide-y divide-surface-crema-muted text-xs max-h-72 overflow-y-auto" id="notifications-list">
+<div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex items-start gap-3 cursor-pointer" onclick="showToast('Notificação: Pix de R$ 68,00 creditado')">
+<div class="w-7 h-7 rounded-full bg-pistache-soft text-pistache-emerald flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-cacao-deep leading-snug">PIX Banco Central Confirmado</p>
+<p class="text-[11px] text-tertiary">R$ 68,00 creditado referente ao Pedido #CMD-8492.</p>
+<span class="text-[10px] text-outline font-data-tabular">Há 8 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex items-start gap-3 cursor-pointer" onclick="showToast('Notificação: Fatura de energia vence amanhã!')">
+<div class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">warning</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-cacao-deep leading-snug">Conta Enel Energia (CPFL)</p>
+<p class="text-[11px] text-tertiary">Vencimento de fatura operacional de R$ 1.840,00 amanhã.</p>
+<span class="text-[10px] text-outline font-data-tabular">Há 25 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle/50 transition-colors flex items-start gap-3 cursor-pointer" onclick="toggleModal('modal-fechamento')">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-cacao-deep leading-snug">Lembrete de Fechamento Parcial</p>
+<p class="text-[11px] text-tertiary">Realizar conferência dos cartões antes das 18:00.</p>
+<span class="text-[10px] text-outline font-data-tabular">Há 1 hora</span>
+</div>
+</div>
+</div>
+<div class="p-2 bg-surface-crema-subtle/60 text-center border-t border-surface-crema-muted">
+<button class="text-xs font-semibold text-cacao-deep hover:text-gold-deep transition-colors" onclick="document.getElementById('dropdown-notifications').classList.add('hidden'); showToast('Todas notificações revisadas')">Ver histórico completo</button>
+</div>
+</div>
+<!-- QUICK SETTINGS DROPDOWN PANEL -->
+<div class="hidden absolute top-12 right-6 w-72 bg-surface-container-lowest rounded-xl border border-border-crema shadow-2xl z-50 p-4 animate-in fade-in duration-150" id="dropdown-settings">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<h4 class="font-headline-sm text-sm font-bold text-cacao-deep flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-cacao-deep">tune</span> Ajustes Rápidos
+        </h4>
+<span class="text-[10px] text-outline">Terminal 01</span>
+</div>
+<div class="py-3 space-y-3 text-xs">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-semibold text-cacao-deep">Impressão Automática</div>
+<div class="text-[10px] text-tertiary">Emitir via do cliente</div>
+</div>
+<input checked="" class="rounded border-surface-crema-muted text-gold-burnished focus:ring-gold-deep cursor-pointer" onchange="showToast('Impressão automática: ' + (this.checked ? 'Ativada' : 'Desativada'))" type="checkbox">
+</div>
+<div class="flex items-center justify-between">
+<div>
+<div class="font-semibold text-cacao-deep">Conciliação em Tempo Real</div>
+<div class="text-[10px] text-tertiary">Verificar TEF e Pix online</div>
+</div>
+<input checked="" class="rounded border-surface-crema-muted text-gold-burnished focus:ring-gold-deep cursor-pointer" onchange="showToast('Conciliação contínua ativa')" type="checkbox">
+</div>
+<div class="flex items-center justify-between">
+<div>
+<div class="font-semibold text-cacao-deep">Sons do Caixa</div>
+<div class="text-[10px] text-tertiary">Alertas sonoros de transação</div>
+</div>
+<input checked="" class="rounded border-surface-crema-muted text-gold-burnished focus:ring-gold-deep cursor-pointer" onchange="showToast('Feedback sonoro alterado')" type="checkbox">
+</div>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted flex justify-between">
+<button class="text-xs text-tertiary hover:text-cacao-deep" onclick="document.getElementById('dropdown-settings').classList.add('hidden')">Fechar</button>
+<button class="text-xs font-semibold text-primary hover:text-gold-deep" onclick="showToast('Preferências salvas com sucesso'); document.getElementById('dropdown-settings').classList.add('hidden')">Salvar</button>
+</div>
+</div>
+</div>
+<div class="h-6 w-px bg-surface-crema-muted"></div>
+<!-- Profile Chip with Dropdown Chevron -->
+<div class="relative">
+<button class="flex items-center gap-3 pl-1 pr-1.5 py-1 rounded-lg hover:bg-surface-crema-subtle transition-colors text-left group cursor-pointer" id="btn-profile">
+<div class="w-9 h-9 rounded-full bg-[#3D2B20] text-gold-light border border-gold-burnished flex items-center justify-center font-bold text-xs shadow-sm">
+        AM
+      </div>
+<div class="flex flex-col">
+<span class="font-label-md text-cacao-deep leading-snug font-semibold text-xs">Adm MASTER</span>
+<span class="text-[11px] text-on-surface-variant leading-none">Administrador Geral</span>
+</div>
+<span class="material-symbols-outlined text-base text-outline group-hover:text-cacao-deep transition-colors ml-0.5">expand_more</span>
+</button>
+<!-- ADMIN PROFILE DROPDOWN MENU -->
+<div class="hidden absolute top-12 right-0 w-56 bg-surface-container-lowest rounded-xl border border-border-crema shadow-2xl z-50 py-1 text-xs animate-in fade-in duration-150" id="dropdown-profile">
+<div class="px-4 py-2.5 border-b border-surface-crema-muted bg-surface-crema-subtle/50">
+<div class="font-bold text-cacao-deep">Sessão: Adm MASTER</div>
+<div class="text-[10px] text-tertiary">adm@arducci.com.br</div>
+</div>
+<a class="flex items-center gap-2.5 px-4 py-2 hover:bg-surface-crema-subtle text-cacao-deep transition-colors" href="#" onclick="showToast('Abrindo Perfil do Administrador'); return false;">
+<span class="material-symbols-outlined text-base text-gold-deep">badge</span> Meu Perfil
+      </a>
+<a class="flex items-center gap-2.5 px-4 py-2 hover:bg-surface-crema-subtle text-cacao-deep transition-colors" href="#" onclick="showToast('Verificando Logs de Auditoria do Caixa'); return false;">
+<span class="material-symbols-outlined text-base text-gold-deep">security</span> Logs de Auditoria
+      </a>
+<a class="flex items-center gap-2.5 px-4 py-2 hover:bg-surface-crema-subtle text-cacao-deep transition-colors" href="#" onclick="showToast('Troca de Turno: Operador Atual Mantido'); return false;">
+<span class="material-symbols-outlined text-base text-gold-deep">sync</span> Trocar Turno / Usuário
+      </a>
+<div class="border-t border-surface-crema-muted my-1"></div>
+<button class="w-full text-left flex items-center gap-2.5 px-4 py-2 text-cherry-alert hover:bg-cherry-soft transition-colors" onclick="document.getElementById('dropdown-profile').classList.add('hidden'); toggleModal('modal-logout')">
+<span class="material-symbols-outlined text-base">logout</span> Sair do Sistema
+      </button>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- SCROLLABLE PAGE CANVAS                     -->
+<!-- ========================================== -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Page Title & Primary Actions Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-surface-crema-muted pb-5">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="font-headline-lg text-headline-lg font-bold text-cacao-deep tracking-tight">Financeiro &amp; DRE</h1>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed border border-gold-burnished/30">Exercício Outubro/2024</span>
+</div>
+<p class="font-body-md text-on-surface-variant mt-1">Gestão unificada de fluxo de caixa, conciliação e DRE em tempo real.</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2.5 flex-wrap">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded bg-surface-container-lowest hover:bg-surface-crema-subtle border border-surface-crema-muted font-label-md text-cacao-deep transition-all shadow-sm cursor-pointer" id="btn-export-dre" onclick="toggleModal('modal-export')">
+<span class="material-symbols-outlined text-lg text-primary">download</span>
+<span class="">Exportar DRE (PDF/XLS)</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded bg-surface-container-lowest hover:bg-surface-crema-subtle border border-border-gold-subtle font-label-md text-cacao-deep transition-all shadow-sm cursor-pointer" id="btn-fechamento-caixa" onclick="toggleModal('modal-fechamento')">
+<span class="material-symbols-outlined text-lg text-gold-deep">point_of_sale</span>
+<span class="">Conferência &amp; Fechamento</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded bg-pistache-emerald hover:bg-[#1B532B] font-label-md text-white transition-all shadow hover:shadow-md cursor-pointer" id="btn-novo-lancamento" onclick="toggleModal('modal-novo-lancamento')">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span class="">+ Novo Lançamento</span>
+</button>
+</div>
+</div>
+<!-- KPI METRIC STRIP (5 Cards Desktop Row) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+<!-- KPI 1: Faturamento do Dia -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-tertiary">Faturamento do Dia</span>
+<span class="flex items-center text-[11px] font-bold text-pistache-emerald bg-pistache-soft px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs">trending_up</span> +14% meta
+            </span>
+</div>
+<div class="my-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep" id="kpi-faturamento">R$ 8.420<span class="text-sm font-normal text-on-surface-variant">,00</span></span>
+</div>
+<div class="space-y-1 pt-2 border-t border-surface-crema-muted/60 text-[11px] text-on-surface-variant">
+<div class="flex justify-between">
+<span class="">PIX Direto (54%)</span>
+<span class="font-data-tabular font-semibold text-cacao-deep">R$ 4.546,80</span>
+</div>
+<div class="flex justify-between">
+<span class="">Cartões TEF (46%)</span>
+<span class="font-data-tabular font-semibold text-cacao-deep">R$ 3.873,20</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Entradas Acumuladas -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-tertiary">Entradas Acumuladas (Mês)</span>
+<span class="w-6 h-6 rounded-full bg-pistache-soft flex items-center justify-center text-pistache-emerald">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</span>
+</div>
+<div class="my-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep">R$ 142.850<span class="text-sm font-normal text-on-surface-variant">,00</span></span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted/60 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="">2.840 transações</span>
+<span class="font-data-tabular text-pistache-emerald font-semibold">+8.4% vs Setembro</span>
+</div>
+</div>
+<!-- KPI 3: Saídas & Fornecedores -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-tertiary">Saídas &amp; Fornecedores</span>
+<span class="w-6 h-6 rounded-full bg-cherry-soft flex items-center justify-center text-cherry-alert">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+</span>
+</div>
+<div class="my-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cherry-ruby">R$ 58.420<span class="text-sm font-normal text-on-surface-variant">,00</span></span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted/60 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="">Insumos DOP + Operação</span>
+<span class="font-data-tabular font-semibold text-cacao-deep">40.9% da receita</span>
+</div>
+</div>
+<!-- KPI 4: Saldo Líquido Operacional -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-tertiary">Saldo Líquido Operacional</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-cacao-deep">DRE 59.1%</span>
+</div>
+<div class="my-2">
+<span class="font-headline-lg text-headline-lg font-bold text-pistache-emerald">R$ 84.430<span class="text-sm font-normal text-on-surface-variant">,00</span></span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted/60 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="">Lucro Operacional Líquido</span>
+<span class="font-data-tabular font-semibold text-pistache-accent">Saudável (Nível A)</span>
+</div>
+</div>
+<!-- KPI 5: Fundo de Gaveta -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-tertiary">Fundo de Gaveta / Caixa</span>
+<span class="w-6 h-6 rounded-full bg-surface-crema-subtle flex items-center justify-center text-gold-deep">
+<span class="material-symbols-outlined text-sm">payments</span>
+</span>
+</div>
+<div class="my-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep">R$ 650<span class="text-sm font-normal text-on-surface-variant">,00</span></span>
+</div>
+<div class="pt-2 border-t border-surface-crema-muted/60 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="">Conferido às 08:30</span>
+<span class="text-pistache-emerald font-semibold">Sem divergências</span>
+</div>
+</div>
+</section>
+<!-- NAVIGATION TABS FOR FINANCE VIEW -->
+<div class="border-b border-surface-crema-muted flex items-center gap-6 overflow-x-auto">
+<button class="finance-tab pb-3 border-b-2 border-gold-burnished text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all" data-tab="livro-caixa">
+<span class="material-symbols-outlined text-lg text-gold-burnished">menu_book</span>
+<span class="">Livro Caixa (Hoje)</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-cacao-surface text-white" id="tab-count-livro">48</span>
+</button>
+<button class="finance-tab pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all" data-tab="contas-pagar">
+<span class="material-symbols-outlined text-lg">event_busy</span>
+<span class="">Contas a Pagar</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-cherry-soft text-cherry-alert">3 vencendo</span>
+</button>
+<button class="finance-tab pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all" data-tab="contas-receber">
+<span class="material-symbols-outlined text-lg">event_available</span>
+<span class="">Contas a Receber</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-surface-crema-subtle text-cacao-deep">12 faturas</span>
+</button>
+<button class="finance-tab pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all" data-tab="conciliacao-tef">
+<span class="material-symbols-outlined text-lg">sync_alt</span>
+<span class="">Conciliação TEF / PIX</span>
+</button>
+<button class="finance-tab pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all" data-tab="dre-consolidado">
+<span class="material-symbols-outlined text-lg">stacked_bar_chart</span>
+<span class="">DRE Mensal Consolidado</span>
+</button>
+</div>
+<!-- ========================================== -->
+<!-- TAB VIEW 1: LIVRO CAIXA (DEFAULT VIEW)     -->
+<!-- ========================================== -->
+<div class="tab-view grid grid-cols-1 xl:grid-cols-12 gap-6 items-start" id="view-livro-caixa">
+<!-- LIVRO CAIXA TABLE (8 cols on XL) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm overflow-hidden">
+<!-- Table Controls Header -->
+<div class="p-4 bg-surface-crema-subtle/70 border-b border-surface-crema-muted flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Movimentações de Hoje</span>
+<span class="text-xs text-on-surface-variant font-data-tabular">24/10/2024</span>
+</div>
+<!-- Search and Filter Pills -->
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-base">search</span>
+<input class="pl-8 pr-3 py-1.5 text-xs bg-white border border-surface-crema-muted rounded focus:outline-none focus:border-gold-burnished w-48 font-body-sm text-cacao-deep" id="input-search-transactions" placeholder="Buscar lançamento..." type="text">
+</div>
+<button class="p-1.5 bg-white border border-surface-crema-muted rounded hover:bg-surface-crema-subtle text-cacao-deep flex items-center gap-1 cursor-pointer" id="btn-filter-category" title="Alternar filtros rápidos">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+<span class="text-[10px] font-bold text-gold-deep hidden" id="active-filter-badge">Filtro Ativo</span>
+</button>
+</div>
+</div>
+<!-- Tabular Records -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="table-transactions">
+<thead>
+<tr class="bg-surface-crema-subtle border-b border-border-gold-subtle text-[11px] font-label-sm uppercase tracking-wider text-cacao-deep">
+<th class="py-2.5 px-4 font-bold">Horário</th>
+<th class="py-2.5 px-4 font-bold">Descrição / Origem</th>
+<th class="py-2.5 px-4 font-bold">Categoria</th>
+<th class="py-2.5 px-4 font-bold">Forma Pagto</th>
+<th class="py-2.5 px-4 font-bold">Operador / Terminal</th>
+<th class="py-2.5 px-4 font-bold text-right">Valor</th>
+<th class="py-2.5 px-4 font-bold text-center">Status</th>
+<th class="py-2.5 px-4 font-bold text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-crema-muted font-data-tabular text-body-sm text-cacao-deep" id="transactions-tbody">
+<!-- Row 1 -->
+<tr class="transaction-row hover:bg-surface-crema-subtle/50 transition-colors" data-category="Receita Vendas" data-desc="Venda Balcão #CMD-8492 Coppa Pistache Açai Arducci">
+<td class="py-3 px-4 text-xs font-semibold text-tertiary">14:42:10</td>
+<td class="py-3 px-4">
+<div class="font-medium text-cacao-deep">Venda Balcão #CMD-8492</div>
+<div class="text-[11px] text-tertiary">2x Coppa Pistache + 1x Açaí Arducci</div>
+</td>
+<td class="py-3 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-crema-subtle text-cacao-surface">Receita Vendas</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-sm text-pistache-emerald">qr_code_2</span>
+<span class="">PIX Banco Central</span>
+</div>
+</td>
+<td class="py-3 px-4 text-xs">
+<div class="">Ana S.</div>
+<span class="text-[10px] text-outline">TERM-PG-01</span>
+</td>
+<td class="py-3 px-4 text-right font-bold text-pistache-emerald">
+  + R$ 68,00
+</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-pistache-soft text-pistache-emerald">
+  Liquidado
+</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showReceiptModal('Venda Balcão #CMD-8492', 'R$ 68,00', 'PIX Banco Central', 'Ana S. • 14:42')" title="Ver Comprovante">
+<span class="material-symbols-outlined text-base">receipt</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+
+<!-- Row 3: Saída / Sangria -->
+<tr class="transaction-row hover:bg-surface-crema-subtle/50 transition-colors bg-cherry-soft/20" data-category="Transferência" data-desc="Sangria Cofre Inteligente Recolhimento Brinks">
+<td class="py-3 px-4 text-xs font-semibold text-tertiary">13:10:22</td>
+<td class="py-3 px-4">
+<div class="font-medium text-cherry-ruby">Sangria Cofre Inteligente</div>
+<div class="text-[11px] text-tertiary">Depósito para recolhimento Brink's</div>
+</td>
+<td class="py-3 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-cherry-soft text-cherry-alert">Transferência</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-sm text-tertiary">payments</span>
+<span class="">Espécie (Dinheiro)</span>
+</div>
+</td>
+<td class="py-3 px-4 text-xs">
+<div class="">Adm MASTER</div>
+<span class="text-[10px] text-outline">COFRE-SAFE</span>
+</td>
+<td class="py-3 px-4 text-right font-bold text-cherry-alert">
+  - R$ 1.500,00
+</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-surface-crema-subtle text-cacao-surface">
+  Custódia
+</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showReceiptModal('Sangria Cofre Brink\'s', 'R$ 1.500,00', 'Dinheiro em Espécie', 'Adm MASTER • Aut: #SN-9941')" title="Ver Recibo de Sangria">
+<span class="material-symbols-outlined text-base">verified</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Despesa Insumos -->
+<tr class="transaction-row hover:bg-surface-crema-subtle/50 transition-colors" data-category="Insumos Diretos" data-desc="Pagamento Insumos Frutas Locais Hortifruti Morangos Bananas">
+<td class="py-3 px-4 text-xs font-semibold text-tertiary">11:15:00</td>
+<td class="py-3 px-4">
+<div class="font-medium text-cacao-deep">Pagamento Insumos Frutas Locais</div>
+<div class="text-[11px] text-tertiary">Hortifrúti Litoral • Morangos &amp; Bananas</div>
+</td>
+<td class="py-3 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-100 text-amber-900">Insumos Diretos</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-sm text-pistache-emerald">qr_code_2</span>
+<span class="">PIX Fornecedor</span>
+</div>
+</td>
+<td class="py-3 px-4 text-xs">
+<div class="">Adm MASTER</div>
+<span class="text-[10px] text-outline">PORTAL-FIN</span>
+</td>
+<td class="py-3 px-4 text-right font-bold text-cherry-alert">
+  - R$ 420,00
+</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-pistache-soft text-pistache-emerald">
+  Compensado
+</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showReceiptModal('Nota Hortifrúti Litoral', 'R$ 420,00', 'PIX PJ Itaú', 'NF-e 44921 • Aprovado')" title="Ver Nota Fiscal">
+<span class="material-symbols-outlined text-base">description</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Suprimento -->
+<tr class="transaction-row hover:bg-surface-crema-subtle/50 transition-colors" data-category="Abertura Caixa" data-desc="Suprimento de Troco Caixa 01 Abertura de gaveta">
+<td class="py-3 px-4 text-xs font-semibold text-tertiary">08:30:00</td>
+<td class="py-3 px-4">
+<div class="font-medium text-cacao-deep">Suprimento de Troco Caixa 01</div>
+<div class="text-[11px] text-tertiary">Abertura de gaveta operacional</div>
+</td>
+<td class="py-3 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-crema-subtle text-cacao-surface">Abertura Caixa</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-sm text-tertiary">payments</span>
+<span class="">Dinheiro</span>
+</div>
+</td>
+<td class="py-3 px-4 text-xs">
+<div class="">Rodrigo M.</div>
+<span class="text-[10px] text-outline">TERM-PG-01</span>
+</td>
+<td class="py-3 px-4 text-right font-bold text-pistache-emerald">
+  + R$ 650,00
+</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-pistache-soft text-pistache-emerald">
+  Confirmado
+</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showReceiptModal('Termo de Suprimento de Caixa', 'R$ 650,00', 'Moeda e Cédulas', 'Operador: Rodrigo M. • 08:30')" title="Imprimir Termo">
+<span class="material-symbols-outlined text-base">print</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination / Summary -->
+<div class="px-4 py-3 bg-surface-crema-subtle/50 border-t border-surface-crema-muted flex items-center justify-between text-xs text-on-surface-variant font-data-tabular">
+<div class="" id="table-summary-text">Exibindo <strong id="displayed-rows-count">5</strong> de <strong id="total-rows-count">48</strong> lançamentos consolidados no turno</div>
+<div class="flex items-center gap-1">
+<button class="pagination-btn px-2.5 py-1 border border-surface-crema-muted rounded bg-white text-cacao-deep hover:bg-surface-crema-subtle disabled:opacity-50 cursor-pointer" disabled="">Anterior</button>
+<button class="pagination-page px-2.5 py-1 border border-border-gold-subtle rounded bg-primary-fixed text-on-primary-fixed font-bold cursor-pointer">1</button>
+<button class="pagination-page px-2.5 py-1 border border-surface-crema-muted rounded bg-white text-cacao-deep hover:bg-surface-crema-subtle cursor-pointer">2</button>
+<button class="pagination-page px-2.5 py-1 border border-surface-crema-muted rounded bg-white text-cacao-deep hover:bg-surface-crema-subtle cursor-pointer">3</button>
+<button class="pagination-btn px-2.5 py-1 border border-surface-crema-muted rounded bg-white text-cacao-deep hover:bg-surface-crema-subtle cursor-pointer">Próxima</button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: CONCILIAÇÃO DE ADQUIRENTES & GATEWAYS (4 cols on XL) -->
+<div class="xl:col-span-4 space-y-4">
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm p-4">
+<div class="flex items-center justify-between border-b border-surface-crema-muted pb-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">point_of_sale</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Conciliação TEF &amp; Cartões</h3>
+</div>
+<span class="text-[10px] font-bold text-pistache-emerald bg-pistache-soft px-2 py-0.5 rounded">100% OK</span>
+</div>
+<!-- Adquirentes breakdown cards -->
+<div class="space-y-3">
+<!-- Stone -->
+<div class="p-3 rounded border border-surface-crema-muted bg-surface-crema-subtle/40 flex items-center justify-between hover:border-gold-burnished transition-colors cursor-pointer" onclick="showToast('Stone TEF: 38 transações conciliadas com o banco')">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-emerald-900 text-emerald-200 font-bold text-xs flex items-center justify-center">
+  ST
+</div>
+<div>
+<div class="font-title-sm text-cacao-deep">Stone Adquirente</div>
+<div class="text-[11px] text-tertiary">38 transações · TEF Balcão</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-tabular font-bold text-cacao-deep">R$ 2.450,00</div>
+<div class="text-[10px] text-pistache-emerald">Taxa Líquida: 1.69%</div>
+</div>
+</div>
+<!-- Cielo -->
+<div class="p-3 rounded border border-surface-crema-muted bg-surface-crema-subtle/40 flex items-center justify-between hover:border-gold-burnished transition-colors cursor-pointer" onclick="showToast('Cielo SuperLink: 14 transações conciliadas')">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-sky-900 text-sky-200 font-bold text-xs flex items-center justify-center">
+  CI
+</div>
+<div>
+<div class="font-title-sm text-cacao-deep">Cielo SuperLink</div>
+<div class="text-[11px] text-tertiary">14 transações · Salão Mesas</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-tabular font-bold text-cacao-deep">R$ 1.423,20</div>
+<div class="text-[10px] text-pistache-emerald">Taxa Líquida: 1.85%</div>
+</div>
+</div>
+<!-- PIX BACEN -->
+<div class="p-3 rounded border border-surface-crema-muted bg-surface-crema-subtle/40 flex items-center justify-between hover:border-gold-burnished transition-colors cursor-pointer" onclick="showToast('Pix Banco Central: Conciliação instantânea ativa')">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-teal-800 text-teal-200 font-bold text-xs flex items-center justify-center">
+  PX
+</div>
+<div>
+<div class="font-title-sm text-cacao-deep">Pix Banco Central</div>
+<div class="text-[11px] text-tertiary">42 transações · QR Code Dinâmico</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-tabular font-bold text-cacao-deep">R$ 4.546,80</div>
+<div class="text-[10px] text-pistache-emerald">Taxa: R$ 0,00 (Isento)</div>
+</div>
+</div>
+<!-- PagBank -->
+<div class="p-3 rounded border border-surface-crema-muted bg-surface-crema-subtle/40 flex items-center justify-between hover:border-gold-burnished transition-colors cursor-pointer" onclick="showToast('PagBank Vouchers: Depósito programado para D+30')">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-amber-800 text-amber-200 font-bold text-xs flex items-center justify-center">
+  PB
+</div>
+<div>
+<div class="font-title-sm text-cacao-deep">PagBank Vouchers</div>
+<div class="text-[11px] text-tertiary">Alelo / Sodexo / VR Refeição</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-tabular font-bold text-cacao-deep">R$ 380,00</div>
+<div class="text-[10px] text-on-surface-variant">Prev. Depósito: D+30</div>
+</div>
+</div>
+</div>
+<!-- Botão Conciliar Automático -->
+<button class="w-full mt-4 py-2 border border-border-gold-subtle rounded bg-white hover:bg-surface-crema-subtle text-xs font-semibold text-cacao-deep flex items-center justify-center gap-2 transition-colors cursor-pointer" id="btn-reprocessar-edi">
+<span class="material-symbols-outlined text-sm text-gold-deep" id="icon-reprocess">refresh</span>
+<span class="">Reprocessar Arquivo EDI / Extrato Bancário</span>
+</button>
+</div>
+<!-- DRE Sintético do Dia -->
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm p-4">
+<h4 class="font-headline-sm text-headline-sm font-bold text-cacao-deep mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+DRE Sintético (Dia)
+</h4>
+<div class="space-y-2 text-xs font-data-tabular">
+<div class="flex justify-between py-1 border-b border-surface-crema-muted">
+<span class="text-on-surface-variant font-medium">(+) Receita Bruta Total</span>
+<span class="font-bold text-cacao-deep">R$ 8.420,00</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-crema-muted text-cherry-ruby">
+<span class="">(-) Impostos Simples Nacional (4.2%)</span>
+<span class="">- R$ 353,64</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-crema-muted text-cherry-ruby">
+<span class="">(-) Custos Mercadorias CMV (28%)</span>
+<span class="">- R$ 2.357,60</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-crema-muted text-cherry-ruby">
+<span class="">(-) Taxas Operacionais de Meios</span>
+<span class="">- R$ 112,40</span>
+</div>
+<div class="flex justify-between py-1.5 font-bold text-sm bg-surface-crema-subtle px-2 rounded text-pistache-emerald">
+<span class="">(=) Margem de Contribuição</span>
+<span class="">R$ 5.596,36 (66.4%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- TAB VIEW 2: CONTAS A PAGAR                 -->
+<!-- ========================================== -->
+<div class="tab-view hidden space-y-4" id="view-contas-pagar">
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm p-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-crema-muted gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Contas a Pagar &amp; Fornecedores</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">3 títulos com vencimento nos próximos 3 dias</p>
+</div>
+<button class="px-3.5 py-1.5 rounded bg-pistache-emerald text-white text-xs font-semibold flex items-center gap-1.5 self-start cursor-pointer hover:bg-[#1B532B]" onclick="toggleModal('modal-novo-lancamento')">
+<span class="material-symbols-outlined text-base">add</span> Nova Despesa
+      </button>
+</div>
+<div class="overflow-x-auto mt-3">
+<table class="w-full text-left border-collapse text-xs font-data-tabular">
+<thead>
+<tr class="bg-surface-crema-subtle border-b border-border-gold-subtle text-[11px] font-label-sm uppercase tracking-wider text-cacao-deep">
+<th class="py-2.5 px-4">Vencimento</th>
+<th class="py-2.5 px-4">Fornecedor / Favorecido</th>
+<th class="py-2.5 px-4">Categoria DRE</th>
+<th class="py-2.5 px-4">Documento</th>
+<th class="py-2.5 px-4 text-right">Valor Nominal</th>
+<th class="py-2.5 px-4 text-center">Status</th>
+<th class="py-2.5 px-4 text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-crema-muted text-cacao-deep">
+<tr class="hover:bg-surface-crema-subtle/50">
+<td class="py-3 px-4 font-bold text-cherry-alert">25/10/2024 (Amanhã)</td>
+<td class="py-3 px-4">
+<div class="font-bold">Laticínio Serra da Canastra DOP</div>
+<div class="text-[10px] text-tertiary">Leite Integral Especial &amp; Panna Fresca</div>
+</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-semibold">CMV - Insumos</span></td>
+<td class="py-3 px-4 text-outline">Boleto Bradesco 0021</td>
+<td class="py-3 px-4 text-right font-bold text-cherry-ruby">R$ 3.420,00</td>
+<td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-cherry-soft text-cherry-alert font-bold text-[10px]">A Vencer</span></td>
+<td class="py-3 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-pistache-emerald text-white text-[11px] font-semibold hover:bg-[#1B532B] cursor-pointer" onclick="showToast('Pagamento do Laticínio Serra agendado via Pix!')">Pagar Agora</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-crema-subtle/50">
+<td class="py-3 px-4 font-bold text-cherry-alert">26/10/2024 (2 dias)</td>
+<td class="py-3 px-4">
+<div class="font-bold">Embalagens BioPack Brasil</div>
+<div class="text-[10px] text-tertiary">Copos térmicos compostáveis 250ml &amp; Pás bio</div>
+</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-surface-crema-subtle text-cacao-surface font-semibold">Embalagens</span></td>
+<td class="py-3 px-4 text-outline">NF-e 88129</td>
+<td class="py-3 px-4 text-right font-bold text-cherry-ruby">R$ 1.150,00</td>
+<td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-cherry-soft text-cherry-alert font-bold text-[10px]">A Vencer</span></td>
+<td class="py-3 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-pistache-emerald text-white text-[11px] font-semibold hover:bg-[#1B532B] cursor-pointer" onclick="showToast('Boleto BioPack enviado para DDA bancário')">Pagar Agora</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-crema-subtle/50">
+<td class="py-3 px-4 font-semibold text-tertiary">28/10/2024</td>
+<td class="py-3 px-4">
+<div class="font-bold">CPFL Energia Elétrica</div>
+<div class="text-[10px] text-tertiary">Consumo Unidade Matriz Praia Grande</div>
+</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-surface-crema-subtle text-cacao-surface font-semibold">Utilidades</span></td>
+<td class="py-3 px-4 text-outline">Fatura 10094-1</td>
+<td class="py-3 px-4 text-right font-bold text-cherry-ruby">R$ 1.840,00</td>
+<td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">Agendado</span></td>
+<td class="py-3 px-4 text-center">
+<button class="px-2.5 py-1 rounded border border-surface-crema-muted hover:bg-surface-crema-subtle text-[11px] font-semibold text-cacao-deep cursor-pointer" onclick="showToast('Comprovante de agendamento CPFL verificado')">Detalhes</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- TAB VIEW 3: CONTAS A RECEBER               -->
+<!-- ========================================== -->
+<div class="tab-view hidden space-y-4" id="view-contas-receber">
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm p-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-crema-muted gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Contas a Receber &amp; Faturados</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">Convênios corporativos e vendas institucionais faturadas</p>
+</div>
+<button class="px-3.5 py-1.5 rounded border border-border-gold-subtle text-cacao-deep text-xs font-semibold flex items-center gap-1.5 self-start hover:bg-surface-crema-subtle cursor-pointer" onclick="showToast('Extrato exportado para Excel com sucesso!')">
+<span class="material-symbols-outlined text-base text-gold-deep">table_view</span> Exportar Lista
+      </button>
+</div>
+<div class="overflow-x-auto mt-3">
+<table class="w-full text-left border-collapse text-xs font-data-tabular">
+<thead>
+<tr class="bg-surface-crema-subtle border-b border-border-gold-subtle text-[11px] font-label-sm uppercase tracking-wider text-cacao-deep">
+<th class="py-2.5 px-4">Previsão</th>
+<th class="py-2.5 px-4">Cliente / Origem</th>
+<th class="py-2.5 px-4">Condição</th>
+<th class="py-2.5 px-4 text-right">Valor Líquido</th>
+<th class="py-2.5 px-4 text-center">Status</th>
+<th class="py-2.5 px-4 text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-crema-muted text-cacao-deep">
+
+<tr class="hover:bg-surface-crema-subtle/50">
+<td class="py-3 px-4 font-semibold text-tertiary">30/10/2024</td>
+<td class="py-3 px-4">
+<div class="font-bold">Hotel Casa di Mare (Convênio Eventos)</div>
+<div class="text-[10px] text-tertiary">Fornecimento de 80 potes gelato buffet</div>
+</td>
+<td class="py-3 px-4">Faturado 15D Boleto</td>
+<td class="py-3 px-4 text-right font-bold text-cacao-deep">R$ 1.960,00</td>
+<td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-surface-crema-subtle text-cacao-surface font-bold text-[10px]">Em aberto</span></td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showToast('Boleto reenviado para financeiro@casadimare.com.br')"><span class="material-symbols-outlined text-base">mail</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- TAB VIEW 4: CONCILIAÇÃO COMPLETA TEF / PIX -->
+<!-- ========================================== -->
+<div class="tab-view hidden space-y-4" id="view-conciliacao-tef">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-border-crema shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-tertiary">TAXAS STONE TEF</span>
+<span class="text-xs text-pistache-emerald font-bold">1.69% Efetiva</span>
+</div>
+<div class="font-headline-md font-bold text-cacao-deep">R$ 2.450,00</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Taxas descontadas: R$ 41,40 · Líquido: R$ 2.408,60</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-border-crema shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-tertiary">TAXAS CIELO CARTÕES</span>
+<span class="text-xs text-pistache-emerald font-bold">1.85% Efetiva</span>
+</div>
+<div class="font-headline-md font-bold text-cacao-deep">R$ 1.423,20</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Taxas descontadas: R$ 26,32 · Líquido: R$ 1.396,88</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-border-crema shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-tertiary">PIX BACEN DINÂMICO</span>
+<span class="text-xs text-pistache-emerald font-bold">0,00% Isento</span>
+</div>
+<div class="font-headline-md font-bold text-cacao-deep">R$ 4.546,80</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Economia estimada hoje vs Cartão: R$ 81,84</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema p-5 shadow-sm">
+<h4 class="font-headline-sm text-sm font-bold text-cacao-deep mb-2">Status da Auditoria Eletrônica</h4>
+<p class="text-xs text-on-surface-variant mb-4">Todos os comprovantes TEF emitidos pelos terminais físicos foram cruzados com os arquivos de lote das operadoras em tempo real.</p>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-pistache-emerald text-white rounded text-xs font-semibold cursor-pointer hover:bg-[#1B532B]" onclick="showToast('Arquivo EDI de conciliação baixado!')">Baixar Relatório de Fechamento TEF</button>
+<button class="px-4 py-2 bg-white border border-surface-crema-muted rounded text-xs font-semibold text-cacao-deep cursor-pointer hover:bg-surface-crema-subtle" onclick="showToast('Comunicação com adquirentes testada: 100% online')">Testar Comunicação POS/TEF</button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- TAB VIEW 5: DRE MENSAL CONSOLIDADO         -->
+<!-- ========================================== -->
+<div class="tab-view hidden space-y-4" id="view-dre-consolidado">
+<div class="bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm p-6">
+<div class="flex items-center justify-between pb-4 border-b border-surface-crema-muted">
+<div>
+<h3 class="font-headline-md font-bold text-cacao-deep">Demonstrativo do Resultado do Exercício (DRE)</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">Competência: 01/10/2024 a 24/10/2024 · Padrão Contábil Gerencial</p>
+</div>
+<button class="px-3.5 py-1.5 rounded bg-surface-crema-subtle border border-border-gold-subtle text-cacao-deep font-semibold text-xs flex items-center gap-1.5 cursor-pointer hover:bg-surface-crema-muted" onclick="toggleModal('modal-export')">
+<span class="material-symbols-outlined text-base text-gold-deep">picture_as_pdf</span> Imprimir DRE Oficial
+      </button>
+</div>
+<div class="mt-4 space-y-3 font-data-tabular text-xs">
+<div class="flex justify-between py-2 border-b border-surface-crema-muted font-bold text-sm text-cacao-deep">
+<span class="">1. RECEITA OPERACIONAL BRUTA</span>
+<span class="text-pistache-emerald">R$ 142.850,00 (100%)</span>
+</div>
+<div class="flex justify-between py-1.5 text-cherry-ruby pl-4 border-b border-surface-crema-muted/60">
+<span class="">(-) Deduções da Receita &amp; Impostos (Simples Nacional)</span>
+<span class="">- R$ 5.999,70 (4.2%)</span>
+</div>
+<div class="flex justify-between py-2 border-b border-surface-crema-muted font-bold text-cacao-deep bg-surface-crema-subtle/50 px-2 rounded">
+<span class="">(=) RECEITA OPERACIONAL LÍQUIDA</span>
+<span class="">R$ 136.850,30 (95.8%)</span>
+</div>
+<div class="flex justify-between py-1.5 text-cherry-ruby pl-4 border-b border-surface-crema-muted/60">
+<span class="">(-) Custo das Mercadorias Vendidas (CMV Insumos &amp; Embalagens)</span>
+<span class="">- R$ 39.998,00 (28.0%)</span>
+</div>
+<div class="flex justify-between py-2 border-b border-surface-crema-muted font-bold text-cacao-deep bg-surface-crema-subtle/50 px-2 rounded">
+<span class="">(=) LUCRO BRUTO GERENCIAL</span>
+<span class="text-pistache-emerald">R$ 96.852,30 (67.8%)</span>
+</div>
+<div class="flex justify-between py-1.5 text-cherry-ruby pl-4 border-b border-surface-crema-muted/60">
+<span class="">(-) Despesas Operacionais Fixas (Aluguel, Folha, CPFL, Água)</span>
+<span class="">- R$ 12.422,30 (8.7%)</span>
+</div>
+<div class="flex justify-between py-2.5 font-headline-sm font-bold text-base bg-pistache-soft text-pistache-emerald px-3 rounded-lg border border-pistache-emerald/20">
+<span class="">(=) RESULTADO OPERACIONAL LÍQUIDO (EBITDA)</span>
+<span class="">R$ 84.430,00 (59.1%)</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- FOOTER TÉCNICO FIXO                        -->
+<!-- ========================================== -->
+<footer class="w-full bg-[#f9f2ee] border-t border-[#e8dfd8] py-2 px-6 flex items-center justify-between text-xs text-[#80756e] font-mono mt-auto select-none z-30 sticky bottom-0" id="mainFooter">
+<!-- System Telemetry Links -->
+<div class="flex items-center gap-4 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-pistache-accent animate-pulse"></span>
+<span class="font-semibold text-pistache-emerald">Status: Conectado à Nuvem</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="">Terminal: <strong class="text-cacao-deep">TERM-PG-BALCAO-01</strong></span>
+<span class="text-outline-variant">•</span>
+<span class="">Sincronização em Nuvem OK (Latência: <strong class="text-cacao-deep">24ms</strong>)</span>
+<span class="text-outline-variant">•</span>
+<span class="">v2.4.2 (Build 12/03/2025)</span>
+</div>
+<!-- Legal / Location text -->
+<div class="text-xs text-tertiary">
+  © 2024 Arducci Gelateria &amp; Açaiteria · Praia Grande / SP
+</div>
+</footer>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: NOVO LANÇAMENTO FINANCEIRO          -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-[#121110]/75 backdrop-blur-sm flex items-center justify-center p-4" id="modal-novo-lancamento">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-xl border border-border-gold-subtle shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between border-b border-surface-crema-muted pb-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-2xl">add_card</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Novo Lançamento Financeiro</h3>
+</div>
+<button class="text-outline hover:text-cacao-deep p-1 rounded cursor-pointer" onclick="toggleModal('modal-novo-lancamento')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<form class="space-y-4 text-xs" id="form-novo-lancamento" onsubmit="handleSalvarLancamento(event)">
+<div>
+<label class="block font-semibold text-cacao-deep mb-1">Tipo de Lançamento</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center justify-center gap-2 p-2.5 rounded border border-border-crema bg-surface-crema-subtle/50 cursor-pointer font-bold text-cacao-deep has-[:checked]:border-pistache-emerald has-[:checked]:bg-pistache-soft has-[:checked]:text-pistache-emerald">
+<input checked="" class="text-pistache-emerald focus:ring-pistache-emerald" name="tipo" type="radio" value="entrada">
+<span class="">+ Entrada (Receita)</span>
+</label>
+<label class="flex items-center justify-center gap-2 p-2.5 rounded border border-border-crema bg-surface-crema-subtle/50 cursor-pointer font-bold text-cacao-deep has-[:checked]:border-cherry-ruby has-[:checked]:bg-cherry-soft has-[:checked]:text-cherry-ruby">
+<input class="text-cherry-ruby focus:ring-cherry-ruby" name="tipo" type="radio" value="saida">
+<span class="">- Saída (Despesa)</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-semibold text-cacao-deep mb-1">Descrição / Histórico</label>
+<input class="w-full px-3 py-2 rounded border border-surface-crema-muted focus:outline-none focus:border-gold-burnished font-body-sm text-cacao-deep text-xs" id="input-desc" placeholder="Ex: Venda Balcão Sorvete 1kg / Fornecedor Pistache" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-semibold text-cacao-deep mb-1">Valor (R$)</label>
+<input class="w-full px-3 py-2 rounded border border-surface-crema-muted focus:outline-none focus:border-gold-burnished font-data-tabular text-cacao-deep text-xs" id="input-valor" placeholder="0,00" required="" step="0.01" type="number">
+</div>
+<div>
+<label class="block font-semibold text-cacao-deep mb-1">Categoria DRE</label>
+<select class="w-full px-3 py-2 rounded border border-surface-crema-muted focus:outline-none focus:border-gold-burnished font-body-sm text-cacao-deep text-xs" id="input-categoria">
+<option value="Receita Vendas">Receita Vendas</option>
+
+<option value="Insumos Diretos">Insumos Diretos (CMV)</option>
+<option value="Despesas Operacionais">Despesas Operacionais</option>
+<option value="Transferência">Sangria / Transferência</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-semibold text-cacao-deep mb-1">Forma de Pagamento</label>
+<select class="w-full px-3 py-2 rounded border border-surface-crema-muted focus:outline-none focus:border-gold-burnished font-body-sm text-cacao-deep text-xs" id="input-forma">
+<option value="PIX Banco Central">PIX Banco Central</option>
+<option value="Cartão TEF Débito">Cartão TEF Débito</option>
+<option value="Cartão TEF Crédito">Cartão TEF Crédito</option>
+<option value="Espécie (Dinheiro)">Espécie (Dinheiro)</option>
+<option value="Voucher / Vale">Voucher / Vale Refeição</option>
+</select>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3 border-t border-surface-crema-muted">
+<button class="px-4 py-2 rounded border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle font-label-md cursor-pointer transition-colors" onclick="toggleModal('modal-novo-lancamento')" type="button">
+          Cancelar
+        </button>
+<button class="px-4 py-2 rounded bg-pistache-emerald hover:bg-[#1B532B] text-white font-label-md transition-colors shadow cursor-pointer" type="submit">
+          Salvar Lançamento
+        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: CONFERÊNCIA & FECHAMENTO DE CAIXA   -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-[#121110]/75 backdrop-blur-sm flex items-center justify-center p-4" id="modal-fechamento">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-xl border border-border-gold-subtle shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between border-b border-surface-crema-muted pb-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-2xl">point_of_sale</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-cacao-deep">Conferência &amp; Fechamento</h3>
+</div>
+<button class="text-outline hover:text-cacao-deep p-1 rounded cursor-pointer" onclick="toggleModal('modal-fechamento')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="space-y-4 text-xs font-data-tabular">
+<div class="p-3 bg-surface-crema-subtle rounded border border-surface-crema-muted space-y-1.5">
+<div class="flex justify-between">
+<span class="text-tertiary">Saldo Inicial Gaveta:</span>
+<span class="font-bold text-cacao-deep">R$ 650,00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Total Entradas em Espécie:</span>
+<span class="font-bold text-pistache-emerald">+ R$ 1.850,00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Sangrias Realizadas:</span>
+<span class="font-bold text-cherry-ruby">- R$ 1.500,00</span>
+</div>
+<div class="flex justify-between border-t border-surface-crema-muted pt-1 text-sm font-bold text-cacao-deep">
+<span class="">Saldo Esperado em Caixa:</span>
+<span class="text-gold-deep">R$ 1.000,00</span>
+</div>
+</div>
+<div>
+<label class="block font-semibold text-cacao-deep mb-1 text-xs">Valor Físico Apurado (Contagem de Notas e Moedas)</label>
+<div class="relative">
+<span class="absolute left-3 top-2 text-tertiary text-xs">R$</span>
+<input class="w-full pl-8 pr-3 py-2 rounded border border-surface-crema-muted focus:outline-none focus:border-gold-burnished font-bold text-cacao-deep text-sm" id="input-contagem-caixa" step="0.01" type="number" value="1000.00">
+</div>
+<span class="text-[11px] text-pistache-emerald mt-1 block">Diferença apurada: <strong>R$ 0,00 (Caixa perfeito)</strong></span>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3 border-t border-surface-crema-muted">
+<button class="px-4 py-2 rounded border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle font-label-md cursor-pointer transition-colors" onclick="toggleModal('modal-fechamento')">
+          Cancelar
+        </button>
+<button class="px-4 py-2 rounded bg-gold-burnished hover:bg-gold-deep text-nero-rich font-bold font-label-md transition-colors shadow cursor-pointer" onclick="showToast('Fechamento de turno concluído! Comprovante fiscal emitido.'); toggleModal('modal-fechamento');">
+          Finalizar Fechamento
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: EXPORTAR DRE                        -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-[#121110]/75 backdrop-blur-sm flex items-center justify-center p-4" id="modal-export">
+<div class="bg-surface-container-lowest max-w-sm w-full rounded-xl border border-border-gold-subtle shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between border-b border-surface-crema-muted pb-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">download</span>
+<h3 class="font-headline-sm text-sm font-bold text-cacao-deep">Exportar Relatório DRE</h3>
+</div>
+<button class="text-outline hover:text-cacao-deep p-1 rounded cursor-pointer" onclick="toggleModal('modal-export')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="space-y-3 text-xs">
+<p class="text-on-surface-variant">Selecione o formato de saída do demonstrativo contábil gerencial de Outubro/2024:</p>
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-surface-crema-muted hover:border-gold-burnished hover:bg-surface-crema-subtle transition-all text-left cursor-pointer" onclick="handleDownloadSimulado('PDF')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cherry-alert text-2xl">picture_as_pdf</span>
+<div>
+<div class="font-bold text-cacao-deep">Arquivo PDF Gerencial</div>
+<div class="text-[10px] text-tertiary">Com timbrado Arducci e resumo gráfico</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-surface-crema-muted hover:border-gold-burnished hover:bg-surface-crema-subtle transition-all text-left cursor-pointer" onclick="handleDownloadSimulado('XLSX')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-pistache-emerald text-2xl">table_chart</span>
+<div>
+<div class="font-bold text-cacao-deep">Planilha Excel (.XLSX)</div>
+<div class="text-[10px] text-tertiary">Contas detalhadas para contador</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted text-right">
+<button class="px-3 py-1.5 rounded border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle text-xs cursor-pointer" onclick="toggleModal('modal-export')">
+        Fechar
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: COMPROVANTE DE LANÇAMENTO           -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-[#121110]/75 backdrop-blur-sm flex items-center justify-center p-4" id="modal-receipt">
+<div class="bg-surface-container-lowest max-w-sm w-full rounded-xl border border-border-gold-subtle shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="text-center pb-3 border-b border-surface-crema-muted">
+<div class="w-10 h-10 rounded-full bg-surface-crema-subtle text-gold-deep mx-auto flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+</div>
+<h3 class="font-headline-sm text-sm font-bold text-cacao-deep" id="receipt-title">Comprovante Digital</h3>
+<p class="text-[10px] text-tertiary">ARDUCCI GELATERIA E AÇAITERIA · CNPJ 19.840.123/0001-90</p>
+</div>
+<div class="py-4 space-y-2 text-xs font-data-tabular">
+<div class="flex justify-between">
+<span class="text-tertiary">Valor:</span>
+<span class="font-bold text-cacao-deep text-base" id="receipt-value">R$ 0,00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Meio de Pagamento:</span>
+<span class="font-semibold text-cacao-deep" id="receipt-method">-</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Detalhes / Operador:</span>
+<span class="text-cacao-deep" id="receipt-operator">-</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Autenticação:</span>
+<span class="text-outline font-mono text-[10px]">#AUT-8930219-OK</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-3 border-t border-surface-crema-muted">
+<button class="px-3 py-1.5 rounded border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle text-xs cursor-pointer" onclick="toggleModal('modal-receipt')">
+        Fechar
+      </button>
+<button class="px-3 py-1.5 rounded bg-cacao-deep hover:bg-cacao-surface text-white text-xs font-semibold cursor-pointer flex items-center gap-1" onclick="showToast('Comprovante enviado para impressora térmica'); toggleModal('modal-receipt');">
+<span class="material-symbols-outlined text-sm">print</span> Imprimir
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL: ENCERRAR SESSÃO / FECHAR SISTEMA    -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-[#121110]/75 backdrop-blur-sm flex items-center justify-center p-4" id="modal-logout">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-xl border border-border-gold-subtle shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="w-12 h-12 rounded-full bg-cherry-soft text-cherry-alert flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-cacao-deep mb-2">Encerrar o sistema (sair)?</h3>
+<p class="font-body-md text-on-surface-variant mb-6 text-xs">
+  Você está prestes a desconectar a estação <strong>TERM-PG-BALCAO-01</strong>. As rotinas pendentes do caixa de hoje foram sincronizadas na nuvem com latência de 24ms. Deseja imprimir o fechamento parcial antes de sair?
+</p>
+<div class="flex items-center justify-end gap-3">
+<button class="px-4 py-2 rounded border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle font-label-md transition-colors cursor-pointer" onclick="toggleModal('modal-logout')">
+  Cancelar
+</button>
+<button class="px-4 py-2 rounded bg-cherry-alert hover:bg-cherry-ruby text-white font-label-md transition-colors shadow cursor-pointer" onclick="showToast('Sessão encerrada com sucesso.'); setTimeout(() => { toggleModal('modal-logout'); }, 1200);">
+  Confirmar e Sair
+</button>
+</div>
+<!-- Close icon top right -->
+<button class="absolute top-4 right-4 text-outline hover:text-cacao-deep p-1 rounded cursor-pointer" onclick="toggleModal('modal-logout')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- ROBUST INTERACTIVE JAVASCRIPT CONTROLLERS  -->
+<!-- ========================================== -->
+<script>
+  // Global Toast Dispatcher
+  function showToast(message) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast-anim px-4 py-2.5 rounded-lg bg-surface-container-lowest text-cacao-deep border border-gold-burnished shadow-xl text-xs font-semibold flex items-center gap-2 pointer-events-auto';
+    toast.innerHTML = `<span class="material-symbols-outlined text-sm text-gold-deep">info</span><span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.parentNode.removeChild(toast);
+      }
+    }, 3600);
+  }
+
+  // Toggle Generic Modals
+  function toggleModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.classList.toggle('hidden');
+    }
+  }
+
+  // Receipt Modal Populator
+  function showReceiptModal(title, value, method, operator) {
+    document.getElementById('receipt-title').textContent = title;
+    document.getElementById('receipt-value').textContent = value;
+    document.getElementById('receipt-method').textContent = method;
+    document.getElementById('receipt-operator').textContent = operator;
+    toggleModal('modal-receipt');
+  }
+
+  // Handle Export Simulation
+  function handleDownloadSimulado(type) {
+    toggleModal('modal-export');
+    showToast(`Gerando e descarregando DRE em formato ${type}...`);
+  }
+
+  // Handle New Transaction Insertion
+  function handleSalvarLancamento(event) {
+    event.preventDefault();
+    const desc = document.getElementById('input-desc').value;
+    const valorNum = parseFloat(document.getElementById('input-valor').value || '0').toFixed(2).replace('.', ',');
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+    const categoria = document.getElementById('input-categoria').value;
+    const forma = document.getElementById('input-forma').value;
+
+    const tbody = document.getElementById('transactions-tbody');
+    const tr = document.createElement('tr');
+    tr.className = 'transaction-row hover:bg-surface-crema-subtle/50 transition-colors animate-in fade-in duration-300';
+    tr.setAttribute('data-desc', desc);
+    tr.setAttribute('data-category', categoria);
+
+    const isEntrada = tipo === 'entrada';
+    const valorColor = isEntrada ? 'text-pistache-emerald' : 'text-cherry-alert';
+    const sinal = isEntrada ? '+' : '-';
+
+    const now = new Date();
+    const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0') + ':' + String(now.getSeconds()).padStart(2, '0');
+
+    tr.innerHTML = `
+      <td class="py-3 px-4 text-xs font-semibold text-tertiary">${timeStr}</td>
+      <td class="py-3 px-4">
+        <div class="font-medium text-cacao-deep">${desc}</div>
+        <div class="text-[11px] text-tertiary">Novo lançamento manual</div>
+      </td>
+      <td class="py-3 px-4">
+        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-crema-subtle text-cacao-surface">${categoria}</span>
+      </td>
+      <td class="py-3 px-4">
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="material-symbols-outlined text-sm text-pistache-emerald">receipt</span>
+          <span>${forma}</span>
+        </div>
+      </td>
+      <td class="py-3 px-4 text-xs">
+        <div>Adm MASTER</div>
+        <span class="text-[10px] text-outline">TERM-PG-01</span>
+      </td>
+      <td class="py-3 px-4 text-right font-bold ${valorColor}">
+        ${sinal} R$ ${valorNum}
+      </td>
+      <td class="py-3 px-4 text-center">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-pistache-soft text-pistache-emerald">
+          Liquidado
+        </span>
+      </td>
+      <td class="py-3 px-4 text-center">
+        <button class="p-1 hover:bg-surface-crema-muted rounded text-cacao-surface cursor-pointer" onclick="showReceiptModal('${desc}', '${sinal} R$ ${valorNum}', '${forma}', 'Adm MASTER • ${timeStr}')" title="Ver Comprovante">
+          <span class="material-symbols-outlined text-base">receipt</span>
+        </button>
+      </td>
+    `;
+
+    tbody.insertBefore(tr, tbody.firstChild);
+    
+    // Update count in tab badge
+    const badge = document.getElementById('tab-count-livro');
+    if (badge) {
+      badge.textContent = parseInt(badge.textContent || '48') + 1;
+    }
+    const displayedCount = document.getElementById('displayed-rows-count');
+    if (displayedCount) {
+      displayedCount.textContent = parseInt(displayedCount.textContent || '5') + 1;
+    }
+
+    document.getElementById('form-novo-lancamento').reset();
+    toggleModal('modal-novo-lancamento');
+    showToast(`Lançamento "${desc}" registrado com sucesso!`);
+  }
+
+  // Master DOMContentLoaded Initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. SIDEBAR COLLAPSE / EXPAND
+    const btnToggleSidebar = document.getElementById('btn-toggle-sidebar');
+    const mainSidebar = document.getElementById('main-sidebar');
+    const mainWrapper = document.getElementById('main-content-wrapper');
+    const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
+
+    if (btnToggleSidebar) {
+      btnToggleSidebar.addEventListener('click', function(e) {
+        e.preventDefault();
+        mainSidebar.classList.toggle('sidebar-collapsed');
+        mainWrapper.classList.toggle('main-collapsed');
+        if (mainSidebar.classList.contains('sidebar-collapsed')) {
+          sidebarToggleIcon.textContent = 'menu';
+        } else {
+          sidebarToggleIcon.textContent = 'menu_open';
+        }
+      });
+    }
+
+    // 2. SIDEBAR NAV ITEM CLICKS
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        const pageName = this.getAttribute('data-page');
+        if (pageName !== 'Financeiro') {
+          showToast(`Navegando para o módulo: ${pageName}...`);
+        }
+      });
+    });
+
+    // 3. STORE TOGGLE (OPEN / CLOSED)
+    const btnToggleStore = document.getElementById('btn-toggle-store');
+    const storeBadge = document.getElementById('store-badge-status');
+    const storeDot = document.getElementById('store-dot-status');
+    const storeText = document.getElementById('store-text-status');
+    const storeActionLabel = document.getElementById('store-action-label');
+    const storeActionIcon = document.getElementById('store-action-icon');
+    let isStoreOpen = true;
+
+    if (btnToggleStore) {
+      btnToggleStore.addEventListener('click', function() {
+        isStoreOpen = !isStoreOpen;
+        if (isStoreOpen) {
+          storeBadge.className = 'flex items-center gap-2 px-3 py-1.5 rounded-full bg-pistache-soft border border-pistache-emerald/20 shadow-sm transition-all';
+          storeDot.className = 'w-2 h-2 rounded-full bg-pistache-accent animate-pulse';
+          storeText.className = 'font-label-sm uppercase tracking-wider text-pistache-emerald font-semibold text-[11px]';
+          storeText.textContent = 'Loja Aberta • Balcão e Salão';
+          storeActionLabel.textContent = 'Fechar loja';
+          storeActionIcon.className = 'material-symbols-outlined text-sm text-cherry-ruby';
+          showToast('Loja Reaberta! Pedidos e mesas ativos.');
+        } else {
+          storeBadge.className = 'flex items-center gap-2 px-3 py-1.5 rounded-full bg-cherry-soft border border-cherry-ruby/30 shadow-sm transition-all';
+          storeDot.className = 'w-2 h-2 rounded-full bg-cherry-ruby';
+          storeText.className = 'font-label-sm uppercase tracking-wider text-cherry-ruby font-semibold text-[11px]';
+          storeText.textContent = 'Loja Fechada • Expedição Pausada';
+          storeActionLabel.textContent = 'Abrir loja';
+          storeActionIcon.className = 'material-symbols-outlined text-sm text-pistache-emerald';
+          showToast('Aviso: Loja Fechada para novos pedidos.');
+        }
+      });
+    }
+
+    // 4. HEADER NOTIFICATIONS DROPDOWN
+    const btnNotif = document.getElementById('btn-notifications');
+    const dropNotif = document.getElementById('dropdown-notifications');
+    const btnClearNotif = document.getElementById('btn-clear-notifications');
+    const notifBadge = document.getElementById('notification-count-badge');
+
+    if (btnNotif && dropNotif) {
+      btnNotif.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropNotif.classList.toggle('hidden');
+        if (document.getElementById('dropdown-settings')) document.getElementById('dropdown-settings').classList.add('hidden');
+        if (document.getElementById('dropdown-profile')) document.getElementById('dropdown-profile').classList.add('hidden');
+      });
+    }
+
+    if (btnClearNotif) {
+      btnClearNotif.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const list = document.getElementById('notifications-list');
+        if (list) {
+          list.innerHTML = '<div class="p-6 text-center text-xs text-outline">Nenhuma notificação não lida.</div>';
+        }
+        if (notifBadge) {
+          notifBadge.classList.add('hidden');
+        }
+        showToast('Notificações limpas');
+      });
+    }
+
+    // 5. HEADER SETTINGS DROPDOWN
+    const btnSettings = document.getElementById('btn-settings');
+    const dropSettings = document.getElementById('dropdown-settings');
+
+    if (btnSettings && dropSettings) {
+      btnSettings.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropSettings.classList.toggle('hidden');
+        if (dropNotif) dropNotif.classList.add('hidden');
+        if (document.getElementById('dropdown-profile')) document.getElementById('dropdown-profile').classList.add('hidden');
+      });
+    }
+
+    // 6. HEADER PROFILE DROPDOWN
+    const btnProfile = document.getElementById('btn-profile');
+    const dropProfile = document.getElementById('dropdown-profile');
+
+    if (btnProfile && dropProfile) {
+      btnProfile.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropProfile.classList.toggle('hidden');
+        if (dropNotif) dropNotif.classList.add('hidden');
+        if (dropSettings) dropSettings.classList.add('hidden');
+      });
+    }
+
+    // Close header dropdowns on outside click
+    document.addEventListener('click', function(e) {
+      if (dropNotif && !dropNotif.contains(e.target) && e.target !== btnNotif) {
+        dropNotif.classList.add('hidden');
+      }
+      if (dropSettings && !dropSettings.contains(e.target) && e.target !== btnSettings) {
+        dropSettings.classList.add('hidden');
+      }
+      if (dropProfile && !dropProfile.contains(e.target) && e.target !== btnProfile) {
+        dropProfile.classList.add('hidden');
+      }
+    });
+
+    // 7. FINANCIAL TABS CONTROLLER
+    const tabs = document.querySelectorAll('.finance-tab');
+    const views = document.querySelectorAll('.tab-view');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-tab');
+
+        // Reset styling for all tabs
+        tabs.forEach(t => {
+          t.className = 'finance-tab pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all';
+          const icon = t.querySelector('.material-symbols-outlined');
+          if (icon) icon.classList.remove('text-gold-burnished');
+        });
+
+        // Set active tab styling
+        this.className = 'finance-tab pb-3 border-b-2 border-gold-burnished text-cacao-deep font-title-sm flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all';
+        const activeIcon = this.querySelector('.material-symbols-outlined');
+        if (activeIcon) activeIcon.classList.add('text-gold-burnished');
+
+        // Hide all views and show active view
+        views.forEach(view => view.classList.add('hidden'));
+        const targetView = document.getElementById(`view-${targetId}`);
+        if (targetView) {
+          targetView.classList.remove('hidden');
+        }
+      });
+    });
+
+    // 8. TABLE REAL-TIME SEARCH FILTER
+    const searchInput = document.getElementById('input-search-transactions');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        const rows = document.querySelectorAll('#transactions-tbody tr.transaction-row');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+          const desc = (row.getAttribute('data-desc') || '').toLowerCase();
+          const category = (row.getAttribute('data-category') || '').toLowerCase();
+          const rowText = row.innerText.toLowerCase();
+
+          if (desc.includes(query) || category.includes(query) || rowText.includes(query)) {
+            row.style.display = '';
+            visibleCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        const displayedElem = document.getElementById('displayed-rows-count');
+        if (displayedElem) {
+          displayedElem.textContent = visibleCount;
+        }
+      });
+    }
+
+    // 9. QUICK CATEGORY FILTER BUTTON
+    const btnFilterCat = document.getElementById('btn-filter-category');
+    const filterBadge = document.getElementById('active-filter-badge');
+    let filterIndex = 0;
+    const filterOptions = ['Todos', 'Receita Vendas', 'Insumos Diretos', 'Transferência'];
+
+    if (btnFilterCat) {
+      btnFilterCat.addEventListener('click', function() {
+        filterIndex = (filterIndex + 1) % filterOptions.length;
+        const currentFilter = filterOptions[filterIndex];
+        const rows = document.querySelectorAll('#transactions-tbody tr.transaction-row');
+        let count = 0;
+
+        if (currentFilter === 'Todos') {
+          if (filterBadge) filterBadge.classList.add('hidden');
+          rows.forEach(r => { r.style.display = ''; count++; });
+          showToast('Filtro removido: Exibindo todos os lançamentos');
+        } else {
+          if (filterBadge) {
+            filterBadge.textContent = currentFilter;
+            filterBadge.classList.remove('hidden');
+          }
+          rows.forEach(r => {
+            const cat = r.getAttribute('data-category');
+            if (cat === currentFilter) {
+              r.style.display = '';
+              count++;
+            } else {
+              r.style.display = 'none';
+            }
+          });
+          showToast(`Filtrando por: ${currentFilter}`);
+        }
+
+        const displayedElem = document.getElementById('displayed-rows-count');
+        if (displayedElem) displayedElem.textContent = count;
+      });
+    }
+
+    // 10. REPROCESS EDI BUTTON
+    const btnReprocess = document.getElementById('btn-reprocessar-edi');
+    const iconReprocess = document.getElementById('icon-reprocess');
+    if (btnReprocess) {
+      btnReprocess.addEventListener('click', function() {
+        if (iconReprocess) iconReprocess.classList.add('animate-spin');
+        btnReprocess.disabled = true;
+        setTimeout(() => {
+          if (iconReprocess) iconReprocess.classList.remove('animate-spin');
+          btnReprocess.disabled = false;
+          showToast('Extrato bancário e cartões sincronizados: 100% conciliado!');
+        }, 1200);
+      });
+    }
+
+    // 11. KEYBOARD ESCAPE LISTENER
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        const modals = ['modal-logout', 'modal-novo-lancamento', 'modal-fechamento', 'modal-export', 'modal-receipt'];
+        modals.forEach(id => {
+          const m = document.getElementById(id);
+          if (m && !m.classList.contains('hidden')) {
+            m.classList.add('hidden');
+          }
+        });
+      }
+    });
+
+  });
+</script>
+<script>window.ADMIN_SCREEN_ID=14;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

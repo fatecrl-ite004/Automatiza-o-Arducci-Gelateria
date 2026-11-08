@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="" lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Esqueci Minha Senha - Arducci Gelateria</title>
+<!-- Tailwind CSS CDN com plugins -->
+<link rel="stylesheet" href="styles/screen-3.css?v=20261108-layout-41">
+<!-- Fontes Google: Playfair Display e Plus Jakarta Sans / Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Tailwind Configuration Baseada no Design System -->
+
+<style data-purpose="custom-resets">
+    /* Prevenção de zoom acidental no mobile e estilo touch */
+    html, body {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      background-color: #FBF9F6;
+    }
+    input:focus {
+      outline: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-brand-creamBg text-brand-brown font-sans antialiased min-h-screen flex justify-center items-center p-0 sm:py-6">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Container que replica com precisão as dimensões de um iPhone moderno -->
+<div class="w-full max-w-[412px] min-h-screen sm:min-h-[860px] sm:max-h-[900px] bg-brand-creamBg flex flex-col justify-between relative sm:rounded-[44px] sm:shadow-2xl sm:border-[8px] sm:border-[#ECE7E0] overflow-hidden">
+<!-- BEGIN: TopBarArea -->
+<!-- Status bar estilo iOS com hora e status de conexão -->
+<header class="w-full pt-3 px-7 flex flex-col z-20 shrink-0">
+<div class="w-full flex justify-between items-center text-xs font-semibold tracking-tight text-neutral-800 select-none">
+<span class="text-[15px] font-semibold pl-1">9:41</span>
+<div class="flex items-center space-x-2"><svg class="w-4 h-3 text-neutral-800 fill-current" viewbox="0 0 18 14"><rect height="4" rx="1" width="3" x="1" y="9"></rect><rect height="6.5" rx="1" width="3" x="5.5" y="6.5"></rect><rect height="9.5" rx="1" width="3" x="10" y="3.5"></rect><rect height="12.5" rx="1" width="3" x="14.5" y="0.5"></rect></svg><svg class="w-4 h-3 text-neutral-800 fill-current" viewbox="0 0 20 16"><path d="M10 2.2C6.1 2.2 2.6 3.8 0 6.4l1.8 1.8C3.8 6.2 6.7 4.8 10 4.8c3.3 0 6.2 1.4 8.2 3.4l1.8-1.8C17.4 3.8 13.9 2.2 10 2.2z"></path><path d="M10 7c-2.4 0-4.6 1-6.1 2.6l1.8 1.8C6.9 10.3 8.3 9.6 10 9.6s3.1.7 4.3 1.8l1.8-1.8C14.6 8 12.4 7 10 7z"></path><circle cx="10" cy="14" r="1.8"></circle></svg><div class="flex flex-col items-center justify-center -space-y-[1px]"><div class="w-1.5 h-0.5 bg-neutral-800 rounded-t-xs"></div><div class="w-3 h-5 border border-neutral-800 rounded-[2.5px] p-0.5 flex flex-col justify-end"><div class="w-full h-3 bg-neutral-800 rounded-[1px]"></div></div></div></div>
+</div>
+<!-- Barra de Navegação Superior (Voltar) -->
+<div class="mt-3 flex items-center justify-between">
+<a aria-label="Voltar para a página anterior" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-brand-brown hover:bg-brand-inputBg active:scale-95 transition-all" data-purpose="back-button" href="#voltar-login">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+</a>
+<div class="w-10 h-10 opacity-0 pointer-events-none"></div>
+</div>
+</header>
+<!-- END: TopBarArea -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-6 pb-4 overflow-y-auto flex flex-col justify-between pt-0">
+<div>
+<!-- Emblema da Gelateria com Ícone Vetorial de Gelato -->
+<div class="flex justify-center mb-2.5" data-purpose="brand-icon"><div class="w-16 h-16 rounded-full bg-brand-inputBg flex items-center justify-center border border-brand-divider shadow-sm"><span class="material-symbols-outlined text-[32px] text-brand-brown">icecream</span></div></div>
+<!-- Título e Subtítulo Principal -->
+<div class="text-center px-2 mb-4">
+<h1 class="font-serif text-[28px] sm:text-[30px] font-bold text-brand-brown tracking-tight leading-tight">
+            Esqueci minha senha
+          </h1>
+<p class="mt-2.5 text-[14px] leading-relaxed text-brand-muted font-normal">
+            Informe seu e-mail ou telefone celular cadastrado para enviarmos um código de 6 dígitos de recuperação.
+          </p>
+</div>
+<!-- Formulário de Recuperação -->
+<form action="#enviar-codigo" class="space-y-4" method="POST" onsubmit="event.preventDefault();">
+<!-- Seletor de Método de Envio (Pill Switcher UX) -->
+<div class="p-1 bg-brand-inputBg rounded-xl flex items-center border border-brand-divider text-xs font-medium" data-purpose="channel-selector">
+<button class="flex-1 py-1.5 px-3 rounded-lg bg-white text-brand-brown shadow-xs font-semibold flex items-center justify-center gap-1.5 transition-all" id="tab-whatsapp" type="button">
+<svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"></path>
+</svg>
+<span class="">WhatsApp / SMS</span>
+</button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-brand-muted hover:text-brand-brown flex items-center justify-center gap-1.5 transition-all" id="tab-email" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">E-mail</span>
+</button>
+</div>
+<!-- Input Field: E-mail ou Celular -->
+<div class="space-y-1.5" data-purpose="input-wrapper">
+<label class="block text-xs font-bold text-brand-brown tracking-wide" for="recovery-identifier">
+              E-mail ou celular cadastrado
+            </label>
+<div class="relative rounded-2xl bg-brand-inputBg border border-brand-divider focus-within:border-brand-brown focus-within:ring-1 focus-within:ring-brand-brown transition-all">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-muted">
+<!-- Ícone representativo no input -->
+<svg class="w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+</svg>
+</div>
+<input autocomplete="username" class="w-full pl-11 pr-4 py-3.5 bg-transparent border-0 text-sm font-normal text-brand-brown placeholder:text-neutral-400 focus:ring-0 focus:outline-none" id="recovery-identifier" name="identifier" placeholder="seu@email.com ou (11) 99999-9999" required="" type="text"/>
+</div>
+</div>
+<!-- Ações Primária e Secundária -->
+<div class="pt-2 space-y-3" data-purpose="action-buttons">
+<!-- Botão Principal: Marrom Arducci -->
+<button class="w-full h-[52px] bg-brand-brown hover:bg-brand-brownHover text-[#FBF9F6] font-semibold text-base rounded-2xl shadow-btn active:scale-[0.99] transition-all flex items-center justify-center space-x-2" type="submit">
+<span class="">Enviar Código</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+</button>
+<!-- Botão Secundário: Outline Elegante para Voltar -->
+<a class="w-full h-[50px] border border-brand-brown text-brand-brown hover:bg-brand-inputBg/60 font-semibold text-base rounded-2xl active:scale-[0.99] transition-all flex items-center justify-center tracking-wide" href="#login">
+              Voltar para o Login
+            </a>
+</div>
+</form>
+</div>
+<!-- BEGIN: DicasSection -->
+<!-- Bloco de dicas e orientações de segurança padronizado -->
+<section class="mt-6 pt-3 pb-1 border-t border-brand-divider" data-purpose="security-tips">
+<h2 class="text-xs font-bold text-brand-brown uppercase tracking-wider mb-2.5">
+          Dicas Importantes
+        </h2>
+<div class="space-y-3">
+<!-- Item 1: Confirmação do número -->
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 rounded-full bg-brand-inputBg flex items-center justify-center shrink-0 border border-brand-divider text-brand-brown">
+<svg class="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-brand-brown leading-tight">Confirme o número ou e-mail</p>
+<p class="text-[11px] text-brand-muted leading-snug mt-0.5">Evite erros de digitação para receber o código via SMS ou WhatsApp sem atrasos.</p>
+</div>
+</div>
+<!-- Item 2: Tempo de expiração e segurança -->
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 rounded-full bg-brand-inputBg flex items-center justify-center shrink-0 border border-brand-divider text-brand-brown">
+<svg class="w-4 h-4 text-brand-brown" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-brand-brown leading-tight">Código com validade de 10 min</p>
+<p class="text-[11px] text-brand-muted leading-snug mt-0.5">Por motivos de segurança, o código de uso único expira rapidamente.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: DicasSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: iOSHomeIndicator -->
+<!-- Indicador de barra inferior clássico do iOS -->
+<div class="w-full pb-2.5 pt-1 flex justify-center items-center shrink-0" data-purpose="home-indicator">
+<div class="w-36 h-1 bg-brand-brown/80 rounded-full"></div>
+</div>
+<!-- END: iOSHomeIndicator -->
+</div>
+<!-- END: MobileDeviceContainer -->
+<!-- Interações simples de UX para troca de abas WhatsApp / Email -->
+<script data-purpose="channel-interaction">
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabWhatsapp = document.getElementById('tab-whatsapp');
+      const tabEmail = document.getElementById('tab-email');
+      const input = document.getElementById('recovery-identifier');
+
+      if (tabWhatsapp && tabEmail && input) {
+        tabWhatsapp.addEventListener('click', () => {
+          tabWhatsapp.className = 'flex-1 py-1.5 px-3 rounded-lg bg-white text-brand-brown shadow-xs font-semibold flex items-center justify-center gap-1.5 transition-all';
+          tabEmail.className = 'flex-1 py-1.5 px-3 rounded-lg text-brand-muted hover:text-brand-brown flex items-center justify-center gap-1.5 transition-all';
+          input.placeholder = '(11) 99999-9999';
+          input.focus();
+        });
+
+        tabEmail.addEventListener('click', () => {
+          tabEmail.className = 'flex-1 py-1.5 px-3 rounded-lg bg-white text-brand-brown shadow-xs font-semibold flex items-center justify-center gap-1.5 transition-all';
+          tabWhatsapp.className = 'flex-1 py-1.5 px-3 rounded-lg text-brand-muted hover:text-brand-brown flex items-center justify-center gap-1.5 transition-all';
+          input.placeholder = 'seu@email.com';
+          input.focus();
+        });
+      }
+    });
+  </script>
+<script>window.SCREEN_ID=3;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

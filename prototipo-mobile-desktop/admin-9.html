@@ -1,0 +1,1363 @@
+<!DOCTYPE html><html class="h-full" lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arducci Gelateria &amp; Açaiteria · Suporte e Ajuda</title>
+<!-- Google Fonts: Playfair Display + Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS v3 -->
+<link rel="stylesheet" href="styles/admin-9.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D0C5AF;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #C5A059;
+    }
+
+    /* Sidebar collapse states */
+    .sidebar-collapsed {
+      width: 72px !important;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    .sidebar-collapsed .sidebar-text-item {
+      display: none !important;
+    }
+    .sidebar-collapsed .sidebar-toggle-btn {
+      display: none !important;
+    }
+    .sidebar-collapsed #sidebar-header-row {
+      justify-content: center !important;
+      padding-bottom: 0.5rem !important;
+    }
+    .sidebar-collapsed .sidebar-nav-link {
+      justify-content: center !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      position: relative;
+    }
+    /* Tooltips in collapsed mode */
+    .sidebar-collapsed .sidebar-nav-link:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #2e1f16;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #f5ebd9;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      pointer-events: none;
+      animation: fadeIn 0.15s ease-out;
+    }
+    .sidebar-collapsed .group\/brand:hover #brand-expand-tooltip {
+      display: block !important;
+    }
+    .content-collapsed {
+      margin-left: 72px !important;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-50%) translateX(-4px); }
+      to { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-background text-on-surface h-screen max-h-screen overflow-hidden flex flex-row font-body-md text-body-md select-none">
+<!-- ========================================================================= -->
+<!-- 1. SIDEBAR NAVIGATION (SHARED COMPONENT: SideNavBar)                      -->
+<!-- ========================================================================= -->
+<aside class="w-64 bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 h-screen min-h-screen fixed top-0 bottom-0 left-0 z-50 border-r border-[#2d221c] select-none" id="sidebar" style="height: 100vh;">
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Cabeçalho do Aside -->
+<div class="p-5 border-b border-[#2d221c] flex items-center justify-between transition-all duration-300" id="sidebar-header">
+<div class="flex items-center gap-3 overflow-hidden" id="sidebar-brand-box">
+<div class="w-10 h-10 bg-[#d4af37] rounded-xl flex items-center justify-center text-[#18110e] shadow-sm shrink-0 cursor-pointer" onclick="toggleSidebar()" title="SORVETEC PRO">
+<span class="material-symbols-outlined text-2xl font-bold">icecream</span>
+</div>
+<div class="flex flex-col transition-opacity duration-200" id="brand-text">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-sm tracking-tight text-[#fff8f4]">SORVETEC</span>
+<span class="px-1.5 py-0.2 bg-[#d4af37] text-[#18110e] text-[9px] font-extrabold rounded">PRO</span>
+</div>
+<span class="text-[10px] text-[#a89a8f] font-medium tracking-tight">ARDUCCI GELATO &amp; AÇAI</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-[#a89a8f] hover:text-[#fff8f4] hover:bg-white/5 transition-colors shrink-0 flex items-center justify-center cursor-pointer" id="toggle-sidebar" onclick="toggleSidebar()" title="Recolher menu lateral" type="button">
+<span class="material-symbols-outlined text-xl" id="toggle-sidebar-icon">menu_open</span>
+</button>
+</div>
+<!-- Navegação e Lista de Itens -->
+<nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scrollbar" id="sidebar-nav"><button type="button" onclick="showToast('Redirecionando para Dashboard...', 'dashboard')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Dashboard"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">dashboard</span><span class="nav-text text-sm font-medium truncate">Dashboard</span></button><button type="button" onclick="showToast('Navegando para Acompanhamento de Pedido...', 'receipt_long')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Acompanhamento de Pedido"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">receipt_long</span><span class="nav-text text-sm font-medium truncate">Acompanhamento de Pedido</span></button><button type="button" onclick="showToast('Navegando para Caixa e PDV...', 'point_of_sale')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Caixa e PDV"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">point_of_sale</span><span class="nav-text text-sm font-medium truncate">Caixa e PDV</span></button><button type="button" onclick="showToast('Navegando para Clientes e Arducci Club...', 'groups')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Clientes e Arducci Club"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">groups</span><span class="nav-text text-sm font-medium truncate">Clientes e Arducci Club</span></button><button type="button" onclick="showToast('Navegando para Estoque...', 'inventory_2')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Estoque"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">inventory_2</span><span class="nav-text text-sm font-medium truncate">Estoque</span></button><button type="button" onclick="showToast('Navegando para Sabores de Gelato...', 'icecream')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Sabores de Gelato"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">icecream</span><span class="nav-text text-sm font-medium truncate">Sabores de Gelato</span></button><button type="button" onclick="showToast('Navegando para Financeiro &amp; DRE...', 'payments')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Financeiro &amp; DRE"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">payments</span><span class="nav-text text-sm font-medium truncate">Financeiro &amp; DRE</span></button><button type="button" onclick="showToast('Navegando para Funcionários &amp; Ponto...', 'badge')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Funcionários &amp; Ponto"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">badge</span><span class="nav-text text-sm font-medium truncate">Funcionários &amp; Ponto</span></button><button type="button" onclick="showToast('Navegando para Mesas &amp; Comandas...', 'table_restaurant')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Mesas &amp; Comandas"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">table_restaurant</span><span class="nav-text text-sm font-medium truncate">Mesas &amp; Comandas</span></button><button type="button" onclick="showToast('Navegando para Relatórios e BI...', 'bar_chart')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Relatórios e BI"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">bar_chart</span><span class="nav-text text-sm font-medium truncate">Relatórios e BI</span></button><button type="button" onclick="showToast('Navegando para Painel de Controle...', 'settings')" class="nav-link sidebar-nav-link w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-all duration-150 group text-sm font-medium whitespace-nowrap cursor-pointer" title="Painel de Controle"><span class="material-symbols-outlined text-[20px] text-[#a89a8f] group-hover:text-[#d4af37] shrink-0">settings</span><span class="nav-text text-sm font-medium truncate">Painel de Controle</span></button><button type="button" class="nav-link sidebar-nav-link active w-full flex items-center justify-between px-3.5 py-2.5 bg-[#2b1810] text-[#d4af37] font-semibold text-sm border-l-4 border-[#d4af37] rounded-r-lg shadow-sm whitespace-nowrap cursor-pointer" title="Suporte Técnico"><div class="flex items-center gap-3 min-w-0"><span class="material-symbols-outlined text-[20px] text-[#d4af37] shrink-0">help</span><span class="nav-text text-sm font-semibold truncate">Suporte Técnico</span></div><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0 ml-auto"></span></button></nav>
+<!-- Rodapé do Aside -->
+<div class="p-4 border-t border-[#2d221c]" id="sidebar-footer">
+<button class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-all duration-150 text-sm font-semibold cursor-pointer whitespace-nowrap" id="btn-logout" onclick="abrirModalLogout()" title="Encerrar o sistema (sair)" type="button"><span class="material-symbols-outlined text-[20px] shrink-0">logout</span><span class="logout-text text-sm font-semibold truncate">Encerrar o sistema (sair)</span></button>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE VIEWPORT                                                   -->
+<!-- ========================================================================= -->
+<div class="flex-1 h-screen max-h-screen overflow-hidden flex flex-col bg-background transition-all duration-300" id="main-content-wrapper" style="margin-left: 16rem;">
+<!-- ======================================================================= -->
+<!-- 2. HEADER SUPERIOR (SHARED COMPONENT: TopNavBar)                       -->
+<!-- ======================================================================= -->
+<header class="h-16 shrink-0 z-40 flex items-center justify-between px-6 bg-surface-container-lowest border-b border-surface-crema-muted shadow-xs relative">
+<!-- Lado Esquerdo: Status da Loja & Ação Contextual -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-crema-subtle border border-border-crema shadow-xs transition-colors" id="store-status-badge">
+<span class="w-2.5 h-2.5 rounded-full bg-pistache-emerald ring-2 ring-pistache-soft animate-pulse" id="store-indicator-dot"></span>
+<span class="font-label-md text-label-md text-cacao-deep font-bold" id="store-status-label">Loja aberta</span>
+</div>
+<button class="px-3 py-1.5 text-xs font-semibold rounded bg-surface-container-lowest border border-border-crema hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep transition-all shadow-xs flex items-center gap-1.5 active:scale-95 cursor-pointer" id="btn-toggle-store" onclick="toggleStoreStatus()">
+<span class="material-symbols-outlined text-[16px] text-cherry-alert" id="store-action-icon">storefront</span>
+<span class="" id="store-action-text">Fechar loja</span>
+</button>
+</div>
+<!-- Lado Direito: Botões Rápidos + Perfil Adm MASTER Matheus L. -->
+<div class="flex items-center gap-3 relative">
+<!-- NOTIFICAÇÕES COM BADGE E DROPDOWN -->
+<div class="relative">
+<button class="relative p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-notifications" onclick="toggleDropdown('notifications')" title="Notificações">
+<span class="material-symbols-outlined text-[21px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-cherry-alert text-white text-[10px] font-bold leading-none" id="notif-badge">3</span>
+</button>
+<!-- Dropdown Notificações Popover -->
+<div class="hidden absolute right-0 top-12 mt-1 w-80 sm:w-96 bg-surface-container-lowest rounded-lg border border-border-crema shadow-2xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150" id="dropdown-notifications">
+<div class="px-4 py-2.5 border-b border-surface-crema-muted flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-deep text-[18px]">notifications_active</span>
+<span class="font-title-sm text-title-sm font-bold text-cacao-deep">Notificações do Sistema</span>
+</div>
+<button class="text-[11px] font-semibold text-pistache-emerald hover:underline" onclick="markAllNotificationsAsRead()">Marcar lidas</button>
+</div>
+<div class="divide-y divide-surface-crema-subtle max-h-72 overflow-y-auto custom-scrollbar" id="notif-items-list">
+<div class="p-3 hover:bg-surface-crema-subtle/70 transition-colors flex items-start gap-2.5 notif-item cursor-pointer" onclick="dismissNotification(this)">
+<span class="w-2 h-2 rounded-full bg-cherry-alert mt-1.5 shrink-0 notif-dot"></span>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-cacao-deep">Alerta Térmico Pozzetto 04</p>
+<p class="text-[11px] text-tertiary truncate">Temperatura atingiu -11.2°C no Pistache Bronte.</p>
+<span class="text-[10px] text-outline font-data-tabular">há 8 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle/70 transition-colors flex items-start gap-2.5 notif-item cursor-pointer" onclick="dismissNotification(this)">
+<span class="w-2 h-2 rounded-full bg-gold-deep mt-1.5 shrink-0 notif-dot"></span>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-cacao-deep">Conferência de Caixa Pendente</p>
+<p class="text-[11px] text-tertiary truncate">Sangria no valor de R$ 450,00 aguarda validação.</p>
+<span class="text-[10px] text-outline font-data-tabular">há 24 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle/70 transition-colors flex items-start gap-2.5 notif-item cursor-pointer" onclick="dismissNotification(this)">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald mt-1.5 shrink-0 notif-dot"></span>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-cacao-deep">Sincronização Fiscal SEFAZ-SP</p>
+<p class="text-[11px] text-tertiary truncate">12 cupons contingenciados transmitidos com sucesso.</p>
+<span class="text-[10px] text-outline font-data-tabular">há 1 hora</span>
+</div>
+</div>
+</div>
+<div class="p-2 border-t border-surface-crema-muted text-center bg-surface-crema-subtle/40">
+<button class="text-xs font-bold text-cacao-deep hover:text-gold-deep transition-colors" onclick="showToast('Todas as notificações registradas no log de auditoria.')">Ver Histórico Completo</button>
+</div>
+</div>
+</div>
+<!-- CONFIGURAÇÕES RÁPIDAS COM QUICK-PANEL -->
+<div class="relative">
+<button class="p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-settings" onclick="toggleDropdown('settings')" title="Configurações">
+<span class="material-symbols-outlined text-[21px]">settings</span>
+</button>
+<!-- Quick Panel Configurações -->
+<div class="hidden absolute right-0 top-12 mt-1 w-72 bg-surface-container-lowest rounded-lg border border-border-crema shadow-2xl p-4 z-50 animate-in fade-in zoom-in-95 duration-150" id="dropdown-settings">
+<div class="flex items-center justify-between pb-2 border-b border-surface-crema-muted mb-3">
+<span class="font-title-sm text-title-sm font-bold text-cacao-deep">Preferências Rápidas</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">tune</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-cacao-deep flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">dark_mode</span> Modo Escuro
+            </span>
+<button class="w-10 h-5 rounded-full bg-surface-crema-muted p-0.5 transition-colors relative" id="toggle-dark-mode" onclick="toggleQuickSetting('dark')">
+<div class="w-4 h-4 rounded-full bg-white shadow-sm transition-transform" id="toggle-dark-knob"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-cacao-deep flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">volume_up</span> Sons do Balcão
+            </span>
+<button class="w-10 h-5 rounded-full bg-pistache-emerald p-0.5 transition-colors relative" id="toggle-sound" onclick="toggleQuickSetting('sound')">
+<div class="w-4 h-4 rounded-full bg-white shadow-sm translate-x-5 transition-transform" id="toggle-sound-knob"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-cacao-deep flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">format_size</span> Fonte Ampliada
+            </span>
+<button class="w-10 h-5 rounded-full bg-surface-crema-muted p-0.5 transition-colors relative" id="toggle-font" onclick="toggleQuickSetting('font')">
+<div class="w-4 h-4 rounded-full bg-white shadow-sm transition-transform" id="toggle-font-knob"></div>
+</button>
+</div>
+</div>
+<div class="mt-4 pt-2.5 border-t border-surface-crema-muted">
+<a class="sidebar-nav-link flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#cfc2ba] hover:text-white hover:bg-[#2a1f17] text-sm font-medium transition-colors" href="#painel">Ir para Configurações Avançadas</a>
+</div>
+</div>
+</div>
+<!-- BOTÃO POWER / SAÍDA RÁPIDA -->
+<button class="p-2 rounded-lg text-cherry-alert hover:bg-cherry-soft transition-colors focus:outline-none cursor-pointer active:scale-95" onclick="openLogoutModal()" title="Encerrar Turno / Sair">
+<span class="material-symbols-outlined text-[21px]">power_settings_new</span>
+</button>
+<div class="h-6 w-px bg-surface-crema-muted mx-1"></div>
+<!-- BLOCO USUÁRIO ADM MASTER COM DROPDOWN -->
+<div class="relative">
+<button class="flex items-center gap-2.5 p-1.5 pl-2 pr-3 rounded-lg hover:bg-surface-crema-subtle transition-all text-left focus:outline-none cursor-pointer" id="user-menu-button" onclick="toggleDropdown('profile')">
+<div class="w-8 h-8 rounded-full bg-cacao-deep border border-gold-burnished flex items-center justify-center text-gold-light font-bold text-xs shadow-sm">AM</div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md text-cacao-deep font-bold leading-tight">Adm MASTER</span>
+<span class="font-body-sm text-[11px] text-tertiary">Administrador Geral</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-tertiary transition-transform duration-200 ml-0.5" id="user-dropdown-arrow" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<!-- Dropdown Menu do Usuário Interativo -->
+<div class="hidden absolute right-0 top-12 mt-1 w-64 bg-surface-container-lowest rounded-lg border border-border-crema shadow-2xl py-1.5 z-50 divide-y divide-surface-crema-subtle animate-in fade-in zoom-in-95 duration-150" id="user-dropdown-menu">
+<div class="px-4 py-2.5 bg-surface-crema-subtle">
+<p class="font-label-md text-label-md font-bold text-cacao-deep">Matheus L.</p>
+<p class="font-body-sm text-[11px] text-tertiary truncate">matheus@arducci.com.br</p>
+<span class="inline-block mt-1 px-2 py-0.5 rounded bg-surface-container-lowest text-gold-deep text-[10px] font-bold border border-border-crema">Administrador Geral</span>
+</div>
+<div class="py-1">
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left" onclick="showToast('Módulo de perfil do usuário carregado.')">
+<span class="material-symbols-outlined text-[18px] text-tertiary">manage_accounts</span>
+<span class="">Editar meus dados</span>
+</button>
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left" onclick="showToast('Selecione outro operador para assumir o caixa.')">
+<span class="material-symbols-outlined text-[18px] text-tertiary">switch_account</span>
+<span class="">Trocar de conta</span>
+</button>
+</div>
+<div class="py-1">
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cherry-alert hover:bg-cherry-soft transition-colors text-left font-semibold" onclick="openLogoutModal()">
+<span class="material-symbols-outlined text-[18px] text-cherry-alert">logout</span>
+<span class="">Sair do sistema</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- 3. MAIN SCROLLABLE CANVAS WORKSPACE                                    -->
+<!-- ======================================================================= -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-8 py-6 space-y-6 pb-14">
+<!-- Top Title and Action Row -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-surface-crema-muted">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-gold-deep font-bold flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-gold-deep"></span>
+        MÓDULO DE ATENDIMENTO &amp; CONHECIMENTO OPERACIONAL
+      </span>
+<h1 class="font-headline-xl text-headline-xl text-cacao-deep font-bold mt-1 tracking-tight">
+        Suporte&nbsp;</h1>
+<p class="font-body-md text-body-md text-tertiary mt-1">
+        Central integrada de manuais técnicos, procedimentos operacionais da gelateria, chamados de suporte e telemetria do sistema.
+      </p>
+</div>
+<!-- Primary Top Actions -->
+<div class="flex items-center gap-3">
+<button class="px-4 h-10 rounded border border-border-gold-subtle bg-surface-container-lowest hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md flex items-center gap-2 transition-colors shadow-sm cursor-pointer active:scale-95" onclick="exportDiagnostics()" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">download</span>
+<span class="">Exportar Log de Diagnóstico</span>
+</button>
+<button class="px-4 h-10 rounded bg-pistache-emerald hover:bg-[#1B532B] text-surface-container-lowest font-label-md text-label-md flex items-center gap-2 font-bold transition-all shadow-sm active:scale-95 cursor-pointer" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="">+ Nova Solicitação de Suporte</span>
+</button>
+</div>
+</div>
+<!-- 4. SEARCH AND FILTER HERO -->
+<div class="relative bg-surface-container-lowest rounded-lg border border-border-crema p-2 shadow-sm flex items-center">
+<div class="flex items-center pl-3 pr-2 text-tertiary pointer-events-none">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-on-surface placeholder:text-outline text-body-md focus:ring-0 focus:outline-none" id="search-input" onkeyup="filterContent()" placeholder="Buscar por artigos, procedimentos, dúvidas ou código de erro (ex: balança, pozzetto, cupom fiscal)..." type="text">
+<div class="pr-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-data-tabular bg-surface-crema-subtle border border-surface-crema-muted text-tertiary hidden sm:inline-block">
+        CTRL + K
+      </span>
+<button class="p-1 rounded text-tertiary hover:text-cacao-deep text-xs font-semibold cursor-pointer" onclick="clearSearch()" type="button">
+        Limpar
+      </button>
+</div>
+</div>
+<!-- 5. TABS NAVIGATION -->
+<div class="flex items-center gap-2 border-b border-surface-crema-muted">
+<button class="px-5 py-3 border-b-2 border-gold-burnished text-cacao-deep font-label-md text-label-md font-bold flex items-center gap-2 transition-all cursor-pointer" id="tab-btn-manual" onclick="switchTab('manual')">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="">Manual do Sistema</span>
+</button>
+<button class="px-5 py-3 border-b-2 border-transparent text-tertiary hover:text-cacao-deep font-label-md text-label-md font-medium flex items-center gap-2 transition-all cursor-pointer" id="tab-btn-procedimentos" onclick="switchTab('procedimentos')">
+<span class="material-symbols-outlined text-[18px]">fact_check</span>
+<span class="">Procedimentos</span>
+</button>
+<button class="px-5 py-3 border-b-2 border-transparent text-tertiary hover:text-cacao-deep font-label-md text-label-md font-medium flex items-center gap-2 transition-all cursor-pointer" id="tab-btn-chamados" onclick="switchTab('chamados')">
+<span class="material-symbols-outlined text-[18px]">confirmation_number</span>
+<span class="">Solicitações de Suporte</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-gold-light text-cacao-deep">2 Abertas</span>
+</button>
+<button class="px-5 py-3 border-b-2 border-transparent text-tertiary hover:text-cacao-deep font-label-md text-label-md font-medium flex items-center gap-2 transition-all cursor-pointer" id="tab-btn-sistema" onclick="switchTab('sistema')">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="">Informações do Sistema</span>
+</button>
+</div>
+<!-- ===================================================================== -->
+<!-- 6. CONTEÚDO DAS ABAS                                                  -->
+<!-- ===================================================================== -->
+<!-- TAB 1 & 2: MASTER-DETAIL ARTICLES (Manual / Procedimentos) -->
+<section class="block" id="tab-content-knowledge">
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Master: List of articles (5 Cols) -->
+<div class="col-span-12 lg:col-span-5 space-y-3" id="article-list-container">
+<div class="flex items-center justify-between text-tertiary font-label-sm text-label-sm uppercase px-1">
+<span class="">5 Guias Oficiais Encontrados</span>
+<span class="">Ordenação: Relevância</span>
+</div>
+<!-- Item 1 (Selected by default) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm cursor-pointer transition-all hover:border-gold-burnished" id="item-art-1" onclick="selectArticle(1)">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle">
+              Hardware &amp; PDV
+            </span>
+<span class="font-data-tabular text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 3 min de leitura
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold mb-1">
+            Operação e Calibração da Balança Serial (Toledo / Filizola)
+          </h3>
+<p class="font-body-sm text-body-sm text-tertiary line-clamp-2">
+            Procedimento oficial de zeragem, conferência de tara padrão (0.025kg para casquinhas e copo médio) e sincronização contínua com a porta COM3 do PDV.
+          </p>
+</div>
+<!-- Item 2 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm cursor-pointer transition-all hover:border-gold-burnished" id="item-art-2" onclick="selectArticle(2)">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle">
+              Operação Financeira
+            </span>
+<span class="font-data-tabular text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 4 min de leitura
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold mb-1">
+            Abertura e Fechamento de Caixa Cego
+          </h3>
+<p class="font-body-sm text-body-sm text-tertiary line-clamp-2">
+            Conferência de sangrias intermediárias, conciliação do lote TEF/Cartões, contagem física do numerário e conferência de divergências no fechamento noturno.
+          </p>
+</div>
+<!-- Item 3 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border-2 border-gold-burnished shadow-sm cursor-pointer transition-all hover:border-gold-burnished" id="item-art-3" onclick="selectArticle(3)">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle">
+              Fiscal &amp; SEFAZ
+            </span>
+<span class="font-data-tabular text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 5 min de leitura
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold mb-1">
+            Contingência Offline NFC-e / SAT Fiscal
+          </h3>
+<p class="font-body-sm text-body-sm text-tertiary line-clamp-2">
+            Regras para ativação do módulo de contingência local quando houver oscilação nos servidores da SEFAZ-SP, evitando bloqueios na fila do balcão.
+          </p>
+</div>
+<!-- Item 4 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm cursor-pointer transition-all hover:border-gold-burnished" id="item-art-4" onclick="selectArticle(4)">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle">
+              Cadeia de Frio &amp; Qualidade
+            </span>
+<span class="font-data-tabular text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 3 min de leitura
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold mb-1">
+            Gestão Térmica de Pozzetti e Parâmetros de Frio
+          </h3>
+<p class="font-body-sm text-body-sm text-tertiary line-clamp-2">
+            Controle rigoroso de temperatura entre -12°C e -14°C para assegurar a espátula aveludada do gelato artesanal e evitar formação de cristais de gelo.
+          </p>
+</div>
+<!-- Item 5 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm cursor-pointer transition-all hover:border-gold-burnished" id="item-art-5" onclick="selectArticle(5)">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle">
+              Cardápio &amp; Açaí
+            </span>
+<span class="font-data-tabular text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 6 min de leitura
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold mb-1">
+            Cadastro e Engenharia de Menu (Produtos e Adicionais)
+          </h3>
+<p class="font-body-sm text-body-sm text-tertiary line-clamp-2">
+            Diretrizes de parametrização de taças, casquinhas duplas, complementos de açaí com limite de coberturas e disparo automático para a impressora de preparo.
+          </p>
+</div>
+<!-- Empty State (Hidden by default, used when search fails) -->
+<div class="hidden p-8 rounded-lg bg-surface-container-lowest border border-dashed border-border-crema text-center" id="articles-empty">
+<span class="material-symbols-outlined text-[36px] text-tertiary">search_off</span>
+<p class="font-title-md text-title-md text-cacao-deep font-bold mt-2">Nenhum artigo encontrado</p>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Nenhum artigo encontrado para o termo pesquisado. O Administrador pode cadastrar novos artigos e orientações para a equipe.
+          </p>
+</div>
+</div>
+<!-- Detail: Full Article Reader (7 Cols) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest border border-border-crema rounded-lg p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-crema-muted">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-primary border border-border-gold-subtle" id="art-tag">Fiscal &amp; SEFAZ</span>
+<span class="font-data-tabular text-body-sm text-tertiary" id="art-updated">Atualizado em 05/03/2025 por Matheus L.</span>
+</div>
+<!-- Article Actions -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded border border-border-crema hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md flex items-center gap-1.5 transition-colors cursor-pointer" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span class="">Imprimir</span>
+</button>
+<button class="px-3 py-1.5 rounded bg-cacao-surface hover:bg-cacao-deep text-surface-container-lowest font-label-md text-label-md flex items-center gap-1.5 transition-colors cursor-pointer active:scale-95" onclick="copyInstructions()" type="button">
+<span class="material-symbols-outlined text-[16px] text-gold-light">content_copy</span>
+<span class="">Copiar Instruções</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Article Content Body -->
+<div class="pt-6 space-y-5" id="article-body-wrapper">
+<h2 class="font-headline-lg text-headline-lg text-cacao-deep font-bold leading-tight">Contingência Offline NFC-e / SAT Fiscal</h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">Em situações de instabilidade na SEFAZ-SP ou perda transitória de conexão com a internet, o sistema Arducci entra automaticamente em regime de contingência offline para preservar a velocidade da fila de atendimento.</p>
+<div class="p-4 rounded-lg bg-[#FFFBEA] border-l-4 border-gold-burnished flex items-start gap-3">
+<span class="material-symbols-outlined text-gold-deep mt-0.5">warning</span>
+<div>
+<h4 class="font-title-sm text-title-sm text-cacao-deep font-bold">Diretriz Operacional Arducci</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Prazo Legal SEFAZ: Cupons fiscais emitidos em contingência devem ser transmitidos em até 24 horas a partir da restauração do link.</p>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold uppercase tracking-wider text-[13px]">
+            Passo a Passo de Verificação Operacional
+          </h3>
+<ol class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-surface-crema-subtle text-primary border border-border-gold-subtle flex items-center justify-center font-bold text-xs flex-shrink-0">1</span>
+<div class="text-body-md text-on-surface">Identificação do Alerta: Um badge âmbar 'SEFAZ Contingência' surge no cabeçalho superior do terminal.</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-surface-crema-subtle text-primary border border-border-gold-subtle flex items-center justify-center font-bold text-xs flex-shrink-0">2</span>
+<div class="text-body-md text-on-surface">Impressão do DANFE NFC-e: O cupom sai com a marca d'água 'Emitido em Contingência' em via única.</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-surface-crema-subtle text-primary border border-border-gold-subtle flex items-center justify-center font-bold text-xs flex-shrink-0">3</span>
+<div class="text-body-md text-on-surface">Reconexão: O sincronizador local tenta a transmissão em lotes de 10 cupons a cada 3 minutos.</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-surface-crema-subtle text-primary border border-border-gold-subtle flex items-center justify-center font-bold text-xs flex-shrink-0">4</span>
+<div class="text-body-md text-on-surface">Auditoria de Pendências: Acesse o menu Financeiro &gt; Notas Fiscais para confirmar se o lote foi homologado.</div>
+</li>
+</ol>
+</div>
+<div class="pt-6 border-t border-surface-crema-muted flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-tertiary">Este procedimento foi útil para o seu turno?</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-label-md text-label-md flex items-center gap-1 transition-colors cursor-pointer" onclick="showToast('Obrigado pelo seu feedback positivo!')" type="button">
+<span class="material-symbols-outlined text-[15px] text-pistache-emerald">thumb_up</span> Sim
+            </button>
+<button class="px-3 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-label-md text-label-md flex items-center gap-1 transition-colors cursor-pointer" onclick="showToast('Anotamos sua observação para revisão pela equipe de TI.')" type="button">
+<span class="material-symbols-outlined text-[15px] text-cherry-ruby">thumb_down</span> Não
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TAB 3: TICKETS / SOLICITAÇÕES DE SUPORTE -->
+<section class="hidden space-y-4" id="tab-content-tickets">
+<!-- Filter Bar -->
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg border border-border-crema shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary uppercase mr-2">Filtrar por:</span>
+<button class="px-3 py-1 rounded bg-cacao-surface text-surface-container-lowest font-label-md text-label-md font-medium cursor-pointer">Todas (4)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md cursor-pointer">Em Aberto (2)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md cursor-pointer">Em Análise (1)</button>
+<button class="px-3 py-1 rounded hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md cursor-pointer">Resolvidas (1)</button>
+</div>
+<span class="font-data-tabular text-body-sm text-tertiary">
+        SLA Médio de Resposta: <strong>18 minutos</strong>
+</span>
+</div>
+<!-- Table of tickets -->
+<div class="bg-surface-container-lowest border border-border-crema rounded-lg overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-crema-subtle border-b border-border-gold-subtle text-cacao-deep font-label-sm text-label-sm uppercase">
+<th class="py-3 px-4">Protocolo</th>
+<th class="py-3 px-4">Data / Hora</th>
+<th class="py-3 px-4">Categoria</th>
+<th class="py-3 px-4">Assunto</th>
+<th class="py-3 px-4">Solicitante</th>
+<th class="py-3 px-4">Status</th>
+<th class="py-3 px-4 text-right">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-crema-muted font-body-md text-body-md">
+<tr class="hover:bg-surface-crema-subtle/50 transition-colors">
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cacao-deep">#SUP-2025-084</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary text-body-sm">12/03/2025 14:22</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-cacao-deep border border-border-crema">Hardware / PDV</span>
+</td>
+<td class="py-3.5 px-4 font-semibold text-cacao-deep">
+              Oscilação na porta COM3 da balança Filizola no Balcão 02
+            </td>
+<td class="py-3.5 px-4 text-tertiary">Matheus L.</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-light/40 text-cacao-deep border border-gold-burnished">
+                Em Atendimento
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="text-pistache-emerald hover:underline font-label-md text-label-md font-bold cursor-pointer" onclick="showToast('Abrindo histórico detalhado do chamado #SUP-2025-084.')" type="button">Ver Histórico</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-crema-subtle/50 transition-colors">
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cacao-deep">#SUP-2025-083</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary text-body-sm">12/03/2025 11:15</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-cacao-deep border border-border-crema">Pozzetti / Frio</span>
+</td>
+<td class="py-3.5 px-4 font-semibold text-cacao-deep">
+              Variação térmica (+1.5°C) no pozzetto de Pistache Bronte
+            </td>
+<td class="py-3.5 px-4 text-tertiary">Camila F.</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cherry-soft text-cherry-ruby border border-cherry-ruby/30">
+                Aguardando TI
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="text-pistache-emerald hover:underline font-label-md text-label-md font-bold cursor-pointer" onclick="showToast('Abrindo histórico detalhado do chamado #SUP-2025-083.')" type="button">Ver Histórico</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-crema-subtle/50 transition-colors">
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cacao-deep">#SUP-2025-081</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary text-body-sm">11/03/2025 18:40</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-cacao-deep border border-border-crema">Fiscal / SEFAZ</span>
+</td>
+<td class="py-3.5 px-4 font-semibold text-cacao-deep">
+              Retorno de rejeição 539 em emissão em contingência
+            </td>
+<td class="py-3.5 px-4 text-tertiary">Matheus L.</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container text-tertiary border border-surface-crema-muted">
+                Em Análise
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="text-pistache-emerald hover:underline font-label-md text-label-md font-bold cursor-pointer" onclick="showToast('Abrindo histórico detalhado do chamado #SUP-2025-081.')" type="button">Ver Histórico</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-crema-subtle/50 transition-colors">
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cacao-deep">#SUP-2025-079</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary text-body-sm">10/03/2025 09:05</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-crema-subtle text-cacao-deep border border-border-crema">Hardware / PDV</span>
+</td>
+<td class="py-3.5 px-4 font-semibold text-cacao-deep">
+              Troca da bobina térmica da impressora Epson TM-T20X
+            </td>
+<td class="py-3.5 px-4 text-tertiary">Camila F.</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pistache-soft text-pistache-emerald border border-pistache-emerald/30">
+                Concluído
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="text-pistache-emerald hover:underline font-label-md text-label-md font-bold cursor-pointer" onclick="showToast('Abrindo histórico detalhado do chamado #SUP-2025-079.')" type="button">Ver Histórico</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Box orientando estado sem chamados adicionais -->
+<div class="p-4 rounded-lg bg-surface-crema-subtle border border-border-crema flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gold-deep">info</span>
+<span class="text-on-surface-variant">
+          Caso nenhuma solicitação responda à sua ocorrência imediata no balcão, utilize o botão <strong>"+ Nova Solicitação de Suporte"</strong> para notificar o plantão técnico.
+        </span>
+</div>
+<button class="px-3 py-1.5 rounded bg-cacao-surface text-surface-container-lowest font-label-md text-label-md cursor-pointer hover:bg-cacao-deep transition-colors" onclick="openModal()" type="button">
+        Abrir Chamado Agora
+      </button>
+</div>
+</section>
+<!-- TAB 4: INFORMAÇÕES DO SISTEMA (TECNOLOGIA & TELEMETRIA) -->
+<section class="hidden space-y-6" id="tab-content-system">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Card 1: Versão -->
+<div class="p-5 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-tertiary font-bold tracking-wider">Release &amp; Build</span>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div class="font-headline-md text-headline-md text-cacao-deep font-bold font-data-tabular">v2.4.2</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Build compilada em 12/03/2025 para arquitetura Linux Embedded x86_64. Módulo de Ponto e DRE atualizado.
+        </p>
+</div>
+<!-- Card 2: Terminal -->
+<div class="p-5 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-tertiary font-bold tracking-wider">Identificador Local</span>
+<span class="material-symbols-outlined text-primary">desktop_windows</span>
+</div>
+<div class="font-headline-md text-headline-md text-cacao-deep font-bold font-data-tabular">TERM-PG-ADM-01</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Unidade Flagship Praia Grande · Endereço IP: 192.168.15.101 (Sub-rede Balcão Seguro).
+        </p>
+</div>
+<!-- Card 3: SEFAZ -->
+<div class="p-5 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-tertiary font-bold tracking-wider">Comunicação SEFAZ</span>
+<span class="w-2.5 h-2.5 rounded-full bg-pistache-emerald"></span>
+</div>
+<div class="font-headline-md text-headline-md text-cacao-deep font-bold">Produção · Série 001</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Lote 142 ativo. Conexão direta com webservice SEFAZ-SP. Latência média de 42ms.
+        </p>
+</div>
+<!-- Card 4: Pozzetti IoT -->
+<div class="p-5 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-tertiary font-bold tracking-wider">Telemetria de Pozzetti</span>
+<span class="material-symbols-outlined text-pistache-emerald">ac_unit</span>
+</div>
+<div class="font-headline-md text-headline-md text-pistache-emerald font-bold font-data-tabular">-13.4°C Nominal</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Bancadas Italianas A e B Online (17 cubas). Sensores de glicol calibrados com desvio zero.
+        </p>
+</div>
+<!-- Card 5: Banco de Dados -->
+<div class="p-5 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-tertiary font-bold tracking-wider">Banco de Dados Cloud</span>
+<span class="material-symbols-outlined text-primary">cloud_sync</span>
+</div>
+<div class="font-headline-md text-headline-md text-cacao-deep font-bold">PostgreSQL Cloud</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Sincronização bidirecional em tempo real. Latência de replicação com a nuvem Arducci: 24ms.
+        </p>
+</div>
+<!-- Card 6: Central de TI -->
+<div class="p-5 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle shadow-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-gold-deep font-bold tracking-wider">Matriz de Suporte</span>
+<span class="material-symbols-outlined text-gold-deep">support_agent</span>
+</div>
+<div class="font-headline-md text-headline-md text-cacao-deep font-bold">Plantão Técnico TI</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          Se os canais de contato com a equipe de TI da matriz não estiverem cadastrados, configure-os no menu <strong>Painel de Controle &gt; Sistema &amp; Integrações</strong>.
+        </p>
+</div>
+</div>
+</section>
+</main>
+<!-- ======================================================================= -->
+<!-- 7. RODAPÉ TÉCNICO INFERIOR (SHARED COMPONENT: Footer)                   -->
+<!-- ======================================================================= -->
+<footer id="main-footer" class="fixed bottom-0 right-0 left-64 z-30 flex items-center justify-between h-9 px-6 bg-surface-container-low dark:bg-nero-rich text-on-surface-variant dark:text-outline-variant font-data-tabular text-body-sm border-t border-surface-crema-muted dark:border-cacao-surface transition-all duration-300 flex-shrink-0 shadow-xs">
+<div class="flex items-center gap-4 text-[12px]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald"></span>
+<span class="font-semibold text-pistache-emerald">Terminal: TERM-PG-BALCAO-01</span>
+</div>
+<span class="text-border-crema">·</span>
+<span class="">Sincronização em Nuvem OK (Latência: 24ms)</span>
+<span class="text-border-crema">·</span>
+<span class="hidden md:inline">Status: Conectado à Nuvem</span>
+</div>
+<div class="flex items-center gap-4 text-[12px]">
+<span class="">© 2024 Arducci Gelateria &amp; Açaiteria · Praia Grande / SP</span>
+<span class="text-border-crema">·</span>
+<span class="font-semibold text-tertiary">v2.4.2 (Build 12/03/2025)</span>
+</div>
+</footer>
+</div>
+<!-- ========================================================================= -->
+<!-- 8. MODAL: NOVA SOLICITAÇÃO DE SUPORTE                                      -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center bg-nero-sidebar/70 backdrop-blur-sm p-4" id="modal-new-ticket">
+<div class="bg-surface-container-lowest border border-border-crema rounded-lg shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-6 py-4 border-b border-surface-crema-muted bg-surface-crema-subtle">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-cacao-surface text-gold-light flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-cacao-deep font-bold">Registrar Nova Solicitação de Suporte</h3>
+<p class="font-body-sm text-body-sm text-tertiary">Notificação imediata ao plantão de engenharia e TI Arducci</p>
+</div>
+</div>
+<button class="text-tertiary hover:text-cacao-deep transition-colors p-1 rounded cursor-pointer" onclick="closeModal()" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body Form -->
+<form class="p-6 space-y-4" id="form-ticket" onsubmit="handleTicketSubmit(event)">
+<!-- Campo: Assunto -->
+<div>
+<label class="block font-label-md text-label-md text-cacao-deep font-semibold mb-1" for="ticket-subject">
+          Assunto da Solicitação <span class="text-cherry-ruby">*</span>
+</label>
+<input class="w-full h-10 px-3 rounded bg-canvas-crema border border-border-crema text-on-surface focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished text-body-md" id="ticket-subject" placeholder="Ex: Falha na impressão de comandas da taça de açaí no Balcão 02" required="" type="text">
+</div>
+<!-- Row: Categoria + Nível de Urgência -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-label-md text-cacao-deep font-semibold mb-1" for="ticket-category">
+            Categoria <span class="text-cherry-ruby">*</span>
+</label>
+<select class="w-full h-10 px-3 rounded bg-canvas-crema border border-border-crema text-on-surface focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished text-body-md" id="ticket-category" required="">
+<option value="Caixa &amp; PDV">Caixa &amp; PDV</option>
+<option value="Balança &amp; Periféricos">Balança &amp; Periféricos</option>
+<option value="Emissão Fiscal NFC-e">Emissão Fiscal NFC-e</option>
+<option value="Balcão &amp; Pozzetti">Balcão &amp; Pozzetti</option>
+<option value="Outro">Outro</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-cacao-deep font-semibold mb-1" for="ticket-priority">
+            Nível de Urgência <span class="text-cherry-ruby">*</span>
+</label>
+<select class="w-full h-10 px-3 rounded bg-canvas-crema border border-border-crema text-on-surface focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished text-body-md" id="ticket-priority" required="">
+<option value="Baixa">Baixa (Dúvida operacional)</option>
+<option selected="" value="Média">Média (Lentidão pontual)</option>
+<option value="Alta">Alta / Impeditiva (Balcão parado)</option>
+</select>
+</div>
+</div>
+<!-- Campo: Descrição Detalhada -->
+<div>
+<label class="block font-label-md text-label-md text-cacao-deep font-semibold mb-1" for="ticket-desc">
+          Descrição Detalhada da Ocorrência <span class="text-cherry-ruby">*</span>
+</label>
+<textarea class="w-full p-3 rounded bg-canvas-crema border border-border-crema text-on-surface focus:border-gold-burnished focus:ring-1 focus:ring-gold-burnished text-body-md" id="ticket-desc" placeholder="Descreva o que ocorreu, os códigos de erro exibidos na tela do terminal e as tentativas prévias de solução..." required="" rows="4"></textarea>
+</div>
+<!-- Modal Footer Actions -->
+<div class="pt-4 border-t border-surface-crema-muted flex items-center justify-end gap-3">
+<button class="px-4 h-10 rounded border border-border-crema text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle font-label-md text-label-md transition-colors cursor-pointer" onclick="closeModal()" type="button">
+          Cancelar
+        </button>
+<button class="px-5 h-10 rounded bg-pistache-emerald hover:bg-[#1B532B] text-surface-container-lowest font-label-md text-label-md font-bold shadow-sm transition-all cursor-pointer active:scale-95" type="submit">
+          Enviar Solicitação de Suporte
+        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 9. MODAL DE CONFIRMAÇÃO: ENCERRAR TURNO / SAIR                            -->
+<!-- ========================================================================= -->
+<div aria-hidden="true" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center bg-nero-sidebar/70 backdrop-blur-sm p-4 hidden" id="modalLogoutConfirm" role="dialog">
+<div class="bg-surface-container-lowest border border-border-crema rounded-lg shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<div class="p-6 text-center">
+<div class="w-14 h-14 rounded-full bg-cherry-soft text-cherry-alert flex items-center justify-center mx-auto mb-4 border border-cherry-ruby/20">
+<span class="material-symbols-outlined text-[30px]">logout</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-cacao-deep font-bold mb-2">Encerrar o sistema (sair)?</h3>
+<p class="font-body-md text-body-md text-tertiary mb-6">
+        Deseja encerrar o turno operacional de <strong>Matheus L.</strong>? Todas as alterações salvas serão preservadas e o terminal retornará à tela de identificação.
+      </p>
+<div class="flex items-center justify-center gap-3">
+<button class="px-5 py-2.5 rounded border border-border-crema text-cacao-deep hover:bg-surface-crema-subtle font-label-md text-label-md font-semibold transition-colors cursor-pointer" onclick="fecharModalLogout()" type="button">Cancelar</button>
+<button class="px-5 py-2.5 rounded bg-cherry-alert hover:bg-cherry-ruby text-white font-label-md text-label-md font-bold shadow-sm transition-all cursor-pointer active:scale-95 flex items-center gap-1.5" onclick="confirmLogout()" type="button">
+<span class="material-symbols-outlined text-[16px]">power_settings_new</span>
+          Sim, encerrar sessão
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 10. TOAST NOTIFICATION CONTAINER                                          -->
+<!-- ========================================================================= -->
+<div class="fixed bottom-12 right-6 z-50 pointer-events-none transition-all duration-300 transform translate-y-10 opacity-0" id="toast-notification">
+<div class="px-4 py-3 rounded-lg shadow-2xl bg-cacao-deep border border-gold-burnished text-[#f5ebd9] text-sm flex items-center gap-3 pointer-events-auto">
+<span class="material-symbols-outlined text-gold-light text-[20px]" id="toast-icon">bar_chart</span>
+<span class="font-medium" id="toast-message">Navegando para Relatórios e BI...</span>
+<button class="text-[#a8998f] hover:text-white ml-2" onclick="hideToast()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div><script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('main-content-wrapper');
+    const toggleIcon = document.getElementById('toggle-sidebar-icon');
+    const brandText = document.getElementById('brand-text');
+    const header = document.getElementById('sidebar-header');
+    const navTexts = document.querySelectorAll('.nav-text');
+    const logoutText = document.querySelector('.logout-text');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const btnLogout = document.getElementById('btn-logout');
+
+    if (!sidebar) return;
+
+    const isCollapsed = sidebar.classList.contains('w-20');
+
+    if (isCollapsed) {
+      // Expand
+      sidebar.classList.remove('w-20');
+      sidebar.classList.add('w-64');
+      if (content) {
+        content.style.marginLeft = '16rem';
+      }
+      if (brandText) brandText.classList.remove('hidden');
+      if (toggleIcon) toggleIcon.textContent = 'menu_open';
+      if (header) {
+        header.classList.remove('px-3', 'justify-center');
+        header.classList.add('p-5', 'justify-between');
+      }
+      navTexts.forEach(el => el.classList.remove('hidden'));
+      if (logoutText) logoutText.classList.remove('hidden');
+      navLinks.forEach(link => {
+        link.classList.remove('justify-center', 'px-2');
+        link.classList.add('px-3');
+      });
+      if (btnLogout) {
+        btnLogout.classList.remove('justify-center', 'px-2');
+        btnLogout.classList.add('px-3');
+      }
+    } else {
+      // Collapse
+      sidebar.classList.remove('w-64');
+      sidebar.classList.add('w-20');
+      if (content) {
+        content.style.marginLeft = '5rem';
+      }
+      if (brandText) brandText.classList.add('hidden');
+      if (toggleIcon) toggleIcon.textContent = 'menu';
+      if (header) {
+        header.classList.remove('p-5', 'justify-between');
+        header.classList.add('px-3', 'py-5', 'justify-center');
+      }
+      navTexts.forEach(el => el.classList.add('hidden'));
+      if (logoutText) logoutText.classList.add('hidden');
+      navLinks.forEach(link => {
+        link.classList.remove('px-3');
+        link.classList.add('justify-center', 'px-2');
+      });
+      if (btnLogout) {
+        btnLogout.classList.remove('px-3');
+        btnLogout.classList.add('justify-center', 'px-2');
+      }
+    }
+  }
+  window.toggleSidebar = toggleSidebar;
+  window.toggleSidebarCollapse = toggleSidebar;
+</script><script class="">
+  function abrirModalLogout() {
+    const modal = document.getElementById('modalLogoutConfirm') || document.getElementById('modal-logout-confirm');
+    if (modal) modal.classList.remove('hidden');
+    document.getElementById('user-dropdown-menu')?.classList.add('hidden');
+  }
+  function fecharModalLogout() {
+    const modal = document.getElementById('modalLogoutConfirm') || document.getElementById('modal-logout-confirm');
+    if (modal) modal.classList.add('hidden');
+  }
+  window.abrirModalLogout = abrirModalLogout;
+  window.fecharModalLogout = fecharModalLogout;
+  window.openLogoutModal = abrirModalLogout;
+  window.closeLogoutModal = fecharModalLogout;
+</script>
+<!-- ========================================================================= -->
+<!-- LIGHTWEIGHT INTERACTIVITY SCRIPTS                                        -->
+<!-- ========================================================================= -->
+<script>
+    // State Variables
+    let isStoreOpen = true;
+    let isDarkMode = false;
+    let isSoundActive = true;
+    let isLargeFont = false;
+
+    // Database of Articles for Knowledge Base master-detail
+    const articlesDB = {
+      1: {
+        tag: "Hardware & PDV",
+        updated: "Atualizado em 10/03/2025 por Matheus L.",
+        title: "Operação e Calibração da Balança Serial (Toledo / Filizola)",
+        intro: "Este manual regulamenta o protocolo padrão de pesagem no balcão da Arducci Praia Grande. As balanças digitais conectadas via porta serial RS-232 operam integradas diretamente ao PDV, eliminando digitação manual de peso para copos por quilo e delícias de açaí.",
+        warning: "Atenção Crítica: Tara de Embalagem. Nunca inicie uma pesagem sem certificar que o visor indica exatamente 0.000 kg com a tara desativada, ou o valor descontado exato do copo/taça (0.025kg).",
+        steps: [
+          "Ligue o estabilizador exclusivo do balcão: Verifique se o display digital exibe o auto-teste de 9 a 0.",
+          "Aplicação da Tara Padrão: Posicione a casquinha ou copo vazio e aperte [TARA] até zerar o visor líquido.",
+          "Captura no Sistema PDV Arducci: Pressione F5 no terminal. O peso em gramas é importado automaticamente.",
+          "Tratamento de Erro E-04: Caso acuse perda de sinal, reaperte os parafusos do conector serial DB9 na CPU."
+        ]
+      },
+      2: {
+        tag: "Operação Financeira",
+        updated: "Atualizado em 08/03/2025 por Camila F.",
+        title: "Abertura e Fechamento de Caixa Cego",
+        intro: "O procedimento de fechamento de caixa cego garante a integridade dos valores apurados sem induzir o operador a erros. O sistema não revela o saldo esperado até a inserção completa da contagem física.",
+        warning: "Conferência Obrigatória: Sangrias de segurança devem ser lançadas no PDV imediatamente após a retirada física do malote para o cofre.",
+        steps: [
+          "Abertura matinal: Insira o fundo de troco padrão homologado (R$ 200,00 em cédulas fracionadas e moedas).",
+          "Sangrias intermediárias: Efetue sangria automática ao atingir R$ 1.500,00 em dinheiro físico na gaveta.",
+          "Fechamento Noturno: Realize a leitura da fita de lote TEF e conte nota por nota no módulo 'Caixa Cego'.",
+          "Emissão da Leitura X / Redução: Finalize o expediente imprimindo a súmula de conferência fiscal."
+        ]
+      },
+      3: {
+        tag: "Fiscal & SEFAZ",
+        updated: "Atualizado em 05/03/2025 por Matheus L.",
+        title: "Contingência Offline NFC-e / SAT Fiscal",
+        intro: "Em situações de instabilidade na SEFAZ-SP ou perda transitória de conexão com a internet, o sistema Arducci entra automaticamente em regime de contingência offline para preservar a velocidade da fila de atendimento.",
+        warning: "Prazo Legal SEFAZ: Cupons fiscais emitidos em contingência devem ser transmitidos em até 24 horas a partir da restauração do link.",
+        steps: [
+          "Identificação do Alerta: Um badge âmbar 'SEFAZ Contingência' surge no cabeçalho superior do terminal.",
+          "Impressão do DANFE NFC-e: O cupom sai com a marca d'água 'Emitido em Contingência' em via única.",
+          "Reconexão: O sincronizador local tenta a transmissão em lotes de 10 cupons a cada 3 minutos.",
+          "Auditoria de Pendências: Acesse o menu Financeiro > Notas Fiscais para confirmar se o lote foi homologado."
+        ]
+      },
+      4: {
+        tag: "Cadeia de Frio & Qualidade",
+        updated: "Atualizado em 01/03/2025 por Equipe de Produção",
+        title: "Gestão Térmica de Pozzetti e Parâmetros de Frio",
+        intro: "O gelato artesanal italiano demanda uma curva de conservação rigorosa. As bancadas de pozzetti utilizam resfriamento por glicol a vácuo para manter o produto cremoso e homogêneo.",
+        warning: "Temperatura Limite: Desvios acima de -11.5°C provocam derretimento superficial e alteram a textura aveludada do lote.",
+        steps: [
+          "Leitura matinal: O sensor do pozzetto deve registrar entre -13.0°C e -14.0°C antes de destampar a bancada.",
+          "Isolamento térmico: Mantenha as tampas de inox herméticas sempre fechadas entre uma porção e outra.",
+          "Alerta de Degelo: Caso ocorra oscilação repentina, verifique se a tampa foi mal posicionada.",
+          "Registro em Log: O sistema arquiva automaticamente a telemetria térmica a cada 60 segundos."
+        ]
+      },
+      5: {
+        tag: "Cardápio & Açaí",
+        updated: "Atualizado em 24/02/2025 por Matheus L.",
+        title: "Cadastro e Engenharia de Menu (Produtos e Adicionais)",
+        intro: "Orientações para estruturação de novos itens no cardápio Arducci, incluindo composições de copos de açaí (300ml, 500ml, 700ml), restrições de complementos e cálculo automático de ficha técnica.",
+        warning: "Limite de Adicionais: Configure a trava de até 3 complementos gratuitos para manter a margem de contribuição saudável.",
+        steps: [
+          "Acesse Produtos e Cardápio > Itens Compostos no menu lateral.",
+          "Defina a categoria e vincule a impressora térmica da copa para envio da comanda de preparo.",
+          "Estipule a baixa automática de insumos (leite condensado, frutas frescas e granola) no estoque.",
+          "Salve e execute a sincronização rápida para disponibilizar a novidade nos terminais de autoatendimento."
+        ]
+      }
+    };
+
+    // Sidebar Collapse / Expand Functionality
+    function toggleSidebarCollapse() {
+      const sidebar = document.getElementById('main-sidebar');
+      const content = document.getElementById('main-content-wrapper');
+      const toggleIcon = document.getElementById('btn-toggle-icon');
+      if (!sidebar || !content) return;
+      
+      const isCollapsed = sidebar.classList.toggle('sidebar-collapsed');
+      content.classList.toggle('content-collapsed', isCollapsed);
+      
+      if (toggleIcon) {
+        toggleIcon.textContent = isCollapsed ? 'menu' : 'menu_open';
+      }
+    }
+    window.toggleSidebarCollapse = toggleSidebarCollapse;
+
+    // Toast Notification System
+    let toastTimeout;
+    function showToast(message, icon = 'check_circle') {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      const iconEl = document.getElementById('toast-icon');
+      if (!toast) return;
+
+      msgEl.textContent = message;
+      iconEl.textContent = icon;
+      toast.classList.remove('translate-y-10', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 3500);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast-notification');
+      if (toast) {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-10', 'opacity-0');
+      }
+    }
+
+    // Toggle Store Open / Closed
+    function toggleStoreStatus() {
+      isStoreOpen = !isStoreOpen;
+      const dot = document.getElementById('store-indicator-dot');
+      const label = document.getElementById('store-status-label');
+      const actionText = document.getElementById('store-action-text');
+      const actionIcon = document.getElementById('store-action-icon');
+
+      if (isStoreOpen) {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-pistache-emerald ring-2 ring-pistache-soft animate-pulse";
+        label.textContent = "Loja aberta";
+        actionText.textContent = "Fechar loja";
+        actionIcon.className = "material-symbols-outlined text-[16px] text-cherry-alert";
+        showToast("Status alterado: Loja aberta (Operações do Balcão Ativas)", "storefront");
+      } else {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-cherry-alert ring-2 ring-cherry-soft";
+        label.textContent = "Loja fechada";
+        actionText.textContent = "Abrir loja";
+        actionIcon.className = "material-symbols-outlined text-[16px] text-pistache-emerald";
+        showToast("Status alterado: Loja fechada (Bloqueio de novas comandas)", "lock");
+      }
+    }
+
+    // Dropdowns Management (Notifications, Settings, Profile)
+    function toggleDropdown(type) {
+      const dropdowns = {
+        notifications: document.getElementById('dropdown-notifications'),
+        settings: document.getElementById('dropdown-settings'),
+        profile: document.getElementById('user-dropdown-menu')
+      };
+
+      const arrow = document.getElementById('user-dropdown-arrow');
+
+      Object.keys(dropdowns).forEach(key => {
+        if (key === type) {
+          const isCurrentlyHidden = dropdowns[key].classList.contains('hidden');
+          dropdowns[key].classList.toggle('hidden', !isCurrentlyHidden);
+          if (key === 'profile' && arrow) {
+            arrow.style.transform = isCurrentlyHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+          }
+        } else {
+          dropdowns[key]?.classList.add('hidden');
+        }
+      });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      const isNotif = e.target.closest('#btn-notifications') || e.target.closest('#dropdown-notifications');
+      const isSettings = e.target.closest('#btn-settings') || e.target.closest('#dropdown-settings');
+      const isProfile = e.target.closest('#user-menu-button') || e.target.closest('#user-dropdown-menu');
+
+      if (!isNotif) document.getElementById('dropdown-notifications')?.classList.add('hidden');
+      if (!isSettings) document.getElementById('dropdown-settings')?.classList.add('hidden');
+      if (!isProfile) {
+        document.getElementById('user-dropdown-menu')?.classList.add('hidden');
+        const arrow = document.getElementById('user-dropdown-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    // Dismiss single notification
+    function dismissNotification(el) {
+      el.style.opacity = '0.5';
+      const dot = el.querySelector('.notif-dot');
+      if (dot) dot.classList.add('hidden');
+      showToast('Notificação marcada como lida.');
+      updateNotificationCount();
+    }
+
+    function markAllNotificationsAsRead() {
+      const dots = document.querySelectorAll('.notif-dot');
+      dots.forEach(d => d.classList.add('hidden'));
+      const badge = document.getElementById('notif-badge');
+      if (badge) badge.classList.add('hidden');
+      showToast('Todas as notificações foram marcadas como lidas.');
+    }
+
+    function updateNotificationCount() {
+      const visibleDots = document.querySelectorAll('.notif-dot:not(.hidden)').length;
+      const badge = document.getElementById('notif-badge');
+      if (badge) {
+        if (visibleDots > 0) {
+          badge.textContent = visibleDots;
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+    }
+
+    // Quick Settings toggles
+    function toggleQuickSetting(setting) {
+      if (setting === 'dark') {
+        isDarkMode = !isDarkMode;
+        const knob = document.getElementById('toggle-dark-knob');
+        const btn = document.getElementById('toggle-dark-mode');
+        document.documentElement.classList.toggle('dark', isDarkMode);
+        if (isDarkMode) {
+          knob.classList.add('translate-x-5');
+          btn.classList.add('bg-pistache-emerald');
+          btn.classList.remove('bg-surface-crema-muted');
+          showToast('Modo escuro ativado.');
+        } else {
+          knob.classList.remove('translate-x-5');
+          btn.classList.remove('bg-pistache-emerald');
+          btn.classList.add('bg-surface-crema-muted');
+          showToast('Modo claro ativado.');
+        }
+      } else if (setting === 'sound') {
+        isSoundActive = !isSoundActive;
+        const knob = document.getElementById('toggle-sound-knob');
+        const btn = document.getElementById('toggle-sound');
+        if (isSoundActive) {
+          knob.classList.add('translate-x-5');
+          btn.classList.add('bg-pistache-emerald');
+          btn.classList.remove('bg-surface-crema-muted');
+          showToast('Alertas sonoros ativados.');
+        } else {
+          knob.classList.remove('translate-x-5');
+          btn.classList.remove('bg-pistache-emerald');
+          btn.classList.add('bg-surface-crema-muted');
+          showToast('Alertas sonoros silenciados.');
+        }
+      } else if (setting === 'font') {
+        isLargeFont = !isLargeFont;
+        const knob = document.getElementById('toggle-font-knob');
+        const btn = document.getElementById('toggle-font');
+        if (isLargeFont) {
+          knob.classList.add('translate-x-5');
+          btn.classList.add('bg-pistache-emerald');
+          btn.classList.remove('bg-surface-crema-muted');
+          document.body.style.zoom = '1.04';
+          showToast('Tamanho da tipografia ampliado (+4%).');
+        } else {
+          knob.classList.remove('translate-x-5');
+          btn.classList.remove('bg-pistache-emerald');
+          btn.classList.add('bg-surface-crema-muted');
+          document.body.style.zoom = '1';
+          showToast('Tamanho da tipografia restaurado.');
+        }
+      }
+    }
+
+    // Logout Modal
+    function openLogoutModal() {
+      document.getElementById('modal-logout-confirm')?.classList.remove('hidden');
+      document.getElementById('user-dropdown-menu')?.classList.add('hidden');
+    }
+
+    function closeLogoutModal() {
+      document.getElementById('modal-logout-confirm')?.classList.add('hidden');
+    }
+
+    function confirmLogout() {
+      closeLogoutModal();
+      showToast('Sessão encerrada com segurança. Redirecionando...', 'logout');
+      setTimeout(() => {
+        alert('Sessão encerrada com sucesso no Terminal TERM-PG-BALCAO-01.');
+      }, 600);
+    }
+
+    // Tab Switching Logic
+    function switchTab(tabKey) {
+      const tabs = ['manual', 'procedimentos', 'chamados', 'sistema'];
+      
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (!btn) return;
+        if (t === tabKey) {
+          btn.className = "px-5 py-3 border-b-2 border-gold-burnished text-cacao-deep font-label-md text-label-md font-bold flex items-center gap-2 transition-all cursor-pointer";
+        } else {
+          btn.className = "px-5 py-3 border-b-2 border-transparent text-tertiary hover:text-cacao-deep font-label-md text-label-md font-medium flex items-center gap-2 transition-all cursor-pointer";
+        }
+      });
+
+      // Show/Hide Content Sections
+      const secKnowledge = document.getElementById('tab-content-knowledge');
+      const secTickets = document.getElementById('tab-content-tickets');
+      const secSystem = document.getElementById('tab-content-system');
+
+      secKnowledge.classList.add('hidden');
+      secTickets.classList.add('hidden');
+      secSystem.classList.add('hidden');
+
+      if (tabKey === 'manual' || tabKey === 'procedimentos') {
+        secKnowledge.classList.remove('hidden');
+      } else if (tabKey === 'chamados') {
+        secTickets.classList.remove('hidden');
+      } else if (tabKey === 'sistema') {
+        secSystem.classList.remove('hidden');
+      }
+    }
+
+    // Article Selection Logic (Master-Detail)
+    function selectArticle(id) {
+      const art = articlesDB[id];
+      if (!art) return;
+
+      // Update active highlight on left list
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`item-art-${i}`);
+        if (el) {
+          if (i === id) {
+            el.className = "p-4 rounded-lg bg-surface-container-lowest border-2 border-gold-burnished shadow-sm cursor-pointer transition-all hover:border-gold-burnished";
+          } else {
+            el.className = "p-4 rounded-lg bg-surface-container-lowest border border-border-crema shadow-sm cursor-pointer transition-all hover:border-gold-burnished";
+          }
+        }
+      }
+
+      // Populate Detail View
+      document.getElementById('art-tag').innerText = art.tag;
+      document.getElementById('art-updated').innerText = art.updated;
+      document.getElementById('art-title').innerText = art.title;
+      document.getElementById('art-intro').innerText = art.intro;
+      
+      const wrapper = document.getElementById('article-body-wrapper');
+      wrapper.innerHTML = `
+        <h2 class="font-headline-lg text-headline-lg text-cacao-deep font-bold leading-tight">${art.title}</h2>
+        <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">${art.intro}</p>
+        
+        <div class="p-4 rounded-lg bg-[#FFFBEA] border-l-4 border-gold-burnished flex items-start gap-3">
+          <span class="material-symbols-outlined text-gold-deep mt-0.5">warning</span>
+          <div>
+            <h4 class="font-title-sm text-title-sm text-cacao-deep font-bold">Diretriz Operacional Arducci</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">${art.warning}</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <h3 class="font-title-md text-title-md text-cacao-deep font-bold uppercase tracking-wider text-[13px]">
+            Passo a Passo de Verificação Operacional
+          </h3>
+          <ol class="space-y-3">
+            ${art.steps.map((step, idx) => `
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-surface-crema-subtle text-primary border border-border-gold-subtle flex items-center justify-center font-bold text-xs flex-shrink-0">${idx+1}</span>
+                <div class="text-body-md text-on-surface">${step}</div>
+              </li>
+            `).join('')}
+          </ol>
+        </div>
+
+        <div class="pt-6 border-t border-surface-crema-muted flex items-center justify-between">
+          <span class="font-body-sm text-body-sm text-tertiary">Este procedimento foi útil para o seu turno?</span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="showToast('Obrigado pelo seu feedback positivo!')" class="px-3 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-label-md text-label-md flex items-center gap-1 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-[15px] text-pistache-emerald">thumb_up</span> Sim
+            </button>
+            <button type="button" onclick="showToast('Anotamos sua observação para revisão pela equipe de TI.')" class="px-3 py-1 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep font-label-md text-label-md flex items-center gap-1 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-[15px] text-cherry-ruby">thumb_down</span> Não
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Search Filter with Empty State
+    function filterContent() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      let matches = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        const item = document.getElementById(`item-art-${i}`);
+        if (!item) continue;
+        const text = item.innerText.toLowerCase();
+        if (text.includes(q)) {
+          item.classList.remove('hidden');
+          matches++;
+        } else {
+          item.classList.add('hidden');
+        }
+      }
+
+      const emptyBox = document.getElementById('articles-empty');
+      if (matches === 0) {
+        emptyBox.classList.remove('hidden');
+      } else {
+        emptyBox.classList.add('hidden');
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      filterContent();
+    }
+
+    // Modal Control
+    function openModal() {
+      document.getElementById('modal-new-ticket').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-new-ticket').classList.add('hidden');
+    }
+
+    // Handle Form Submit
+    function handleTicketSubmit(e) {
+      e.preventDefault();
+      const subject = document.getElementById('ticket-subject').value;
+      closeModal();
+      document.getElementById('form-ticket').reset();
+      showToast(`Chamado #SUP-2025-085 enviado ao plantão de TI!`, 'confirmation_number');
+    }
+
+    // Micro-interactions
+    function copyInstructions() {
+      navigator.clipboard?.writeText(document.getElementById('art-title').innerText);
+      showToast('Instruções copiadas para a área de transferência.', 'content_copy');
+    }
+
+    function exportDiagnostics() {
+      showToast('Exportando ARDUCCI-DIAGNOSTIC-TERM-01-20250312.log...', 'download');
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>window.ADMIN_SCREEN_ID=9;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

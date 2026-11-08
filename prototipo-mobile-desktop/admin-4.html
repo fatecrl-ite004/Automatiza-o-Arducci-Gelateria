@@ -1,0 +1,1088 @@
+<!DOCTYPE html><html lang="pt-BR"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SORVETEC PRO · Funcionários · Arducci Gelato &amp; Açaí</title>
+<!-- Google Fonts: Playfair Display & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="styles/admin-4.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #3d2c20;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-[#fff8f4] text-[#1b1c1a] antialiased min-h-screen flex flex-col font-sans selection:bg-[#d4af37] selection:text-[#18110e]" style="height: 100vh; max-height: 100vh; overflow: hidden; display: flex; flex-direction: row; margin: 0px; padding: 0px; background-color: rgb(251, 249, 246);">
+<!-- 1. ASIDE ID="sidebar" (Oficial: w-64, 256px, fixed top-0 left-0 bg-[#18110e]) -->
+<aside class="w-64 h-screen fixed top-0 left-0 bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 border-r border-[#2d221c] select-none z-50 bottom-0" id="sidebar" style="position: fixed; top: 0px; bottom: 0px; left: 0px; height: 100vh; min-height: 100vh; z-index: 50; width: 16rem; background-color: rgb(27, 23, 21);">
+<!-- Top Header & Brand -->
+<div class="flex flex-col min-h-0 flex-1">
+<div class="p-5 border-b border-[#2d221c] flex items-center justify-between">
+<div class="flex items-center min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#d4af37] flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-[#18110e] font-bold">icecream</span>
+</div>
+<div class="sidebar-brand-box flex flex-col ml-3 min-w-0">
+<div class="flex items-center gap-1.5 leading-none">
+<span class="font-bold text-sm tracking-wide text-white">SORVETEC</span>
+<span class="text-[9px] bg-[#d4af37]/20 text-[#d4af37] px-1 py-0.5 rounded font-bold">PRO</span>
+</div>
+<span class="text-[10px] text-[#a89a8f] font-light truncate mt-1">Arducci Gelato &amp; Açai</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-[#a89a8f] hover:text-[#fff8f4] hover:bg-white/5 transition-colors shrink-0" id="toggle-sidebar" onclick="toggleSidebarCollapse()" title="Recolher / Expandir menu">
+<span class="material-symbols-outlined text-xl" id="toggle-sidebar-icon">menu_open</span>
+</button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scroll">
+<!-- 1. Dashboard -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#dashboard" title="Dashboard">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">dashboard</span>
+<span class="nav-text truncate whitespace-nowrap">Dashboard</span>
+</a>
+<!-- 2. Acompanhamento de Pedido -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#pedidos" title="Acompanhamento de Pedido">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">assignment</span>
+<span class="nav-text truncate whitespace-nowrap">Acompanhamento de Pedido</span>
+</a>
+<!-- 3. Caixa e PDV -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#caixa" title="Caixa e PDV">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">point_of_sale</span>
+<span class="nav-text truncate whitespace-nowrap">Caixa&nbsp;</span>
+</a>
+<!-- 4. Clientes -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#clientes" title="Clientes">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">group</span>
+<span class="nav-text truncate whitespace-nowrap">Clientes</span>
+</a>
+<!-- 5. Estoque -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#estoque" title="Estoque">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">inventory_2</span>
+<span class="nav-text truncate whitespace-nowrap">Estoque</span>
+</a>
+<!-- 6. Sabores de Gelato -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#sabores" title="Sabores de Gelato">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">icecream</span>
+<span class="nav-text truncate whitespace-nowrap">Sabores de Gelato</span>
+</a>
+<!-- 7. Financeiro -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#financeiro" title="Financeiro">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">account_balance_wallet</span>
+<span class="nav-text truncate whitespace-nowrap">Financeiro</span>
+</a>
+<!-- 8. Funcionários (ATIVO!) -->
+<a class="nav-link flex items-center justify-between px-3 py-2 rounded-lg bg-[#2b1810] text-[#d4af37] font-semibold text-xs border-l-4 border-[#d4af37] shadow-sm whitespace-nowrap" href="#funcionarios" title="Funcionários">
+<div class="flex items-center gap-3 min-w-0">
+<span class="material-symbols-outlined text-xl text-[#d4af37] shrink-0">badge</span>
+<span class="nav-text truncate whitespace-nowrap">Funcionários</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-sm shrink-0"></span>
+</a>
+<!-- 9. Mesas e Comandas -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#mesas" title="Mesas e Comandas">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">table_restaurant</span>
+<span class="nav-text truncate whitespace-nowrap">Mesas e Comandas</span>
+</a>
+<!-- 10. Relatórios -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#relatorios" title="Relatórios">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">bar_chart</span>
+<span class="nav-text truncate whitespace-nowrap">Relatórios</span>
+</a>
+<!-- 11. Painel de Controle -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#painel" title="Painel de Controle">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">settings</span>
+<span class="nav-text truncate whitespace-nowrap">Painel de Controle</span>
+</a>
+<!-- 12. Suporte Técnico -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#suporte" title="Suporte Técnico">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">support_agent</span>
+<span class="nav-text truncate whitespace-nowrap">Suporte Técnico</span>
+</a>
+</nav>
+</div>
+<!-- Rodapé Aside com Botão Encerrar Sessão -->
+<div class="p-4 border-t border-[#2d221c]">
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-rose-500 hover:text-rose-400 hover:bg-rose-500/10 text-xs font-semibold transition-colors" id="btn-logout" onclick="openLogoutModal()" title="Encerrar Sessão">
+<span class="material-symbols-outlined text-xl shrink-0">logout</span>
+<span class="logout-text truncate whitespace-nowrap">Encerrar Sessão (Sair)</span>
+</button>
+</div>
+</aside>
+<!-- 2. CONTEÚDO PRINCIPAL (ml-64 flex-1 min-h-screen flex flex-col bg-[#fff8f4]) -->
+<div class="ml-64 flex-1 min-h-screen flex flex-col bg-[#fff8f4] text-[#1b1c1a] transition-all duration-300" id="main-content-wrapper" style="margin-left: 16rem; width: calc(100% - 16rem); height: 100vh; max-height: 100vh; overflow: hidden; display: flex; flex-direction: column;">
+<!-- CABEÇALHO SUPERIOR PADRÃO SORVETEC PRO -->
+<header class="sticky top-0 z-20 flex items-center justify-between h-16 px-8 w-full bg-[#ffffff] border-b border-[#EAE3D6] shadow-xs" style="flex-shrink: 0; z-index: 20; width: 100%;">
+<!-- Lado Esquerdo: Status Loja Aberta & Botão Fechar Loja -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8F5E9] border border-[#a9f4b3] shadow-xs transition-all" id="store-status-badge">
+<span class="relative flex h-2 w-2" id="store-ping-box">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2E8B57] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#236B38]"></span>
+</span>
+<span class="text-xs font-semibold text-[#236B38]" id="store-status-text">Loja aberta • Balcão e Salão</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#EAE3D6] text-xs font-semibold text-[#2E1F16] bg-white hover:bg-[#F4EFE6] transition-colors shadow-xs" id="btn-toggle-store" onclick="toggleStoreStatus()" type="button">
+<span class="material-symbols-outlined text-sm" id="btn-store-icon">storefront</span>
+<span id="btn-store-label" class="">Fechar loja</span>
+</button>
+</div>
+<!-- Lado Direito: Notificações, Configurações, Desligar & Usuário Adm MASTER -->
+<div class="flex items-center gap-3">
+<!-- Notificações com badge 3 -->
+<button class="relative p-2 rounded text-[#70665e] hover:text-[#2E1F16] hover:bg-[#F4EFE6] transition-colors" title="Notificações" type="button">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#BA1A1A] text-[9px] font-bold text-white leading-none">3</span>
+</button>
+<!-- Configurações Rápidas -->
+<button class="p-2 rounded text-[#70665e] hover:text-[#2E1F16] hover:bg-[#F4EFE6] transition-colors" title="Configurações Rápidas" type="button">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<!-- Botão Ligar/Desligar Vermelho -->
+<button class="p-2 rounded text-[#BA1A1A] hover:bg-[#FDE8E8] transition-colors" onclick="openLogoutModal()" title="Sair do sistema" type="button">
+<span class="material-symbols-outlined text-xl">power_settings_new</span>
+</button>
+<!-- Divisor Vertical -->
+<div class="h-6 w-px bg-[#EAE3D6] mx-1"></div>
+<!-- Bloco de Perfil do Usuário: Adm MASTER -->
+<button class="flex items-center gap-2.5 p-1 rounded-lg hover:bg-[#F4EFE6] transition-colors text-left" type="button">
+<div class="w-9 h-9 rounded bg-[#2E1F16] text-[#E5C86E] border border-[#E2D1A6] flex items-center justify-center font-bold text-xs shadow-xs">
+            AM
+          </div>
+<div class="hidden sm:flex flex-col">
+<span class="text-xs font-bold text-[#2E1F16] leading-tight">Adm MASTER</span>
+<span class="text-[11px] text-[#70665e] leading-tight">Administrador Geral</span>
+</div>
+<span class="material-symbols-outlined text-sm text-[#70665e]">expand_more</span>
+</button>
+</div>
+</header>
+<!-- ÁREA DE CONTEÚDO PRINCIPAL (px-8 py-6 pb-16 flex-1) -->
+<main class="px-8 py-6 pb-20 flex-1 space-y-6" style="flex: 1 1 0%; overflow-y: auto; padding-bottom: 2rem;">
+<!-- CABEÇALHO DO MÓDULO -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-[#EAE3D6]">
+<div>
+<div class="flex items-center gap-1.5 text-[#B8860B] text-[11px] font-bold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-sm">badge</span>
+<span class="">GESTÃO DE PESSOAS &amp; CONTROLE DE ACESSO</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-serif text-3xl font-bold text-[#2E1F16] tracking-tight">Funcionários</h1>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#F4EFE6] text-[#2E1F16] border border-[#E6DEC2]">
+              Quadro Ativo: 14 Colaboradores
+            </span>
+</div>
+</div>
+<!-- Botões de Ação do Cabeçalho -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Expandir / Recolher Todos -->
+<div class="flex items-center bg-[#F4EFE6] rounded border border-[#EAE3D6] p-0.5 text-xs">
+<button class="px-2.5 py-1 rounded text-[#2E1F16] font-medium hover:bg-white transition-colors flex items-center gap-1" onclick="toggleAllCards(true)">
+<span class="material-symbols-outlined text-sm">unfold_more</span>
+<span class="">Expandir Todos</span>
+</button>
+<button class="px-2.5 py-1 rounded text-[#70665e] font-medium hover:bg-white hover:text-[#2E1F16] transition-colors flex items-center gap-1" onclick="toggleAllCards(false)">
+<span class="material-symbols-outlined text-sm">unfold_less</span>
+<span class="">Recolher Todos</span>
+</button>
+</div>
+<!-- Exportar Espelho AFD -->
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded bg-white border border-[#E2D1A6] text-xs font-semibold text-[#2E1F16] hover:bg-[#F4EFE6] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-base">file_download</span>
+<span class="">Exportar Espelho (AFD)</span>
+</button>
+<!-- Botão Primário Verde: + Novo Funcionário -->
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#236B38] text-white text-xs font-semibold hover:bg-[#1c552c] shadow-xs transition-all active:scale-[0.98]" onclick="openNewModal()" type="button">
+<span class="material-symbols-outlined text-base font-bold">add</span>
+<span class="">+ Novo Funcionário</span>
+</button>
+</div>
+</div>
+<!-- GRID DE 4 KPIS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1: Total de Colaboradores -->
+<div class="kpi-card bg-white p-4 rounded border border-[#EAE3D6] shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#70665e]">TOTAL DE COLABORADORES</span>
+<div class="flex items-center gap-1">
+<div class="w-6 h-6 rounded bg-[#F4EFE6] flex items-center justify-center text-[#2E1F16]">
+<span class="material-symbols-outlined text-sm">badge</span>
+</div>
+<button class="p-0.5 text-[#70665e] hover:text-[#2E1F16]" onclick="toggleCard(this)">
+<span class="material-symbols-outlined text-base kpi-chevron">expand_less</span>
+</button>
+</div>
+</div>
+<div class="kpi-body space-y-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-serif text-2xl font-bold text-[#2E1F16]">14</span>
+<span class="text-xs text-[#70665e]">ativos cadastrados</span>
+</div>
+<div class="pt-2 border-t border-[#F4EFE6] flex items-center justify-between text-xs text-[#70665e]">
+<span class="">12 escala regular</span>
+<span class="font-medium text-[#2E1F16]">2 folgas hoje</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Presentes no Turno -->
+<div class="kpi-card bg-white p-4 rounded border border-[#EAE3D6] shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#70665e]">PRESENTES NO TURNO</span>
+<div class="flex items-center gap-1">
+<div class="w-6 h-6 rounded bg-[#E8F5E9] flex items-center justify-center text-[#236B38]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<button class="p-0.5 text-[#70665e] hover:text-[#2E1F16]" onclick="toggleCard(this)">
+<span class="material-symbols-outlined text-base kpi-chevron">expand_less</span>
+</button>
+</div>
+</div>
+<div class="kpi-body space-y-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-serif text-2xl font-bold text-[#236B38]">8</span>
+<span class="text-xs text-[#70665e]">operadores no momento</span>
+</div>
+<div class="pt-2 border-t border-[#F4EFE6] flex items-center justify-between text-xs text-[#70665e]">
+<span class="">6 balcão &amp; cozinha</span>
+<span class="font-medium text-[#2E1F16]">2 gerência/caixa</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Ocorrências de Ponto -->
+<div class="kpi-card bg-white p-4 rounded border border-[#EAE3D6] shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#70665e]">OCORRÊNCIAS DE PONTO</span>
+<div class="flex items-center gap-1">
+<div class="w-6 h-6 rounded bg-[#FDE8E8] flex items-center justify-center text-[#BA1A1A]">
+<span class="material-symbols-outlined text-sm">error_outline</span>
+</div>
+<button class="p-0.5 text-[#70665e] hover:text-[#2E1F16]" onclick="toggleCard(this)">
+<span class="material-symbols-outlined text-base kpi-chevron">expand_less</span>
+</button>
+</div>
+</div>
+<div class="kpi-body space-y-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-serif text-2xl font-bold text-[#BA1A1A]">1</span>
+<span class="text-xs text-[#70665e]">ajuste pendente</span>
+</div>
+<div class="pt-2 border-t border-[#F4EFE6] flex items-center justify-between text-xs text-[#BA1A1A]">
+<span class="truncate max-w-[130px]">Esquecimento batida i...</span>
+<span class="font-bold underline cursor-pointer hover:text-red-800">Resolver</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Folha / Competência -->
+<div class="kpi-card bg-white p-4 rounded border border-[#EAE3D6] shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#70665e]">FOLHA / COMPETÊNCIA</span>
+<div class="flex items-center gap-1">
+<div class="w-6 h-6 rounded bg-[#F4EFE6] flex items-center justify-center text-[#B8860B]">
+<span class="material-symbols-outlined text-sm">lock_clock</span>
+</div>
+<button class="p-0.5 text-[#70665e] hover:text-[#2E1F16]" onclick="toggleCard(this)">
+<span class="material-symbols-outlined text-base kpi-chevron">expand_less</span>
+</button>
+</div>
+</div>
+<div class="kpi-body space-y-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-serif text-xl font-bold text-[#2E1F16]">Março/2025</span>
+<span class="inline-flex px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#fff8eb] text-[#B8860B] border border-[#E2D1A6]">ABERTA</span>
+</div>
+<div class="pt-2 border-t border-[#F4EFE6] flex items-center justify-between text-xs text-[#70665e]">
+<span class="">Fechamento em 18 dias</span>
+<span class="text-[11px]">Acesso Auditado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ABAS SECUNDÁRIAS E FILTROS -->
+<div class="bg-white rounded border border-[#EAE3D6] shadow-xs p-4 space-y-4">
+<!-- Abas -->
+<div class="flex flex-wrap items-center justify-between gap-3 border-b border-[#EAE3D6] pb-3">
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-semibold bg-[#2E1F16] text-white shadow-xs">
+<span class="material-symbols-outlined text-base text-[#E5C86E]">group</span>
+<span class="">Funcionários</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-[#18110e] text-[10px] text-[#E5C86E] font-bold">14</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-semibold text-[#70665e] hover:text-[#2E1F16] hover:bg-[#F4EFE6] transition-colors">
+<span class="material-symbols-outlined text-base">timelapse</span>
+<span class="">Jornada e Ponto</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-[#E8F5E9] text-[10px] text-[#236B38] font-bold">8 presentes</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-semibold text-[#70665e] hover:text-[#2E1F16] hover:bg-[#F4EFE6] transition-colors">
+<span class="material-symbols-outlined text-base text-[#B8860B]">lock</span>
+<span class="">Pagamentos &amp; Holerites</span>
+<span class="text-[9px] uppercase tracking-wider text-[#B8860B] border border-[#E2D1A6] px-1 py-0.5 rounded font-bold">RESTRITO</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-semibold text-[#70665e] hover:text-[#2E1F16] hover:bg-[#F4EFE6] transition-colors">
+<span class="material-symbols-outlined text-base text-[#B8860B]">security</span>
+<span class="">Acessos &amp; Perfis</span>
+</button>
+</div>
+<div class="flex items-center gap-2 text-xs text-[#70665e]">
+<span class="">Último espelho biométrico: <strong class="text-[#2E1F16]">Hoje às 13:42:09</strong></span>
+<button class="p-1 hover:bg-[#F4EFE6] rounded text-[#70665e] hover:text-[#2E1F16]" onclick="toggleFiltersBox()">
+<span class="material-symbols-outlined text-base" id="filter-chevron">expand_less</span>
+</button>
+</div>
+</div>
+<!-- Filtros e Pesquisa -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center" id="filters-container">
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#70665e] text-lg">search</span>
+<input class="w-full pl-9 pr-3 py-2 text-xs bg-[#fff8f4] border border-[#EAE3D6] rounded text-[#2E1F16] focus:outline-none focus:border-[#C5A059] transition-colors" placeholder="Buscar por nome, cargo ou CPF..." type="text">
+</div>
+<div class="md:col-span-2">
+<select class="w-full py-2 px-2.5 text-xs bg-[#fff8f4] border border-[#EAE3D6] rounded text-[#2E1F16] focus:outline-none focus:border-[#C5A059]">
+<option>Todas as situações</option>
+<option>Ativo no Turno</option>
+<option>Folga Escalar</option>
+<option>Férias Regulamentares</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<select class="w-full py-2 px-2.5 text-xs bg-[#fff8f4] border border-[#EAE3D6] rounded text-[#2E1F16] focus:outline-none focus:border-[#C5A059]">
+<option>Todos os vínculos</option>
+<option>CLT Efetivo</option>
+<option>Temporário Verão</option>
+<option>Estágio</option>
+</select>
+</div>
+<div class="md:col-span-3">
+<select class="w-full py-2 px-2.5 text-xs bg-[#fff8f4] border border-[#EAE3D6] rounded text-[#2E1F16] focus:outline-none focus:border-[#C5A059]">
+<option>Todos os setores / turnos</option>
+<option>Balcão &amp; Açaiteria</option>
+<option>Laboratório Gelato</option>
+<option>Frente de Caixa</option>
+<option>Supervisão Geral</option>
+</select>
+</div>
+</div>
+</div>
+<!-- LAYOUT CENTRAL EM 2 COLUNAS: LISTA (ESQUERDA) + FICHA OPERACIONAL (DIREITA) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- COLUNA ESQUERDA: LISTA GERAL DE COLABORADORES (7 / 12) -->
+<div class="xl:col-span-7 bg-white rounded border border-[#EAE3D6] shadow-xs overflow-hidden flex flex-col">
+<div class="px-4 py-3 bg-[#F4EFE6] border-b border-[#EAE3D6] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-[#B8860B]">format_list_bulleted</span>
+<span class="text-xs font-bold uppercase tracking-wider text-[#2E1F16]">LISTA GERAL DE COLABORADORES</span>
+</div>
+<button class="p-1 rounded text-[#70665e] hover:text-[#2E1F16]" onclick="toggleTableBox()">
+<span class="material-symbols-outlined text-base" id="table-chevron">expand_less</span>
+</button>
+</div>
+<div class="overflow-x-auto" id="table-wrapper">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-[#F4EFE6]/60 border-b border-[#EAE3D6] text-[11px] font-bold text-[#2E1F16] uppercase tracking-wider">
+<th class="py-3 px-4">Colaborador</th>
+<th class="py-3 px-3">Função &amp; Setor</th>
+<th class="py-3 px-3">Vínculo</th>
+<th class="py-3 px-3">Status Ponto Hoje</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#EAE3D6]">
+<!-- 1. Matheus Lourenço Silva (SELECIONADO) -->
+<tr class="bg-[#FAF6EE] border-l-4 border-l-[#C5A059] cursor-pointer" onclick="selectEmployee(0)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#2E1F16] text-[#E5C86E] border border-[#C5A059] flex items-center justify-center font-bold text-xs shrink-0">
+                        ML
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16] flex items-center gap-1.5">
+                          Matheus Lourenço Silva
+                          <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
+</div>
+<div class="text-[11px] text-[#70665e]">matheus.lourenco@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Gerente Operacional</div>
+<div class="text-[11px] text-[#70665e]">Supervisão Geral</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-[#F4EFE6] text-[#2E1F16] border border-[#E6DEC2]">
+                      CLT Integral
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-[#236B38] font-bold text-xs">
+<span class="w-2 h-2 rounded-full bg-[#236B38] animate-pulse"></span>
+                      Em turno (07:55)
+                    </div>
+<div class="text-[10px] text-[#70665e]">Intervalo: 12:00 - 13:00</div>
+</td>
+</tr>
+<!-- 2. Beatriz Santos Prado -->
+<tr class="hover:bg-[#F4EFE6]/40 cursor-pointer transition-colors" onclick="selectEmployee(1)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#6e5a4f] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        BP
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16]">Beatriz Santos Prado</div>
+<div class="text-[11px] text-[#70665e]">beatriz.prado@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Gelatiere Mestre</div>
+<div class="text-[11px] text-[#70665e]">Laboratório Gelato</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-[#F4EFE6] text-[#2E1F16] border border-[#E6DEC2]">
+                      CLT Efetivo
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-[#236B38] font-bold text-xs">
+<span class="w-2 h-2 rounded-full bg-[#236B38]"></span>
+                      Em turno (08:30)
+                    </div>
+<div class="text-[10px] text-[#70665e]">Previsão saída: 17:30</div>
+</td>
+</tr>
+<!-- 3. Lucas Mendes Albuquerque -->
+<tr class="hover:bg-[#F4EFE6]/40 cursor-pointer transition-colors" onclick="selectEmployee(2)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#C5A059] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        LM
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16]">Lucas Mendes Albuquerque</div>
+<div class="text-[11px] text-[#70665e]">lucas.mendes@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Atendente Balcão</div>
+<div class="text-[11px] text-[#70665e]">Açaiteria &amp; Copos</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-amber-50 text-amber-900 border border-amber-200">
+                      Temporário Verão
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-amber-700 font-bold text-xs">
+<span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                      Em Intervalo (12:30)
+                    </div>
+<div class="text-[10px] text-[#70665e]">Retorno às 13:30</div>
+</td>
+</tr>
+<!-- 4. Camila Ferreira Silva -->
+<tr class="hover:bg-[#F4EFE6]/40 cursor-pointer transition-colors" onclick="selectEmployee(3)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#236B38] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        CF
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16]">Camila Ferreira Silva</div>
+<div class="text-[11px] text-[#70665e]">camila.silva@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Operadora Caixa PDV</div>
+<div class="text-[11px] text-[#70665e]">Caixa Central 01</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-[#F4EFE6] text-[#2E1F16] border border-[#E6DEC2]">
+                      CLT Efetivo
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-[#236B38] font-bold text-xs">
+<span class="w-2 h-2 rounded-full bg-[#236B38]"></span>
+                      Em turno (09:00)
+                    </div>
+<div class="text-[10px] text-[#70665e]">Saída prevista: 18:00</div>
+</td>
+</tr>
+<!-- 5. Roberto Carlos Lima -->
+<tr class="hover:bg-[#F4EFE6]/40 cursor-pointer transition-colors" onclick="selectEmployee(4)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#dcc1b3] text-[#2E1F16] flex items-center justify-center font-bold text-xs shrink-0">
+                        RC
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16]">Roberto Carlos Lima</div>
+<div class="text-[11px] text-[#70665e]">roberto.lima@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Auxiliar de Cozinha</div>
+<div class="text-[11px] text-[#70665e]">Câmara Fria &amp; Insumos</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-[#F4EFE6] text-[#2E1F16] border border-[#E6DEC2]">
+                      CLT Efetivo
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-[#70665e] font-medium text-xs">
+<span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                      Folga Semanal
+                    </div>
+<div class="text-[10px] text-[#70665e]">Retorna amanhã às 07:00</div>
+</td>
+</tr>
+<!-- 6. Ana Carolina Dias -->
+<tr class="hover:bg-[#F4EFE6]/40 cursor-pointer transition-colors" onclick="selectEmployee(5)">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#5b21b6] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        AC
+                      </div>
+<div>
+<div class="font-bold text-[#2E1F16]">Ana Carolina Dias</div>
+<div class="text-[11px] text-[#70665e]">ana.dias@arducci.com.br</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="font-medium text-[#2E1F16]">Atendente Club</div>
+<div class="text-[11px] text-[#70665e]">Fidelidade &amp; Mesas</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium bg-purple-50 text-purple-900 border border-purple-200">
+                      Estágio
+                    </span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 text-[#B8860B] font-bold text-xs">
+<span class="w-2 h-2 rounded-full bg-[#C5A059]"></span>
+                      Turno Vespertino
+                    </div>
+<div class="text-[10px] text-[#70665e]">Início hoje: 14:00</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Rodapé Paginação -->
+<div class="p-3.5 bg-[#F4EFE6] border-t border-[#EAE3D6] flex items-center justify-between text-xs text-[#70665e]">
+<span class="">Exibindo <strong>6</strong> de <strong>14</strong> colaboradores</span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 bg-white border border-[#EAE3D6] rounded text-[#70665e] opacity-60 cursor-not-allowed" disabled="">
+                Anterior
+              </button>
+<span class="px-2 py-1 font-bold text-[#2E1F16] bg-white border border-[#EAE3D6] rounded">1</span>
+<button class="px-2.5 py-1 bg-white border border-[#EAE3D6] rounded text-[#2E1F16] hover:bg-[#FAF6EE]">
+                Próxima
+              </button>
+</div>
+</div>
+</div>
+<!-- COLUNA DIREITA: FICHA OPERACIONAL (5 / 12) -->
+<div class="xl:col-span-5 bg-white rounded border border-[#E2D1A6] shadow-xs overflow-hidden flex flex-col" id="employee-detail-card">
+<!-- Cabeçalho da Ficha -->
+<div class="bg-[#F4EFE6] p-5 border-b border-[#EAE3D6] relative">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3.5">
+<div class="w-14 h-14 rounded bg-[#2E1F16] text-[#E5C86E] border-2 border-[#C5A059] flex items-center justify-center font-bold text-lg shadow-xs">
+                  ML
+                </div>
+<div>
+<h3 class="font-serif text-lg font-bold text-[#2E1F16] leading-tight">Matheus Lourenço Silva</h3>
+<div class="text-xs text-[#70665e] mt-0.5">Gerente Operacional · Desde Jan/2022</div>
+<div class="mt-1.5 flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#fff8eb] text-[#B8860B] border border-[#E2D1A6]">
+<span class="material-symbols-outlined text-xs mr-1">verified_user</span>
+                      Acesso Total Administrador
+                    </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-[#70665e] hover:text-[#2E1F16]" onclick="toggleFichaBox()">
+<span class="material-symbols-outlined text-base" id="ficha-chevron">expand_less</span>
+</button>
+<button class="p-1 rounded text-[#70665e] hover:text-[#2E1F16]" onclick="document.getElementById('employee-detail-card').classList.add('hidden')" title="Fechar ficha">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<!-- Botões Rápidos: Editar Cadastro e Registrar Ponto Manual -->
+<div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-[#EAE3D6]">
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-white border border-[#EAE3D6] rounded text-xs font-semibold text-[#2E1F16] hover:bg-[#fff8f4] transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm text-[#70665e]">edit</span>
+<span class="">Editar Cadastro</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 bg-[#2E1F16] text-white rounded text-xs font-semibold hover:bg-[#18110e] transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm text-[#E5C86E]">timer</span>
+<span class="">Registrar Ponto Manual</span>
+</button>
+</div>
+</div>
+<!-- Corpo da Ficha -->
+<div class="p-5 space-y-5 text-xs divide-y divide-[#EAE3D6]" id="ficha-body">
+<!-- SEÇÃO: DADOS CADASTRAIS & CONTRATUAIS -->
+<div class="pt-0">
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#B8860B] mb-2.5">
+<span class="material-symbols-outlined text-sm">badge</span>
+<span class="">DADOS CADASTRAIS &amp; CONTRATUAIS</span>
+</div>
+<div class="grid grid-cols-2 gap-y-2.5 gap-x-4 bg-[#fff8f4] p-3 rounded border border-[#EAE3D6]">
+<div>
+<span class="text-[#70665e] block text-[11px]">CPF:</span>
+<span class="font-medium text-[#2E1F16]">382.***.***-12</span>
+</div>
+<div>
+<span class="text-[#70665e] block text-[11px]">Telefone Direto:</span>
+<span class="font-medium text-[#2E1F16]">(13) 99712-3401</span>
+</div>
+<div>
+<span class="text-[#70665e] block text-[11px]">Admissão &amp; Matrícula:</span>
+<span class="font-medium text-[#2E1F16]">15/01/2022 (#ARD-042)</span>
+</div>
+<div>
+<span class="text-[#70665e] block text-[11px]">Jornada Contratual:</span>
+<span class="font-medium text-[#2E1F16]">44h sem. (Escala 6x1 · Folga Ter.)</span>
+</div>
+</div>
+</div>
+<!-- SEÇÃO: JORNADA EM TEMPO REAL · HOJE -->
+<div class="pt-4">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#B8860B]">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+<span class="">JORNADA EM TEMPO REAL · HOJE</span>
+</div>
+<span class="text-[#236B38] font-bold text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#236B38] animate-ping"></span>
+                  Expediente Normal
+                </span>
+</div>
+<!-- Blocos dos 4 turnos -->
+<div class="grid grid-cols-4 gap-2 text-center">
+<div class="p-2 rounded bg-[#E8F5E9] border border-[#a9f4b3]">
+<span class="text-[10px] uppercase text-[#236B38] block font-semibold">1ª Entrada</span>
+<span class="font-bold text-[#2E1F16] text-sm">07:55</span>
+<span class="text-[9px] text-[#70665e] block">Facial OK</span>
+</div>
+<div class="p-2 rounded bg-[#F4EFE6] border border-[#EAE3D6]">
+<span class="text-[10px] uppercase text-[#70665e] block font-semibold">Saída Alm.</span>
+<span class="font-bold text-[#2E1F16] text-sm">12:00</span>
+<span class="text-[9px] text-[#70665e] block">Balcão</span>
+</div>
+<div class="p-2 rounded bg-[#E8F5E9] border border-[#a9f4b3]">
+<span class="text-[10px] uppercase text-[#236B38] block font-semibold">Ret. Alm.</span>
+<span class="font-bold text-[#2E1F16] text-sm">13:00</span>
+<span class="text-[9px] text-[#70665e] block">Facial OK</span>
+</div>
+<div class="p-2 rounded bg-[#EDE7E3] border border-[#EAE3D6]">
+<span class="text-[10px] uppercase text-[#70665e] block font-semibold">Prev. Saída</span>
+<span class="font-bold text-[#70665e] text-sm">16:55</span>
+<span class="text-[9px] text-[#70665e] block">Pendente</span>
+</div>
+</div>
+<div class="mt-2.5 p-2 bg-[#fff8f4] rounded flex items-center justify-between text-xs border border-[#EAE3D6]">
+<span class="text-[#70665e]">Horas trabalhadas hoje até agora:</span>
+<span class="font-bold text-[#2E1F16] text-sm">05h 25m</span>
+</div>
+</div>
+<!-- SEÇÃO: MÓDULOS AUTORIZADOS NO SISTEMA -->
+<div class="pt-4">
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#B8860B] mb-2.5">
+<span class="material-symbols-outlined text-sm">admin_panel_settings</span>
+<span class="">MÓDULOS AUTORIZADOS NO SISTEMA</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Caixa e PDV</span>
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Estoque &amp; Pozzetti</span>
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Financeiro &amp; DRE</span>
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Clientes Arducci Club</span>
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Fechamento de Caixa</span>
+<span class="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E6DEC2] text-[#2E1F16] text-[11px] font-medium">Ponto &amp; Gestão de RH</span>
+</div>
+</div>
+<!-- CARD INFORMAÇÕES SALARIAIS & BANCÁRIAS (LGPD) -->
+<div class="pt-4">
+<div class="bg-[#F4EFE6] rounded p-3.5 border border-[#E2D1A6]">
+<div class="flex items-center gap-2 mb-1.5 text-[#2E1F16] font-semibold text-xs">
+<span class="material-symbols-outlined text-base text-[#B8860B]">shield</span>
+<span class="">Informações Salariais &amp; Bancárias Protegidas</span>
+</div>
+<p class="text-[11px] text-[#70665e] leading-relaxed mb-3">
+                  Acesso confidencial regulamentado pela LGPD. Toda consulta gera log irreversível no registro de auditoria #AUD-8823.
+                </p>
+<button class="w-full py-2 px-3 bg-white border border-[#E2D1A6] rounded text-xs font-semibold text-[#2E1F16] hover:bg-[#C5A059] hover:text-white transition-colors flex items-center justify-center gap-2 shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">key</span>
+<span class="">Ver Histórico de Pagamentos (PIN Requerido)</span>
+</button>
+</div>
+</div>
+<!-- HISTÓRICO DE AUDITORIA -->
+<div class="pt-4 text-[11px] text-[#70665e] flex items-start gap-2">
+<span class="material-symbols-outlined text-sm text-[#C5A059] shrink-0 mt-0.5">history</span>
+<div class="">
+                Última alteração de cargo e jornada efetuada por <strong class="text-[#2E1F16]">Diretoria Arducci</strong> em 10/02/2025 às 14:20.
+              </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- 3. RODAPÉ TÉCNICO OFICIAL (fixed bottom-0 left-64 right-0 h-9 bg-[#f9f2ee]) -->
+<footer class="bottom-0 left-64 right-0 h-9 bg-[#f9f2ee] border-t border-[#dfd9d5] px-6 flex items-center justify-between text-xs text-[#70665e] z-20 select-none transition-all duration-300" id="main-footer" style="position: static; width: 100%; flex-shrink: 0; z-index: 20;">
+<div class="flex items-center gap-4">
+<span class="">Terminal: <strong class="text-[#2E1F16]">TERM-BALCAO-01</strong></span>
+<span class="text-[#dfd9d5]">·</span>
+<span class="flex items-center gap-1 text-[#236B38] font-semibold">
+<span class="material-symbols-outlined text-sm">cloud_done</span>
+          Sincronização em Nuvem OK (Latência: 24ms)
+        </span>
+<span class="text-[#dfd9d5]">·</span>
+<span class="">v2.4.2 (Build 12/03/2025)</span>
+<span class="text-[#dfd9d5]">·</span>
+<span class="">Status: <strong class="text-[#236B38]">Conectado à Nuvem</strong></span>
+</div>
+<div>
+<span class="">© 2025 Arducci Gelateria &amp; Açaiteria</span>
+</div>
+</footer>
+</div>
+<!-- 4. MODAL DE CONFIRMAÇÃO DE ENCERRAMENTO DE SESSÃO / LOGOUT (#modal-logout) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#121110]/70 backdrop-blur-xs" id="modal-logout" onclick="handleLogoutBackdrop(event)">
+<div class="bg-white w-full max-w-md rounded-xl border border-[#E2D1A6] shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150" onclick="event.stopPropagation()">
+<!-- Cabeçalho do Modal -->
+<div class="bg-[#F4EFE6] px-6 py-4 border-b border-[#EAE3D6] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#FDE8E8] text-[#BA1A1A] flex items-center justify-center border border-[#E6DEC2]">
+<span class="material-symbols-outlined text-xl">logout</span>
+</div>
+<div>
+<h3 class="font-serif text-base font-bold text-[#2E1F16]" id="modal-logout-title">Encerrar Sessão?</h3>
+<p class="text-xs text-[#70665e]">Confirmação de desconexão</p>
+</div>
+</div>
+<button class="p-1 rounded text-[#70665e] hover:text-[#2E1F16] hover:bg-white transition-colors" onclick="closeLogoutModal()">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<!-- Conteúdo do Modal -->
+<div class="p-6 space-y-4 text-xs" id="modal-logout-body">
+<p class="text-[#2E1F16] leading-relaxed">
+          Você tem certeza que deseja sair do sistema <strong class="font-bold text-[#2E1F16]">SORVETEC PRO</strong>? Quaisquer alterações não salvas poderão ser perdidas.
+        </p>
+<div class="bg-[#fff8f4] rounded p-3 border border-[#EAE3D6] space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-[#70665e] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#B8860B]">account_circle</span>
+              Usuário Ativo:
+            </span>
+<span class="font-semibold text-[#2E1F16]">Adm MASTER (Administrador Geral)</span>
+</div>
+<div class="flex items-center justify-between border-t border-[#F4EFE6] pt-2">
+<span class="text-[#70665e] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#236B38]">point_of_sale</span>
+              Terminal Conectado:
+            </span>
+<span class="text-[#236B38] font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#236B38]"></span>
+              TERM-BALCAO-01
+            </span>
+</div>
+</div>
+</div>
+<!-- Ações do Modal -->
+<div class="bg-[#F4EFE6] px-6 py-3.5 border-t border-[#EAE3D6] flex items-center justify-end gap-2.5" id="modal-logout-footer">
+<button class="px-4 py-2 text-xs font-semibold rounded border border-[#EAE3D6] text-[#2E1F16] hover:bg-white transition-colors" onclick="closeLogoutModal()" type="button">
+          Não, continuar
+        </button>
+<button class="px-4 py-2 text-xs font-semibold rounded bg-[#BA1A1A] text-white hover:bg-red-800 transition-colors flex items-center gap-1.5 shadow-xs" onclick="executeLogout()" type="button">
+<span class="material-symbols-outlined text-sm">power_settings_new</span>
+          Sim, encerrar sessão
+        </button>
+</div>
+</div>
+</div>
+<!-- 5. MODAL PARA NOVO FUNCIONÁRIO (Admitir) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#121110]/70 backdrop-blur-xs" id="modal-novo">
+<div class="bg-white w-full max-w-2xl rounded-xl border border-[#E2D1A6] shadow-2xl overflow-hidden flex flex-col">
+<div class="bg-[#F4EFE6] px-6 py-4 border-b border-[#EAE3D6] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-[#2E1F16] text-[#E5C86E] flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">person_add</span>
+</div>
+<div>
+<h3 class="font-serif text-base font-bold text-[#2E1F16]">Admitir Novo Colaborador</h3>
+<p class="text-xs text-[#70665e]">Cadastro de vínculo empregatício, jornada e biometria</p>
+</div>
+</div>
+<button class="p-1 rounded text-[#70665e] hover:text-[#2E1F16]" onclick="closeNewModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-4 text-xs max-h-[75vh] overflow-y-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Nome Completo *</label>
+<input class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none" placeholder="Ex: Giovanni Rossi" type="text">
+</div>
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">E-mail Corporativo *</label>
+<input class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none" placeholder="giovanni@arducci.com.br" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">CPF *</label>
+<input class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none" placeholder="000.000.000-00" type="text">
+</div>
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Telefone Celular</label>
+<input class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none" placeholder="(13) 90000-0000" type="text">
+</div>
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Data de Admissão</label>
+<input class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none" type="date" value="2025-03-15">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Cargo / Função *</label>
+<select class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none">
+<option>Atendente Balcão &amp; Copos</option>
+<option>Gelatiere / Mestre de Produção</option>
+<option>Operador de Caixa &amp; PDV</option>
+<option>Auxiliar de Cozinha</option>
+</select>
+</div>
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Regime / Vínculo</label>
+<select class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none">
+<option>CLT Efetivo (44h)</option>
+<option>Temporário Alta Estação</option>
+<option>Estágio Remunerado</option>
+</select>
+</div>
+<div>
+<label class="block font-semibold text-[#2E1F16] mb-1">Escala Padrão</label>
+<select class="w-full text-xs px-3 py-2 bg-[#fff8f4] border border-[#EAE3D6] rounded focus:border-[#C5A059] focus:outline-none">
+<option>6x1 (08:00 às 16:20)</option>
+<option>6x1 (14:00 às 22:20)</option>
+<option>12x36 Verão</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-[#F4EFE6] px-6 py-3.5 border-t border-[#EAE3D6] flex items-center justify-end gap-3">
+<button class="px-4 py-2 text-xs font-semibold rounded border border-[#EAE3D6] text-[#2E1F16] hover:bg-white transition-colors" onclick="closeNewModal()">
+          Cancelar
+        </button>
+<button class="px-5 py-2 text-xs font-semibold rounded bg-[#236B38] text-white hover:bg-[#1c552c] transition-colors shadow-xs" onclick="closeNewModal()">
+          Salvar e Gerar Matrícula
+        </button>
+</div>
+</div>
+</div>
+<!-- JAVASCRIPT VANILLA PARA COMPORTAMENTOS -->
+<script>
+    // 1. RECOLHER / EXPANDIR SIDEBAR (w-64 <-> w-20)
+    var isCollapsed = false;
+    function toggleSidebarCollapse() {
+      var sidebar = document.getElementById('sidebar');
+      var mainWrapper = document.getElementById('main-content-wrapper');
+      var footer = document.getElementById('main-footer');
+      var icon = document.getElementById('toggle-sidebar-icon');
+      var navTexts = document.querySelectorAll('.nav-text');
+      var logoutText = document.querySelector('.logout-text');
+      var brandBox = document.querySelector('.sidebar-brand-box');
+
+      isCollapsed = !isCollapsed;
+
+      if (isCollapsed) {
+        sidebar.classList.remove('w-64');
+        sidebar.classList.add('w-20');
+        mainWrapper.classList.remove('ml-64');
+        mainWrapper.classList.add('ml-20');
+        footer.classList.remove('left-64');
+        footer.classList.add('left-20');
+        icon.innerText = 'menu';
+
+        if (brandBox) brandBox.classList.add('hidden');
+        navTexts.forEach(function(el) { el.classList.add('hidden'); });
+        if (logoutText) logoutText.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('w-20');
+        sidebar.classList.add('w-64');
+        mainWrapper.classList.remove('ml-20');
+        mainWrapper.classList.add('ml-64');
+        footer.classList.remove('left-20');
+        footer.classList.add('left-64');
+        icon.innerText = 'menu_open';
+
+        if (brandBox) brandBox.classList.remove('hidden');
+        navTexts.forEach(function(el) { el.classList.remove('hidden'); });
+        if (logoutText) logoutText.classList.remove('hidden');
+      }
+    }
+
+    // 2. TOGGLE STATUS DA LOJA
+    var isStoreOpen = true;
+    function toggleStoreStatus() {
+      var badge = document.getElementById('store-status-badge');
+      var ping = document.getElementById('store-ping-box');
+      var label = document.getElementById('store-status-text');
+      var btnLabel = document.getElementById('btn-store-label');
+      var btnIcon = document.getElementById('btn-store-icon');
+
+      isStoreOpen = !isStoreOpen;
+
+      if (isStoreOpen) {
+        badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E8F5E9] border border-[#a9f4b3] shadow-xs transition-all";
+        ping.innerHTML = '<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2E8B57] opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-[#236B38]"></span>';
+        label.innerText = "Loja aberta • Balcão e Salão";
+        label.className = "text-xs font-semibold text-[#236B38]";
+        btnLabel.innerText = "Fechar loja";
+        btnIcon.innerText = "storefront";
+      } else {
+        badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F4EFE6] border border-[#EAE3D6] shadow-xs transition-all";
+        ping.innerHTML = '<span class="relative inline-flex rounded-full h-2 w-2 bg-[#70665e]"></span>';
+        label.innerText = "Loja Fechada";
+        label.className = "text-xs font-semibold text-[#70665e]";
+        btnLabel.innerText = "Abrir loja";
+        btnIcon.innerText = "lock_open";
+      }
+    }
+
+    // 3. MODAL LOGOUT
+    function openLogoutModal() {
+      var m = document.getElementById('modal-logout');
+      if (m) m.classList.remove('hidden');
+    }
+    function closeLogoutModal() {
+      var m = document.getElementById('modal-logout');
+      if (m) m.classList.add('hidden');
+    }
+    function handleLogoutBackdrop(e) {
+      if (e.target === document.getElementById('modal-logout')) {
+        closeLogoutModal();
+      }
+    }
+    function executeLogout() {
+      var body = document.getElementById('modal-logout-body');
+      var foot = document.getElementById('modal-logout-footer');
+      var title = document.getElementById('modal-logout-title');
+      if (title) title.innerText = "Sessão Finalizada";
+      if (body) {
+        body.innerHTML = '<div class="py-4 text-center space-y-2"><div class="w-10 h-10 rounded-full bg-[#E8F5E9] text-[#236B38] flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-2xl">check</span></div><h4 class="text-sm font-bold text-[#2E1F16]">Terminal liberado com sucesso</h4><p class="text-xs text-[#70665e]">TERM-BALCAO-01 desconectado de forma segura.</p></div>';
+      }
+      if (foot) {
+        foot.innerHTML = '<button onclick="closeLogoutModal()" class="px-4 py-2 text-xs font-semibold rounded bg-[#2E1F16] text-white">Fechar</button>';
+      }
+    }
+
+    // 4. MODAL NOVO FUNCIONÁRIO
+    function openNewModal() {
+      document.getElementById('modal-novo').classList.remove('hidden');
+    }
+    function closeNewModal() {
+      document.getElementById('modal-novo').classList.add('hidden');
+    }
+
+    // 5. ACCORDION / TOGGLE CARDS & BOXES
+    function toggleCard(btn) {
+      var card = btn.closest('.kpi-card');
+      var body = card.querySelector('.kpi-body');
+      var icon = card.querySelector('.kpi-chevron');
+      if (body) {
+        var isHidden = body.classList.toggle('hidden');
+        if (icon) icon.innerText = isHidden ? 'expand_more' : 'expand_less';
+      }
+    }
+
+    function toggleAllCards(expand) {
+      document.querySelectorAll('.kpi-card').forEach(function(card) {
+        var body = card.querySelector('.kpi-body');
+        var icon = card.querySelector('.kpi-chevron');
+        if (body) {
+          if (expand) { body.classList.remove('hidden'); if (icon) icon.innerText = 'expand_less'; }
+          else { body.classList.add('hidden'); if (icon) icon.innerText = 'expand_more'; }
+        }
+      });
+    }
+
+    function toggleFiltersBox() {
+      var f = document.getElementById('filters-container');
+      var icon = document.getElementById('filter-chevron');
+      if (f) {
+        var isHidden = f.classList.toggle('hidden');
+        if (icon) icon.innerText = isHidden ? 'expand_more' : 'expand_less';
+      }
+    }
+
+    function toggleTableBox() {
+      var w = document.getElementById('table-wrapper');
+      var icon = document.getElementById('table-chevron');
+      if (w) {
+        var isHidden = w.classList.toggle('hidden');
+        if (icon) icon.innerText = isHidden ? 'expand_more' : 'expand_less';
+      }
+    }
+
+    function toggleFichaBox() {
+      var b = document.getElementById('ficha-body');
+      var icon = document.getElementById('ficha-chevron');
+      if (b) {
+        var isHidden = b.classList.toggle('hidden');
+        if (icon) icon.innerText = isHidden ? 'expand_more' : 'expand_less';
+      }
+    }
+
+    function selectEmployee(idx) {
+      var card = document.getElementById('employee-detail-card');
+      if (card) card.classList.remove('hidden');
+    }
+
+    // Fechar modais ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLogoutModal();
+        closeNewModal();
+      }
+    });
+  </script>
+
+
+
+
+
+
+<script>window.ADMIN_SCREEN_ID=4;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

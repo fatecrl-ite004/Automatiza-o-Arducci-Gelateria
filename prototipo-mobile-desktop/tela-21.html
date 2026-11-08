@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="" lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Arducci Gelateria &amp; Açaiteria</title>
+<!-- Tailwind CSS CDN -->
+<link rel="stylesheet" href="styles/screen-21.css?v=20261108-layout-41">
+<!-- Google Fonts for Typography matching references -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+
+<style data-purpose="base-styling">
+    /* Custom mobile lock and base styling */
+    body {
+      background-color: #2b1710;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    
+    /* Background simulated store counter blur/texture */
+    .hero-bg {
+      background-image: 
+        linear-gradient(to bottom, rgba(46, 27, 20, 0.94), rgba(46, 27, 20, 0.92)),
+        radial-gradient(circle at 80% 30%, rgba(135, 76, 44, 0.45) 0%, rgba(35, 19, 13, 0.85) 70%);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .oval-logo-badge {
+      border: 1.5px solid #dfb36b;
+      box-shadow: 0 0 12px rgba(223, 179, 107, 0.25), inset 0 0 8px rgba(0,0,0,0.6);
+      background: radial-gradient(circle, #442416 0%, #200f09 100%);
+    }
+
+    /* Subtle separator glow */
+    .menu-separator {
+      border-bottom: 1px solid rgba(226, 186, 111, 0.22);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4 bg-stone-900">
+<!-- BEGIN: MobileContainer -->
+<!-- Mobile screen container mimicking iPhone iOS portrait display -->
+<div class="relative w-full max-w-[430px] h-[884px] max-h-[920px] bg-[#352119] text-[#f7e8ce] flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[44px] sm:border-[8px] sm:border-neutral-800" data-purpose="mobile-viewport">
+<!-- Store Ambient Background Image Layer -->
+<div class="absolute inset-0 z-0 hero-bg pointer-events-none">
+<!-- Faint underlay elements visible in screenshot 5 -->
+<div class="absolute top-[22%] left-[-10%] opacity-15 pointer-events-none select-none">
+<span class="text-7xl font-serif text-[#f2ce8a] italic block leading-none">O Sabor da</span>
+<span class="text-8xl font-serif text-[#f2ce8a] italic block leading-none ml-6">Felicidade</span>
+</div>
+<div class="absolute bottom-[28%] left-6 right-6 opacity-10 pointer-events-none text-xs text-[#eed0a0] leading-relaxed">
+        Gelatos artesanais preparados com ingredientes selecionados e açaí premium, direto do coração da praia para o seu paladar.
+      </div>
+</div>
+<!-- BEGIN: TopBar -->
+<!-- Top Bar with Logo Badge and Close Button -->
+<header class="relative z-20 flex items-center justify-between px-6 pt-12 pb-4" data-purpose="header">
+<!-- Logo oficial Arducci -->
+<img src="assets/logo-arducci.svg" alt="Arducci Gelateria e Açaiteria — logo oficial" width="156" height="78" class="arducci-official-logo" decoding="async" fetchpriority="high"/>
+<!-- Close circular button matching image 5 -->
+<button aria-label="Fechar menu" class="w-12 h-12 rounded-full border border-[#78513b]/70 bg-[#29170f]/90 text-[#d8b072] flex items-center justify-center shadow-lg transition active:scale-95 hover:bg-[#341d13] focus:outline-none" data-purpose="close-menu-button" type="button">
+<svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: NavigationMenu -->
+<!-- Center navigation items list with delicate line separators -->
+<main class="relative z-20 flex-1 flex flex-col justify-center px-8 -mt-2" data-purpose="navigation-content">
+<nav aria-label="Navegação Principal" class="w-full flex flex-col">
+<!-- INÍCIO link -->
+<div class="menu-separator py-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="text-sm font-cinzel font-medium tracking-[0.24em] text-[#f2dbb3] group-hover:text-amber-200 transition-colors">
+              INÍCIO
+            </span>
+<svg class="w-3.5 h-3.5 text-[#e2ba6f] opacity-75 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<!-- PRODUTOS link with dropdown indicator -->
+<div class="menu-separator py-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="text-sm font-cinzel font-medium tracking-[0.24em] text-[#f2dbb3] group-hover:text-amber-200 transition-colors">
+              PRODUTOS
+            </span>
+<svg class="w-4 h-4 text-[#e2ba6f] fill-current" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<!-- SOBRE link -->
+<div class="menu-separator py-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="text-sm font-cinzel font-medium tracking-[0.24em] text-[#f2dbb3] group-hover:text-amber-200 transition-colors">
+              SOBRE
+            </span>
+<svg class="w-3.5 h-3.5 text-[#e2ba6f] opacity-75 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<!-- CONTATO link -->
+<div class="menu-separator py-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="text-sm font-cinzel font-medium tracking-[0.24em] text-[#f2dbb3] group-hover:text-amber-200 transition-colors">
+              CONTATO
+            </span>
+<svg class="w-3.5 h-3.5 text-[#e2ba6f] opacity-75 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</nav>
+</main>
+<!-- END: NavigationMenu -->
+<!-- BEGIN: CallToActionArea -->
+<!-- Action buttons container at bottom, featuring Cardápio Digital and the newly requested Faça seu login -->
+<footer class="relative z-20 px-8 pb-8 pt-2 flex flex-col items-center gap-3" data-purpose="action-buttons-container">
+<!-- Primary Action: CARDÁPIO DIGITAL button matching reference yellow/mustard style -->
+<a class="w-full bg-[#f4cb74] hover:bg-[#ebd567] active:scale-[0.98] transition-all text-[#2e1810] font-sans font-extrabold text-[13px] tracking-[0.2em] py-4 px-6 rounded-lg text-center shadow-[0_6px_20px_rgba(0,0,0,0.35)] flex items-center justify-center gap-2" data-purpose="digital-menu-button" href="#">
+<span class="">PEÇA ONLINE JÁ</span>
+<svg class="w-4 h-4 text-[#2e1810]" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- NEW ELEMENT: "Faça seu login" button directly below CARDÁPIO DIGITAL -->
+<a class="w-full border border-[#e2ba6f]/55 hover:border-[#e2ba6f] bg-[#29170f]/80 hover:bg-[#341d13] active:scale-[0.98] transition-all text-[#edd29b] font-cinzel font-semibold text-[12px] tracking-[0.22em] py-3 px-6 rounded-lg text-center flex items-center justify-center gap-2.5 shadow-sm" data-purpose="user-login-button" href="#">
+<!-- User avatar icon matching fine luxury style -->
+<svg class="w-4 h-4 text-[#e2ba6f]" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Acessar como administrador</span>
+</a>
+<!-- iOS Home Bar Indicator -->
+<div class="w-32 h-1 bg-[#ecd4a7]/35 rounded-full mt-3" data-purpose="ios-home-indicator"></div>
+</footer>
+<!-- END: CallToActionArea -->
+</div>
+<!-- END: MobileContainer -->
+<script>window.SCREEN_ID=21;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

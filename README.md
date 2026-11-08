@@ -127,3 +127,8 @@ arducci-gelateria/
 # Documentação adicional
 
 Os artefatos de engenharia de software elaborados (Diagrama de Casos de Uso, Fluxos de Eventos) e as definições teóricas do TCC estão no nosso [ link do drive ](https://docs.google.com/document/d/1JJkD4QNlmHOATKFr68zNRPv7tgpQ52T5e4_wEQ5-4X0/edit?usp=drivesdk)
+
+### Levantamento de Requisitos
+
+- [Requisitos Funcionais — RF001 a RF021](docs/requisitos/requisitos-funcionais.md)
+- [Requisitos Não Funcionais — RNF01 a RNF08](docs/requisitos/requisitos-nao-funcionais.md)

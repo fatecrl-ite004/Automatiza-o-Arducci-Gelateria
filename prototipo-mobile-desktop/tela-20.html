@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pagamento no PIX - Arducci Gelateria &amp; Açaiteria</title>
+<link rel="stylesheet" href="styles/screen-20.css?v=20261108-layout-41">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+    @keyframes subtle-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(0.97); }
+    }
+    .pulse-clock {
+      animation: subtle-pulse 2s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Viewport Container -->
+<main class="w-full max-w-[430px] bg-background min-h-screen flex flex-col relative shadow-2xl">
+<!-- Status Bar (Mobile Native Standard) -->
+<header class="w-full px-6 pt-3 pb-2 flex justify-between items-center text-primary font-label-md select-none">
+<span class="font-bold text-[14px]">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[17px]">network_wifi</span>
+<span class="material-symbols-outlined text-[17px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[19px]">battery_full</span>
+</div>
+</header>
+<!-- Top Navigation / App Bar Cluster -->
+<section class="px-5 py-3 flex justify-between items-center border-b border-outline-variant/30 bg-surface"><div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant border border-outline-variant/50 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-primary">BEM-VINDO!</span>
+<span class="font-headline-md text-headline-md text-primary leading-tight">Visitante</span>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button aria-label="Sacola de compras" class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center relative shadow-sm border border-outline-variant/30 hover:bg-surface-container active:scale-95 transition-all text-primary"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 w-4 h-4 text-on-secondary rounded-full text-[10px] font-bold flex items-center justify-center bg-error">3</span></button>
+<button aria-label="Entrar na conta" class="flex items-center space-x-1.5 px-3.5 py-2 rounded-full border border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container shadow-sm active:scale-95 transition-all text-primary font-label-sm font-bold"><span class="material-symbols-outlined text-[18px] text-primary">login</span><span class="text-primary">Entrar</span></button>
+</div></section>
+<!-- Subheader: Back Navigation & Screen Intent -->
+<section class="px-5 pt-4 pb-3 flex items-start space-x-3 bg-surface">
+<button aria-label="Voltar para formas de pagamento" class="mt-1 p-2 rounded-xl border border-outline-variant/40 bg-surface-container-lowest text-primary hover:bg-surface-container active:scale-95 transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary leading-tight">Pagamento no PIX</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pague instantaneamente via PIX sem taxas adicionais</p>
+</div>
+</section>
+<!-- Scrollable Main Content -->
+<div class="flex-1 px-5 pb-36 space-y-4 overflow-y-auto" id="mainScrollContent">
+<!-- Order & Value Summary Card -->
+<section class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">receipt_long</span>
+<span class="font-label-md text-label-md font-bold text-primary tracking-wide">RESUMO A PAGAR</span>
+</div>
+<span class="bg-secondary/10 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full font-semibold">3 Itens Selecionados</span>
+</div>
+<div class="space-y-2 pt-3 text-body-sm">
+<div class="flex justify-between text-on-surface-variant font-body-sm">
+<span class="">Subtotal</span>
+<span class="">R$ 68,00</span>
+</div>
+<div class="flex justify-between items-center text-secondary font-body-sm">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+<span class="">Desconto Fidelidade Club (5%)</span>
+</span>
+<span class="font-semibold">-R$ 3,40</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/20 space-y-1">
+<span class="font-label-sm text-on-surface-variant block uppercase tracking-wide">Total a Pagar</span>
+<div class="flex items-center justify-between">
+<span class="font-headline-xl text-headline-xl text-primary font-bold whitespace-nowrap">R$ 64,60</span>
+<span class="inline-flex items-center space-x-1.5 bg-secondary-container/40 text-on-secondary-container px-2.5 py-1 rounded-full font-label-sm shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Instantâneo&nbsp;</span>
+</span>
+</div>
+</div>
+</section>
+<!-- Dynamic PIX Validity Info -->
+<section class="bg-primary-container text-surface-bright rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<span class="material-symbols-outlined text-secondary-fixed pulse-clock text-[22px]">timer</span>
+<div>
+<p class="font-label-md font-semibold text-surface-bright">Chave PIX Dinâmica</p>
+<p class="font-body-sm text-[12px] text-on-primary-container">Validade para confirmação</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest/10 border border-on-primary-container/30 rounded-lg px-3 py-1.5 flex items-center space-x-1.5 pulse-clock">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-md text-surface-bright font-bold tracking-wider" id="countdownTimer">03:00</span>
+</div>
+</section>
+<!-- Action Buttons & Interactive Payment Mode Box -->
+<section class="space-y-3">
+<!-- Option A: Copy & Paste PIX -->
+<button class="w-full h-[52px] bg-secondary hover:bg-secondary/90 active:scale-[0.98] transition-all rounded-xl text-on-secondary font-label-md flex items-center justify-center space-x-2 shadow-sm" id="btnCopyPix" type="button">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+<span class="" id="copyButtonText">Copiar Código Pix Copia e Cola</span>
+</button>
+<!-- Option B: Toggle QR Code Scanner -->
+<button class="w-full h-[52px] bg-surface-container-lowest border-2 border-primary-container text-primary-container hover:bg-surface-container active:scale-[0.98] transition-all rounded-xl font-label-md flex items-center justify-center space-x-2" id="btnToggleQR" type="button">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span class="" id="qrToggleText">Escanear QR Code para Terceiros</span>
+</button>
+<!-- Expandable QR Code Container (Initially Hidden) -->
+<div class="hidden transition-all duration-300 ease-in-out bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-5 text-center shadow-sm" id="qrCodeContainer">
+<div class="inline-block p-3 bg-surface border border-outline-variant/30 rounded-xl mb-3">
+<!-- QR Code Simulation Canvas / Vector Container -->
+<div class="w-48 h-48 mx-auto bg-surface-bright p-2 border-2 border-primary-container rounded-lg flex flex-col justify-between items-center relative">
+<!-- Corner alignment blocks -->
+<div class="w-full flex justify-between">
+<div class="w-10 h-10 border-4 border-primary rounded-sm flex items-center justify-center"><div class="w-4 h-4 bg-primary"></div></div>
+<div class="w-10 h-10 border-4 border-primary rounded-sm flex items-center justify-center"><div class="w-4 h-4 bg-primary"></div></div>
+</div>
+<div class="flex flex-col items-center justify-center space-y-1">
+<span class="material-symbols-outlined text-secondary text-[32px]">icecream</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Arducci PIX</span>
+</div>
+<div class="w-full flex justify-between">
+<div class="w-10 h-10 border-4 border-primary rounded-sm flex items-center justify-center"><div class="w-4 h-4 bg-primary"></div></div>
+<div class="w-8 h-8 grid grid-cols-2 gap-1 p-0.5">
+<span class="bg-primary"></span><span class="bg-primary"></span>
+<span class="bg-secondary"></span><span class="bg-primary"></span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant mb-3">Aponte a câmera do aplicativo do seu banco para ler o QR Code da Arducci.</p>
+<button class="text-primary font-label-sm font-bold flex items-center justify-center mx-auto space-x-1 hover:underline" id="btnCollapseQR" type="button">
+<span class="material-symbols-outlined text-[16px]">expand_less</span>
+<span class="">Recolher QR Code</span>
+</button>
+</div>
+<!-- Truncated PIX String Box -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between">
+<div class="flex items-center space-x-2 overflow-hidden mr-2">
+<span class="material-symbols-outlined text-outline text-[18px]">key</span>
+<span class="font-mono text-body-sm text-on-surface-variant truncate select-all">00020101226870014br.gov.bcb.pix0136arducci-gelateria-a719c2...</span>
+</div>
+<button class="shrink-0 bg-surface-container-highest hover:bg-surface-variant text-primary px-3 py-1.5 rounded-lg text-label-sm font-bold flex items-center space-x-1 active:scale-95 transition-all" id="quickCopyBtn" type="button">
+<span class="material-symbols-outlined text-[14px]">file_copy</span>
+<span class="">Copiar</span>
+</button>
+</div>
+</section>
+<!-- Dados do Cliente e CPF Card -->
+<section class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 flex items-center justify-between shadow-sm"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">person</span></div><div><span class="font-label-sm text-on-surface-variant uppercase tracking-wider block">DADOS DO CLIENTE</span><span class="font-title-sm text-title-sm text-primary font-semibold block">Cliente Visitante</span><span class="font-body-sm text-[12px] text-on-surface-variant flex items-center space-x-1 mt-0.5"><span class="material-symbols-outlined text-[14px] text-secondary">chat</span><span class="">WhatsApp: (12) 3456-7890</span></span></div></div><span class="bg-surface-container text-on-surface-variant text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center space-x-1"><span class="material-symbols-outlined text-[14px]">account_circle</span><span class="">Visitante</span></span></section>
+<section class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider block">CPF NA NOTA FISCAL</span>
+<span class="font-title-sm text-title-sm text-primary font-semibold">123.123.123-00</span>
+</div>
+</div>
+<span class="bg-secondary/10 text-secondary text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center space-x-1"><span class="material-symbols-outlined text-[14px]">check_circle</span><span class="">Vinculado</span></span>
+</section>
+<!-- Simulation Test Panel: Provider Responses -->
+<section class="border-t border-dashed border-outline-variant/60 pt-4 mt-6">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-outline font-bold tracking-wider uppercase">SIMULAR RESPOSTA DE PAGAMENTO</span>
+<span class="text-[11px] bg-surface-container px-2 py-0.5 rounded text-outline">Sandbox Acquirer</span>
+</div>
+<!-- Interactive Trigger Buttons -->
+<div class="grid grid-cols-2 gap-2 mb-3">
+<button class="h-10 bg-secondary/10 border border-secondary text-secondary hover:bg-secondary/20 rounded-lg font-label-sm font-bold flex items-center justify-center space-x-1 transition-all active:scale-95" onclick="simulateResponse('approved')" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">✓ Aprovado</span>
+</button>
+<button class="h-10 bg-error-container/40 border border-error text-error hover:bg-error-container/70 rounded-lg font-label-sm font-bold flex items-center justify-center space-x-1 transition-all active:scale-95" onclick="simulateResponse('rejected')" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span class="">✕ Recusado</span>
+</button>
+<button class="h-10 bg-amber-50 border border-amber-600 text-amber-800 hover:bg-amber-100 rounded-lg font-label-sm font-bold flex items-center justify-center space-x-1 transition-all active:scale-95" onclick="simulateResponse('unauthorized')" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+<span class="">⊘ Não Autorizado</span>
+</button>
+<button class="h-10 bg-surface-container border border-outline text-on-surface-variant hover:bg-surface-variant rounded-lg font-label-sm font-bold flex items-center justify-center space-x-1 transition-all active:scale-95" onclick="simulateResponse('expired')" type="button">
+<span class="material-symbols-outlined text-[16px]">hourglass_disabled</span>
+<span class="">⊘ Chave Expirada</span>
+</button>
+</div>
+<!-- Dynamic Feedback Notification Containers -->
+<div class="space-y-2" id="feedbackContainer">
+<!-- Feedback 1: Aprovado -->
+<div class="hidden p-4 rounded-xl bg-secondary-container/40 border border-secondary text-on-secondary-container transition-all" id="boxApproved">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<div>
+<h4 class="font-title-sm text-title-sm text-secondary font-bold">Pagamento Aprovado!</h4>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Transação confirmada com sucesso pela instituição bancária. Seu gelato artesanal já está em preparo!</p>
+<button class="mt-3 w-full py-2.5 bg-secondary text-on-secondary rounded-lg font-label-md flex items-center justify-center space-x-1 hover:bg-secondary/90 transition-all" type="button">
+<span class="">Ir para Acompanhamento do Pedido</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Feedback 2: Recusado -->
+<div class="hidden p-4 rounded-xl bg-error-container/40 border border-error text-on-error-container transition-all" id="boxRejected">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-error text-[24px]">gpp_bad</span>
+<div class="flex-1">
+<h4 class="font-title-sm text-title-sm text-error font-bold">PAGAMENTO RECUSADO</h4>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Transação não concluída pelo banco emissor. Avalie e tente de novo.</p>
+<button class="mt-3 px-4 py-2 bg-error text-on-error rounded-lg font-label-sm font-bold flex items-center space-x-1 hover:opacity-90 transition-all" onclick="resetSimulation()" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span class="">Tentar Novamente</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Feedback 3: Não Autorizado -->
+<div class="hidden p-4 rounded-xl bg-amber-50 border border-amber-600 text-amber-900 transition-all" id="boxUnauthorized">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-amber-700 text-[24px]">warning</span>
+<div>
+<h4 class="font-title-sm text-title-sm text-amber-800 font-bold">PAGAMENTO NÃO AUTORIZADO</h4>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Limite diário excedido ou bloqueio preventivo. Verifique com seu banco ou instituição financeira.</p>
+</div>
+</div>
+</div>
+<!-- Feedback 4: Erro de Leitura / Chave Expirada -->
+<div class="hidden p-4 rounded-xl bg-surface-container border border-outline text-on-surface transition-all" id="boxExpired">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-outline text-[24px]">history_toggle_off</span>
+<div class="flex-1">
+<h4 class="font-title-sm text-title-sm text-primary font-bold">ERRO DE LEITURA / CHAVE EXPIRADA</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">O tempo de validação de 3 minutos esgotou. Gere uma nova chave para prosseguir.</p>
+<button class="mt-3 px-4 py-2 bg-primary-container text-surface-bright rounded-lg font-label-sm font-bold flex items-center space-x-1 hover:opacity-90 transition-all" onclick="resetTimer()" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span class="">Gerar Nova Chave PIX</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Guarantee Footer Note -->
+<div class="pt-2 text-center">
+<p class="font-label-sm text-[11px] text-outline flex items-center justify-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="">Ambiente 100% Criptografado • Arducci Gelateria &amp; Açaiteria</span>
+</p>
+</div>
+</div>
+<!-- Fixed Bottom Action Bar & Navigation Shell -->
+<div class="fixed bottom-0 max-w-[430px] w-full bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/40 shadow-lg z-50">
+<!-- Primary Verification CTA -->
+<div class="px-5 pt-3 pb-2">
+<button class="w-full h-[52px] bg-secondary hover:bg-secondary/90 active:scale-[0.98] transition-all rounded-xl text-on-secondary font-label-md flex items-center justify-center space-x-2 shadow-md" id="btnVerifyPayment" onclick="simulateResponse('approved')" type="button">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+<span class="font-bold">Já fiz o PIX • Verificar Pagamento</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (BottomNavBar Anchor - 4 Top Tabs Neutral) -->
+<nav class="flex justify-around items-center px-2 pt-1 pb-4 bg-surface-container-lowest">
+<!-- Início -->
+<a aria-label="Início" class="flex flex-col items-center justify-center text-outline hover:text-secondary transition-colors p-1" href="#">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Início</span>
+</a>
+<!-- Carrinho (with badge 3) -->
+<a aria-label="Sacola" class="flex flex-col items-center justify-center text-outline hover:text-secondary transition-colors p-1 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="absolute -top-1 -right-2 text-on-secondary rounded-full text-[9px] font-bold w-3.5 h-3.5 flex items-center justify-center bg-error">3</span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Sacola</span>
+</a>
+<!-- Pedidos -->
+<a aria-label="Pedidos" class="flex flex-col items-center justify-center text-outline hover:text-secondary transition-colors p-1" href="#">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-0.5">Pedidos</span>
+</a>
+<!-- Perfil -->
+<a aria-label="Perfil" class="flex flex-col items-center justify-center text-outline hover:text-secondary transition-colors p-1 opacity-40 pointer-events-none" href="#" title="Perfil indisponível para visitantes. Faça login para acessar.">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Perfil</span>
+</a>
+</nav>
+</div>
+<!-- Toast Notification for Copy Action -->
+<aside aria-live="polite" class="fixed top-14 left-1/2 -translate-x-1/2 bg-primary-container text-surface-bright px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 opacity-0 pointer-events-none transition-all duration-300 z-50 border border-outline-variant/40" id="copyToast" role="status">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<span class="font-label-md text-label-md">Código PIX copiado com sucesso!</span>
+</aside>
+</main>
+<!-- Interactive Logic Scripts -->
+<script>
+    // Ensure scroll starts strictly at the top with no auto-scrolling
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    const scrollContainer = document.getElementById('mainScrollContent');
+    if (scrollContainer) {
+      scrollContainer.scrollTop = 0;
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      window.scrollTo(0, 0);
+      if (scrollContainer) scrollContainer.scrollTop = 0;
+    });
+
+    // Timer Logic: 3 minutes countdown (180 seconds)
+    let timeLeft = 180;
+    const timerElement = document.getElementById('countdownTimer');
+    
+    function updateTimer() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+      } else {
+        simulateResponse('expired');
+      }
+    }
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    function resetTimer() {
+      timeLeft = 180;
+      updateTimer();
+      resetSimulation();
+      showToast("Nova chave PIX gerada!");
+    }
+
+    // Toggle QR Code Display
+    const btnToggleQR = document.getElementById('btnToggleQR');
+    const qrContainer = document.getElementById('qrCodeContainer');
+    const btnCollapseQR = document.getElementById('btnCollapseQR');
+    const qrToggleText = document.getElementById('qrToggleText');
+
+    function toggleQR() {
+      const isHidden = qrContainer.classList.contains('hidden');
+      if (isHidden) {
+        qrContainer.classList.remove('hidden');
+        qrToggleText.textContent = "Recolher QR Code";
+      } else {
+        qrContainer.classList.add('hidden');
+        qrToggleText.textContent = "Escanear QR Code para Terceiros";
+      }
+    }
+
+    btnToggleQR.addEventListener('click', toggleQR);
+    btnCollapseQR.addEventListener('click', toggleQR);
+
+    // Copy PIX Action with Toast
+    const btnCopyPix = document.getElementById('btnCopyPix');
+    const quickCopyBtn = document.getElementById('quickCopyBtn');
+    const copyToast = document.getElementById('copyToast');
+
+    function showToast(message) {
+      if (message) {
+        copyToast.querySelector('span:last-child').textContent = message;
+      }
+      copyToast.classList.remove('opacity-0', 'pointer-events-none');
+      copyToast.classList.add('opacity-100');
+      setTimeout(() => {
+        copyToast.classList.add('opacity-0', 'pointer-events-none');
+        copyToast.classList.remove('opacity-100');
+      }, 2500);
+    }
+
+    function triggerCopy() {
+      const pixString = "00020101226870014br.gov.bcb.pix0136arducci-gelateria-a719c28e9f280208BR.GOV.BCB.PIX520400005303986540564.605802BR5925ARDUCCI GELATERIA SA6009SAO PAULO62070503***6304E85B";
+      navigator.clipboard ? navigator.clipboard.writeText(pixString) : null;
+      showToast("Código PIX copiado!");
+      
+      const copyBtnText = document.getElementById('copyButtonText');
+      copyBtnText.textContent = "Código Copiado! Cole no seu banco";
+      setTimeout(() => {
+        copyBtnText.textContent = "Copiar Código Pix Copia e Cola";
+      }, 3000);
+    }
+
+    btnCopyPix.addEventListener('click', triggerCopy);
+    quickCopyBtn.addEventListener('click', triggerCopy);
+
+    // Simulation Engine for Acquirer Status (Strictly without any scrollIntoView or auto-scrolling)
+    const responseBoxes = {
+      approved: document.getElementById('boxApproved'),
+      rejected: document.getElementById('boxRejected'),
+      unauthorized: document.getElementById('boxUnauthorized'),
+      expired: document.getElementById('boxExpired')
+    };
+
+    function resetSimulation() {
+      Object.values(responseBoxes).forEach(box => {
+        if (box) box.classList.add('hidden');
+      });
+    }
+
+    function simulateResponse(type) {
+      resetSimulation();
+      if (responseBoxes[type]) {
+        responseBoxes[type].classList.remove('hidden');
+      }
+    }
+  </script>
+<script>window.SCREEN_ID=20;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="native-payment.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

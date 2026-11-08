@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Arducci Gelateria</title>
+<!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="styles/screen-6.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container min-h-screen flex flex-col justify-between" data-mode="connect">
+<!-- Mobile Container Wrapper (Centered for desktop preview while preserving pure mobile app feel) -->
+<div class="w-full max-w-md mx-auto min-h-screen bg-surface flex flex-col shadow-sm relative pb-28">
+<!-- Status Bar Safe Space Indicator -->
+<div class="w-full pt-3 px-6 flex justify-between items-center text-xs font-semibold text-primary/70">
+<span class="tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON specifications) -->
+<header class="flex justify-between items-center w-full px-5 py-3.5 bg-surface border-b border-outline-variant/30 transition-colors">
+<!-- Leading: Avatar + User Welcome Info -->
+<div class="flex items-center space-x-3">
+<div class="relative">
+<div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-secondary to-primary-container shadow-xs">
+<img alt="Foto de perfil do cliente Lucas" class="w-full h-full rounded-full object-cover" data-alt="A refined close-up portrait of Lucas, a friendly and stylish Brazilian customer with neatly styled dark hair and a warm authentic smile, bathed in warm natural Italian café lighting, matching the artisanal and cozy Arducci Gelateria aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPoBX1yDWK4K0Y4PJ6NxxY56o77SxwWASVMeh9gesT4wXnHCZetaDVC1FnJfAPkDQXImsW7w7FiEALzzo8zA5LLgFlEMQ0sQD948lfuZ0P9syXGT92QWNlL2eXja_42CE2TT00_v-Vms_eOaHK8dspb40EY5I9xMt_uqwiacBhm607xM_x6qAdkMPJuNZhyYBtucHQ-ZlzIAZLEqPxmkgMT7UrLsYPHxC5DMelGO4lBJw1eJzUHNh-Kw">
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold">BEM VINDO!</span>
+<h2 class="font-title-sm text-title-sm text-primary tracking-tight font-bold">Cliente</h2>
+</div>
+</div>
+<!-- Trailing: Cart Quick Action with Badge -->
+<div class="flex items-center space-x-2"><a aria-label="Sacola de compras" class="p-2.5 rounded-full bg-surface-container-lowest text-primary border border-outline-variant/40 shadow-sm active:scale-95 transition-transform duration-150 hover:bg-surface-container flex items-center justify-center" href="#carrinho"><span class="material-symbols-outlined text-2xl text-primary" data-icon="shopping_bag">shopping_bag</span></a><button aria-label="Sair da conta" class="p-2.5 rounded-full bg-surface-container-lowest text-outline border border-outline-variant/40 shadow-sm active:scale-95 transition-transform duration-150 hover:bg-surface-container hover:text-error flex items-center justify-center cursor-pointer" type="button"><span class="material-symbols-outlined text-2xl" data-icon="logout">logout</span></button></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-5 pt-5 pb-6 flex-1 flex flex-col">
+<!-- Editorial Intro / Promotional Greeting Section -->
+<section class="mb-6 mt-1">
+<div class="flex items-center space-x-2 mb-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Cardápio Digital</span>
+</div>
+<h1 class="font-headline-xl text-2xl text-primary tracking-tight font-bold mb-1.5">
+    Explore nosso Cardápio
+  </h1>
+<p class="font-body-md text-sm text-on-surface-variant max-w-[320px]">
+    Gelatos artesanais, açaí puro e sobremesas. Seu pedido de forma rápida e fácil.
+  </p>
+</section>
+<!-- Quick Delivery Mode / Info Pill -->
+<!-- Categories Catalog 2-Column Bento Grid -->
+<section aria-label="Catálogo de Categorias" class="grid grid-cols-2 gap-3.5">
+<!-- 1. Gelatos Self Service -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="icecream">icecream</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">&nbsp;Self Service
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              como funciona</p>
+</div>
+</article>
+<!-- 2. Açaíteria -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="palette">palette</span>
+</div>
+<div class="">
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Açaíteria
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">tigela ou barca</p>
+</div>
+</article>
+<!-- 3. Cascão & Casquinha -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="icecream">icecream</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Cascão &amp; Casquinha
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              1 ou 2 sabores</p>
+</div>
+</article>
+<!-- 4. Picolés -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="icecream">icecream</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Picolés
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Saborosos e práticos
+            </p>
+</div>
+</article>
+<!-- 5. Paletas -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Paletas
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Recheadas de verdade
+            </p>
+</div>
+</article>
+<!-- 6. Potes p/ Viagem -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Potes p/ Viagem
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Sabor para levar
+            </p>
+</div>
+</article>
+<!-- 7. Petit Gateau -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="cake">cake</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Petit Gateau
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Doces finos e artesanais
+            </p>
+</div>
+</article>
+<!-- 8. Banana Split -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="nutrition">nutrition</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Banana Split
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Clássico com muito sabor
+            </p>
+</div>
+</article>
+<!-- 9. Milk Shake -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="local_cafe">local_cafe</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Milk Shake
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Cremosos e irresistíveis
+            </p>
+</div>
+</article>
+<!-- 10. Bebidas -->
+<article class="bg-surface-container-lowest p-4 rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:border-outline-variant hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-3.5 group-hover:bg-primary-container group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="local_bar">local_bar</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Bebidas
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Refrescos e drinks
+            </p>
+</div>
+</article>
+</section>
+<!-- Artisanal Quality Note / Banner -->
+<section class="mt-6 mb-2 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Produção diária sem conservantes, com ingredientes italianos certificados e frutas frescas selecionadas.
+        </p>
+</section>
+</main>
+<!-- BottomNavBar Component (JSON Anchor: destination_count: 5, Active: Início) -->
+<nav aria-label="Navegação Principal" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2.5 pb-6 bg-surface-container-lowest border-t border-outline-variant/40 shadow-sm max-w-md mx-auto right-0">
+<!-- Item 1: Início (ACTIVE ITEM based on primary screen intent) -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold active:scale-95 transition-transform duration-150" href="#inicio">
+<span class="material-symbols-outlined text-2xl fill-icon" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Início</span>
+</a>
+<!-- Item 2: Cardápio -->
+<!-- Item 3: Carrinho (With Counter Badge) -->
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary active:scale-95 transition-all duration-150 relative" href="#carrinho">
+<span class="relative">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+</span>
+<span class="font-label-sm text-label-sm mt-0.5">Sacola</span>
+</a>
+<!-- Item 4: Pedidos -->
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary active:scale-95 transition-all duration-150" href="#pedidos">
+<span class="material-symbols-outlined text-2xl" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-0.5">Pedidos</span>
+</a>
+<!-- Item 5: Perfil -->
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary active:scale-95 transition-all duration-150" href="#perfil">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Perfil</span>
+</a>
+</nav>
+</div>
+<script>
+    // Micro-interactions: Simple subtle click ripple and active category response
+    document.querySelectorAll('article').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('ring-2', 'ring-secondary/40');
+        setTimeout(() => {
+          card.classList.remove('ring-2', 'ring-secondary/40');
+        }, 300);
+      });
+    });
+  </script>
+<script>window.SCREEN_ID=6;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

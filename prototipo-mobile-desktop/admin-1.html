@@ -1,0 +1,1314 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panorama de Rotina — Arducci Gelateria &amp; Açaiteria</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="styles/admin-1.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d0c5af;
+      border-radius: 4px;
+    }
+    .nav-item-active {
+      background-color: #2e1f15 !important;
+      color: #d4af37 !important;
+      border-left: 2px solid #d4af37 !important;
+      font-weight: 600 !important;
+    }
+    .nav-item-active .nav-icon {
+      color: #d4af37 !important;
+    }
+    .nav-item-active .pulse-dot {
+      display: block !important;
+    }
+    .nav-item-inactive {
+      color: #c4b5a5 !important;
+      border-left: 2px solid transparent !important;
+      background-color: transparent !important;
+      font-weight: 500 !important;
+    }
+    .nav-item-inactive:hover {
+      color: #fff8f4 !important;
+      background-color: #2e1f15 !important;
+    }
+    .nav-item-inactive .nav-icon {
+      color: #a8998f !important;
+    }
+    .nav-item-inactive .pulse-dot {
+      display: none !important;
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-canvas-crema text-on-surface antialiased font-body-md text-body-md min-h-screen flex flex-col selection:bg-gold-light selection:text-cacao-deep">
+<!-- TOAST CONTAINER -->
+<div class="fixed top-4 right-6 z-[100] flex flex-col gap-2 pointer-events-none" id="toast-container"></div>
+<!-- MODAL DE CONFIRMAÇÃO DE ENCERRAMENTO DE SESSÃO -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-xs transition-opacity p-4" id="modal-logout-confirm" onclick="handleLogoutModalBackdropClick(event)">
+<div aria-labelledby="modal-logout-title" aria-modal="true" class="bg-[#fff8f4] text-[#24170d] rounded-2xl max-w-md w-full p-6 shadow-2xl border border-[#d4af37]/30 transform transition-all scale-100 animate-in fade-in zoom-in-95 duration-150" role="dialog">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+<span class="material-symbols-outlined text-2xl">logout</span>
+</div>
+<div>
+<h3 class="font-headline-sm font-bold text-lg text-[#24170d]" id="modal-logout-title">Encerrar Sessão?</h3>
+<p class="text-xs text-gray-500 font-data-tabular">SORVETEC PRO • Terminal Conectado</p>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-6 leading-relaxed">
+      Deseja realmente encerrar a sessão de trabalho atual? Quaisquer alterações não sincronizadas poderão ser salvas automaticamente antes do logout.
+    </p>
+<div class="flex items-center justify-end gap-3">
+<button class="px-4 py-2.5 rounded-lg border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer" onclick="closeLogoutModal()" type="button">
+        Cancelar
+      </button>
+<button class="px-4 py-2.5 rounded-lg bg-red-600 text-sm font-semibold text-white hover:bg-red-700 transition-colors shadow-sm flex items-center gap-1.5 cursor-pointer" onclick="confirmLogout()" type="button">
+<span class="material-symbols-outlined text-sm">check</span>
+        Confirmar Saída
+      </button>
+</div>
+</div>
+</div>
+<!-- SHELL ESQUERDA: SideNavBar -->
+<aside class="fixed top-0 left-0 h-full w-[260px] bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 select-none min-h-screen border-r border-[#2d221c] z-40 bottom-0" id="sidebar">
+  <!-- Cabeçalho Oficial SORVETEC PRO -->
+  <div class="p-5 border-b border-[#2d221c] flex items-center justify-between" id="sidebar-header-box">
+    <div class="flex items-center gap-3 min-w-0 flex-1 cursor-pointer" onclick="setActiveNav('dashboard', event)">
+      <div class="w-10 h-10 rounded-xl bg-[#d4af37] flex items-center justify-center text-[#18110e] shrink-0 shadow-sm transition-transform active:scale-95" title="SORVETEC PRO">
+        <span class="material-symbols-outlined text-[24px]">icecream</span>
+      </div>
+      <div class="flex flex-col min-w-0 brand-text-container sidebar-text">
+        <div class="flex items-center gap-1.5">
+          <span class="font-headline-sm text-headline-sm font-bold text-white tracking-wide">SORVETEC</span>
+          <span class="px-1.5 py-0.2 rounded bg-[#d4af37] text-[#18110e] font-label-sm text-[10px] font-bold tracking-wider">PRO</span>
+        </div>
+        <span class="font-label-sm text-[9.5px] text-[#a8998f] tracking-wider uppercase truncate">Dal 1984 • Arducci Gelato</span>
+      </div>
+    </div>
+    <button aria-label="Alternar menu lateral" class="p-1.5 rounded-lg text-[#a8998f] hover:text-white hover:bg-white/5 transition-colors focus:outline-none shrink-0 cursor-pointer" id="btn-toggle-sidebar" onclick="toggleSidebar();" title="Recolher / Expandir menu">
+      <span class="material-symbols-outlined text-[20px]" id="sidebar-toggle-icon">menu_open</span>
+    </button>
+  </div>
+
+  <!-- Navegação Oficial com 12 itens padronizados -->
+  <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scroll" id="sidebar-nav">
+    <!-- 1. Dashboard (Ativo) -->
+    <a class="nav-link flex items-center justify-between px-3 py-2 rounded-lg bg-[#2b1810] text-[#d4af37] font-semibold text-xs border-l-4 border-[#d4af37] shadow-sm whitespace-nowrap" data-nav="dashboard" href="javascript:void(0)" onclick="setActiveNav('dashboard', event)" title="Dashboard">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-xl text-[#d4af37] shrink-0">dashboard</span>
+        <span class="nav-text text-xs font-semibold truncate whitespace-nowrap sidebar-text">Dashboard</span>
+      </div>
+      <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.6)] sidebar-text pulse-dot"></span>
+    </a>
+
+    <!-- 2. Acompanhamento de Pedido -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="kds" href="javascript:void(0)" onclick="setActiveNav('kds', event)" title="Acompanhamento de Pedido">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">receipt_long</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Acompanhamento de Pedido</span>
+    </a>
+
+    <!-- 3. Caixa e PDV -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="caixa" href="javascript:void(0)" onclick="setActiveNav('caixa', event)" title="Caixa e PDV">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">point_of_sale</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Caixa e PDV</span>
+    </a>
+
+    <!-- 4. Clientes Arducci Club -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="clientes" href="javascript:void(0)" onclick="setActiveNav('clientes', event)" title="Clientes Arducci Club">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">groups</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Clientes Arducci Club</span>
+    </a>
+
+    <!-- 5. Estoque -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="estoque" href="javascript:void(0)" onclick="setActiveNav('estoque', event)" title="Estoque">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">inventory_2</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Estoque</span>
+    </a>
+
+    <!-- 6. Sabores de Gelato -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="sabores" href="javascript:void(0)" onclick="setActiveNav('sabores', event)" title="Sabores de Gelato">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">icecream</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Sabores de Gelato</span>
+    </a>
+
+    <!-- 7. Financeiro & DRE -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="financeiro" href="javascript:void(0)" onclick="setActiveNav('financeiro', event)" title="Financeiro &amp; DRE">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">account_balance_wallet</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Financeiro &amp; DRE</span>
+    </a>
+
+    <!-- 8. Funcionários & Ponto -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="funcionarios" href="javascript:void(0)" onclick="setActiveNav('funcionarios', event)" title="Funcionários &amp; Ponto">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">badge</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Funcionários &amp; Ponto</span>
+    </a>
+
+    <!-- 9. Mapa de Mesa -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="mapamesa" href="javascript:void(0)" onclick="setActiveNav('mapamesa', event)" title="Mapa de Mesa">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">table_restaurant</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Mapa de Mesa</span>
+    </a>
+
+    <!-- 10. Relatórios e BI -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="relatorios" href="javascript:void(0)" onclick="setActiveNav('relatorios', event)" title="Relatórios e BI">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">bar_chart</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Relatórios e BI</span>
+    </a>
+
+    <!-- 11. Painel de Controle -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="painel" href="javascript:void(0)" onclick="setActiveNav('painel', event)" title="Painel de Controle">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">tune</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Painel de Controle</span>
+    </a>
+
+    <!-- 12. Suporte Técnico -->
+    <a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" data-nav="suporte" href="javascript:void(0)" onclick="setActiveNav('suporte', event)" title="Suporte Técnico">
+      <span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] shrink-0 transition-colors">help</span>
+      <span class="nav-text text-xs font-medium truncate whitespace-nowrap sidebar-text">Suporte Técnico</span>
+    </a>
+  </nav>
+
+  <!-- Rodapé Oficial de Encerramento de Sessão -->
+  <div class="p-4 border-t border-[#2d221c]">
+    <button class="w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-rose-500 hover:text-rose-400 hover:bg-rose-500/10 font-label-md transition-colors duration-150 active:translate-x-0.5 font-semibold text-xs whitespace-nowrap cursor-pointer" id="btn-logout-sidebar" onclick="openLogoutModal()" title="Encerrar Sessão">
+      <span class="material-symbols-outlined text-rose-500 shrink-0 text-[20px]" data-icon="logout">logout</span>
+      <span class="truncate sidebar-text">Encerrar Sessão (Sair)</span>
+    </button>
+  </div>
+</aside>
+<!-- WRAPPER PRINCIPAL -->
+<div class="flex-1 flex flex-col min-w-0 transition-all duration-300 ml-[260px]" id="main-content-wrapper">
+<!-- CABEÇALHO GLOBAL: TopNavBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-16 px-6 w-full bg-surface-container-lowest border-b border-surface-crema-muted shadow-sm">
+<!-- LADO ESQUERDO: Status Oficial da Loja & Ação Rápida -->
+<div class="flex items-center gap-3">
+<!-- Badge de Status Dinâmico -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-xs transition-colors bg-surface-crema-subtle border-border-crema cursor-pointer" id="store-status-badge" onclick="toggleStoreStatus()" title="Clique para alternar o status da loja">
+<span class="w-2.5 h-2.5 rounded-full ring-2 animate-pulse bg-pistache-emerald ring-pistache-soft" id="store-status-dot"></span>
+<span class="font-label-md text-label-md font-bold text-cacao-deep" id="store-status-text">Loja aberta</span>
+</div>
+<!-- Botão Abrir/Fechar Loja -->
+<button class="px-3 py-1.5 text-xs font-semibold rounded bg-surface-container-lowest border border-border-crema hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep transition-all shadow-xs flex items-center gap-1.5 focus:outline-none cursor-pointer" id="btn-toggle-store" onclick="toggleStoreStatus()">
+<span class="material-symbols-outlined text-[16px] text-cherry-alert" id="store-action-icon">store</span>
+<span class="" id="store-action-text">Fechar loja</span>
+</button>
+</div>
+<!-- LADO DIREITO: Notificações, Configurações, Power e Perfil Matheus L. -->
+<div class="flex items-center gap-3.5">
+<!-- Dropdown Notificações Ancorado -->
+<div class="relative flex items-center">
+<button aria-label="Notificações" class="relative p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-toggle-notifications" onclick="toggleNotifications(event)" title="Notificações">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-cherry-alert text-white text-[10px] font-bold leading-none" id="notif-badge">2</span>
+</button>
+<!-- Painel Dropdown de Notificações -->
+<div class="absolute right-0 top-12 mt-2 w-80 sm:w-96 bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-xl py-0 z-50 divide-y divide-surface-crema-subtle animate-in fade-in zoom-in-95 duration-150 hidden" id="notifications-dropdown-menu">
+<div class="p-3.5 bg-surface-crema-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-cacao-deep">Notificações</span>
+<span class="px-1.5 py-0.2 rounded-full bg-cherry-soft text-cherry-alert text-[10px] font-bold" id="notif-counter-tag">2 novas</span>
+</div>
+<button class="font-label-sm text-[11px] text-gold-deep hover:text-cacao-deep hover:underline font-semibold focus:outline-none cursor-pointer" onclick="markAllNotificationsRead(event)">
+              Marcar todas como lidas
+            </button>
+</div>
+<div class="max-h-72 overflow-y-auto divide-y divide-surface-crema-subtle" id="notif-items-list">
+<!-- Item 1 -->
+<div class="p-3 hover:bg-surface-crema-subtle/70 transition-colors flex items-start gap-3 cursor-pointer" onclick="showToast('Abrindo ficha do Insumo: Pistache Bronte DOP', 'warning'); expandPanel('panel-purchases'); closeAllDropdowns();">
+<div class="p-1.5 rounded-md bg-cherry-soft text-cherry-ruby shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-xs font-bold text-cacao-deep leading-tight">Alerta de Insumo Crítico</p>
+<p class="font-body-sm text-[11px] text-tertiary mt-0.5 leading-snug">Pasta de Pistache Bronte DOP abaixo do estoque mínimo (1.2 kg restantes).</p>
+<span class="text-[10px] text-tertiary font-data-tabular mt-1 block">Há 6 min</span>
+</div>
+</div>
+<!-- Item 2 -->
+
+<!-- Item 3 -->
+<div class="p-3 hover:bg-surface-crema-subtle/70 transition-colors flex items-start gap-3 cursor-pointer" onclick="showToast('Verificando telemetria térmica da câmara...', 'info'); expandPanel('panel-freezers'); closeAllDropdowns();">
+<div class="p-1.5 rounded-md bg-surface-crema-muted text-gold-deep shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-xs font-bold text-cacao-deep leading-tight">Câmara de Maturação Estável</p>
+<p class="font-body-sm text-[11px] text-tertiary mt-0.5 leading-snug">Sensor A2 atingiu ciclo ótimo de -18.4°C sem oscilações térmicas.</p>
+<span class="text-[10px] text-tertiary font-data-tabular mt-1 block">Há 35 min</span>
+</div>
+</div>
+</div>
+<div class="p-2.5 text-center bg-surface-container-lowest">
+<button class="text-xs text-pistache-emerald hover:underline font-semibold cursor-pointer" onclick="expandPanel('panel-orders'); closeAllDropdowns();">Ver histórico de alertas</button>
+</div>
+</div>
+</div>
+<!-- Dropdown Configurações Rápidas Ancorado -->
+<div class="relative flex items-center">
+<button aria-label="Configurações rápidas" class="p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-colors focus:outline-none cursor-pointer" id="btn-toggle-settings" onclick="toggleSettings(event)" title="Configurações rápidas">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+<!-- Painel Dropdown de Configurações -->
+<div class="absolute right-0 top-12 mt-2 w-72 bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-xl py-0 z-50 divide-y divide-surface-crema-subtle animate-in fade-in zoom-in-95 duration-150 hidden" id="settings-dropdown-menu">
+<div class="p-3.5 bg-surface-crema-subtle">
+<p class="font-label-md text-label-md font-bold text-cacao-deep">Configurações do Terminal</p>
+<p class="font-body-sm text-[11px] text-tertiary">Preferências operacionais locais</p>
+</div>
+<div class="py-1">
+<button class="w-full flex items-center justify-between px-4 py-2.5 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left group cursor-pointer" onclick="showToast('Modo de exibição alternado', 'info')">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary group-hover:text-cacao-deep">contrast</span>
+<span class="">Modo Alto Contraste</span>
+</span>
+<span class="text-[10px] font-bold text-tertiary uppercase">Desat.</span>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-2.5 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left group cursor-pointer" onclick="showToast('Alertas sonoros ativados', 'success')">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary group-hover:text-cacao-deep">volume_up</span>
+<span class="">Sons e Alertas Sonoros</span>
+</span>
+<span class="text-[10px] font-bold text-pistache-emerald uppercase">Ativo</span>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-2.5 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left group cursor-pointer" onclick="showToast('Iniciando calibração dos sensores térmicos...', 'info')">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary group-hover:text-cacao-deep">tune</span>
+<span class="">Calibração de Sensores</span>
+</span>
+<span class="text-[10px] font-bold text-tertiary uppercase">Auto</span>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-2.5 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left group cursor-pointer" onclick="showToast('Preferências de rede e balança sincronizadas', 'success')">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary group-hover:text-cacao-deep">devices</span>
+<span class="">Preferências do Terminal</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">chevron_right</span>
+</button>
+</div>
+<div class="p-2.5 text-center bg-surface-crema-subtle/50">
+<span class="text-[11px] text-tertiary font-data-tabular">Terminal: TERM-PG-BALCAO-01</span>
+</div>
+</div>
+</div>
+<!-- Power / Desligar rápida -->
+<button class="p-2 rounded-lg text-cherry-alert hover:bg-cherry-soft transition-colors focus:outline-none cursor-pointer" onclick="openLogoutModal()" title="Encerrar Sessão">
+<span class="material-symbols-outlined text-[22px]">power_settings_new</span>
+</button>
+<div class="h-6 w-px bg-surface-crema-muted mx-0.5"></div>
+<!-- Bloco Usuário Conectado Matheus L. / adm MASTER -->
+<div class="relative flex items-center">
+<button class="flex items-center gap-2.5 p-1.5 pl-2 pr-3 rounded-lg hover:bg-surface-crema-subtle transition-all text-left focus:outline-none cursor-pointer" id="user-menu-button" onclick="toggleUserDropdown(event)">
+<div class="w-8 h-8 rounded-full bg-cacao-deep border border-gold-burnished flex items-center justify-center text-gold-light font-bold text-xs shadow-sm">ML</div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md text-cacao-deep font-bold leading-tight">adm MASTER</span>
+<span class="font-body-sm text-[11px] text-tertiary">Administrador Geral</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-tertiary transition-transform duration-200 ml-0.5" id="user-menu-chevron">expand_more</span>
+</button>
+<!-- Dropdown Menu do Usuário -->
+<div class="absolute right-0 top-12 mt-2 w-64 bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-md py-1.5 z-50 divide-y divide-surface-crema-subtle hidden" id="user-dropdown-menu">
+<div class="px-4 py-2.5 bg-surface-crema-subtle">
+<p class="font-label-md text-label-md font-bold text-cacao-deep">Matheus Lima</p>
+<p class="font-body-sm text-[11px] text-tertiary truncate">adm@arducci.com.br</p>
+<span class="inline-block mt-1 px-2 py-0.5 rounded bg-surface-container-lowest text-gold-deep text-[10px] font-bold border border-border-crema">Administrador Geral</span>
+</div>
+<div class="py-1">
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer" onclick="showToast('Painel de perfil do usuário em desenvolvimento', 'info'); closeAllDropdowns();">
+<span class="material-symbols-outlined text-[18px] text-tertiary">manage_accounts</span>
+<span class="">Editar meus dados</span>
+</button>
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cacao-deep hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer" onclick="showToast('Selecione o operador do turno...', 'info'); closeAllDropdowns();">
+<span class="material-symbols-outlined text-[18px] text-tertiary">switch_account</span>
+<span class="">Trocar de conta</span>
+</button>
+</div>
+<div class="py-1">
+<button class="w-full flex items-center gap-2.5 px-4 py-2 text-body-sm text-cherry-alert hover:bg-cherry-soft transition-colors text-left font-semibold cursor-pointer" onclick="closeAllDropdowns(); openLogoutModal();">
+<span class="material-symbols-outlined text-[18px] text-cherry-alert">logout</span>
+<span class="">Sair do sistema</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ÁREA DE CONTEÚDO PRINCIPAL (Canvas Crema) -->
+<main class="flex-1 p-8 bg-canvas-crema space-y-8 overflow-y-auto pb-12">
+<!-- HEADER DA PÁGINA: Panorama de Rotina -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-cacao-deep font-bold tracking-tight">Panorama de Rotina</h1>
+<p class="font-body-md text-body-md text-tertiary mt-1">Acompanhamento das operações da loja e do estoque em tempo real.</p>
+</div>
+<div class="flex items-center gap-3">
+<!-- Card de Data -->
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-surface-crema-muted shadow-sm hover:border-gold-burnished transition-colors cursor-pointer" onclick="showToast('Calendário operacional de turnos', 'info')">
+<span class="material-symbols-outlined text-[18px] text-tertiary">calendar_today</span>
+<span class="font-label-md text-label-md text-cacao-deep font-semibold" id="current-date-text">Hoje: Quarta-feira, 24 de Outubro</span>
+</div>
+<!-- Status de Sincronização Clicável -->
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-surface-crema-muted shadow-sm hover:border-gold-burnished transition-all cursor-pointer group focus:outline-none" id="btn-sync-now" onclick="triggerSync()" title="Clique para sincronizar os dados agora">
+<span class="material-symbols-outlined text-[18px] text-pistache-emerald transition-transform" id="sync-icon">sync</span>
+<span class="font-data-tabular text-data-tabular text-tertiary group-hover:text-cacao-deep" id="sync-text">Sincronizado há 12s</span>
+</button>
+</div>
+</div>
+<!-- LINHA DE 5 CARTÕES DE INDICADORES (KPIs BENTO) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- KPI 1: CÂMARA FRIA -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-crema-muted shadow-sm flex flex-col justify-between hover:border-border-gold-subtle hover:shadow-md transition-all cursor-pointer group" onclick="expandPanel('panel-freezers')">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">CÂMARA FRIA</span>
+<span class="p-1.5 rounded-md bg-surface-crema-subtle text-cacao-deep group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
+</span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep">-18.4°C</span>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald font-label-sm text-label-sm font-bold">Estável</span>
+</div>
+<p class="font-body-sm text-[11px] text-cherry-alert font-semibold mt-1">2 cubas críticas: <span class="text-tertiary font-normal">Pistache vence em 48h.</span></p>
+</div>
+<div class="pt-2 border-t border-surface-crema-subtle flex items-center justify-between text-body-sm">
+<span class="text-tertiary font-data-tabular text-[11px]">Sensor A2 OK</span>
+<button class="font-label-md text-label-md text-pistache-emerald hover:underline font-semibold flex items-center gap-0.5 cursor-pointer" onclick="event.stopPropagation(); expandPanel('panel-freezers'); showToast('Visualizando telemetria da câmara fria e cubas', 'info');">
+            Inspecionar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- KPI 2: FILA DE PEDIDOS -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-crema-muted shadow-sm flex flex-col justify-between hover:border-border-gold-subtle hover:shadow-md transition-all cursor-pointer group" onclick="expandPanel('panel-orders')">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">FILA DE PEDIDOS</span>
+<span class="p-1.5 rounded-md bg-pistache-soft text-pistache-emerald group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep" id="kpi-orders-count">7</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-cacao-deep">Pedidos</span>
+<span class="font-body-sm text-tertiary text-xs">Em preparo</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary mt-1">4 Balcão. Médio: <strong class="text-cacao-deep font-data-tabular">6.2 min</strong>.</p>
+</div>
+<div class="pt-2 border-t border-surface-crema-subtle flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-1.5 font-label-sm text-label-sm text-pistache-emerald font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-pistache-emerald"></span> Fluxo Ágil
+          </span>
+<button class="font-label-md text-label-md text-cacao-deep hover:underline font-semibold flex items-center gap-0.5 cursor-pointer" onclick="event.stopPropagation(); expandPanel('panel-orders'); showToast('Carregando fila ao vivo do balcão e salão', 'info');">
+            Ver Fila <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- KPI 3: ALERTAS DE REPOSIÇÃO -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-crema-muted shadow-sm flex flex-col justify-between hover:border-border-gold-subtle hover:shadow-md transition-all cursor-pointer group" onclick="expandPanel('panel-purchases')">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">ALERTA REPOSIÇÃO</span>
+<span class="p-1.5 rounded-md bg-cherry-soft text-cherry-ruby group-hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cherry-alert">2</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-cherry-alert">Insumos</span>
+<span class="font-label-sm text-[10px] text-cherry-alert font-bold bg-cherry-soft px-1.5 py-0.5 rounded">Críticos</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary mt-1 truncate" title="Pistache Bronte DOP (1.2kg) e Copos 300ml">Pistache Bronte DOP &amp; Copos 300ml abaixo margem.</p>
+</div>
+<div class="pt-2 border-t border-surface-crema-subtle flex items-center justify-between text-body-sm">
+<span class="text-cherry-alert font-label-sm text-[10px] font-bold">Reposição Urgente</span>
+<button class="font-label-md text-label-md text-cherry-ruby hover:underline font-bold flex items-center gap-0.5 cursor-pointer" onclick="event.stopPropagation(); expandPanel('panel-purchases'); showToast('Abrindo ordem de compra dos insumos críticos', 'warning');">
+            Pedir Compra <span class="material-symbols-outlined text-[14px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- KPI 4: FATURAMENTO HOJE -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-crema-muted shadow-sm flex flex-col justify-between hover:border-border-gold-subtle hover:shadow-md transition-all cursor-pointer group" onclick="showToast('Relatório de fechamento financeiro do dia', 'info')">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">FATURAMENTO HOJE</span>
+<span class="p-1.5 rounded-md bg-pistache-soft text-pistache-emerald group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md font-bold text-tertiary">R$</span>
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep">8.420</span>
+<span class="px-1.5 py-0.5 rounded bg-pistache-soft text-pistache-emerald font-data-tabular text-[11px] font-bold">+14% meta</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary mt-1">82 transações (54% PIX / 46% Cartões TEF).</p>
+</div>
+<div class="pt-2 border-t border-surface-crema-subtle flex items-center justify-between text-body-sm">
+<span class="text-tertiary font-data-tabular text-[11px]">Ticket: R$ 102,68</span>
+<button class="font-label-sm text-[11px] text-pistache-emerald hover:underline font-bold cursor-pointer" onclick="event.stopPropagation(); showToast('Simulando fechamento parcial do caixa...', 'success');">Fechamento</button>
+</div>
+</div>
+<!-- KPI 5: ARDUCCI CLUB -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-surface-crema-muted shadow-sm flex flex-col justify-between hover:border-border-gold-subtle hover:shadow-md transition-all cursor-pointer group" onclick="showToast('Carregando base de clientes Arducci Club...', 'info')">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">ARDUCCI CLUB</span>
+<span class="p-1.5 rounded-md bg-surface-crema-subtle text-gold-deep group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">loyalty</span>
+</span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-cacao-deep">+28</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-cacao-deep">Novos</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-crema-subtle text-pistache-emerald font-label-sm text-[10px] font-bold">Cadastros</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary mt-1">19 resgates de cascão gourmet no balcão.</p>
+</div>
+<div class="pt-2 border-t border-surface-crema-subtle flex items-center justify-between text-body-sm">
+<span class="text-tertiary font-data-tabular text-[11px]">4.120 Fidelizados</span>
+<button class="font-label-md text-label-md text-gold-deep hover:underline font-semibold flex items-center gap-0.5 cursor-pointer" onclick="event.stopPropagation(); showToast('Acessando painel de fidelidade CRM', 'info');">
+            Ver CRM <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SEÇÃO CENTRAIS OPERACIONAIS & MONITORAMENTO -->
+<section class="space-y-4">
+<!-- Barra de Controles da Seção -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-surface-crema-muted">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-cacao-deep">Centrais Operacionais &amp; Monitoramento</h2>
+<p class="font-body-sm text-body-sm text-tertiary">Gerencie painéis dinâmicos: utilize os controles (+) e (-) para expandir ou contrair o foco de análise.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-lowest border border-border-crema hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md font-semibold transition-all cursor-pointer shadow-xs active:scale-95" onclick="expandAll()">
+<span class="material-symbols-outlined text-[18px]">unfold_more</span>
+            Expandir Todos
+          </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-lowest border border-border-crema hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md font-semibold transition-all cursor-pointer shadow-xs active:scale-95" onclick="collapseAll()">
+<span class="material-symbols-outlined text-[18px]">unfold_less</span>
+            Recolher Todos
+          </button>
+</div>
+</div>
+<!-- PAINEL 1: STATUS DE PEDIDOS EM TEMPO REAL -->
+<div class="bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-sm overflow-hidden transition-all duration-200" id="panel-orders">
+<!-- Accordion Header -->
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer focus:outline-none" onclick="toggleAccordion('panel-orders')">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-cacao-deep text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="font-title-md text-title-md font-bold text-cacao-deep">Status de Pedidos em Tempo Real</h3>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald font-label-sm text-label-sm font-bold" id="orders-active-tag">12 Ativos</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary">Balcão expresso e mesas do salão</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-crema-subtle flex items-center justify-center text-cacao-deep transition-transform duration-200 icon-toggle">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</div>
+</button>
+<!-- Accordion Content -->
+<div class="content-toggle p-5 border-t border-surface-crema-muted bg-canvas-crema space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 onsite-orders-grid" style="">
+<!-- Coluna 1: Em Preparo -->
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-crema-muted flex flex-col" id="col-preparo">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-subtle">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-gold-deep animate-pulse"></span>
+<span class="font-title-sm text-title-sm font-bold text-cacao-deep uppercase">Em Preparo (4)</span>
+</div>
+<span class="font-data-tabular text-body-sm text-tertiary">Fila Cozinha</span>
+</div>
+<div class="space-y-3 mt-3 flex-1">
+<!-- Pedido 1 -->
+<div class="p-3 rounded-lg bg-surface-crema-subtle border border-surface-crema-muted hover:border-gold-burnished transition-all">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-md text-label-md font-bold text-cacao-deep">#CMD-8492</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-[10px] font-bold text-pistache-emerald border border-border-crema">Balcão Expresso</span>
+</div>
+<p class="font-body-sm text-cacao-deep font-medium">2x Copa Média (Pistache Bronte + Fior di Latte)</p>
+<p class="font-body-sm text-xs text-tertiary mt-0.5">Cascão Tradicional c/ Calda Chocolate Quente</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-border-crema text-xs">
+<span class="text-tertiary font-data-tabular">Início: 14:38 (há 3 min)</span>
+<button class="px-2.5 py-1 bg-primary-container/30 hover:bg-primary-container text-on-primary-container font-semibold rounded text-xs transition-colors cursor-pointer" onclick="advanceOrderStatus('#CMD-8492', 'Pronto')">
+                      Montando →
+                    </button>
+</div>
+</div>
+<!-- Pedido 2 -->
+
+</div>
+</div>
+<!-- Coluna 2: Pronto p/ Retirada -->
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-crema-muted flex flex-col" id="col-pronto">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-subtle">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-pistache-emerald"></span>
+<span class="font-title-sm text-title-sm font-bold text-cacao-deep uppercase">Pronto p/ Retirada (5)</span>
+</div>
+<span class="font-data-tabular text-body-sm text-tertiary">Balcão Chamada</span>
+</div>
+<div class="space-y-3 mt-3 flex-1">
+<!-- Pedido Pronto 1 -->
+<div class="p-3 rounded-lg bg-pistache-soft border border-secondary-fixed-dim transition-all" id="order-card-8488">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-md text-label-md font-bold text-cacao-deep">#CMD-8488</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-[10px] font-bold text-cacao-deep border border-border-crema">Mesa 04 (Salão)</span>
+</div>
+<p class="font-body-sm text-cacao-deep font-medium">1x Taça Affogato al Caffè Speciale</p>
+<p class="font-body-sm text-xs text-tertiary mt-0.5">Gelato de Baunilha Madagascar + Ristretto</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-secondary-fixed text-xs">
+<span class="text-pistache-emerald font-semibold">Bipado no painel</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-[11px] font-bold transition-all active:scale-95 cursor-pointer shadow-xs" onclick="deliverOrder('order-card-8488', '#CMD-8488')">
+                      Entregue ✓
+                    </button>
+</div>
+</div>
+<!-- Pedido Pronto 2 -->
+<div class="p-3 rounded-lg bg-surface-crema-subtle border border-surface-crema-muted transition-all" id="order-card-8490">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-md text-label-md font-bold text-cacao-deep">#CMD-8490</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-[10px] font-bold text-pistache-emerald border border-border-crema">Balcão Senha 42</span>
+</div>
+<p class="font-body-sm text-cacao-deep font-medium">3x Casquinhas Simples (Pistache, Stracciatella, Manga)</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-border-crema text-xs">
+<span class="text-tertiary font-data-tabular">Aguardando cliente (1 min)</span>
+<button class="px-3 py-1 bg-pistache-emerald hover:bg-secondary text-white rounded text-[11px] font-bold transition-all active:scale-95 cursor-pointer shadow-xs" onclick="deliverOrder('order-card-8490', '#CMD-8490')">
+                      Pronto ✓
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Coluna 3: Despacho Delivery -->
+
+</div>
+<!-- Footer do Painel -->
+<div class="flex flex-col sm:flex-row items-center justify-between pt-3 border-t border-surface-crema-muted gap-3">
+<span class="font-body-sm text-xs text-tertiary">Integração PDV Balcão Touch e atendimento no salão conectada sem latência.</span>
+<button class="px-4 py-2 rounded-lg bg-cacao-deep hover:bg-cacao-surface text-surface-container-lowest font-label-md text-label-md font-semibold transition-all shadow-sm active:scale-95 flex items-center gap-2 cursor-pointer" onclick="openKdsModal()">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+              Abrir KDS de Cozinha &amp; Balcão
+            </button>
+</div>
+</div>
+</div>
+<!-- PAINEL 2: MAPA ESQUEMÁTICO DE FREEZERS (17 POZZETTI) -->
+<div class="bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-sm overflow-hidden transition-all duration-200" id="panel-freezers">
+<!-- Accordion Header -->
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer focus:outline-none" onclick="toggleAccordion('panel-freezers')">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-cacao-deep text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">ac_unit</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="font-title-md text-title-md font-bold text-cacao-deep">Mapa Esquemático de Freezers (17 Pozzetti)</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-crema-subtle text-tertiary font-label-sm text-label-sm font-bold border border-border-crema">Bancada Italiana 1984</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary">Monitoramento volumétrico das cubas, controle térmico de textura e níveis de consumo</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-crema-subtle flex items-center justify-center text-cacao-deep transition-transform duration-200 icon-toggle">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</button>
+<!-- Accordion Content -->
+<div class="content-toggle hidden p-5 border-t border-surface-crema-muted bg-canvas-crema space-y-5">
+<!-- Esquemático Bancada A -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm font-bold text-cacao-deep">Bancada A — Pozzetti Balcão Principal</span>
+<span class="font-data-tabular text-xs text-pistache-emerald font-bold bg-pistache-soft px-2 py-0.5 rounded">-13.2°C Médio</span>
+</div>
+<span class="font-body-sm text-xs text-tertiary">8 Cubas Ativas</span>
+</div>
+<!-- Grid de Cubas Circulares Pozzetti Interativas -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+<!-- Cuba 1 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-01: Pistache Bronte (85% - 4.2kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-01</span>
+<div class="w-12 h-12 rounded-full border-2 border-pistache-emerald flex items-center justify-center bg-pistache-soft mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-pistache-emerald">85%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Pistache Bronte">Pistache Bronte</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.4°C</span>
+</div>
+<!-- Cuba 2 (Crítico / Alerta) -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border-2 border-cherry-alert flex flex-col items-center text-center shadow-xs cursor-pointer hover:scale-105 transition-transform" onclick="showToast('PZ-02 CRÍTICO: Solicitando cuba reserva na câmara!', 'warning')">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="font-label-sm text-[10px] text-cherry-alert font-bold">PZ-02</span>
+<span class="material-symbols-outlined text-[14px] text-cherry-alert">warning</span>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-cherry-alert flex items-center justify-center bg-cherry-soft mb-2 animate-pulse">
+<span class="font-data-tabular text-xs font-bold text-cherry-alert">18%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cherry-alert truncate w-full" title="Pistache Bronte DOP">Pistache DOP</span>
+<span class="text-[10px] text-cherry-alert font-bold uppercase">Repor Já</span>
+</div>
+<!-- Cuba 3 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-03: Fior di Latte (62% - 3.1kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-03</span>
+<div class="w-12 h-12 rounded-full border-2 border-gold-burnished flex items-center justify-center bg-surface-crema-subtle mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-cacao-deep">62%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Fior di Latte">Fior di Latte</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.1°C</span>
+</div>
+<!-- Cuba 4 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-04: Stracciatella (78% - 3.9kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-04</span>
+<div class="w-12 h-12 rounded-full border-2 border-pistache-emerald flex items-center justify-center bg-pistache-soft mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-pistache-emerald">78%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Stracciatella">Stracciatella</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.5°C</span>
+</div>
+<!-- Cuba 5 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-05: Cioccolato 70% (45% - 2.2kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-05</span>
+<div class="w-12 h-12 rounded-full border-2 border-gold-burnished flex items-center justify-center bg-surface-crema-subtle mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-cacao-deep">45%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Cioccolato 70%">Cioccolato 70%</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.0°C</span>
+</div>
+<!-- Cuba 6 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-06: Açaí Orgânico Puro (90% - 4.5kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-06</span>
+<div class="w-12 h-12 rounded-full border-2 border-pistache-emerald flex items-center justify-center bg-pistache-soft mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-pistache-emerald">90%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Açaí Orgânico Puro">Açaí Puro</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-12.8°C</span>
+</div>
+<!-- Cuba 7 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-07: Doce de Leite c/ Flor de Sal (55% - 2.7kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-07</span>
+<div class="w-12 h-12 rounded-full border-2 border-gold-burnished flex items-center justify-center bg-surface-crema-subtle mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-cacao-deep">55%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Doce de Leite c/ Flor de Sal">Doce de Leite</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.3°C</span>
+</div>
+<!-- Cuba 8 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished hover:shadow-sm transition-all flex flex-col items-center text-center cursor-pointer group" onclick="showToast('PZ-08: Maracujá &amp; Manga (70% - 3.5kg)', 'info')">
+<span class="font-label-sm text-[10px] text-tertiary font-bold mb-1">PZ-08</span>
+<div class="w-12 h-12 rounded-full border-2 border-pistache-emerald flex items-center justify-center bg-pistache-soft mb-2 group-hover:scale-105 transition-transform">
+<span class="font-data-tabular text-xs font-bold text-pistache-emerald">70%</span>
+</div>
+<span class="font-label-md text-xs font-bold text-cacao-deep truncate w-full" title="Maracujá &amp; Manga">Maracujá/Manga</span>
+<span class="text-[10px] text-tertiary font-data-tabular">-13.6°C</span>
+</div>
+</div>
+</div>
+<!-- Resumo Bancada B e Câmara -->
+<div class="p-4 rounded-lg bg-surface-crema-subtle border border-surface-crema-muted flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex flex-col sm:flex-row sm:items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-pistache-emerald"></span>
+<span class="font-label-md text-label-md text-cacao-deep font-bold">Bancada B (9 Pozzetti Reserva):</span>
+<span class="font-data-tabular text-xs text-tertiary">Todas as cubas acima de 60% • -13.8°C</span>
+</div>
+<div class="hidden md:block h-4 w-px bg-surface-crema-muted"></div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-cherry-ruby"></span>
+<span class="font-label-md text-label-md text-cacao-deep font-bold">Câmara de Maturação:</span>
+<span class="font-data-tabular text-xs text-cherry-alert font-semibold">Lote Pistache vence em 48h</span>
+</div>
+</div>
+<button class="font-label-md text-label-md text-gold-deep hover:underline font-bold flex items-center gap-1 cursor-pointer" onclick="showToast('Acessando matriz volumétrica de todos os 17 pozzetti...', 'info')">
+              Gerenciar Matriz de Pozzetti <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- PAINEL 3: LISTA DE COMPRAS & REPOSIÇÃO DE INSUMOS -->
+<div class="bg-surface-container-lowest rounded-lg border border-surface-crema-muted shadow-sm overflow-hidden transition-all duration-200" id="panel-purchases">
+<!-- Accordion Header -->
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-crema-subtle transition-colors text-left cursor-pointer focus:outline-none" onclick="toggleAccordion('panel-purchases')">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-cacao-deep text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">shopping_cart</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="font-title-md text-title-md font-bold text-cacao-deep">Lista de Compras &amp; Reposição de Insumos</h3>
+<span class="px-2 py-0.5 rounded-full bg-cherry-soft text-cherry-alert font-label-sm text-label-sm font-bold" id="purchases-badge">2 Urgências</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary">Disparos de ordens de compra para fornecedores homologados Arducci</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-crema-subtle flex items-center justify-center text-cacao-deep transition-transform duration-200 icon-toggle">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</button>
+<!-- Accordion Content -->
+<div class="content-toggle hidden p-5 border-t border-surface-crema-muted bg-canvas-crema space-y-4">
+<div class="overflow-x-auto rounded-lg border border-surface-crema-muted bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-crema-subtle border-b border-border-gold-subtle text-cacao-deep font-label-sm text-label-sm uppercase">
+<th class="py-3 px-4">Insumo Homologado</th>
+<th class="py-3 px-4">Fornecedor</th>
+<th class="py-3 px-4">Estoque Atual</th>
+<th class="py-3 px-4">Ponto Pedido</th>
+<th class="py-3 px-4">Status</th>
+<th class="py-3 px-4 text-right">Ação Direta</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-crema-muted font-body-sm text-body-sm">
+<!-- Linha 1: Pistache -->
+<tr class="hover:bg-surface-crema-subtle transition-colors" id="row-oc-pistache">
+<td class="py-3.5 px-4 font-semibold text-cacao-deep flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cherry-alert"></span>
+                    Pasta Pura de Pistache Sicilia Bronte DOP (Balde 5kg)
+                  </td>
+<td class="py-3.5 px-4 text-tertiary">Importadora Agrimontana Brasil</td>
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cherry-alert">1.2 kg</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary">5.0 kg</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-cherry-soft text-cherry-alert font-label-sm text-[10px] font-bold">Crítico (Abaixo Min.)</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded bg-cherry-alert hover:bg-cherry-ruby text-white font-label-md text-label-md font-semibold transition-all active:scale-95 shadow-xs cursor-pointer" onclick="emitirOC('row-oc-pistache', 'Importadora Agrimontana (Balde 5kg)')">
+                      Emitir O.C. (Balde 5kg)
+                    </button>
+</td>
+</tr>
+<!-- Linha 2: Copos -->
+<tr class="hover:bg-surface-crema-subtle transition-colors" id="row-oc-copos">
+<td class="py-3.5 px-4 font-semibold text-cacao-deep flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cherry-alert"></span>
+                    Copos Biodegradáveis Térmicos 300ml Arducci (Cx 1000un)
+                  </td>
+<td class="py-3.5 px-4 text-tertiary">EcoPack Embalagens Sustentáveis</td>
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cherry-alert">180 un</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary">1.000 un</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-cherry-soft text-cherry-alert font-label-sm text-[10px] font-bold">Risco de Ruptura</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded bg-cherry-alert hover:bg-cherry-ruby text-white font-label-md text-label-md font-semibold transition-all active:scale-95 shadow-xs cursor-pointer" onclick="emitirOC('row-oc-copos', 'EcoPack Embalagens (2 Caixas)')">
+                      Emitir O.C. (2 Cx)
+                    </button>
+</td>
+</tr>
+<!-- Linha 3: Base Leite A -->
+<tr class="hover:bg-surface-crema-subtle transition-colors" id="row-oc-leite">
+<td class="py-3.5 px-4 font-semibold text-cacao-deep flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-gold-deep"></span>
+                    Leite Pasteurizado Tipo A Fazenda da Barra (50L)
+                  </td>
+<td class="py-3.5 px-4 text-tertiary">Laticínio Santa Maria Ltda</td>
+<td class="py-3.5 px-4 font-data-tabular font-bold text-cacao-deep">25 Litros</td>
+<td class="py-3.5 px-4 font-data-tabular text-tertiary">30 Litros</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-crema-subtle text-gold-deep font-label-sm text-[10px] font-bold">Atenção Rotina</span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest border border-border-crema hover:border-gold-burnished hover:bg-surface-crema-subtle text-cacao-deep font-label-md text-label-md font-semibold transition-all active:scale-95 cursor-pointer" onclick="emitirOC('row-oc-leite', 'Laticínio Santa Maria (50 Litros)')">
+                      Requisitar Fornecedor
+                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Tabela -->
+<div class="flex items-center justify-between text-xs text-tertiary pt-2">
+<span class="">Sugestão de compra calculada com base na média dos últimos 7 dias de vendas.</span>
+<button class="font-label-md text-label-md text-cacao-deep hover:underline font-bold cursor-pointer" onclick="showToast('Redirecionando para o Módulo de Suprimentos &amp; Compras...', 'info')">Ver Módulo de Compras Completo →</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER GLOBAL -->
+<footer id="global-footer" class="fixed bottom-0 right-0 left-64 z-30 flex items-center justify-between h-9 px-6 bg-surface-container-low dark:bg-nero-rich text-on-surface-variant dark:text-outline-variant font-data-tabular text-body-sm border-t border-surface-crema-muted select-none transition-all duration-300" style="left: 260px;">
+<!-- Status & Latência -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald" id="footer-pulse-dot"></span>
+<span class="font-semibold text-cacao-deep">Terminal: TERM-PG-BALCAO-01</span>
+</div>
+<span class="text-tertiary">•</span>
+<span class="text-tertiary" id="footer-sync-msg">Sincronização em Nuvem OK (Latência: 24ms)</span>
+</div>
+<!-- Copyright e Versão -->
+<div class="flex items-center gap-4 text-tertiary">
+<span class="">© 2024 Arducci Gelateria &amp; Açaiteria · Praia Grande / SP</span>
+<span class="text-tertiary">•</span>
+<span class="font-semibold text-cacao-deep">v2.4.2 (Build 12/03/2025)</span>
+<span class="px-1.5 py-0.5 rounded bg-pistache-soft text-pistache-emerald text-[10px] font-bold">Conectado à Nuvem</span>
+</div>
+</footer>
+</div>
+<!-- MODAL KDS EXPANDIDO (COZINHA & BALCÃO) -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-xs p-4" id="modal-kds" onclick="handleKdsModalBackdrop(event)">
+<div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-gold-burnished animate-in fade-in zoom-in-95 duration-150 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-surface-crema-muted pb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-cacao-deep text-gold-light flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">kitchen</span>
+</div>
+<div>
+<h3 class="font-headline-sm font-bold text-cacao-deep">KDS Cozinha &amp; Balcão — Visão Geral</h3>
+<p class="text-xs text-tertiary">Operação em tempo real com expedição e bipagem de pedidos</p>
+</div>
+</div>
+<button class="p-1 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle cursor-pointer" onclick="closeKdsModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-4 rounded-lg bg-surface-crema-subtle border border-border-crema text-sm text-cacao-deep space-y-2">
+<p class=""><strong>Linha 1 (Gelatos):</strong> 4 comandas ativas em montagem contínua.</p>
+<p class=""><strong>Linha 2 (Açaí &amp; Taças):</strong> 3 despachos na bancada refrigerada.</p>
+<p class=""><strong>Tempo médio de atendimento:</strong> 6.2 minutos por comanda.</p>
+</div>
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-4 py-2 rounded-lg border border-border-crema text-sm font-semibold text-cacao-deep hover:bg-surface-crema-subtle cursor-pointer" onclick="closeKdsModal()">Fechar</button>
+<button class="px-4 py-2 rounded-lg bg-pistache-emerald text-white text-sm font-semibold hover:bg-secondary cursor-pointer shadow-sm" onclick="showToast('Sincronizado com os monitores da cozinha!', 'success'); closeKdsModal();">Sincronizar Telas</button>
+</div>
+</div>
+</div>
+<!-- JAVASCRIPT NATIVO: COMPORTAMENTOS 100% FUNCIONAIS E COMPLETOS -->
+<script>
+  // 1. Sidebar Toggle (260px <-> 80px)
+  let isSidebarCollapsed = false;
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainWrapper = document.getElementById('main-content-wrapper');
+    const toggleIcon = document.getElementById('sidebar-toggle-icon');
+    const textElements = sidebar.querySelectorAll('.sidebar-text');
+    const navLinks = sidebar.querySelectorAll('.nav-item');
+
+    isSidebarCollapsed = !isSidebarCollapsed;
+
+    if (isSidebarCollapsed) {
+      // Recolher para 80px
+      sidebar.style.width = '80px';
+      mainWrapper.style.marginLeft = '80px';
+      toggleIcon.textContent = 'menu';
+      toggleIcon.title = 'Expandir menu';
+
+      textElements.forEach(el => el.classList.add('hidden'));
+      navLinks.forEach(link => {
+        link.classList.add('justify-center', 'px-2');
+      });
+    } else {
+      // Expandir para 260px
+      sidebar.style.width = '260px';
+      mainWrapper.style.marginLeft = '260px';
+      toggleIcon.textContent = 'menu_open';
+      toggleIcon.title = 'Recolher menu';
+
+      textElements.forEach(el => el.classList.remove('hidden'));
+      navLinks.forEach(link => {
+        link.classList.remove('justify-center', 'px-2');
+      });
+    }
+  }
+
+  // 2. Navegação Lateral - Troca de Item Ativo
+  function setActiveNav(navKey, event) {
+    if (event) {
+      event.preventDefault();
+    }
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      const isTarget = item.getAttribute('data-nav') === navKey;
+      if (isTarget) {
+        item.classList.remove('nav-item-inactive');
+        item.classList.add('nav-item-active');
+        const dot = item.querySelector('.pulse-dot');
+        if (dot && !isSidebarCollapsed) dot.classList.remove('hidden');
+      } else {
+        item.classList.remove('nav-item-active');
+        item.classList.add('nav-item-inactive');
+        const dot = item.querySelector('.pulse-dot');
+        if (dot) dot.classList.add('hidden');
+      }
+    });
+
+    const labels = {
+      'dashboard': 'Dashboard — Panorama de Rotina',
+      'kds': 'Acompanhamento de Pedido (KDS)',
+      'caixa': 'Caixa e PDV Balcão',
+      'clientes': 'Clientes Arducci Club',
+      'estoque': 'Gestão de Estoque & Matéria-Prima',
+      'sabores': 'Catálogo de Sabores de Gelato',
+      'financeiro': 'Financeiro & DRE da Loja',
+      'funcionarios': 'Funcionários & Controle de Ponto',
+      'mapamesa': 'Mapa de Mesas do Salão',
+      'cardapio': 'Cardápio Digital & QR Code',
+      'relatorios': 'Relatórios & Inteligência de Negócio',
+      'painel': 'Painel de Controle Geral',
+      'suporte': 'Suporte Técnico SORVETEC'
+    };
+
+    if (navKey !== 'dashboard') {
+      showToast(`Módulo "${labels[navKey] || navKey}" carregado.`, 'info');
+    } else {
+      showToast('Dashboard operacional ativo.', 'success');
+    }
+  }
+
+  // 3. Status Loja Aberta / Fechada
+  let isStoreOpen = true;
+
+  function toggleStoreStatus() {
+    const statusBadge = document.getElementById('store-status-badge');
+    const statusDot = document.getElementById('store-status-dot');
+    const statusText = document.getElementById('store-status-text');
+    const actionIcon = document.getElementById('store-action-icon');
+    const actionText = document.getElementById('store-action-text');
+
+    isStoreOpen = !isStoreOpen;
+
+    if (!isStoreOpen) {
+      // Estado: Loja Fechada
+      statusBadge.classList.remove('bg-surface-crema-subtle', 'border-border-crema');
+      statusBadge.classList.add('bg-cherry-soft', 'border-error-container');
+      
+      statusDot.classList.remove('bg-pistache-emerald', 'ring-pistache-soft');
+      statusDot.classList.add('bg-cherry-alert', 'ring-cherry-soft');
+
+      statusText.textContent = 'Loja Fechada';
+      statusText.classList.remove('text-cacao-deep');
+      statusText.classList.add('text-cherry-alert');
+
+      actionIcon.textContent = 'storefront';
+      actionIcon.classList.remove('text-cherry-alert');
+      actionIcon.classList.add('text-pistache-emerald');
+      actionText.textContent = 'Abrir loja';
+
+      showToast('Loja fechada: pedidos pausados no balcão e salão.', 'warning');
+    } else {
+      // Estado: Loja Aberta
+      statusBadge.classList.remove('bg-cherry-soft', 'border-error-container');
+      statusBadge.classList.add('bg-surface-crema-subtle', 'border-border-crema');
+      
+      statusDot.classList.remove('bg-cherry-alert', 'ring-cherry-soft');
+      statusDot.classList.add('bg-pistache-emerald', 'ring-pistache-soft');
+
+      statusText.textContent = 'Loja aberta';
+      statusText.classList.remove('text-cherry-alert');
+      statusText.classList.add('text-cacao-deep');
+
+      actionIcon.textContent = 'store';
+      actionIcon.classList.remove('text-pistache-emerald');
+      actionIcon.classList.add('text-cherry-alert');
+      actionText.textContent = 'Fechar loja';
+
+      showToast('Loja reaberta com sucesso! Atendimento restabelecido.', 'success');
+    }
+  }
+
+  // 4. Modais (Logout & KDS)
+  function openLogoutModal() {
+    const modal = document.getElementById('modal-logout-confirm');
+    if (modal) modal.classList.remove('hidden');
+    closeAllDropdowns();
+  }
+
+  function closeLogoutModal() {
+    const modal = document.getElementById('modal-logout-confirm');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function handleLogoutModalBackdropClick(event) {
+    if (event.target && event.target.id === 'modal-logout-confirm') {
+      closeLogoutModal();
+    }
+  }
+
+  function confirmLogout() {
+    closeLogoutModal();
+    showToast('Sessão de trabalho encerrada. Até logo!', 'info');
+  }
+
+  function openKdsModal() {
+    const modal = document.getElementById('modal-kds');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeKdsModal() {
+    const modal = document.getElementById('modal-kds');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function handleKdsModalBackdrop(event) {
+    if (event.target && event.target.id === 'modal-kds') {
+      closeKdsModal();
+    }
+  }
+
+  // 5. Dropdowns Interativos (Notificações, Configurações, Usuário)
+  function closeAllDropdowns() {
+    const notifMenu = document.getElementById('notifications-dropdown-menu');
+    const settingsMenu = document.getElementById('settings-dropdown-menu');
+    const userMenu = document.getElementById('user-dropdown-menu');
+    const userChevron = document.getElementById('user-menu-chevron');
+
+    if (notifMenu) notifMenu.classList.add('hidden');
+    if (settingsMenu) settingsMenu.classList.add('hidden');
+    if (userMenu) userMenu.classList.add('hidden');
+    if (userChevron) userChevron.classList.remove('rotate-180');
+  }
+
+  function toggleNotifications(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById('notifications-dropdown-menu');
+    const isHidden = menu.classList.contains('hidden');
+    closeAllDropdowns();
+    if (isHidden) {
+      menu.classList.remove('hidden');
+    }
+  }
+
+  function toggleSettings(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById('settings-dropdown-menu');
+    const isHidden = menu.classList.contains('hidden');
+    closeAllDropdowns();
+    if (isHidden) {
+      menu.classList.remove('hidden');
+    }
+  }
+
+  function toggleUserDropdown(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById('user-dropdown-menu');
+    const chevron = document.getElementById('user-menu-chevron');
+    const isHidden = menu.classList.contains('hidden');
+    closeAllDropdowns();
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (chevron) chevron.classList.add('rotate-180');
+    }
+  }
+
+  function markAllNotificationsRead(event) {
+    if (event) event.stopPropagation();
+    const badge = document.getElementById('notif-badge');
+    const tag = document.getElementById('notif-counter-tag');
+    if (badge) badge.classList.add('hidden');
+    if (tag) {
+      tag.textContent = '0 novas';
+      tag.className = 'px-1.5 py-0.2 rounded-full bg-surface-crema-muted text-tertiary text-[10px] font-bold';
+    }
+    showToast('Todas as notificações foram marcadas como lidas.', 'info');
+  }
+
+  // Fechar dropdowns com clique fora ou Esc
+  document.addEventListener('click', (event) => {
+    const notifBtn = document.getElementById('btn-toggle-notifications');
+    const settingsBtn = document.getElementById('btn-toggle-settings');
+    const userBtn = document.getElementById('user-menu-button');
+
+    const notifMenu = document.getElementById('notifications-dropdown-menu');
+    const settingsMenu = document.getElementById('settings-dropdown-menu');
+    const userMenu = document.getElementById('user-dropdown-menu');
+
+    if (
+      !notifBtn?.contains(event.target) && !notifMenu?.contains(event.target) &&
+      !settingsBtn?.contains(event.target) && !settingsMenu?.contains(event.target) &&
+      !userBtn?.contains(event.target) && !userMenu?.contains(event.target)
+    ) {
+      closeAllDropdowns();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllDropdowns();
+      closeLogoutModal();
+      closeKdsModal();
+    }
+  });
+
+  // 6. Botão de Sincronização Giratório
+  function triggerSync() {
+    const icon = document.getElementById('sync-icon');
+    const text = document.getElementById('sync-text');
+    if (icon) {
+      icon.classList.add('animate-spin');
+    }
+    if (text) {
+      text.textContent = 'Sincronizando...';
+    }
+
+    setTimeout(() => {
+      if (icon) icon.classList.remove('animate-spin');
+      if (text) text.textContent = 'Sincronizado agora';
+      showToast('Dados de balcão e câmara sincronizados com sucesso!', 'success');
+      
+      setTimeout(() => {
+        if (text) text.textContent = 'Sincronizado há 2s';
+      }, 3000);
+    }, 1000);
+  }
+
+  // 7. Accordions e Controles Expandir / Recolher Todos
+  function toggleAccordion(panelId) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    const content = panel.querySelector('.content-toggle');
+    const icon = panel.querySelector('.icon-toggle span');
+
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (icon) icon.textContent = 'remove';
+    } else {
+      content.classList.add('hidden');
+      if (icon) icon.textContent = 'add';
+    }
+  }
+
+  function expandPanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    const content = panel.querySelector('.content-toggle');
+    const icon = panel.querySelector('.icon-toggle span');
+    if (content && content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (icon) icon.textContent = 'remove';
+    }
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function expandAll() {
+    const panels = ['panel-orders', 'panel-freezers', 'panel-purchases'];
+    panels.forEach(id => {
+      const panel = document.getElementById(id);
+      if (panel) {
+        const content = panel.querySelector('.content-toggle');
+        const icon = panel.querySelector('.icon-toggle span');
+        if (content) content.classList.remove('hidden');
+        if (icon) icon.textContent = 'remove';
+      }
+    });
+    showToast('Todos os painéis operacionais expandidos.', 'info');
+  }
+
+  function collapseAll() {
+    const panels = ['panel-orders', 'panel-freezers', 'panel-purchases'];
+    panels.forEach(id => {
+      const panel = document.getElementById(id);
+      if (panel) {
+        const content = panel.querySelector('.content-toggle');
+        const icon = panel.querySelector('.icon-toggle span');
+        if (content) content.classList.add('hidden');
+        if (icon) icon.textContent = 'add';
+      }
+    });
+    showToast('Todos os painéis recolhidos.', 'info');
+  }
+
+  // 8. KDS e Ações dos Pedidos
+  function advanceOrderStatus(cmd, nextStep) {
+    showToast(`Pedido ${cmd} avançou para etapa: ${nextStep}`, 'success');
+  }
+
+  function deliverOrder(cardId, cmd) {
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.classList.add('opacity-40', 'line-through');
+      setTimeout(() => {
+        card.style.display = 'none';
+        showToast(`Pedido ${cmd} entregue ao cliente com sucesso!`, 'success');
+      }, 500);
+    }
+  }
+
+  function emitirOC(rowId, fornecedor) {
+    const row = document.getElementById(rowId);
+    if (row) {
+      const btn = row.querySelector('button');
+      if (btn) {
+        btn.textContent = 'O.C. Enviada ✓';
+        btn.classList.remove('bg-cherry-alert', 'hover:bg-cherry-ruby');
+        btn.classList.add('bg-pistache-emerald', 'text-white');
+        btn.disabled = true;
+      }
+    }
+    showToast(`Ordem de Compra confirmada para ${fornecedor}!`, 'success');
+  }
+
+  // 9. Toast Notification Generator
+  function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+
+    let bgStyle = 'bg-cacao-deep text-white border-gold-burnished';
+    let icon = 'info';
+
+    if (type === 'success') {
+      bgStyle = 'bg-[#1b2b1d] text-white border-pistache-emerald';
+      icon = 'check_circle';
+    } else if (type === 'warning') {
+      bgStyle = 'bg-[#3b1717] text-white border-cherry-alert';
+      icon = 'warning';
+    }
+
+    toast.className = `flex items-center gap-3 px-4 py-3 rounded-lg border shadow-xl text-body-sm transition-all duration-300 pointer-events-auto transform translate-y-2 opacity-0 ${bgStyle}`;
+    toast.innerHTML = `
+      <span class="material-symbols-outlined text-[20px] ${type === 'success' ? 'text-pistache-accent' : (type === 'warning' ? 'text-cherry-alert' : 'text-gold-light')}">${icon}</span>
+      <span class="font-medium">${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      toast.classList.remove('translate-y-2', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+    });
+
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  }
+
+  // Inicialização no DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Garante que o painel de pedidos inicie aberto
+    const ordersPanel = document.getElementById('panel-orders');
+    if (ordersPanel) {
+      const content = ordersPanel.querySelector('.content-toggle');
+      const icon = ordersPanel.querySelector('.icon-toggle span');
+      if (content) content.classList.remove('hidden');
+      if (icon) icon.textContent = 'remove';
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>window.ADMIN_SCREEN_ID=1;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arducci Gelateria &amp; Açaiteria | Praia Grande - SP | Ecossistema Sorvetec</title>
+<!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Tailwind CSS CDN com Plugins -->
+<link rel="stylesheet" href="styles/admin-0.css?v=20261108-layout-41">
+<!-- Tailwind Custom Config -->
+
+<!-- BEGIN: Custom CSS -->
+<style data-purpose="custom-enhancements">
+    /* Estilos customizados para detalhes tipográficos e logo oval idêntico */
+    .font-italic-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+    }
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #f4e39c 0%, #d4af37 60%, #b88f28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-vignette {
+      background: linear-gradient(
+        180deg,
+        rgba(36, 23, 13, 0.94) 0%,
+        rgba(36, 23, 13, 0.82) 28%,
+        rgba(36, 23, 13, 0.52) 65%,
+        #fbf7f2 100%
+      );
+    }
+    .badge-blur {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    /* Logo Oval Replicado Fielmente */
+    .arducci-logo-pill {
+      border: 2px solid rgba(220, 185, 120, 0.85);
+      box-shadow: inset 0 0 0 2px rgba(36, 23, 13, 0.6), 0 4px 14px rgba(0,0,0,0.35);
+      border-radius: 9999px;
+    }
+  </style>
+<!-- END: Custom CSS -->
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"></head>
+<body class="bg-arducci-crema text-arducci-cacao font-sans antialiased selection:bg-arducci-gold selection:text-arducci-cacao min-h-screen flex flex-col">
+<!-- BEGIN: SiteHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md border-b border-arducci-gold/20 shadow-md" id="site-header" style="background-color: rgb(64, 32, 21);">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
+<!-- LOGOTIPO ARDUCCI (OVAL RETRÔ TRADICIONAL) -->
+<a aria-label="Arducci Gelateria &amp; Açaiteria - Início" class="flex items-center group focus:outline-none" href="#"><img src="assets/logo-arducci.svg" alt="Arducci Gelateria &amp; Açaiteria" class="h-12 sm:h-16 w-auto object-contain transform transition group-hover:scale-105 duration-200 drop-shadow-md"></a>
+<!-- NAVEGAÇÃO PRINCIPAL -->
+<nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.16em] text-arducci-crema/90">
+<a class="text-arducci-gold transition hover:text-white" href="#hero">Início</a>
+<!-- Dropdown de Produtos -->
+<div class="relative group py-2">
+<button class="flex items-center gap-1.5 transition hover:text-white group-hover:text-arducci-gold focus:outline-none tracking-[0.16em]" type="button">
+<span class="">Produtos</span>
+<svg class="w-3.5 h-3.5 transition transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+<!-- Menu suspenso flutuante -->
+<div class="absolute left-0 mt-2 w-56 rounded-xl bg-arducci-cacao p-2 shadow-2xl border border-arducci-gold/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+<a class="block px-3.5 py-2 text-[11px] tracking-normal font-medium text-stone-200 hover:bg-stone-800/80 hover:text-arducci-goldLight rounded-lg" href="#experiencia">🍨 Gelatos Tradicionais</a>
+<a class="block px-3.5 py-2 text-[11px] tracking-normal font-medium text-stone-200 hover:bg-stone-800/80 hover:text-arducci-goldLight rounded-lg" href="#experiencia">🍧 Taças &amp; Sobremesas Especiais</a>
+<a class="block px-3.5 py-2 text-[11px] tracking-normal font-medium text-stone-200 hover:bg-stone-800/80 hover:text-arducci-goldLight rounded-lg" href="#experiencia">🍇 Açaí Puro Premium</a>
+<a class="block px-3.5 py-2 text-[11px] tracking-normal font-medium text-stone-200 hover:bg-stone-800/80 hover:text-arducci-goldLight rounded-lg" href="#experiencia">🍦 Picolés Gourmet &amp; Paletas</a>
+</div>
+</div>
+<a class="transition hover:text-white" href="#sobre">Sobre</a>
+<a class="transition hover:text-white" href="#contato">Contato</a>
+</nav>
+<!-- BLOCO DE ACESSOS E AÇÕES DIREITAS -->
+<div class="flex items-center gap-2 sm:gap-4">
+<!-- Acesso Administrativo Sorvetec Pro (Discreto para equipe) -->
+<button class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium tracking-wide text-arducci-gold/80 hover:text-arducci-goldLight hover:bg-arducci-gold/10 transition-colors focus:outline-none" id="btn-admin-modal" title="Ambiente Administrativo Sorvetec Pro" type="button">
+<svg class="w-3.5 h-3.5 text-arducci-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Área administrativa</span>
+</button>
+<!-- Botão Cliente: Fazer Login -->
+<button class="px-3.5 py-2 rounded-full border border-arducci-gold/40 text-arducci-crema text-xs font-medium tracking-wider hover:bg-white/5 hover:border-arducci-gold transition focus:outline-none" id="btn-login-open" type="button">
+          Fazer login
+        </button>
+<!-- Botão Destaque: Cadastrar -->
+<a class="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-arducci-goldLight via-arducci-gold to-[#c59f2e] text-arducci-cacao text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg hover:brightness-105 active:scale-95 transition-all focus:outline-none" href="#experiencia">
+          Cadastrar
+        </a>
+<!-- Botão Menu Mobile -->
+<button aria-label="Abrir menu" class="lg:hidden p-2 rounded-lg text-arducci-crema/80 hover:text-white focus:outline-none" id="mobile-menu-btn" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Menu -->
+<div class="hidden lg:hidden border-t border-arducci-gold/15 bg-arducci-cacao px-4 pt-3 pb-6 space-y-3" id="mobile-menu" style="background-color: rgb(64, 32, 21);">
+<a class="block py-2 text-sm font-semibold text-arducci-gold" href="#hero">Início</a>
+<a class="block py-2 text-sm text-stone-200" href="#experiencia">Produtos &amp; Cardápio</a>
+<a class="block py-2 text-sm text-stone-200" href="#sobre">Nossa História</a>
+<a class="block py-2 text-sm text-stone-200" href="#contato">Localização &amp; Contato</a>
+<div class="pt-3 border-t border-white/10 flex flex-col gap-2.5">
+<button class="flex items-center gap-2 text-xs text-arducci-gold py-1" id="btn-admin-mobile">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Área Administrativa Sorvetec Pro
+        </button>
+</div>
+</div>
+</header>
+<!-- END: SiteHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-24 sm:pt-28 min-h-[92vh] flex items-center overflow-hidden" id="hero">
+<!-- Imagem de Fundo Oficial Fornecida -->
+<div class="absolute inset-0 z-0"><div class="w-full h-full bg-[#2b140b]" style="background: radial-gradient(circle at 50% 30%, rgb(61, 32, 19) 0%, rgb(36, 23, 13) 100%);"></div></div>
+<!-- Conteúdo Hero -->
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+<div class="max-w-2xl text-left">
+<!-- Tag Superior com Traço de Localização -->
+<div class="inline-flex items-center gap-3 mb-4">
+<span class="text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold text-[#f1dd9f]">PRAIA GRANDE — SP</span>
+<span class="w-12 h-px bg-[#f1dd9f]/60"></span>
+</div>
+<!-- Título Principal em Playfair Display Itálico/Serifado -->
+<h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-bold text-[#faeec5] leading-[1.05] tracking-tight mb-5 drop-shadow-md">
+          O Sabor da <br>
+<span class="font-italic-serif font-medium text-white italic">Felicidade</span>
+</h1>
+<!-- Descrição Institucional -->
+<p class="text-base sm:text-lg md:text-xl text-stone-200/95 font-light leading-relaxed mb-8 max-w-xl">
+          Gelatos artesanais preparados com ingredientes selecionados e açaí premium, direto do coração da praia para o seu paladar.
+        </p>
+<!-- CTA Principal: PEÇA AQUI JÁ -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+<a class="group inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-4 rounded-full bg-gradient-to-r from-[#fae28b] via-[#eec55d] to-[#d4af37] text-arducci-cacao font-bold text-sm sm:text-base uppercase tracking-wider shadow-luxury hover:brightness-105 transform hover:-translate-y-0.5 active:translate-y-0 transition-all focus:outline-none" href="#experiencia">
+<svg class="w-5 h-5 text-arducci-cacao transition-transform group-hover:rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+<span class="">PEÇA AQUI JÁ</span>
+<svg class="w-4 h-4 text-arducci-cacao group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</a>
+<!-- Botão Secundário Transparente: Ver Sabores -->
+<a class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-[#f1dd9f]/50 text-[#faeec5] hover:bg-white/10 hover:border-[#f1dd9f] text-xs sm:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm transition-all text-center" href="#experiencia">
+<span class="">Ver Cardápio Digital</span>
+</a>
+</div>
+<!-- Badges Sutis de Qualidade e Status de Operação -->
+<div class="flex flex-wrap items-center gap-3 sm:gap-5 text-xs text-stone-300 font-medium">
+<div class="badge-blur bg-black/40 border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-white">Loja Aberta Hoje até 23h</span>
+</div>
+<div class="badge-blur bg-black/40 border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="text-arducci-gold">★</span>
+<span class="text-stone-200">Receita 100% Italiana</span>
+</div>
+<div class="badge-blur bg-black/40 border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="text-arducci-gold">✦</span>
+<span class="text-stone-200">Açaí Puro da Amazônia</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: OrderExperienceSection -->
+<section class="py-20 sm:py-28 bg-arducci-crema relative -mt-8 rounded-t-[2.5rem] z-20 shadow-2xl border-t border-arducci-cremaDark" id="experiencia">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Cabeçalho da Seção -->
+<div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+<span class="inline-block text-xs uppercase tracking-[0.25em] font-bold text-arducci-caramel mb-2.5">Atendimento Rápido &amp; Digital</span>
+<h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-arducci-cacao tracking-tight mb-4">
+          Sua experiência Arducci começa aqui!
+        </h2>
+<div class="w-20 h-1 bg-arducci-gold mx-auto rounded-full mb-5"></div>
+<p class="text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
+          Escolha como deseja fazer seu pedido e aproveite nossos gelatos artesanais e açaí premium. No clube de fidelidade ou com rapidez sem login.
+        </p>
+</div>
+<!-- Grid de 2 Cards Elegantes: Fidelidade vs Modo Visitante -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-stretch">
+<!-- CARD 1: CLIENTE CADASTRADO (ARDUCCI CLUB) -->
+<div class="group relative bg-white rounded-3xl p-8 sm:p-10 border border-arducci-gold/30 shadow-card-warm hover:shadow-luxury transition-all duration-300 flex flex-col justify-between overflow-hidden">
+<!-- Brilho dourado no topo do card -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-arducci-goldLight via-arducci-gold to-arducci-goldHover"></div>
+<div>
+<!-- Header do Card com Badge -->
+<div class="flex items-center justify-between gap-4 mb-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-arducci-gold/40 text-[11px] font-bold tracking-widest uppercase text-arducci-cacao">
+<span class="text-arducci-gold text-xs">★</span> ARDUCCI CLUB
+              </span>
+<span class="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Acumule Pontos</span>
+</div>
+<!-- Ícone Sofisticado de Medalha/Fidelidade -->
+<div class="w-14 h-14 rounded-2xl bg-amber-100/60 border border-arducci-gold/30 flex items-center justify-center text-arducci-cacao mb-6 group-hover:scale-105 transition-transform duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Cadastrar cliente"><circle cx="9" cy="7" r="3"></circle><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 7v6M16 10h6"></path></svg></div>
+<!-- Título e Descrição -->
+<h3 class="font-serif text-2xl sm:text-3xl font-bold text-arducci-cacao mb-3">
+              Faça parte do nosso Clube de Fidelidade!
+            </h3>
+<p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Cadastre-se, aproveite benefícios exclusivos, acompanhe seus pedidos e tenha uma experiência ainda mais especial com a Arducci.
+            </p>
+<!-- Lista de Vantagens -->
+<ul class="space-y-3 mb-8 text-sm text-stone-700">
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-arducci-goldHover flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Ganhe pontos a cada compra no balcão e salão</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-arducci-goldHover flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Descontos e brindes exclusivos de aniversário</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-arducci-goldHover flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Histórico de pedidos favoritos salvos no app</span>
+</li>
+</ul>
+</div>
+<!-- Ação do Card 1 -->
+<div>
+<button class="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-arducci-goldLight via-arducci-gold to-arducci-goldHover text-arducci-cacao font-bold text-sm uppercase tracking-wider shadow-md hover:brightness-105 transition-all group-hover:shadow-lg focus:outline-none" onclick="triggerAction('fidelidade')">
+<span class="">QUERO ME CADASTRAR</span>
+<svg class="w-4 h-4 text-arducci-cacao" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</button>
+<p class="text-center text-xs text-stone-400 mt-2.5">Leva menos de 1 minuto para se cadastrar.</p>
+</div>
+</div>
+<!-- CARD 2: MODO VISITANTE (PEDIDO RÁPIDO) -->
+<div class="group relative bg-white rounded-3xl p-8 sm:p-10 border border-stone-200/80 shadow-card-warm hover:shadow-luxury transition-all duration-300 flex flex-col justify-between overflow-hidden">
+<!-- Brilho sutil no topo -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-stone-400 via-arducci-cacaoLight to-arducci-cacao"></div>
+<div>
+<!-- Header do Card com Badge -->
+<div class="flex items-center justify-between gap-4 mb-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-300 text-[11px] font-bold tracking-widest uppercase text-stone-700">
+<span class="text-stone-500">⚡</span> PEDIDO RÁPIDO
+              </span>
+<span class="text-[11px] font-medium text-stone-600 bg-stone-100 px-2.5 py-0.5 rounded-full">Sem Senhas</span>
+</div>
+<!-- Ícone Sofisticado de Balcão/Sacola -->
+<div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center text-arducci-cacao mb-6 group-hover:scale-105 transition-transform duration-300">
+<svg class="w-7 h-7 text-arducci-cacao" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Título e Descrição -->
+<h3 class="font-serif text-2xl sm:text-3xl font-bold text-arducci-cacao mb-3">
+              Prefere pedir sem cadastro?
+            </h3>
+<p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Sem complicação! Acesse nosso cardápio, escolha seus produtos e faça seu pedido como visitante diretamente para o balcão.
+            </p>
+<!-- Lista de Vantagens -->
+<ul class="space-y-3 mb-8 text-sm text-stone-700">
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center text-arducci-cacao flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Acesso imediato ao cardápio completo de hoje</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center text-arducci-cacao flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Sem necessidade de cadastro prévio ou senha</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center text-arducci-cacao flex-shrink-0 text-xs font-bold">✓</span>
+<span class="">Pagamento rápido e seguro via PIX ou Cartão</span>
+</li>
+</ul>
+</div>
+<!-- Ação do Card 2 -->
+<div>
+<button class="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-arducci-cacao hover:bg-arducci-cacaoLight text-white font-bold text-sm uppercase tracking-wider shadow-md hover:brightness-105 transition-all group-hover:shadow-lg focus:outline-none" onclick="triggerAction('visitante')">
+<span class="">CONTINUAR COMO VISITANTE</span>
+<svg class="w-4 h-4 text-arducci-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</button>
+<p class="text-center text-xs text-stone-400 mt-2.5">Você pode criar uma conta mais tarde se desejar.</p>
+</div>
+</div>
+</div>
+<!-- Selo de Garantia e Integração Sorvetec -->
+<div class="mt-14 max-w-xl mx-auto text-center flex items-center justify-center gap-3 py-3 px-5 rounded-full bg-stone-100/70 border border-stone-200 text-xs text-stone-600">
+<span class="w-2 h-2 rounded-full bg-arducci-gold"></span>
+<span class="">Plataforma integrada com <strong>Sorvetec Cloud Pro</strong> — Rastreio em tempo real</span>
+</div>
+</div>
+</section>
+<!-- END: OrderExperienceSection -->
+<!-- BEGIN: AboutSection -->
+<section class="py-16 bg-white border-y border-arducci-cremaDark" id="sobre">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+<div class="p-6 rounded-2xl bg-arducci-crema/60 border border-stone-200/60">
+<div class="w-12 h-12 rounded-xl bg-amber-100/70 flex items-center justify-center text-arducci-gold mb-4 mx-auto md:mx-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-xl text-arducci-cacao mb-2">Tradição &amp; Frescor</h4>
+<p class="text-sm text-stone-600 leading-relaxed">Produção diária sem conservantes artificiais, utilizando leite fresco e frutas da estação rigorosamente selecionadas.</p>
+</div>
+<div class="p-6 rounded-2xl bg-arducci-crema/60 border border-stone-200/60">
+<div class="w-12 h-12 rounded-xl bg-amber-100/70 flex items-center justify-center text-arducci-gold mb-4 mx-auto md:mx-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-xl text-arducci-cacao mb-2">Praia Grande - SP</h4>
+<p class="text-sm text-stone-600 leading-relaxed">Localização privilegiada na orla para você saborear o verdadeiro gelato e açaí com a brisa do mar.</p>
+</div>
+<div class="p-6 rounded-2xl bg-arducci-crema/60 border border-stone-200/60">
+<div class="w-12 h-12 rounded-xl bg-amber-100/70 flex items-center justify-center text-arducci-gold mb-4 mx-auto md:mx-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="font-serif font-bold text-xl text-arducci-cacao mb-2">Tecnologia Sorvetec</h4>
+<p class="text-sm text-stone-600 leading-relaxed">Agilidade de ponta no atendimento, com comanda digital, pagamento sem filas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: SiteFooter -->
+<footer class="bg-arducci-cacao text-white pt-16 pb-12 border-t border-arducci-gold/30 mt-auto" id="contato">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+<!-- Coluna 1: Marca Arducci -->
+<div class="md:col-span-1">
+<div class="mb-4 inline-block"><img src="assets/logo-arducci.svg" alt="Arducci Gelateria &amp; Açaiteria" class="h-14 sm:h-16 w-auto object-contain drop-shadow-md"></div>
+<p class="text-xs text-stone-300 leading-relaxed">
+            Arte, sabor e frescor desde 1984. A combinação perfeita de receitas clássicas italianas com açaí brasileiro selecionado.
+          </p>
+</div>
+<!-- Coluna 2: Horários & Localização -->
+<div>
+<h5 class="text-xs uppercase font-bold tracking-widest text-arducci-gold mb-4">Unidade Praia Grande</h5>
+<p class="text-xs text-stone-300 mb-2">Av. Presidente Castelo Branco, Praia Grande - SP</p>
+<p class="text-xs text-stone-300 leading-relaxed">
+<strong class="text-white">Terça a Domingo:</strong> 12h00 às 23h30<br>
+<strong class="text-white">Segundas:</strong> 14h00 às 22h00
+          </p>
+</div>
+<!-- Coluna 3: Links Rápidos -->
+<div>
+<h5 class="text-xs uppercase font-bold tracking-widest text-arducci-gold mb-4">Navegação</h5>
+<ul class="text-xs space-y-2 text-stone-300">
+<li class=""><a class="hover:text-arducci-gold transition" href="#hero">Início</a></li>
+<li class=""><a class="hover:text-arducci-gold transition" href="#experiencia">Cardápio &amp; Pedidos</a></li>
+<li class=""><a class="hover:text-arducci-gold transition" href="#experiencia">Arducci Club Fidelidade</a></li>
+<li class=""><a class="hover:text-arducci-gold transition" href="#sobre">Sobre a Gelateria</a></li>
+</ul>
+</div>
+<!-- Coluna 4: Integração Sorvetec & Acesso Restrito -->
+<div>
+<h5 class="text-xs uppercase font-bold tracking-widest text-arducci-gold mb-4">Sistema Sorvetec</h5>
+<div class="p-3.5 rounded-xl bg-stone-900/80 border border-stone-800 text-xs text-stone-300 space-y-2.5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-semibold text-white">Servidor Sorvetec Ativo</span>
+</div>
+<p class="text-[11px] text-stone-400">Ponto de Venda integrado, emissão fiscal e controle de balcão.</p>
+<button class="w-full mt-2 inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-stone-800 hover:bg-stone-700 text-arducci-gold text-[11px] font-medium border border-stone-700 transition" id="btn-admin-footer" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Acesso Restrito da Equipe</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Copyright e Assinatura Técnica -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+<p class="">© 2024 Arducci Gelateria &amp; Açaiteria. Todos os direitos reservados.</p>
+<p class="flex items-center gap-1.5 text-stone-400">
+<span class="">Desenvolvido e homologado no ecossistema</span>
+<span class="font-bold text-arducci-gold">Sorvetec PRO</span>
+</p>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+<!-- BEGIN: InteractiveModals -->
+<!-- MODAL: ÁREA ADMINISTRATIVA SORVETEC PRO -->
+<div class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-4" id="modal-admin">
+<div class="bg-arducci-cacao text-white w-full max-w-md rounded-3xl border border-arducci-gold/30 shadow-2xl overflow-hidden p-6 sm:p-8 transform transition-all">
+<div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-amber-900/40 border border-arducci-gold/40 flex items-center justify-center text-arducci-gold">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h4 class="font-serif font-bold text-lg text-white">Sorvetec Cloud PRO</h4>
+<p class="text-[11px] text-arducci-gold uppercase tracking-wider">Acesso Administrativo Arducci</p>
+</div>
+</div>
+<button class="text-stone-400 hover:text-white p-1 rounded-lg" id="close-admin-modal">✕</button>
+</div>
+<p class="text-sm text-stone-300 leading-relaxed mb-6">
+        Ambiente restrito e protegido por criptografia para operadores de caixa, gerência de produção e controle de estoque da gelateria.
+      </p>
+<form class="space-y-4" onsubmit="handleAdminSubmit(event)">
+<div>
+<label class="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">Login</label>
+<input class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-arducci-gold focus:ring-0" placeholder="ex: operador@arducci.com.br" required="" type="text">
+</div>
+<div>
+<label class="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">Senha</label>
+<input class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-arducci-gold focus:ring-0" placeholder="••••••••" required="" type="password">
+</div>
+<button class="w-full py-3 rounded-xl bg-gradient-to-r from-arducci-goldLight via-arducci-gold to-arducci-goldHover text-arducci-cacao font-bold text-sm tracking-wider uppercase shadow-md hover:brightness-105 transition" type="submit">
+          Entrar no Sorvetec PRO
+        </button>
+</form>
+</div>
+</div>
+<!-- MODAL DE DEMONSTRAÇÃO DO CLIENTE / PEDIDO -->
+<div class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4" id="modal-feedback">
+<div class="bg-white text-arducci-cacao w-full max-w-md rounded-3xl border border-stone-200 shadow-2xl p-6 sm:p-8 text-center">
+<div class="w-16 h-16 rounded-full bg-amber-100 mx-auto flex items-center justify-center text-arducci-gold mb-4 text-2xl" id="modal-feedback-icon">
+        🍨
+      </div>
+<h3 class="font-serif font-bold text-2xl mb-2 text-arducci-cacao" id="modal-feedback-title">
+        Bem-vindo à Arducci!
+      </h3>
+<p class="text-stone-600 text-sm leading-relaxed mb-6" id="modal-feedback-desc">
+        Carregando o catálogo digital oficial integrado ao balcão...
+      </p>
+<button class="w-full py-3 rounded-xl bg-arducci-cacao text-white font-bold text-xs uppercase tracking-wider hover:bg-stone-800 transition" onclick="closeFeedbackModal()">
+        Fechar Demonstração
+      </button>
+</div>
+</div>
+<!-- END: InteractiveModals -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="site-interactions">
+    // Controle do Menu Mobile
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Controle do Modal Administrativo
+    const modalAdmin = document.getElementById('modal-admin');
+    const btnAdminModal = document.getElementById('btn-admin-modal');
+    const btnAdminFooter = document.getElementById('btn-admin-footer');
+    const btnAdminMobile = document.getElementById('btn-admin-mobile');
+    const closeAdminModal = document.getElementById('close-admin-modal');
+
+    function openAdminModal() {
+      if (modalAdmin) modalAdmin.classList.remove('hidden');
+    }
+    function closeAdminModalFn() {
+      if (modalAdmin) modalAdmin.classList.add('hidden');
+    }
+
+    if (btnAdminModal) btnAdminModal.addEventListener('click', openAdminModal);
+    if (btnAdminFooter) btnAdminFooter.addEventListener('click', openAdminModal);
+    if (btnAdminMobile) btnAdminMobile.addEventListener('click', openAdminModal);
+    if (closeAdminModal) closeAdminModal.addEventListener('click', closeAdminModalFn);
+
+    // Fechar ao clicar fora
+    window.addEventListener('click', (e) => {
+      if (e.target === modalAdmin) closeAdminModalFn();
+    });
+
+    // Simulação de Login Administrativo
+    function handleAdminSubmit(e) {
+      e.preventDefault();
+      alert('Autenticação autorizada! Redirecionando com segurança para o Terminal de Gerência Sorvetec PRO...');
+      closeAdminModalFn();
+    }
+
+    // Modal de Feedback de Ações do Cardápio
+    const modalFeedback = document.getElementById('modal-feedback');
+    const modalTitle = document.getElementById('modal-feedback-title');
+    const modalDesc = document.getElementById('modal-feedback-desc');
+    const modalIcon = document.getElementById('modal-feedback-icon');
+
+    function triggerAction(tipo) {
+      if (!modalFeedback) return;
+      if (tipo === 'fidelidade') {
+        modalIcon.innerHTML = '★';
+        modalTitle.textContent = 'Arducci Club Fidelidade';
+        modalDesc.textContent = 'Redirecionando para a tela de adesão rápida. Ao se cadastrar, você ganha 50 pontos de boas-vindas para resgatar na sua primeira casquinha ou pote!';
+      } else if (tipo === 'visitante') {
+        modalIcon.innerHTML = '🛍️';
+        modalTitle.textContent = 'Cardápio Digital Rápido';
+        modalDesc.textContent = 'Abrindo comanda digital como visitante. Escolha seus sabores favoritos de gelatos e complementos de açaí sem precisar criar conta.';
+      }
+      modalFeedback.classList.remove('hidden');
+    }
+
+    // Botão de Login Superior de Cliente
+    const btnLoginOpen = document.getElementById('btn-login-open');
+    if (btnLoginOpen) {
+      btnLoginOpen.addEventListener('click', () => {
+        modalIcon.innerHTML = '🔑';
+        modalTitle.textContent = 'Login Arducci Club';
+        modalDesc.textContent = 'Informe seu telefone ou CPF cadastrado para consultar saldo de pontos e histórico de pedidos recentes.';
+        modalFeedback.classList.remove('hidden');
+      });
+    }
+
+    function closeFeedbackModal() {
+      if (modalFeedback) modalFeedback.classList.add('hidden');
+    }
+
+    // Efeito sutil no cabeçalho ao rolar
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('site-header');
+      if (window.scrollY > 40) {
+        header.classList.add('bg-arducci-cacao', 'shadow-xl');
+        header.classList.remove('bg-arducci-cacao/95');
+      } else {
+        header.classList.remove('shadow-xl');
+        header.classList.add('bg-arducci-cacao/95');
+      }
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+<script>window.ADMIN_SCREEN_ID=0;</script><script src="admin.js?v=20261108-layout-41"></script></body></html>

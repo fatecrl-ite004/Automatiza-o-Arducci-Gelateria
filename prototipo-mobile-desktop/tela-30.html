@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Paletas Recheadas - Arducci</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+
+<link rel="stylesheet" href="styles/screen-30.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Ambient custom styling for elevation */
+    .elevation-ambient {
+      box-shadow: 0 4px 16px rgba(59, 43, 32, 0.05);
+    }
+    .elevation-bottom-sheet {
+      box-shadow: 0 -4px 20px rgba(59, 43, 32, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen pb-44 select-none">
+<!-- TOP APP BAR -->
+<div class="w-full bg-surface/95 backdrop-blur-md px-6 pt-3 pb-1 flex justify-between items-center text-primary font-bold text-[14px] z-50 sticky top-0 border-b border-outline-variant/10"><span class="font-semibold text-[13px] tracking-tight">9:41</span><div class="flex items-center gap-1.5 text-primary"><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 shadow-xs"><div class="px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/10"><div class="flex items-center gap-2.5"><div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary shadow-xs"><span class="material-symbols-outlined text-[20px] text-outline">person</span></div><div class="flex flex-col"><span class="text-[9px] tracking-wider text-outline uppercase font-bold leading-none">BEM-VINDO!</span><span class="font-headline-md text-[16px] text-primary font-bold leading-tight mt-0.5">Visitante</span></div></div><div class="flex items-center gap-2"><button aria-label="Sacola de compras" class="relative w-9 h-9 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 text-on-primary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm" id="header-cart-badge" style="background-color: #dc2626;">3</span></button><button aria-label="Entrar na conta" class="bg-surface-container-low border border-outline-variant/30 text-primary rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-semibold hover:bg-surface-container active:scale-95 transition-all shadow-xs" type="button"><span class="material-symbols-outlined text-[16px] text-outline">login</span><span class="">Entrar</span></button></div></div><div class="px-4 py-2 flex items-center justify-between"><button aria-label="Voltar ao início" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:bg-surface-container active:scale-95 transition-all" type="button"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button><div class="flex flex-col items-center justify-center text-center"><span class="text-[10px] tracking-widest text-primary/60 uppercase font-bold leading-tight">ARDUCCI GELATERIA</span><h1 class="font-headline-md text-[18px] text-primary font-bold tracking-tight leading-snug">Paletas Recheadas</h1></div><div class="w-8 h-8 rounded-full flex items-center justify-center text-primary/70 bg-surface-container-lowest border border-outline-variant/30"><span class="material-symbols-outlined text-[18px]">icecream</span></div></div></header>
+<main class="max-w-md mx-auto px-4 pt-3 space-y-4">
+<!-- HERO BANNER -->
+<section class="relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 min-h-[170px] flex flex-col justify-end p-4">
+<img alt="Picolés artesanais de frutas" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XbFV7BhSQAVGho_T3ZdwVAtxd-AUllLaReAq2o5UePfgJu9v_bsOJ5d9sDHVVWxYCeHSUDlMpiR-QdNkRb0Zhda5e61ujKekBpwKVXPibSYlfA9vi_ec3XOPOszn_prWWYd_-3b3nME-SX9lastAjTglsTYR23SjnlU_yv0Rfde8Azn1_77amliiP2QX7JxjnBCotcA5OzqMXAXBaVgxwuy9EXRsJMNLkPSrOVnbXpccg6ZokfD59tRl3X">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-primary/20"></div>
+<div class="relative z-10 space-y-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed/90 text-on-secondary-fixed font-label-sm text-[10px] font-bold tracking-wide uppercase backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Produção Artesanal Diária
+        </span>
+<h1 class="font-headline-lg text-headline-lg text-on-primary font-bold leading-tight">Paletas Recheadas Artesanais</h1>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/90 line-clamp-2">Paletas mexicanas artesanais generosamente recheadas com cremes nobres e caldas artesanais.</p>
+</div>
+</section>
+<!-- INFORMATIVE HELP CARD -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex items-start gap-2.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">touch_app</span>
+<p class="font-body-sm text-[12px] leading-relaxed text-on-surface-variant">
+        Selecione os sabores desejados, ajuste as quantidades e adicione diretamente à sua sacola de pedidos.
+      </p>
+</div>
+<!-- SECTION TITLE & COUNT -->
+<div class="flex items-center justify-between pt-1 pb-0.5">
+<h2 class="font-title-sm text-title-sm text-primary tracking-tight">
+        Sabores Disponíveis
+      </h2>
+<span class="font-label-sm text-label-sm text-outline font-medium bg-surface-container-high px-2.5 py-1 rounded-full">6 opções recheadas</span>
+</div>
+<!-- PRODUCT BENTO / 2-COLUMN GRID -->
+<div class="grid grid-cols-2 gap-3"><!-- ITEM 1: Paleta de Açaí c/ Leite Condensado -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal Mexican gourmet stuffed paleta popsicle of Açaí with condensed milk filling visible dripping, resting on rustic dark slate with berries, professional food photography, warm lighting, dark brown aesthetic" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtDxMfrHpqK0mVEKg6xstWGNWDM5kvtSDCNHExE6fwalbPyvsnhKMYOXlOhZGVS4kr4XpBUelBII8J3Jq1DrVMzvHO9VyT0xjj8ikMZFqtZWmrGi7RQUkVArWxqnEgrYZsT6zThpeLNFlxDncK1x_Fm_gxHEIWK6-vS-GJx5TQ1kmzCNDfEVfmgZvFjjS6RLgldzp91-NtNexkO8cfRKzg1m4rNSqKIBbiudK62DHNgVDcbXK10TGQzg">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+              Recheio Cremoso
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Açaí c/ Leite Condensado
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Polpa pura de açaí artesanal com coração generoso de leite condensado cremoso.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 16,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="acai_recheado" data-price="16.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('acai_recheado', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-acai_recheado">delete</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-acai_recheado">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('acai_recheado', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 2: Paleta de Pistache c/ Creme -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal gourmet stuffed paleta popsicle of Pistachio with creamy pistachio ganache filling dripping inside, on rustic dark stone slate with crushed pistachios, professional food photography" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_uqhba9TDLgEAS73IFkghBe0C_RRiG_vmGoY7XxvXIArKP2G343ZgcFhEnNiZY4DuaDbGX-R8kH6jHtPKZnJiCeYTh8ODE1bdbq6hCOqcs8wfLhTxHPU0rZBFxXSHeeZv91Nm_uoKxXZi_42m43JOMQUflCxXrbH99qshket1cNn9xVAhKA7RtwYoow-K46hK-7rkXzIGy7teweU6U4JUAtuwTlymB9gwtAQN8AstF2eFA8GJ6xOddA">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+              Gourmet Especial
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Pistache c/ Creme
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Pistache italiano puro recheado com ganache aveludada de pistache artesanal.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 19,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pistache" data-price="19.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pistache', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-pistache">delete</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pistache">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pistache', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 3: Paleta de Ninho c/ Nutella® -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal gourmet stuffed paleta popsicle of Ninho powdered milk stuffed with creamy Nutella chocolate hazelnut dripping out, on rustic dark slate, gourmet food photography" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIQJk_AHy7wtiEThPZlTuAqMvaSSqw3Kw0XVKfI310E57HS-VGgYhdhpuiEnF2ixhVvVaLvkmBpRdzQSJFjKek5FlwZMHSGs1oVC6EXwJUNkPaLu7UicnUIoNaBDWDFczwxEB72bm-T--ZCGgnoNXl-S5AiUu85vQbDnADcjpoGDtI4b_-ILAUDZYFzIgoH-ZVw3MS4vLhAg3W6VlacIoSyBv_M6pp0BVIS96KI5guhovMYo_KVgEI2w">
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-xs">
+              Mais Pedido
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Ninho c/ Nutella®
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Creme aveludado de leite Ninho recheado com pura Nutella® trufada.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 18,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="ninho_nutella" data-price="18.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('ninho_nutella', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-ninho_nutella">delete</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-ninho_nutella">1</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('ninho_nutella', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 4: Paleta de Maracujá c/ Leite Condensado -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal Mexican stuffed paleta popsicle of Passion fruit yellow with sweet condensed milk filling dripping out, passion fruit seeds, rustic dark slate, gourmet photography" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlPG-RGHXAH5En0UrqKam748NcQDt4q0Ib0uHl-oYhexoJHIJZAfH_t4ln-esipBn4wsklC--UUXMmzHfEdTJGrNrsYgnR7Jpmpkufg7Pzd6S-h1xHU4m_H_La9Qy9Z2zCvajsiLIjCHRNImAgbjLvOV9Dp1MDREMTIv_sQX8yqOp7TdBOS5KU_PQkOJo04Moe8RB7-vRFjZWMEiSWuvmnWQ6fpjKx8KtpbQOzMlYzd3NSeCGaSlaeew">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+              Cítrico Doce
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Maracujá c/ Leite Condensado
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Polpa fresca e vibrante de maracujá recheada com leite condensado tradicional.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 16,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="maracuja" data-price="16.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('maracuja', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-maracuja">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-maracuja">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('maracuja', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 5: Paleta de Amora c/ Leite Condensado -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal gourmet stuffed paleta popsicle of Blackberry blackberry fruit with rich creamy condensed milk center dripping, rustic dark stone, fine dining food photography" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO0SfWjIzTQQmSm_SlsWWVTA6uXnKs3WsDrC8xlfEuJfBhjrBghm6FmFsMCuEkM99pFZ2kBDTUk6kW3Nx9dc92s_TOxxh1tcitZ26zRe8yXMbp2fpmopEEGL-GbiQLgKVI4mUjB_B-FF2V1n51rs3xdk5ZAvKcA7cPhKLlP9Ow3gPN3BqY-47g4G_Bj1anclSaPZElrZ4r1BVO9vj20DV_FU5NskpMdmSEBGs7isjyj2HE-twRUwYv7A">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+              Frutas Vermelhas
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Amora c/ Leite Condensado
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Amoras silvestres selecionadas com recheio macio de leite condensado Moça.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 17,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="amora" data-price="17.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('amora', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-amora">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-amora">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('amora', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ITEM 6: Paleta de Paçoca c/ Creme de Paçoca -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant">
+<div>
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Artisanal gourmet stuffed paleta popsicle of Paçoca peanut with creamy peanut praline cream filling dripping, crushed peanuts on rustic dark slate, warm cinematic lighting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD962OSNKF3ybO9n5qjM-lOksvTWqEd912F_y2-g9qPWl4gNQvRqQ1ORxxxivQd1Zne9oAD4fOW1Ixsebb2ey-WFulEPsxdH8nJD5_4S-kmGSVMrurE6NmdRTsEIy4UqcEV2Vk6tr26wESwpMP-gscU9qCJUFdhMTzSJ_-aiBZosZiXKgY6hiT904SHpzUrJ9_ZZO-h96ckUmLffluZ-eDogOb6FEMMvIa22jR-4L8ISMtYXEQcTV9JyQ">
+<span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">
+              Artesanal Crocante
+            </span>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">
+              Paleta de Paçoca c/ Creme
+            </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+              Base cremosa de amendoim torrado recheada com praliné cremoso de paçoca.
+            </p>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto">
+<span class="font-title-sm text-title-sm text-primary font-bold">
+            R$ 17,00
+          </span>
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pacoca" data-price="17.00">
+<button aria-label="Remover ou diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pacoca', -1)" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="icon-pacoca">remove</span>
+</button>
+<span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pacoca">0</span>
+<button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pacoca', 1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</article></div>
+<!-- TOAST NOTIFICATION DE CONFIRMAÇÃO (Discreto & Elegante) -->
+<div class="bg-primary-container text-on-primary rounded-xl p-3 shadow-lg flex items-center justify-between border border-outline-variant/20 transition-all duration-300" id="toast-cart" style="display: flex;">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<div>
+<p class="font-label-md text-[13px] font-bold text-on-primary">Item adicionado à sua sacola!</p>
+<p class="font-body-sm text-[11px] text-on-primary-container">Pronto para retirar ou entrega expressa.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-secondary-fixed hover:underline font-label-sm text-[12px] font-bold" type="button">
+          Ver Sacola
+        </button>
+<button class="text-on-primary-container hover:text-on-primary p-1" onclick="document.getElementById('toast-cart').style.display='none'" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</main>
+<!-- FLOATING BOTTOM SUMMARY & CALL TO ACTION (Fixed Level 2) -->
+<aside class="fixed bottom-[68px] left-0 right-0 z-30 w-full bg-[#2a1c14] text-white px-4 py-3 shadow-xl"><div class="max-w-md mx-auto flex items-center justify-between gap-3"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span class="font-label-sm text-[11px] text-[#d2c4bc] font-medium tracking-wide">Sacola de Paletas</span></div><span class="font-body-sm text-[12px] text-stone-300 mt-0.5" id="cart-summary-text">3 paletas selecionadas</span><span class="font-title-sm text-[15px] font-bold text-white">Total: R$ 53,00</span></div><button class="hover:bg-[#16492d] text-white active:scale-95 transition-all px-4 py-2.5 rounded-xl font-label-md text-[13px] font-bold flex items-center gap-2 shadow-sm shrink-0 bg-[#1e5e3a]" id="btn-add-to-cart" onclick="this.innerHTML='<span class=\'material-symbols-outlined text-[18px]\'>check</span><span>Adicionado!</span>'; this.classList.remove('bg-[#1e5e3a]'); this.classList.add('bg-secondary'); setTimeout(()=>{ this.innerHTML='<span class=\'material-symbols-outlined text-[18px]\'>shopping_bag</span><span>Adicionar à Sacola</span>'; this.classList.remove('bg-secondary'); this.classList.add('bg-[#1e5e3a]'); }, 2000); const t=document.getElementById('toast-cart'); if(t){t.style.display='flex';}" type="button"><span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="">Adicionar à Sacola</span></button></div></aside>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchors) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest dark:bg-surface-container border-t border-outline-variant/40 shadow-sm dark:shadow-none"><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined text-[22px]">storefront</span><span class="font-label-sm text-[11px] mt-0.5">Início</span></a><a class="relative flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute -top-1 -right-1 text-on-primary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm" id="nav-cart-badge" style="background-color: rgb(220, 38, 38); right: -10px; top: -4px;">3</span></div><span class="font-label-sm text-[11px] mt-0.5">Sacola</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-[11px] mt-0.5">Pedidos</span></a><div class="flex flex-col items-center justify-center text-outline/40 dark:text-outline-variant/40 font-medium opacity-40 cursor-not-allowed pointer-events-none select-none" style="opacity: 0.4; cursor: not-allowed; pointer-events: none;" title="Faça login para acessar seu perfil"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-[11px] mt-0.5">Perfil</span></div></nav>
+<!-- INTERACTION LOGIC FOR QUANTITY & SUMMARY UPDATE -->
+<script>
+    const state = {
+      uva: { qty: 1, price: 9.00 },
+      limao: { qty: 0, price: 9.00 },
+      abacaxi: { qty: 0, price: 9.00 },
+      cacau: { qty: 1, price: 12.00 },
+      morango: { qty: 1, price: 10.00 }
+    };
+
+    function updateQty(itemKey, delta) {
+      if (!state[itemKey]) return;
+      const next = state[itemKey].qty + delta;
+      if (next < 0) return;
+      state[itemKey].qty = next;
+
+      // Update label
+      const label = document.getElementById(`qty-${itemKey}`);
+      if (label) label.textContent = next;
+
+      // Update minus or delete icon
+      const icon = document.getElementById(`icon-${itemKey}`);
+      if (icon) {
+        icon.textContent = next <= 1 ? (next === 1 ? 'delete' : 'remove') : 'remove';
+      }
+
+      // Re-calculate totals
+      recalc();
+
+      // Trigger micro toast response
+      const toast = document.getElementById('toast-cart');
+      if (toast && delta > 0) {
+        toast.style.display = 'flex';
+      }
+    }
+
+    function recalc() {
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      for (const key in state) {
+        totalQty += state[key].qty;
+        totalPrice += state[key].qty * state[key].price;
+      }
+
+      // Update Top Header Cart
+      const headerBadge = document.getElementById('header-cart-badge');
+      if (headerBadge) {
+        headerBadge.textContent = totalQty;
+        headerBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Nav Cart
+      const navBadge = document.getElementById('nav-cart-badge');
+      if (navBadge) {
+        navBadge.textContent = totalQty;
+        navBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Summary Bar
+      const summaryText = document.getElementById('cart-summary-text');
+      if (summaryText) {
+        const itemWord = totalQty === 1 ? 'picolé selecionado' : 'picolés selecionados';
+        summaryText.textContent = `${totalQty} ${itemWord} • R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+      }
+    }
+  </script>
+<script>window.SCREEN_ID=30;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

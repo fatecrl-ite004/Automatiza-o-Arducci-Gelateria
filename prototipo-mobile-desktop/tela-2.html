@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Potes de Viagem - Cliente Visitante</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+
+
+<link rel="stylesheet" href="styles/screen-2.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Ambient custom styling for elevation */
+    .elevation-ambient {
+      box-shadow: 0 4px 16px rgba(59, 43, 32, 0.05);
+    }
+    .elevation-bottom-sheet {
+      box-shadow: 0 -4px 20px rgba(59, 43, 32, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen pb-44 select-none">
+<!-- TOP APP BAR -->
+<div class="w-full bg-surface/95 backdrop-blur-md px-6 pt-3 pb-1 flex justify-between items-center text-primary font-bold text-[14px] z-50 sticky top-0 border-b border-outline-variant/10"><span class="font-semibold text-[13px] tracking-tight">9:41</span><div class="flex items-center gap-1.5 text-primary"><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 shadow-xs"><div class="px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/10"><div class="flex items-center gap-2.5"><div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary shadow-xs"><span class="material-symbols-outlined text-[20px] text-outline">person</span></div><div class="flex flex-col"><span class="text-[9px] tracking-wider text-outline uppercase font-bold leading-none">BEM-VINDO!</span><span class="font-headline-md text-[16px] text-primary font-bold leading-tight mt-0.5">Visitante</span></div></div><div class="flex items-center gap-2"><button aria-label="Sacola de compras" class="relative w-9 h-9 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 text-on-primary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm" id="header-cart-badge" style="background-color: #dc2626;">2</span></button><button aria-label="Entrar na conta" class="bg-surface-container-low border border-outline-variant/30 text-primary rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-semibold hover:bg-surface-container active:scale-95 transition-all shadow-xs" type="button"><span class="material-symbols-outlined text-[16px] text-outline">login</span><span class="">Entrar</span></button></div></div><div class="px-4 py-2.5 flex items-center justify-between"><button aria-label="Voltar ao início" class="w-9 h-9 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><div class="flex flex-col items-center justify-center text-center"><span class="text-[10px] tracking-widest text-outline uppercase font-semibold leading-tight">ARDUCCI GELATERIA</span><h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight leading-snug">Potes de Viagem</h1></div><div class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-low text-primary border border-outline-variant/20"><span class="material-symbols-outlined text-[20px]">icecream</span></div></div></header>
+<main class="max-w-md mx-auto px-4 pt-3 space-y-4">
+<!-- HERO BANNER -->
+<section class="relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 min-h-[170px] flex flex-col justify-end p-4"><img alt="Potes artesanais de gelato Arducci" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyrSGjeV_39RCUBHTERYi6xTgpAAzwAdFHUOp8yGxIVT0wZKWfWoAztAJpG6EEEHCXanaFjX0IqBtv4UEO-OUjatIo0VveKvXcM94v8u0u5MUOH3RK4HLsoQzcvkqoMc5LC2_D632zxU8P0IKE9QtkYt8ED-kGUOLs4xVp8njyTnw2gjyTB3lFwWcpn-_biLwS-XFZ-Isi2m0CdOHxHQRNutX5fPBAjqmRwj_yAQoUoiT53DX445vQwQ"/><div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-primary/20"></div><div class="relative z-10 space-y-1.5"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed/90 text-on-secondary-fixed font-label-sm text-[10px] font-bold tracking-wide uppercase backdrop-blur-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Embalagem Térmica Grátis</span><h1 class="font-headline-lg text-headline-lg text-on-primary font-bold leading-tight">Potes Artesanais para Viagem</h1><p class="font-body-sm text-body-sm text-inverse-on-surface/90 line-clamp-2">Leve a experiência Arducci para casa com embalagens biodegradáveis que mantêm a cremosidade.</p></div></section>
+<!-- INFORMATIVE HELP CARD -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 flex items-start gap-2.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">touch_app</span>
+<p class="font-body-sm text-[12px] leading-relaxed text-on-surface-variant">Selecione seus potes favoritos (500ml), ajuste as quantidades e leve o melhor gelato artesanal para saborear onde quiser.</p>
+</div>
+<!-- SECTION TITLE & COUNT -->
+<div class="flex items-center justify-between pt-1 pb-0.5">
+<h2 class="font-title-sm text-title-sm text-primary tracking-tight">
+        Sabores Disponíveis
+      </h2>
+<span class="font-label-sm text-label-sm text-outline font-medium bg-surface-container-high px-2.5 py-1 rounded-full">6 potes artesanais (500ml)</span>
+</div>
+<!-- PRODUCT BENTO / 2-COLUMN GRID -->
+<div class="grid grid-cols-2 gap-3"><!-- ITEM 1: Pote de Açaí Artesanal (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Açaí Artesanal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD7hPG7seRtv3wyA2a31ved0kU99u9RO-qTmk3ECf6AMhrKYrOU-9DONYV_wG6srwpP-pDBkny6THCi3TSb-_pGnOWivzMZNyFusdNqMsZ7JS0Oi-aad8o2tiix_g9-n64jQtQwdQaKMsTA2wG0w_8BrLmKgG5ukiHV5KyP7PBGBXj4Ce4wGMbcEn6T0kfhTr8DX-X46FMVyNBZR1-5fvGpvG9eloae1ZWW70EP9fHFFp2SPOBHYvARg"/><span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">Pote 500ml</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote de Açaí Artesanal</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Polpa pura de açaí batida com frutas e finalizada com granola artesanal no topo.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 38,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_acai" data-price="38.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_acai', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_acai">delete</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_acai">1</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_acai', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article><!-- ITEM 2: Pote de Pistache Siciliano (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Pistache Siciliano" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2g9lQfY06SjLkrcrGAT16Df1LZXoRlwJ9zbNnI6sx7a_hDwYTTQKKwoLNgwt4ZpSn0qzXT21O7LF59bfncc9NV2MACy3TpWwDsIt_-gGCriogHmdNC1nChYq2xmRTFkoLa1QMrx7Y9mN71zgPM__taj6SbixoywXOYIk-zxEfWqVkPNlranVs2JPbb4DkGICnUBLz_1QS3LI2XE4HHVN8-6WK0kmlcqfhbM25Hfy_6dRo6BcET8p8jA"/><span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">Gourmet D.O.P.</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote Pistache Siciliano</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Autêntico pistache de Bronte DOP com pedaços crocantes tostados.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 46,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_pistache" data-price="46.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_pistache', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_pistache">delete</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_pistache">1</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_pistache', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article><!-- ITEM 3: Pote de Ninho com Nutella® (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Ninho com Nutella" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3mB_f3as0_LDLnEd5hIaHwVfR2eQtI9p06o661XHqe7D5w3J3PoskzqRv76JJ1cAIpr2svKQug5RMJmyQgngsY7sksMjy0DON_QZeGaCoHGfnz7IroIi0Dbc-ZNvXHfEZs4Kxp6RA3ZfZUsJ0wIYiM3i6psfvuC-s07tP43LeA21e20eQcvTfNLDHz3MG0Rf3AT0aoF86gpzGq5UcBMA_1Zt_8BWwRI-TBE1xJhV84fMtMSJWjawVXg"/><span class="absolute top-2 left-2 bg-primary-container text-on-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-xs">Mais Pedido</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote Ninho c/ Nutella®</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Gelato cremoso de leite Ninho mesclado com generosas camadas de Nutella pura.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 42,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_ninho" data-price="42.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_ninho', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_ninho">remove</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_ninho">0</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_ninho', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article><!-- ITEM 4: Pote de Maracujá Fresco (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Maracujá Fresco" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIfP_pzabgbkdwSb4dHvPea7t83TdWOGv2_BaQFLZnUHXcio4qCaNdesWaRxmanSN2wDg7EggROF-r13UMt-AKK7gvj34Agmt7YplQaWh-1-vleA-iRYi6jixHBaagxstj8MeGMnvuYLY1spgDXuqfDMtwdrek8_gl4TVKHUy3hh59khj7YLWq7ZoQUqncWHKpcZyhDTGOLka_rKfM-0z_EwG_CFUWhKGV7hUnfIh3keptWmanIYeSng"/><span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">Sorbet Natural</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote Maracujá Fresco</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Sorbet refrescante e aveludado de maracujá da fruta com sementes crocantes.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 36,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_maracuja" data-price="36.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_maracuja', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_maracuja">remove</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_maracuja">0</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_maracuja', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article><!-- ITEM 5: Pote de Amora Silvestre (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Amora Silvestre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvULl5eRxGiRNvIroQqE0QIryLoQti8B2I5ptDOcPGJwSMe-vwweOfWjip8VyYjihETp8w6Fsj4GtvXe8FYDanl5Swea7BQ7KLd17wZR7DETD5nArbdreRbMoLLHe9iE-UJoOrjPBQmJFHqpLKCArw4p38hnuVtt4QbNSc7MqpRXBFMs9Og_0at_6TlfAKKNFIT1pfYIFft077YD1tlpljgODP5rUephNh_mDteAmP-4dT7VpQ6Cy8Hg"/><span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">Frutas Silvestres</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote Amora Silvestre</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Amoras silvestres colhidas à mão com sabor intenso, cremoso e natural.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 38,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_amora" data-price="38.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_amora', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_amora">remove</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_amora">0</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_amora', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article><!-- ITEM 6: Pote de Paçoca Artesanal (500ml) --><article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col justify-between elevation-ambient transition-all hover:border-outline-variant"><div><div class="relative w-full aspect-square bg-surface-container overflow-hidden"><img alt="Pote de Paçoca Artesanal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl8xiCn-I4iJA-bXCKID-1c08Dl1ZHwVtQYhAu3QKRSOfM-Ax-rk9raOeNCaJYzgSaaPCDldYOlutozw-qIpEl5PWyDaPI9aR0JJLn824Cvf97hXpPvRDrtktV_-a5tv8Zihw9bvHhRs5eGjV-4c897LUqCGEiqFdNKKASpNmE_lbYg3e-tsKAFU-9MhuD7QvNQYQoJ0uZQw0fUsuQ0PORtEUOSf4s7lm0KkUOyjo9HZmMwoetjko2xw"/><span class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold border border-outline-variant/20 shadow-xs">Artesanal Crocante</span></div><div class="p-3"><h3 class="font-title-sm text-[14px] text-primary leading-snug line-clamp-1 font-bold">Pote Paçoca Artesanal</h3><p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">Creme de amendoim selecionado com pedaços crocantes de paçoca de rolha artesanal.</p></div></div><div class="px-3 pb-3 pt-1 border-t border-surface-container-high/60 flex items-center justify-between mt-auto"><span class="font-title-sm text-title-sm text-primary font-bold">R$ 39,00</span><div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-full p-0.5" data-item="pote_pacoca" data-price="39.00"><button aria-label="Diminuir quantidade" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-90 transition-all" onclick="updateQty('pote_pacoca', -1)" type="button"><span class="material-symbols-outlined text-[16px] text-outline" id="icon-pote_pacoca">remove</span></button><span class="font-label-md text-label-md w-5 text-center font-bold text-primary" id="qty-pote_pacoca">0</span><button aria-label="Aumentar quantidade" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:opacity-90 active:scale-90 transition-all" onclick="updateQty('pote_pacoca', 1)" type="button"><span class="material-symbols-outlined text-[16px]">add</span></button></div></div></article></div>
+<!-- TOAST NOTIFICATION DE CONFIRMAÇÃO (Discreto & Elegante) -->
+<div class="bg-primary-container text-on-primary rounded-xl p-3 shadow-lg flex items-center justify-between border border-outline-variant/20 transition-all duration-300" id="toast-cart" style="display: flex;">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<div>
+<p class="font-label-md text-[13px] font-bold text-on-primary">Item adicionado à sua sacola!</p>
+<p class="font-body-sm text-[11px] text-on-primary-container">Pronto para retirar ou entrega expressa.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-secondary-fixed hover:underline font-label-sm text-[12px] font-bold" type="button">
+          Ver Sacola</button>
+<button class="text-on-primary-container hover:text-on-primary p-1" onclick="document.getElementById('toast-cart').style.display='none'" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</main>
+<!-- FLOATING BOTTOM SUMMARY & CALL TO ACTION (Fixed Level 2) -->
+<aside class="fixed bottom-[65px] left-0 right-0 z-30 w-full pointer-events-auto bg-[#24170d] text-on-primary py-3 px-4 shadow-lg border-t border-outline-variant/10"><div class="max-w-md mx-auto flex items-center justify-between gap-3"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed"></span><span class="font-label-sm text-[11px] text-on-primary-container font-medium">Sacola de Potes</span></div><span class="font-body-sm text-[12px] text-inverse-on-surface font-semibold mt-0.5" id="cart-summary-text">2 potes selecionados</span><span class="font-title-sm text-[16px] text-on-primary font-bold tracking-tight mt-0.5">Total: R$ 84,00</span></div><button class="bg-secondary text-on-secondary active:scale-95 transition-all px-4 py-3 rounded-xl font-label-md text-label-md font-bold flex items-center gap-2 shadow-sm shrink-0" id="btn-add-cart" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined text-[18px]\'&gt;check&lt;/span&gt;&lt;span&gt;Adicionado!&lt;/span&gt;'; const toast=document.getElementById('toast-cart'); if(toast){toast.style.display='flex';}" type="button"><span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="">Adicionar à Sacola</span></button></div></aside>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchors) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest dark:bg-surface-container border-t border-outline-variant/40 shadow-sm dark:shadow-none"><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined text-[22px]">storefront</span><span class="font-label-sm text-[11px] mt-0.5">Início</span></a><a class="relative flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute -top-1 -right-2 text-on-primary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm" id="nav-cart-badge" style="background-color: rgb(220, 38, 38);">2</span></div><span class="font-label-sm text-[11px] mt-0.5">Sacola</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium active:scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-[11px] mt-0.5">Pedidos</span></a><a aria-disabled="true" class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium pointer-events-none opacity-40 cursor-not-allowed select-none" href="#" title="Faça login para acessar o perfil"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-[11px] mt-0.5">Perfil</span></a></nav>
+<!-- INTERACTION LOGIC FOR QUANTITY & SUMMARY UPDATE -->
+<script>
+    const state = {
+      uva: { qty: 1, price: 9.00 },
+      limao: { qty: 0, price: 9.00 },
+      abacaxi: { qty: 0, price: 9.00 },
+      cacau: { qty: 1, price: 12.00 },
+      morango: { qty: 1, price: 10.00 }
+    };
+
+    function updateQty(itemKey, delta) {
+      if (!state[itemKey]) return;
+      const next = state[itemKey].qty + delta;
+      if (next < 0) return;
+      state[itemKey].qty = next;
+
+      // Update label
+      const label = document.getElementById(`qty-${itemKey}`);
+      if (label) label.textContent = next;
+
+      // Update minus or delete icon
+      const icon = document.getElementById(`icon-${itemKey}`);
+      if (icon) {
+        icon.textContent = next <= 1 ? (next === 1 ? 'delete' : 'remove') : 'remove';
+      }
+
+      // Re-calculate totals
+      recalc();
+
+      // Trigger micro toast response
+      const toast = document.getElementById('toast-cart');
+      if (toast && delta > 0) {
+        toast.style.display = 'flex';
+      }
+    }
+
+    function recalc() {
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      for (const key in state) {
+        totalQty += state[key].qty;
+        totalPrice += state[key].qty * state[key].price;
+      }
+
+      // Update Top Header Cart
+      const headerBadge = document.getElementById('header-cart-badge');
+      if (headerBadge) {
+        headerBadge.textContent = totalQty;
+        headerBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Nav Cart
+      const navBadge = document.getElementById('nav-cart-badge');
+      if (navBadge) {
+        navBadge.textContent = totalQty;
+        navBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
+      // Update Summary Bar
+      const summaryText = document.getElementById('cart-summary-text');
+      if (summaryText) {
+        const itemWord = totalQty === 1 ? 'picolé selecionado' : 'picolés selecionados';
+        summaryText.textContent = `${totalQty} ${itemWord} • R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+      }
+    }
+  </script>
+<script>window.SCREEN_ID=2;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

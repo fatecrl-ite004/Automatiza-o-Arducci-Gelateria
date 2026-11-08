@@ -1,0 +1,1369 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Meu Perfil - Arducci Gelateria</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="styles/screen-13.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .sheet-transition {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Shell Container -->
+<div class="w-full max-w-[430px] bg-background min-h-screen flex flex-col relative pb-28 shadow-2xl overflow-x-hidden">
+<!-- Toast Notification Central / Topo -->
+<div class="fixed top-14 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 pointer-events-none opacity-0 -translate-y-4 scale-95" id="appToast">
+<div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-primary text-on-primary shadow-xl border border-secondary/40">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" id="toastIcon">check_circle</span>
+<span class="text-xs font-semibold tracking-wide" id="toastMessage">Arquivo baixado!</span>
+</div>
+</div>
+<!-- 1. Native Mobile Status Bar -->
+<header class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-on-surface select-none z-30">
+<span class="font-title-sm text-body-sm font-semibold tracking-tight text-primary">9:41</span>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[17px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px]">wifi</span>
+<span class="material-symbols-outlined text-[20px]">battery_full</span>
+</div>
+</header>
+<!-- Top Navigation Header -->
+<nav class="flex justify-between items-center w-full px-5 py-3 bg-surface z-20">
+<button aria-label="Voltar para a página anterior" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-primary">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="text-center">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Meu Perfil</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Notificações" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-primary relative" id="btnOpenNotification">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary absolute top-2 right-2 ring-2 ring-surface animate-pulse"></span>
+</button>
+<button aria-label="Configurações" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all text-primary" id="btnOpenSettings">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</nav>
+<!-- Scrollable Main Canvas -->
+<main class="flex-1 px-5 pt-3 space-y-5 overflow-y-auto">
+<!-- 2. Card de Identificação do Usuário -->
+<section class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/30 shadow-[0_2px_12px_rgba(59,43,32,0.04)] relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary-fixed/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-4 relative">
+<!-- Avatar com foto e badge verificado -->
+<div class="relative shrink-0 cursor-pointer group" id="btnEditAvatarDirect" title="Toque para alterar a foto">
+<div class="w-20 h-20 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary">
+<img alt="Foto de perfil do cliente" class="w-full h-full rounded-full object-cover bg-surface-container" id="userAvatarImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnqsPy-m3Re_rAhcEFXrka_I_Ub5lLHfnGVr1gUQrqJgUavGVzC5cdpdpjo08RL-gnegE4F455-M1F_X2G11Q-5Y2hZZ01w0i_KG4U1SCrSSezgX1uxJAKyJ3qNeA9D6ZJ9aehj6K7n5g5a9KzsibraQHc5AFA7A5-pnU35w3-EcYUGdu33FsNP12p5yJ9M7Y55_qMhRr3c-k2yCh-zzF5D_tjRpvFUUalhqrfMI8Ptxu-mMo4gWvhUw">
+</div>
+<div class="absolute bottom-0 right-0 bg-secondary text-on-secondary rounded-full w-6 h-6 flex items-center justify-center ring-2 ring-surface-container-lowest" title="Editar / Conta Verificada">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</div>
+</div>
+<!-- Informações de Identificação -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-md text-headline-md font-bold text-primary truncate" id="userDisplayName">Cliente Arducci</h1>
+<button class="text-secondary hover:text-secondary/80 p-1 rounded-full text-xs font-label-md flex items-center gap-0.5" id="btnOpenEditProfileTop" title="Editar dados">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5" id="userDisplayEmail">cliente.arducci@email.com</p>
+<p class="font-body-sm text-body-sm text-outline truncate" id="userDisplayPhone">(11) 98765-4321</p>
+<!-- Tag de Fidelidade Ouro -->
+<div class="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-label-sm font-semibold tracking-wide border border-primary-fixed-dim/40">
+<span class="material-symbols-outlined text-[14px] text-[#b38600] material-symbols-fill">star</span>
+<span class="">Cliente Fiel • Nível Ouro</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Carteira Arducci Club & Fidelidade (Bento Pattern) -->
+<section class="bg-primary-container text-on-primary rounded-xl p-5 shadow-[0_4px_20px_rgba(59,43,32,0.15)] relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#dcc1b1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="absolute top-0 right-0 w-36 h-36 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-1.5"><span class="font-label-sm text-label-sm tracking-wider uppercase text-inverse-primary/80">Arducci Club &amp; Prêmios</span><button aria-label="Informações e regras do Arducci Club" class="w-7 h-7 rounded-full bg-inverse-primary/10 hover:bg-inverse-primary/20 text-inverse-primary flex items-center justify-center transition active:scale-90" onclick="openModal('modalClubRules')" title="Regras do Arducci Club" type="button"><span class="material-symbols-outlined text-[18px]">info</span></button></div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-xl text-headline-xl text-on-primary font-bold tracking-tight">1770</span>
+<span class="font-title-sm text-title-sm text-inverse-primary">pts acumulados</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-inverse-primary/10 border border-inverse-primary/20 flex items-center justify-center text-inverse-primary">
+<span class="material-symbols-outlined text-[24px]">workspace_premium</span>
+</div>
+</div>
+<!-- Barra de progresso para a próxima recompensa -->
+<div class="mt-5 space-y-2">
+<div class="flex justify-between items-center text-inverse-primary font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">icecream</span>
+                Faltam <strong>30 pts</strong> para&nbsp; resgatar</span>
+<span class="font-semibold text-on-primary">1770 / 1800</span>
+</div>
+<div class="w-full bg-tertiary-container/80 h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-gradient-to-r from-secondary-fixed to-secondary-fixed-dim h-full rounded-full transition-all duration-500" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Ações do Clube -->
+<div class="grid grid-cols-2 gap-3 mt-5 pt-3 border-t border-on-primary-container/20">
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-surface-container-lowest/10 hover:bg-surface-container-lowest/15 active:scale-98 transition text-on-primary font-label-md text-label-md border border-on-primary/10" id="btnOpenExtrato">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span class="">Extrato de Pontos</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-secondary hover:bg-secondary/90 active:scale-98 transition text-on-primary font-label-md text-label-md shadow-sm" id="btnOpenRewards">
+<span class="material-symbols-outlined text-[18px]">redeem</span>
+<span class="">Resgatar Recompensas</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Pedido Ativo / Em Andamento -->
+<section class="bg-surface-container-low border border-secondary/20 rounded-xl p-4 flex items-center justify-between shadow-[0_2px_8px_rgba(36,108,48,0.06)]">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px] animate-pulse">skillet</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<h2 class="font-title-sm text-title-sm text-primary font-bold">Pedido #4812 • Preparando</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">1x Banana Split completa</p>
+</div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-primary font-label-md text-label-md flex items-center justify-center active:scale-95 transition hover:bg-surface" id="btnVerStatusActiveOrder">
+          Ver status
+        </button>
+</section>
+<!-- 4. Menu de Atalhos Principais e Informações Padrões -->
+<section class="space-y-3">
+<h2 class="font-headline-md text-title-sm font-bold text-primary px-1">Atalhos e Preferências</h2>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 divide-y divide-outline-variant/20 shadow-[0_2px_8px_rgba(59,43,32,0.03)] overflow-hidden">
+<!-- 1. Meus Pedidos Recentes -->
+<button class="w-full text-left flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" id="btnOpenOrders">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">receipt</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-primary">Meus Pedidos Recentes</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Histórico completo e pedidos em curso</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-outline">
+<span class="text-label-sm font-label-sm text-secondary font-bold bg-secondary/10 px-2 py-0.5 rounded-full">1 Ativo</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</button>
+<!-- 2. Comprovantes e Notas Fiscais -->
+<button class="w-full text-left flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" id="btnOpenInvoices">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-primary">Comprovantes &amp; Notas Fiscais</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ver e baixar 2ª via de cupons fiscais</p>
+</div>
+</div>
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</button>
+<!-- 3. Formas de Pagamento -->
+<button class="w-full text-left flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" id="btnOpenPayments">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-primary">Formas de Pagamento</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cartões de crédito criptografados</p>
+</div>
+</div>
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</button>
+<!-- 4. Dados Pessoais & Segurança -->
+<button class="w-full text-left flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" id="btnOpenSecurity">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">lock_person</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-primary">Dados Pessoais &amp; Segurança</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Editar dados, privacidade e segurança</p>
+</div>
+</div>
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</button>
+<!-- 5. Ajuda e Suporte -->
+<button class="w-full text-left flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group" id="btnOpenHelp">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-primary">Ajuda e Suporte</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central de Atendimento e Dúvidas Frequentes</p>
+</div>
+</div>
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- 5. Ações de Conta: Logout e Versão -->
+<section class="pt-2 pb-6 space-y-4">
+<button class="w-full h-[52px] rounded-xl border border-error/30 bg-surface-container-lowest text-error font-label-md text-label-md font-semibold flex items-center justify-center gap-2 hover:bg-error-container/20 active:scale-95 transition duration-150" id="btnLogout">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="">Sair da Conta</span>
+</button>
+<div class="text-center">
+<p class="font-body-sm text-[12px] text-outline">Arducci Gelateria &amp; Açaiteria • App v3.4.1</p>
+<p class="font-body-sm text-[11px] text-outline-variant mt-0.5">Produzido artesanalmente com tradição italiana</p>
+</div>
+</section>
+</main>
+<!-- ================= MODAIS E GAVETAS INTERATIVAS ================= -->
+<!-- Backdrop Global para Sheets e Modals -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-[2px] z-40 transition-opacity duration-300 opacity-0 hidden pointer-events-none" id="modalBackdrop" onclick="closeAllModalsAndSheets()"></div>
+<!-- MODAL: Acompanhamento de Pedido do Cliente (Ativo #4812) -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 pointer-events-none opacity-0 transition-opacity duration-300 hidden" id="modalOrderStatus">
+<div class="bg-surface-container-lowest w-full max-w-[390px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform scale-95 transition-transform duration-300 max-h-[795px] flex flex-col">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+<div>
+<h3 class="font-headline-md text-lg font-bold text-primary">Acompanhamento do Pedido</h3>
+<span class="text-xs text-outline">Pedido #4812 • Mesa 04</span>
+</div>
+</div>
+<button aria-label="Fechar status" class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" onclick="closeModal('modalOrderStatus')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Status Tracker Interativo -->
+<div class="my-4 p-4 rounded-xl bg-surface-container-low border border-secondary/20">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-secondary px-2 py-0.5 rounded-full bg-secondary/10">Status Atual</span>
+<h4 class="font-title-sm text-base font-bold text-primary mt-1">Sendo preparado na bancada</h4>
+<p class="text-xs text-on-surface-variant">Tempo estimado: 3 a 5 minutos</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px] animate-spin">cyclone</span>
+</div>
+</div>
+<!-- Stepper Visual -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-xs font-bold">✓</span>
+<span class="text-xs font-semibold text-primary">15:40 • Pedido Confirmado &amp; Pago</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-xs font-bold animate-pulse">●</span>
+<span class="text-xs font-bold text-secondary">15:42 • Preparação artesanal dos gelatos</span>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<span class="w-6 h-6 rounded-full bg-surface-variant text-outline flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-xs text-outline">Pronto para servir na Mesa 04</span>
+</div>
+</div>
+</div>
+<!-- Detalhe do Produto -->
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 text-xs text-on-surface-variant space-y-1 mb-4">
+<p class="font-semibold text-primary text-sm">1x Gelato Pistacchio &amp; Amarena (Médio)</p>
+<p class="">• Copo artesanal com casquinha crocante cortesia</p>
+<div class="pt-2 border-t border-outline-variant/20 flex justify-between font-bold text-primary">
+<span class="">Total Pago:</span>
+<span class="text-secondary">R$ 28,00</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-xs hover:bg-surface-container-high transition" onclick="closeModal('modalOrderStatus')" type="button">
+        Fechar
+      </button>
+<button class="flex-1 py-2.5 rounded-xl bg-secondary text-on-secondary font-semibold text-xs hover:bg-secondary/90 transition shadow flex items-center justify-center gap-1.5" onclick="closeModal('modalOrderStatus'); openSheet('sheetOrders');" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span> Ver Todos Pedidos
+      </button>
+</div>
+</div>
+</div>
+<!-- 1. NOTIFICAÇÕES (Top-Sheet / Slide-Down do Topo) -->
+<div class="fixed inset-x-0 top-0 mx-auto max-w-[430px] z-50 transform -translate-y-full sheet-transition pointer-events-none hidden" id="topSheetNotification">
+<div class="m-3 p-4 bg-primary text-on-primary rounded-2xl shadow-2xl border border-primary-fixed/20 pointer-events-auto">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-on-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">mark_chat_unread</span>
+</div>
+<div>
+<h4 class="font-title-sm text-sm font-bold text-primary-fixed flex items-center gap-1.5">
+Mensagem do Balcão
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-ping"></span>
+</h4>
+<span class="text-[11px] text-outline-variant">Há 2 minutos • Caixa Central</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-on-primary transition" id="btnCloseTopNotification" onclick="toggleNotificationTop(false)">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="mt-3 bg-primary-container/80 rounded-xl p-3 border border-outline-variant/15 text-xs font-body-sm leading-relaxed text-inverse-primary"><strong class="text-on-primary font-semibold">Resposta do Atendente:</strong> "Olá Cliente, seu pedido de <span class="text-secondary-fixed font-bold">Gelato de Pistache </span> já foi enviado para montagem na bancada e fica pronto em 3 minutinhos! Bom apetite!"</div>
+<div class="mt-3 flex justify-end gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary text-xs font-label-md font-bold hover:bg-secondary/90 transition" id="btnAcknowledgeNotification" onclick="toggleNotificationTop(false)">
+Entendido
+</button>
+</div>
+</div>
+</div>
+<!-- 2. CONFIGURAÇÕES (Bottom-Sheet) -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform translate-y-full sheet-transition max-h-[751px] overflow-y-auto hidden" id="sheetSettings">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">settings</span> Configurações
+</h3>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetSettings" onclick="closeSheet('sheetSettings')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-4 py-4 divide-y divide-outline-variant/15 text-sm">
+<!-- Modo Escuro / Claro -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" id="themeIcon">dark_mode</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Modo Escuro</p>
+<p class="text-xs text-on-surface-variant">Alternar paleta clara e escura</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="toggleDarkMode" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Notificações Push -->
+<div class="flex items-center justify-between pt-3">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Notificações Push</p>
+<p class="text-xs text-on-surface-variant">Avisos de pedidos e novidades</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Editar Perfil & Foto -->
+<button class="w-full flex items-center justify-between pt-3 text-left" id="btnSettingsOpenEditProfile">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Editar Foto &amp; Informações</p>
+<p class="text-xs text-on-surface-variant">Atualizar nome, foto e contatos</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+<!-- Alterar Senha -->
+<button class="w-full flex items-center justify-between pt-3 text-left" id="btnSettingsChangePassword">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">password</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Alterar Senha</p>
+<p class="text-xs text-on-surface-variant">Renove sua chave de acesso segura</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+<!-- Convidar Amigos -->
+<button class="w-full flex items-center justify-between pt-3 text-left" id="btnShareInvite">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">group_add</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Convidar Amigos</p>
+<p class="text-xs text-secondary font-medium">Ganhe +50 pts Arducci Club por indicação</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+<!-- Sair da Conta -->
+<button class="w-full flex items-center justify-between pt-3 text-left text-error" id="btnSettingsLogout">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</div>
+<div>
+<p class="font-semibold">Sair da Conta</p>
+<p class="text-xs opacity-80">Encerrar sessão com segurança</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 3. CAIXA DE EDIÇÃO DE DADOS & FOTO (Modal / Sheet) -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform sheet-transition max-h-[795px] overflow-y-auto translate-y-full hidden" id="sheetEditProfile">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">manage_accounts</span> Editar Perfil
+</h3>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetEditProfile" onclick="closeSheet('sheetEditProfile')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<form class="space-y-4 pt-4" id="formEditProfile" onsubmit="return false;">
+<!-- Alterar Foto -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative">
+<img alt="Avatar" class="w-24 h-24 rounded-full object-cover border-2 border-secondary shadow-md" id="formAvatarPreview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnqsPy-m3Re_rAhcEFXrka_I_Ub5lLHfnGVr1gUQrqJgUavGVzC5cdpdpjo08RL-gnegE4F455-M1F_X2G11Q-5Y2hZZ01w0i_KG4U1SCrSSezgX1uxJAKyJ3qNeA9D6ZJ9aehj6K7n5g5a9KzsibraQHc5AFA7A5-pnU35w3-EcYUGdu33FsNP12p5yJ9M7Y55_qMhRr3c-k2yCh-zzF5D_tjRpvFUUalhqrfMI8Ptxu-mMo4gWvhUw">
+<label class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg cursor-pointer hover:bg-secondary/90 transition active:scale-95" for="inputAvatarUpload">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<input accept="image/*" class="hidden" id="inputAvatarUpload" type="file">
+</label>
+</div>
+<span class="text-xs text-outline">Toque no ícone da câmera para trocar a foto</span>
+</div>
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">Nome Completo</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3.5 py-2.5 text-sm text-primary focus:border-secondary focus:ring-1 focus:ring-secondary" id="inputName" type="text" value="Cliente Arducci">
+</div>
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">E-mail</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3.5 py-2.5 text-sm text-primary focus:border-secondary focus:ring-1 focus:ring-secondary" id="inputEmail" type="email" value="lucas.arducci@email.com">
+</div>
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">Telefone / WhatsApp</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3.5 py-2.5 text-sm text-primary focus:border-secondary focus:ring-1 focus:ring-secondary" id="inputPhone" type="text" value="(11) 98765-4321">
+</div>
+<div class="flex gap-3 pt-3">
+<button class="close-sheet flex-1 py-3 rounded-xl border border-outline-variant/60 bg-surface text-primary font-semibold text-sm hover:bg-surface-container active:scale-95 transition" data-target="sheetEditProfile" onclick="closeSheet('sheetEditProfile')" type="button">
+Cancelar
+</button>
+<button class="flex-1 py-3 rounded-xl bg-secondary text-on-secondary font-semibold text-sm shadow hover:bg-secondary/90 active:scale-95 transition" id="btnSaveProfile" type="button">
+Salvar Alterações
+</button>
+</div>
+</form>
+</div>
+<!-- 4. EXTRATO DE PONTOS (Modal Centralizado) -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 transition-opacity duration-300 hidden opacity-0 pointer-events-none" id="modalExtrato">
+<div class="bg-surface-container-lowest w-full max-w-[390px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform transition-transform duration-300 max-h-[751px] flex flex-col scale-100">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">receipt_long</span> Extrato de Pontos
+</h3>
+<span class="text-xs text-outline">Arducci Club • Nível Ouro</span>
+</div>
+<button aria-label="Fechar extrato" class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" data-target="modalExtrato" id="btnCloseExtratoTop" onclick="closeModal('modalExtrato')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Saldo em destaque -->
+<div class="my-4 p-3.5 rounded-xl bg-primary-container text-on-primary flex items-center justify-between">
+<div>
+<p class="text-[11px] text-inverse-primary uppercase tracking-wider">Saldo Atual Acumulado</p>
+<p class="font-headline-xl text-2xl font-bold text-on-primary">1.770 pts</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[22px]">loyalty</span>
+</div>
+</div>
+<!-- Lista do Extrato -->
+<div class="space-y-3 overflow-y-auto pr-1 flex-1 text-sm divide-y divide-outline-variant/15"><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Compra no site</p><p class="text-xs text-outline">11/06/2025 • Pedido #5204</p></div><span class="font-bold text-secondary text-sm">+320 pts</span></div><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Balcão Self-Service (por kg)</p><p class="text-xs text-outline">10/06/2025 • Pedido #5188</p></div><span class="font-bold text-secondary text-sm">+780 pts</span></div><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Compra no site</p><p class="text-xs text-outline">28/03/2025 • Pedido #4812</p></div><span class="font-bold text-secondary text-sm">+25 pts</span></div><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Compra no site</p><p class="text-xs text-outline">25/03/2025 • Pedido #4690</p></div><span class="font-bold text-secondary text-sm">+500 pts</span></div><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Balcão Viagem (Pote 500ml)</p><p class="text-xs text-outline">15/03/2025 • Pedido #4591</p></div><span class="font-bold text-secondary text-sm">+30 pts</span></div><div class="pt-2 flex justify-between items-center"><div><p class="font-semibold text-primary">Bônus de cadastro</p><p class="text-xs text-outline">02/03/2025 • Boas-vindas VIP</p></div><span class="font-bold text-secondary text-sm">+115 pts</span></div></div>
+<button class="close-modal mt-4 w-full py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-sm hover:bg-surface-container-high transition active:scale-95 cursor-pointer" data-target="modalExtrato" id="btnCloseExtratoBottom" onclick="closeModal('modalExtrato')" type="button">
+Fechar
+</button>
+</div>
+</div>
+<!-- 5. RESGATAR RECOMPENSAS (Modal Centralizado) -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 transition-opacity duration-300 hidden opacity-0 pointer-events-none" id="modalClubRules"><div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] -z-10" onclick="this.closest('#modalClubRules').classList.add('hidden')"></div><div class="bg-surface-container-lowest w-full max-w-[390px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform transition-transform duration-300 max-h-[751px] flex flex-col relative scale-95"><div class="flex justify-between items-center pb-3 border-b border-outline-variant/20"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[18px]">loyalty</span></div><div><h3 class="font-headline-md text-lg font-bold text-primary">Regras Arducci Club</h3><span class="text-xs text-outline">Fidelidade &amp; Benefícios</span></div></div><button aria-label="Fechar modal de regras" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition active:scale-95 cursor-pointer" onclick="this.closest('#modalClubRules').classList.add('hidden')" title="Fechar" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button></div><div class="py-3 space-y-3 overflow-y-auto flex-1 text-xs text-on-surface-variant pr-1"><div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1"><div class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-secondary text-[18px]">payments</span><span class="">Acúmulo de Pontos</span></div><p class="leading-relaxed">A cada R$ 10,00 gastos em compras, você ganha 1 ponto no Arducci Club.</p></div><div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1"><div class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-secondary text-[18px]">stars</span><span class="">Bônus e Campanhas</span></div><p class="leading-relaxed">Produtos e combos específicos garantem pontos extras ou multiplicados de acordo com as campanhas e promoções ativas.</p></div><div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1"><div class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-secondary text-[18px]">redeem</span><span class="">Resgate de Prêmios</span></div><p class="leading-relaxed">Os resgates de prêmios e delícias iniciam a cada 100 pontos acumulados.</p></div><div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1"><div class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-secondary text-[18px]">update</span><span class="">Atualização Automática</span></div><p class="leading-relaxed">Após o pagamento e aprovação de cada pedido, a quantidade total e atualizada de pontos acumulados aparecerá automaticamente no seu perfil e no comprovante.</p></div></div><div class="flex gap-2 pt-3 border-t border-outline-variant/20"><button class="w-full py-2.5 rounded-xl bg-secondary text-on-secondary font-semibold text-xs hover:bg-secondary/90 transition shadow flex items-center justify-center gap-1.5 active:scale-98" onclick="this.closest('#modalClubRules').classList.add('hidden')" type="button">Entendi</button></div></div></div><div class="fixed inset-0 z-50 items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none hidden" id="modalRewards">
+<!-- Backdrop local que captura clique fora para fechar garantidamente -->
+<div class="absolute inset-0 -z-10" onclick="closeModal('modalRewards')"></div>
+<div class="bg-surface-container-lowest w-full max-w-[390px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform transition-transform duration-300 relative z-10 scale-95">
+<!-- Cabeçalho com botão fechar no canto superior direito -->
+<div class="flex justify-end -mt-1 -mr-1">
+<button aria-label="Fechar modal de recompensas" class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" data-target="modalRewards" id="btnCloseRewardsTop" onclick="closeModal('modalRewards')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="text-center pt-0 pb-1">
+<div class="w-14 h-14 mx-auto rounded-full bg-secondary/15 flex items-center justify-center text-secondary mb-3">
+<span class="material-symbols-outlined text-[32px]">redeem</span>
+</div>
+<h3 class="font-headline-md text-xl font-bold text-primary">Quase lá, Cliente!</h3>
+<p class="text-xs text-on-surface-variant mt-1.5 px-3">
+Você possui <strong class="text-primary font-bold">1770 pontos</strong>. Faltam apenas <strong class="text-secondary font-bold">30 pontos</strong> para desbloquear sua recompensa:
+</p>
+</div>
+<div class="my-4 p-4 rounded-xl bg-surface-container-low border border-secondary/30 text-center">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-primary font-bold text-xs mb-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">icecream</span>
+1 Gelato Médio Cortesia (2 Sabores)
+</div>
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden p-0.5 mt-2">
+<div class="bg-secondary h-full rounded-full" style="width: 85%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-outline mt-1 font-semibold">
+<span class="">Progresso: 85%</span>
+<span class="text-primary">1770 / 1800 pts</span>
+</div>
+</div>
+<p class="text-xs text-center text-outline-variant px-2 pb-3">
+Faça um novo pedido hoje mesmo na Arducci e complete seus 1800 pontos para resgatar na hora no balcão!
+</p>
+<div class="flex gap-2">
+<button class="close-modal flex-1 py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-sm hover:bg-surface-container-high transition cursor-pointer" data-target="modalRewards" id="btnCloseRewardsBottom" onclick="closeModal('modalRewards')" type="button">
+Entendi / Fechar
+</button>
+<button class="flex-1 py-2.5 rounded-xl bg-secondary text-on-secondary font-semibold text-sm hover:bg-secondary/90 transition shadow" onclick="closeModal('modalRewards'); alert('Aproveite o balcão da Arducci para somar seus 30 pontos restantes!');" type="button">
+Fazer Pedido
+</button>
+</div>
+</div>
+</div>
+<!-- 6. MEUS PEDIDOS RECENTES (Bottom-Sheet) - Apenas botão 'Baixar Arquivo' -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform translate-y-full sheet-transition max-h-[751px] overflow-y-auto hidden" id="sheetOrders">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">receipt</span> Pedidos Recentes
+</h3>
+<span class="text-xs text-outline">Histórico e pedidos em preparo</span>
+</div>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetOrders" onclick="closeSheet('sheetOrders')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3.5">
+<!-- Pedido 1 (Ativo) -->
+<div class="p-3.5 rounded-xl border border-secondary/30 bg-surface-container-low">
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-2 py-0.5 text-[10px] rounded-full bg-secondary/15 text-secondary font-bold uppercase tracking-wider mb-1">Em Preparo</span>
+<h4 class="font-title-sm text-sm font-bold text-primary">Pedido #4812 • Mesa 04</h4>
+<p class="text-xs text-on-surface-variant">1x Gelato Pistacchio &amp; Amarena (Médio)</p>
+<p class="text-[11px] text-outline mt-0.5">Hoje, 28 de Março às 15:42</p>
+</div>
+<span class="font-bold text-sm text-primary">R$ 28,00</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20">
+<button class="w-full py-2 px-3 rounded-lg bg-secondary/10 border border-secondary/30 text-xs font-semibold text-secondary flex items-center justify-center gap-1.5 hover:bg-secondary/20 active:scale-98 transition btn-download-file">
+<span class="material-symbols-outlined text-[17px]">download</span> Baixar Arquivo
+</button>
+</div>
+</div>
+<!-- Pedido 2 -->
+<div class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-2 py-0.5 text-[10px] rounded-full bg-surface-container text-on-surface-variant font-bold uppercase tracking-wider mb-1">Concluído</span>
+<h4 class="font-title-sm text-sm font-bold text-primary">Pedido #4591 • Balcão Viagem</h4>
+<p class="text-xs text-on-surface-variant">1x Termo-Box 500ml (Nocciola + Cioccolato)</p>
+<p class="text-[11px] text-outline mt-0.5">15 de Março às 18:20</p>
+</div>
+<span class="font-bold text-sm text-primary">R$ 54,00</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20">
+<button class="w-full py-2 px-3 rounded-lg bg-secondary/10 border border-secondary/30 text-xs font-semibold text-secondary flex items-center justify-center gap-1.5 hover:bg-secondary/20 active:scale-98 transition btn-download-file">
+<span class="material-symbols-outlined text-[17px]">download</span> Baixar Arquivo
+</button>
+</div>
+</div>
+<!-- Pedido 3 -->
+<div class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-2 py-0.5 text-[10px] rounded-full bg-surface-container text-on-surface-variant font-bold uppercase tracking-wider mb-1">Concluído</span>
+<h4 class="font-title-sm text-sm font-bold text-primary">Pedido #3920 • Salão</h4>
+<p class="text-xs text-on-surface-variant">2x Copinho Pequeno &amp; 1x Café Espresso</p>
+<p class="text-[11px] text-outline mt-0.5">02 de Março às 16:15</p>
+</div>
+<span class="font-bold text-sm text-primary">R$ 36,50</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20">
+<button class="w-full py-2 px-3 rounded-lg bg-secondary/10 border border-secondary/30 text-xs font-semibold text-secondary flex items-center justify-center gap-1.5 hover:bg-secondary/20 active:scale-98 transition btn-download-file">
+<span class="material-symbols-outlined text-[17px]">download</span> Baixar Arquivo
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 7. COMPROVANTES E NOTAS FISCAIS (Bottom-Sheet) - Notificação Toast ao Baixar -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform translate-y-full sheet-transition max-h-[751px] overflow-y-auto hidden" id="sheetInvoices">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">description</span> Notas Fiscais
+</h3>
+<span class="text-xs text-outline">NFC-e emitidas para o seu CPF</span>
+</div>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetInvoices" onclick="closeSheet('sheetInvoices')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3">
+<!-- NFC-e 4812 -->
+<div class="p-3.5 rounded-xl border border-outline-variant/25 bg-surface flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<p class="font-title-sm text-sm font-semibold text-primary">NFC-e nº 4812</p>
+<p class="text-xs text-outline">Emitida em 28/03/2025 • R$ 28,00</p>
+</div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-primary text-xs font-bold flex items-center gap-1 hover:bg-surface-container-high transition btn-download-file">
+<span class="material-symbols-outlined text-[16px]">file_download</span> PDF
+</button>
+</div>
+<!-- NFC-e 4591 -->
+<div class="p-3.5 rounded-xl border border-outline-variant/25 bg-surface flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<p class="font-title-sm text-sm font-semibold text-primary">NFC-e nº 4591</p>
+<p class="text-xs text-outline">Emitida em 15/03/2025 • R$ 54,00</p>
+</div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-primary text-xs font-bold flex items-center gap-1 hover:bg-surface-container-high transition btn-download-file">
+<span class="material-symbols-outlined text-[16px]">file_download</span> PDF
+</button>
+</div>
+<!-- NFC-e 3920 -->
+<div class="p-3.5 rounded-xl border border-outline-variant/25 bg-surface flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<p class="font-title-sm text-sm font-semibold text-primary">NFC-e nº 3920</p>
+<p class="text-xs text-outline">Emitida em 02/03/2025 • R$ 36,50</p>
+</div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-primary text-xs font-bold flex items-center gap-1 hover:bg-surface-container-high transition btn-download-file">
+<span class="material-symbols-outlined text-[16px]">file_download</span> PDF
+</button>
+</div>
+</div>
+</div>
+<!-- 8. FORMAS DE PAGAMENTO (Bottom-Sheet: Com botão de exclusão suave e feedback) -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform translate-y-full sheet-transition max-h-[751px] overflow-y-auto hidden" id="sheetPayments">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">credit_card</span> Cartões Salvos
+</h3>
+<span class="text-xs text-outline">Dados criptografados de ponta a ponta</span>
+</div>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetPayments" onclick="closeSheet('sheetPayments')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Selo de Criptografia -->
+<div class="mt-3 p-2.5 rounded-xl bg-secondary/10 border border-secondary/25 flex items-center gap-2 text-xs text-secondary font-medium">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+<span class="">Criptografia bancária PCI-DSS com tokenização segura ativa.</span>
+</div>
+<div class="py-4 space-y-3" id="cardsListContainer">
+<!-- Cartão Mastercard -->
+<div class="card-item p-4 rounded-xl border border-outline-variant/30 bg-gradient-to-r from-primary-container to-tertiary text-on-primary shadow-sm relative overflow-hidden transition-all duration-300" id="cardMastercard">
+<div class="flex justify-between items-center">
+<span class="font-semibold text-xs tracking-wider uppercase text-inverse-primary">Cartão de Crédito</span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold px-2 py-0.5 rounded bg-white/15">Mastercard</span>
+<button aria-label="Excluir Cartão Mastercard" class="w-7 h-7 rounded-full bg-white/10 hover:bg-error hover:text-white flex items-center justify-center text-white/80 transition active:scale-90" onclick="removeCardElement('cardMastercard')" title="Excluir este cartão">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="my-3 font-mono text-base tracking-widest text-on-primary">
+•••• •••• •••• 9241
+</div>
+<div class="flex justify-between items-center text-xs text-inverse-primary/80">
+<span class="">Titular: CLIENTE ARDUCCI</span>
+<span class="">Validade: ••/••</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/10 flex justify-between items-center text-[11px]">
+<span class="text-secondary-fixed flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">lock</span> Protegido
+</span>
+<span class="text-xs text-white/70">Padrão</span>
+</div>
+</div>
+<!-- Cartão Visa -->
+<div class="card-item p-4 rounded-xl border border-outline-variant/30 bg-gradient-to-r from-stone-800 to-stone-900 text-on-primary shadow-sm relative overflow-hidden transition-all duration-300" id="cardVisa">
+<div class="flex justify-between items-center">
+<span class="font-semibold text-xs tracking-wider uppercase text-outline-variant">Cartão de Crédito</span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold px-2 py-0.5 rounded bg-white/15">Visa Infinite</span>
+<button aria-label="Excluir Cartão Visa" class="w-7 h-7 rounded-full bg-white/10 hover:bg-error hover:text-white flex items-center justify-center text-white/80 transition active:scale-90" onclick="removeCardElement('cardVisa')" title="Excluir este cartão">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="my-3 font-mono text-base tracking-widest text-on-primary">
+•••• •••• •••• 1084
+</div>
+<div class="flex justify-between items-center text-xs text-outline-variant">
+<span class="">Titular: CLIENTE ARDUCCI</span>
+<span class="">Validade: ••/••</span>
+</div>
+<div class="mt-2 pt-2 border-t border-white/10 flex justify-between items-center text-[11px]">
+<span class="text-secondary-fixed flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">lock</span> Protegido
+</span>
+<button class="text-xs text-white/80 hover:text-white underline" onclick="showToast('Cartão Visa selecionado como principal.');">Tornar padrão</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 rounded-xl border-2 border-dashed border-outline-variant/60 text-primary font-semibold text-xs flex items-center justify-center gap-2 hover:bg-surface-container-low transition" onclick="alert('Para sua segurança, a adição de novos cartões passa por tokenização direta 3DS.')">
+<span class="material-symbols-outlined text-[18px]">add</span> Adicionar Novo Cartão de Crédito
+</button>
+</div>
+<!-- 10. DADOS PESSOAIS & SEGURANÇA (Bottom-Sheet) -->
+<div class="fixed bottom-0 inset-x-0 mx-auto max-w-[430px] bg-surface-container-lowest rounded-t-3xl p-5 z-50 transform translate-y-full sheet-transition max-h-[751px] overflow-y-auto hidden" id="sheetSecurity">
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-xl font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">security</span> Dados &amp; Segurança
+</h3>
+<span class="text-xs text-outline">Privacidade e gestão da sua conta</span>
+</div>
+<button class="close-sheet w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container transition" data-target="sheetSecurity" onclick="closeSheet('sheetSecurity')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3 divide-y divide-outline-variant/15 text-sm">
+<!-- Alterar Senha de Acesso -->
+<button class="w-full flex items-center justify-between pt-2 text-left group" id="btnOpenChangePasswordDirect">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition">
+<span class="material-symbols-outlined text-[20px]">password</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Alterar Senha de Acesso</p>
+<p class="text-xs text-on-surface-variant">Recomendamos renovar a cada 90 dias</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+<!-- Termos e Condições & Privacidade (Abre Modal Completo) -->
+<button class="w-full flex items-center justify-between pt-3 text-left group" id="btnOpenTermsModal">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div>
+<p class="font-semibold text-primary">Termos &amp; Política de Privacidade</p>
+<p class="text-xs text-on-surface-variant">Uso de dados pessoais e diretrizes LGPD</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+<!-- Remover Conta (Zona de Perigo com Confirmação Exata) -->
+<div class="pt-4">
+<div class="p-3.5 rounded-xl border border-error/30 bg-error-container/20">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error text-[22px]">warning</span>
+<div>
+<p class="font-bold text-error text-xs uppercase tracking-wider">Zona de Perigo</p>
+<p class="text-xs text-on-surface mt-0.5">Ao excluir sua conta, você perderá seus 170 pontos Arducci Club e o histórico de pedidos.</p>
+</div>
+</div>
+<button class="mt-3 w-full py-2.5 rounded-lg bg-error text-on-error font-semibold text-xs flex items-center justify-center gap-1.5 hover:bg-error/90 active:scale-95 transition" id="btnOpenDeleteAccountModal">
+<span class="material-symbols-outlined text-[16px]">delete_forever</span> Excluir Minha Conta Arducci
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: Termos de Uso & Políticas de Privacidade -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 pointer-events-none opacity-0 transition-opacity duration-300 hidden" id="modalTerms">
+<div class="bg-surface-container-lowest w-full max-w-[400px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform scale-95 transition-transform duration-300 max-h-[751px] flex flex-col">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">policy</span> Termos &amp; Políticas
+        </h3>
+<span class="text-xs text-outline">Consentimentos aceitos no cadastro</span>
+</div>
+<button aria-label="Fechar termos" class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" onclick="closeModal('modalTerms')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-3 space-y-3.5 overflow-y-auto flex-1 text-xs text-on-surface-variant pr-1">
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">1. Consentimento do Arducci Club</span>
+</div>
+<p class="leading-relaxed">Você autorizou o acúmulo de pontos (1 ponto por R$ 1,00 gasto) e o processamento de compras para conceder benefícios e descontos de nível Ouro no balcão e no aplicativo.</p>
+</div>
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary text-[18px]">security</span>
+<span class="">2. Armazenamento Criptografado &amp; LGPD</span>
+</div>
+<p class="leading-relaxed">Seus dados de identificação, pedidos e cartões bancários são tokenizados de ponta a ponta (PCI-DSS) e armazenados em conformidade com as diretrizes da LGPD (Lei nº 13.709/2018).</p>
+</div>
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary text-[18px]">cookie</span>
+<span class="">3. Política de Cookies &amp; Sessão</span>
+</div>
+<p class="leading-relaxed">Utilizamos cookies estritamente necessários para manter seu login autenticado e garantir agilidade ao enviar seus pedidos para a cozinha do restaurante.</p>
+</div>
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 space-y-1">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary text-[18px]">notifications</span>
+<span class="">4. Notificações de Pedidos e Ofertas</span>
+</div>
+<p class="leading-relaxed">Você autorizou avisos em tempo real sobre o preparo de seus gelatos e eventuais comunicados de novos sabores sazonais.</p>
+</div>
+</div>
+<div class="flex gap-2 pt-2 border-t border-outline-variant/20">
+<button class="w-full py-2.5 rounded-xl bg-secondary text-on-secondary font-semibold text-xs hover:bg-secondary/90 transition shadow flex items-center justify-center gap-1.5" onclick="closeModal('modalTerms')" type="button">
+        Entendi
+      </button>
+</div>
+</div>
+</div>
+<!-- MODAL: Confirmação Estrita de Exclusão de Conta -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 pointer-events-none opacity-0 transition-opacity duration-300 hidden" id="modalDeleteAccount">
+<div class="bg-surface-container-lowest w-full max-w-[390px] rounded-2xl p-5 shadow-2xl border border-error/30 pointer-events-auto transform scale-95 transition-transform duration-300">
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+<h3 class="font-headline-md text-lg font-bold">Excluir Conta</h3>
+</div>
+<button aria-label="Fechar" class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" onclick="closeModal('modalDeleteAccount')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3">
+<p class="text-sm font-medium text-primary leading-snug">
+        Tem Certeza? Se apagar, irá sumir todos os seus dados do nosso sistema e cancelará os pontos do fidelidade. Digite 'cancelar' para confirmar:
+      </p>
+<div>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3.5 py-2.5 text-sm text-primary focus:border-error focus:ring-1 focus:ring-error placeholder:text-outline/60" id="inputConfirmDeleteAccount" placeholder="Digite exatamente 'cancelar'" type="text">
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-xs hover:bg-surface-container-high transition" onclick="closeModal('modalDeleteAccount')" type="button">
+        Voltar / Cancelar
+      </button>
+<button class="flex-1 py-2.5 rounded-xl bg-error text-on-error font-semibold text-xs hover:bg-error/90 transition shadow disabled:opacity-40 disabled:cursor-not-allowed" disabled="" id="btnExecuteDeleteAccount" onclick="executeAccountDeletion()" type="button">
+        Confirmar Exclusão
+      </button>
+</div>
+</div>
+</div>
+<!-- MODAL ALTERAR SENHA (Sub-fluxo de segurança) -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 pointer-events-none opacity-0 transition-opacity duration-300 hidden" id="modalChangePassword">
+<div class="bg-surface-container-lowest w-full max-w-[380px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform scale-95 transition-transform duration-300">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<h3 class="font-headline-md text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">lock_reset</span> Alterar Senha
+</h3>
+<button class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" data-target="modalChangePassword" onclick="closeModal('modalChangePassword')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-3 space-y-3">
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">Senha Atual</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3 py-2 text-sm" placeholder="••••••••" type="password">
+</div>
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">Nova Senha</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3 py-2 text-sm" placeholder="Mínimo de 8 caracteres" type="password">
+</div>
+<div>
+<label class="block text-xs font-semibold text-primary mb-1">Confirmar Nova Senha</label>
+<input class="w-full rounded-xl border border-outline-variant/60 bg-surface px-3 py-2 text-sm" placeholder="Repita a nova senha" type="password">
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="close-modal flex-1 py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-xs hover:bg-surface-container-high transition" data-target="modalChangePassword" onclick="closeModal('modalChangePassword')" type="button">
+Cancelar
+</button>
+<button class="flex-1 py-2.5 rounded-xl bg-secondary text-on-secondary font-semibold text-xs hover:bg-secondary/90 transition shadow" onclick="showToast('Senha alterada com sucesso!'); closeModal('modalChangePassword');" type="button">
+Salvar Nova Senha
+</button>
+</div>
+</div>
+</div>
+<!-- 11. AJUDA E SUPORTE (Modal Centralizado com FAQ) -->
+<div class="fixed inset-0 z-50 items-center justify-center p-4 pointer-events-none opacity-0 transition-opacity duration-300 hidden" id="modalHelp">
+<div class="bg-surface-container-lowest w-full max-w-[400px] rounded-2xl p-5 shadow-2xl border border-outline-variant/30 pointer-events-auto transform scale-95 transition-transform duration-300 max-h-[751px] flex flex-col">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-md text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">help</span> Ajuda &amp; FAQ
+</h3>
+<span class="text-xs text-outline">Tire suas dúvidas ou fale conosco</span>
+</div>
+<button class="close-modal w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container cursor-pointer transition active:scale-95" data-target="modalHelp" onclick="closeModal('modalHelp')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="py-3 space-y-3 overflow-y-auto flex-1 text-xs">
+<!-- FAQ 1 -->
+<details class="p-3 rounded-xl bg-surface border border-outline-variant/30 group" open="">
+<summary class="font-semibold text-primary cursor-pointer list-none flex justify-between items-center">
+<span class="">Como funciona o Arducci Club?</span>
+<span class="material-symbols-outlined text-[18px] group-open:rotate-180 transition">expand_more</span>
+</summary>
+<p class="mt-2 text-on-surface-variant leading-relaxed">
+A cada R$ 1,00 gasto em qualquer gelato, café ou açai, você acumula 1 ponto. Ao atingir 200 pontos, você ganha 1 Gelato Médio Cortesia com 2 sabores à sua escolha!
+</p>
+</details>
+<!-- FAQ 2 -->
+<details class="p-3 rounded-xl bg-surface border border-outline-variant/30 group">
+<summary class="font-semibold text-primary cursor-pointer list-none flex justify-between items-center">
+<span class="">Como pedir pelo app e retirar no balcão?</span>
+<span class="material-symbols-outlined text-[18px] group-open:rotate-180 transition">expand_more</span>
+</summary>
+<p class="mt-2 text-on-surface-variant leading-relaxed">
+Basta selecionar seus sabores favoritos no app, selecionar a opção 'Retirar no Balcão' na sacola e apresentar o número do seu pedido quando o status mudar para 'Pronto para Retirada'.
+</p>
+</details>
+<!-- FAQ 3 -->
+<details class="p-3 rounded-xl bg-surface border border-outline-variant/30 group">
+<summary class="font-semibold text-primary cursor-pointer list-none flex justify-between items-center">
+<span class="">Quais formas de pagamento são aceitas?</span>
+<span class="material-symbols-outlined text-[18px] group-open:rotate-180 transition">expand_more</span>
+</summary>
+<p class="mt-2 text-on-surface-variant leading-relaxed">
+Aceitamos Cartões de Crédito e Débito (Visa, Mastercard, Elo, Amex), Pix com confirmação instantânea e saldo da carteira digital Arducci.
+</p>
+</details>
+<!-- Falar no WhatsApp -->
+<div class="p-3 rounded-xl bg-secondary/10 border border-secondary/20 text-center">
+<p class="font-bold text-secondary text-xs">Precisa de atendimento imediato?</p>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Fale diretamente com a nossa equipe no balcão.</p>
+<button class="mt-2.5 w-full py-2 rounded-lg bg-secondary text-on-secondary font-semibold text-xs flex items-center justify-center gap-1.5 shadow" onclick="alert('Redirecionando para o WhatsApp oficial da Arducci Gelateria: (11) 98765-4321');">
+<span class="material-symbols-outlined text-[16px]">chat</span> Abrir WhatsApp da Loja
+</button>
+</div>
+</div>
+<button class="close-modal mt-2 w-full py-2.5 rounded-xl bg-surface-container text-primary font-semibold text-sm hover:bg-surface-container-high transition cursor-pointer" data-target="modalHelp" onclick="closeModal('modalHelp')" type="button">
+Fechar
+</button>
+</div>
+</div>
+<!-- ================================================================= -->
+<!-- 12. Bottom Navigation Bar Oficial Arducci (Exatamente 4 Ícones, sem Cardápio) -->
+<nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-4 pt-2.5 pb-6 bg-surface-container-lowest border-t border-outline-variant/40 max-w-[430px] mx-auto right-0 shadow-[0_-4px_16px_rgba(59,43,32,0.06)]">
+<!-- 1. Início -->
+<a class="flex flex-col items-center justify-center text-outline hover:text-secondary font-medium py-1 px-3 rounded-lg active:scale-95 transition-all duration-150" href="#inicio">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Início</span>
+</a>
+<!-- 2. Carrinho com Badge -->
+<a class="flex flex-col items-center justify-center text-outline hover:text-secondary font-medium py-1 px-3 rounded-lg active:scale-95 transition-all duration-150 relative" href="#carrinho">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="font-label-sm text-label-sm mt-1">Sacola</span>
+</a>
+<!-- 3. Pedidos -->
+<a class="flex flex-col items-center justify-center text-outline hover:text-secondary font-medium py-1 px-3 rounded-lg active:scale-95 transition-all duration-150" href="#pedidos" id="bottomNavPedidos">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Pedidos</span>
+</a>
+<!-- 4. Perfil (Ativo com indicador verde) -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold py-1 px-3 rounded-lg active:scale-95 transition-all duration-150" href="#perfil">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">person</span>
+<span class="font-label-sm text-label-sm mt-1 font-bold">Perfil</span>
+</a>
+</nav>
+</div>
+<!-- Funções Globais de Controle de Modais, Toast e Sheets -->
+<script>
+  let toastTimeout;
+  function showToast(message, icon = 'check_circle') {
+    const toast = document.getElementById('appToast');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIco = document.getElementById('toastIcon');
+    if (!toast) return;
+
+    if (toastMsg) toastMsg.textContent = message;
+    if (toastIco) toastIco.textContent = icon;
+
+    clearTimeout(toastTimeout);
+    toast.classList.remove('opacity-0', '-translate-y-4', 'scale-95', 'pointer-events-none');
+    toast.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+      toast.classList.add('opacity-0', '-translate-y-4', 'scale-95', 'pointer-events-none');
+    }, 2400);
+  }
+
+  function openSheet(sheetId) {
+    const sheet = document.getElementById(sheetId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (!sheet) return;
+    if (backdrop) {
+      backdrop.classList.remove('hidden');
+      setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+    }
+    sheet.classList.remove('hidden');
+    setTimeout(() => {
+      sheet.classList.remove('translate-y-full');
+    }, 10);
+  }
+
+  function closeSheet(sheetId) {
+    const sheet = document.getElementById(sheetId);
+    if (!sheet) return;
+    sheet.classList.add('translate-y-full');
+    setTimeout(() => {
+      sheet.classList.add('hidden');
+    }, 300);
+    checkAndHideBackdrop();
+  }
+
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (!modal) return;
+    if (backdrop) {
+      backdrop.classList.remove('hidden');
+      setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    setTimeout(() => {
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modal.classList.add('opacity-100');
+      const box = modal.querySelector('div.bg-surface-container-lowest') || modal.querySelector('div');
+      if (box) {
+        box.classList.remove('scale-95');
+        box.classList.add('scale-100');
+      }
+    }, 10);
+  }
+
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    const box = modal.querySelector('div.bg-surface-container-lowest') || modal.querySelector('div');
+    if (box) {
+      box.classList.remove('scale-100');
+      box.classList.add('scale-95');
+    }
+    setTimeout(() => {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }, 300);
+    checkAndHideBackdrop();
+  }
+
+  function checkAndHideBackdrop() {
+    const backdrop = document.getElementById('modalBackdrop');
+    if (!backdrop) return;
+    // Checa se ainda há algum modal aberto
+    const anyModalOpen = Array.from(document.querySelectorAll('[id^="modal"]')).some(el => {
+      return el.id !== 'modalBackdrop' && !el.classList.contains('hidden');
+    });
+    const anySheetOpen = Array.from(document.querySelectorAll('.sheet-transition')).some(el => {
+      return !el.id.includes('Notification') && !el.classList.contains('hidden') && !el.classList.contains('translate-y-full');
+    });
+
+    if (!anyModalOpen && !anySheetOpen) {
+      backdrop.classList.remove('opacity-100');
+      setTimeout(() => {
+        backdrop.classList.add('hidden');
+      }, 300);
+    }
+  }
+
+  function closeAllModalsAndSheets() {
+    document.querySelectorAll('[id^="modal"]').forEach(el => {
+      if (el.id !== 'modalBackdrop') {
+        closeModal(el.id);
+      }
+    });
+    document.querySelectorAll('.sheet-transition').forEach(el => {
+      if (!el.id.includes('Notification')) {
+        closeSheet(el.id);
+      }
+    });
+    toggleNotificationTop(false);
+  }
+
+  function toggleNotificationTop(show) {
+    const topSheetNotif = document.getElementById('topSheetNotification');
+    if (!topSheetNotif) return;
+    if (show) {
+      topSheetNotif.classList.remove('hidden');
+      setTimeout(() => topSheetNotif.classList.remove('-translate-y-full'), 10);
+    } else {
+      topSheetNotif.classList.add('-translate-y-full');
+      setTimeout(() => topSheetNotif.classList.add('hidden'), 300);
+    }
+  }
+
+  function removeCardElement(cardId) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+    card.classList.add('opacity-0', 'scale-90', '-translate-x-4');
+    setTimeout(() => {
+      card.remove();
+      showToast('Cartão removido com sucesso!', 'credit_card_off');
+    }, 280);
+  }
+
+  function executeAccountDeletion() {
+    closeModal('modalDeleteAccount');
+    closeSheet('sheetSecurity');
+    showToast('Conta cancelada com sucesso.', 'info');
+    setTimeout(() => {
+      alert('Sua conta e seus 170 pontos foram excluídos com sucesso. Arrivederci!');
+      location.reload();
+    }, 600);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Botões de Baixar Arquivo -> Toast Elegante
+    document.querySelectorAll('.btn-download-file').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        showToast('Arquivo baixado!', 'file_download_done');
+      });
+    });
+
+    // 2. Pedido Ativo -> Modal de acompanhamento de status do cliente
+    const btnVerStatus = document.getElementById('btnVerStatusActiveOrder');
+    if (btnVerStatus) {
+      btnVerStatus.addEventListener('click', () => {
+        openModal('modalOrderStatus');
+      });
+    }
+
+    // 5. Termos & Políticas Modal
+    const btnOpenTerms = document.getElementById('btnOpenTermsModal');
+    if (btnOpenTerms) {
+      btnOpenTerms.addEventListener('click', () => {
+        openModal('modalTerms');
+      });
+    }
+
+    // 5. Exclusão de Conta com Validação de "cancelar"
+    const btnOpenDeleteAcc = document.getElementById('btnOpenDeleteAccountModal');
+    const inputConfirmDelete = document.getElementById('inputConfirmDeleteAccount');
+    const btnExecuteDelete = document.getElementById('btnExecuteDeleteAccount');
+
+    if (btnOpenDeleteAcc) {
+      btnOpenDeleteAcc.addEventListener('click', () => {
+        if (inputConfirmDelete) inputConfirmDelete.value = '';
+        if (btnExecuteDelete) btnExecuteDelete.disabled = true;
+        openModal('modalDeleteAccount');
+      });
+    }
+
+    if (inputConfirmDelete && btnExecuteDelete) {
+      inputConfirmDelete.addEventListener('input', (e) => {
+        const val = e.target.value.trim().toLowerCase();
+        btnExecuteDelete.disabled = (val !== 'cancelar');
+      });
+    }
+
+    // Top Notification
+    const btnOpenNotif = document.getElementById('btnOpenNotification');
+    if (btnOpenNotif) btnOpenNotif.addEventListener('click', () => toggleNotificationTop(true));
+
+    // Settings
+    const btnOpenSettings = document.getElementById('btnOpenSettings');
+    if (btnOpenSettings) btnOpenSettings.addEventListener('click', () => openSheet('sheetSettings'));
+
+    const toggleDark = document.getElementById('toggleDarkMode');
+    const themeIcon = document.getElementById('themeIcon');
+    if (toggleDark && themeIcon) {
+      toggleDark.addEventListener('change', () => {
+        if (toggleDark.checked) {
+          document.documentElement.classList.add('dark');
+          themeIcon.textContent = 'light_mode';
+        } else {
+          document.documentElement.classList.remove('dark');
+          themeIcon.textContent = 'dark_mode';
+        }
+      });
+    }
+
+    const btnSettingsOpenEditProfile = document.getElementById('btnSettingsOpenEditProfile');
+    if (btnSettingsOpenEditProfile) {
+      btnSettingsOpenEditProfile.addEventListener('click', () => {
+        closeSheet('sheetSettings');
+        setTimeout(() => openSheet('sheetEditProfile'), 350);
+      });
+    }
+
+    const btnSettingsChangePassword = document.getElementById('btnSettingsChangePassword');
+    if (btnSettingsChangePassword) {
+      btnSettingsChangePassword.addEventListener('click', () => {
+        closeSheet('sheetSettings');
+        setTimeout(() => openModal('modalChangePassword'), 350);
+      });
+    }
+
+    const btnShareInvite = document.getElementById('btnShareInvite');
+    if (btnShareInvite) {
+      btnShareInvite.addEventListener('click', () => {
+        showToast('Link exclusivo Arducci copiado!');
+      });
+    }
+
+    const logoutAction = () => {
+      if (confirm('Deseja realmente sair da sua conta Arducci?')) {
+        showToast('Sessão encerrada com sucesso.');
+      }
+    };
+    const btnSettingsLogout = document.getElementById('btnSettingsLogout');
+    if (btnSettingsLogout) btnSettingsLogout.addEventListener('click', logoutAction);
+    const btnLogout = document.getElementById('btnLogout');
+    if (btnLogout) btnLogout.addEventListener('click', logoutAction);
+
+    // Edição de Perfil
+    const btnOpenEditProfileTop = document.getElementById('btnOpenEditProfileTop');
+    if (btnOpenEditProfileTop) btnOpenEditProfileTop.addEventListener('click', () => openSheet('sheetEditProfile'));
+    const btnEditAvatarDirect = document.getElementById('btnEditAvatarDirect');
+    if (btnEditAvatarDirect) btnEditAvatarDirect.addEventListener('click', () => openSheet('sheetEditProfile'));
+
+    const inputAvatar = document.getElementById('inputAvatarUpload');
+    const formAvatarPreview = document.getElementById('formAvatarPreview');
+    const userAvatarImg = document.getElementById('userAvatarImg');
+    if (inputAvatar && formAvatarPreview && userAvatarImg) {
+      inputAvatar.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(evt) {
+            formAvatarPreview.src = evt.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    const btnSaveProfile = document.getElementById('btnSaveProfile');
+    if (btnSaveProfile) {
+      btnSaveProfile.addEventListener('click', () => {
+        const newName = document.getElementById('inputName').value.trim();
+        const newEmail = document.getElementById('inputEmail').value.trim();
+        const newPhone = document.getElementById('inputPhone').value.trim();
+
+        if (newName) document.getElementById('userDisplayName').textContent = newName;
+        if (newEmail) document.getElementById('userDisplayEmail').textContent = newEmail;
+        if (newPhone) document.getElementById('userDisplayPhone').textContent = newPhone;
+        if (formAvatarPreview && formAvatarPreview.src) userAvatarImg.src = formAvatarPreview.src;
+
+        closeSheet('sheetEditProfile');
+        showToast('Dados do perfil atualizados com sucesso!');
+      });
+    }
+
+    // Extrato de Pontos
+    const btnOpenExtrato = document.getElementById('btnOpenExtrato');
+    if (btnOpenExtrato) btnOpenExtrato.addEventListener('click', () => openModal('modalExtrato'));
+
+    // Resgatar Recompensas
+    const btnOpenRewards = document.getElementById('btnOpenRewards');
+    if (btnOpenRewards) btnOpenRewards.addEventListener('click', () => openModal('modalRewards'));
+
+    // Pedidos
+    const btnOpenOrders = document.getElementById('btnOpenOrders');
+    if (btnOpenOrders) btnOpenOrders.addEventListener('click', () => openSheet('sheetOrders'));
+    const bottomNavPedidos = document.getElementById('bottomNavPedidos');
+    if (bottomNavPedidos) {
+      bottomNavPedidos.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSheet('sheetOrders');
+      });
+    }
+
+    // Comprovantes
+    const btnOpenInvoices = document.getElementById('btnOpenInvoices');
+    if (btnOpenInvoices) btnOpenInvoices.addEventListener('click', () => openSheet('sheetInvoices'));
+
+    // Pagamentos
+    const btnOpenPayments = document.getElementById('btnOpenPayments');
+    if (btnOpenPayments) btnOpenPayments.addEventListener('click', () => openSheet('sheetPayments'));
+
+    // Segurança
+    const btnOpenSecurity = document.getElementById('btnOpenSecurity');
+    if (btnOpenSecurity) btnOpenSecurity.addEventListener('click', () => openSheet('sheetSecurity'));
+    const btnOpenChangePasswordDirect = document.getElementById('btnOpenChangePasswordDirect');
+    if (btnOpenChangePasswordDirect) {
+      btnOpenChangePasswordDirect.addEventListener('click', () => {
+        closeSheet('sheetSecurity');
+        setTimeout(() => openModal('modalChangePassword'), 350);
+      });
+    }
+
+    // Ajuda e Suporte
+    const btnOpenHelp = document.getElementById('btnOpenHelp');
+    if (btnOpenHelp) btnOpenHelp.addEventListener('click', () => openModal('modalHelp'));
+  });
+</script>
+<script>window.SCREEN_ID=13;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

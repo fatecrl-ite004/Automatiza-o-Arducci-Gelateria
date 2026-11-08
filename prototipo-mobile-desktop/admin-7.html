@@ -1,0 +1,1095 @@
+<!DOCTYPE html><html lang="pt-BR" class="h-full bg-[#181310]"><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SORVETEC PRO - Gestão de Sabores e Pozzetti</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="styles/admin-7.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F4EFE6; }
+    ::-webkit-scrollbar-thumb { background: #D0C5AF; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #B8860B; }
+    .sidebar-transition { transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    .content-transition { transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+</style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-[#fff8f4] text-[#1d1b19] font-sans antialiased m-0 p-0 overflow-x-hidden min-h-screen flex h-full">
+
+<!-- ASIDE: SIDEBAR OFICIAL SORVETEC PRO -->
+<aside id="sidebar" class="sidebar-transition fixed top-0 bottom-0 left-0 w-[260px] h-full min-h-screen z-50 bg-[#181310] text-[#e5dcd3] p-4 flex flex-col justify-between shrink-0 select-none border-r border-[#2d221c] overflow-y-auto">
+  <div class="flex flex-col gap-4">
+    <div class="flex items-center justify-between pb-3 border-b border-[#2d221c]">
+      <div class="flex items-center gap-3 overflow-hidden cursor-pointer" onclick="showToast('SORVETEC PRO • Dal 1984 Arducci')">
+        <div class="w-10 h-10 bg-[#d4af37] rounded-xl flex items-center justify-center text-[#181310] shadow-md shrink-0">
+          <span class="material-symbols-outlined text-2xl font-bold">icecream</span>
+        </div>
+        <div class="flex flex-col sidebar-label-text overflow-hidden whitespace-nowrap">
+          <div class="flex items-center gap-1.5">
+            <span class="text-sm font-extrabold text-[#fff8f4] tracking-wide">SORVETEC</span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/40 leading-none">PRO</span>
+          </div>
+          <p class="text-[11px] text-[#a89a8f] font-medium truncate">DAL 1984 · ARDUCCI</p>
+        </div>
+      </div>
+      <button class="p-1.5 rounded-lg text-[#a89a8f] hover:text-[#fff8f4] hover:bg-white/10 transition-colors shrink-0" onclick="toggleSidebar()" title="Recolher / Expandir menu">
+        <span class="material-symbols-outlined text-xl" id="sidebar-toggle-icon">menu_open</span>
+      </button>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="flex flex-col gap-1 pr-0.5">
+      <a href="javascript:void(0)" onclick="showToast('Navegando para Dashboard...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">dashboard</span>
+        <span class="sidebar-label-text truncate">Dashboard</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Navegando para Acompanhamento de Pedido...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">receipt_long</span>
+        <span class="sidebar-label-text truncate">Acompanhamento de Pedido</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Abrindo Caixa e PDV...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">point_of_sale</span>
+        <span class="sidebar-label-text truncate">Caixa</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Acessando Clientes Arducci Club...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">group</span>
+        <span class="sidebar-label-text truncate">Clientes</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Carregando Estoque Central...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">inventory_2</span>
+        <span class="sidebar-label-text truncate">Estoque</span>
+      </a>
+      <a href="javascript:void(0)" class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-[#271b14] text-[#d4af37] font-bold text-xs border-l-4 border-[#d4af37] shadow-sm whitespace-nowrap overflow-hidden" title="Sabores de Gelato (Tela Atual)">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="material-symbols-outlined text-xl text-[#d4af37] shrink-0">icecream</span>
+          <span class="sidebar-label-text truncate">Sabores de Gelato</span>
+        </div>
+        <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse shrink-0 sidebar-label-text"></span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Navegando para Financeiro &amp; DRE...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">account_balance_wallet</span>
+        <span class="sidebar-label-text truncate">Financeiro</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Abrindo Funcionários &amp; Ponto...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">badge</span>
+        <span class="sidebar-label-text truncate">Funcionários</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Abrindo Mesas &amp; Comandas...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">table_restaurant</span>
+        <span class="sidebar-label-text truncate">Mesas &amp; Comandas</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Gerando Relatórios e BI...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">bar_chart</span>
+        <span class="sidebar-label-text truncate">Relatórios</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Abrindo Painel de Controle...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">tune</span>
+        <span class="sidebar-label-text truncate">Painel de Controle</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('Abrindo Suporte Técnico Arducci...')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors text-xs font-semibold whitespace-nowrap overflow-hidden">
+        <span class="material-symbols-outlined text-xl text-[#a89a8f] shrink-0">contact_support</span>
+        <span class="sidebar-label-text truncate">Suporte Técnico</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="pt-3 border-t border-[#2d221c]">
+    <button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-rose-400 hover:text-white hover:bg-rose-950/40 border border-rose-900/30 transition-all text-xs font-bold whitespace-nowrap overflow-hidden justify-start cursor-pointer" onclick="openLogoutModal()" title="Encerrar Sessão (Sair)">
+      <span class="material-symbols-outlined text-xl shrink-0">logout</span>
+      <span class="sidebar-label-text truncate">Encerrar Sessão (Sair)</span>
+    </button>
+  </div>
+</aside>
+
+<!-- MAIN WRAPPER -->
+<div id="main-wrapper" class="content-transition flex-1 flex flex-col min-h-screen bg-[#fff8f4] ml-[260px] w-[calc(100vw-260px)] overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 h-16 w-full bg-white border-b border-[#eae2dc] px-6 flex items-center justify-between shadow-xs shrink-0">
+    <div class="flex items-center gap-3">
+      <div id="store-status-badge" class="flex items-center gap-2 px-3 py-1.5 bg-[#eaf5ec] border border-[#246c30]/20 rounded-md transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#246c30] animate-ping inline-block"></span>
+        <span class="text-xs font-bold text-[#246c30]">Loja Aberta • Balcão e Salão</span>
+      </div>
+      <button id="btn-toggle-store" onclick="toggleStoreStatus()" class="h-8 px-3 rounded border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold flex items-center gap-1.5 transition active:scale-95 cursor-pointer">
+        <span class="material-symbols-outlined text-base">storefront</span>
+        <span id="btn-toggle-text" class="">Fechar loja</span>
+      </button>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 border-r border-[#eae2dc] pr-4 relative">
+        <div class="relative">
+          <button onclick="toggleNotificationsDropdown(event)" class="relative p-2 rounded-lg text-[#6e5a4f] hover:text-[#24170d] hover:bg-[#fff8f4] transition cursor-pointer" title="Notificações">
+            <span class="material-symbols-outlined text-xl">notifications</span>
+            <span id="notifications-badge" class="absolute top-1 right-1 w-4 h-4 bg-[#c53030] text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none">3</span>
+          </button>
+          <div id="notifications-dropdown" class="absolute right-0 top-11 w-80 bg-white border border-[#eae2dc] rounded-xl shadow-2xl p-0 z-50 hidden">
+            <div class="p-3.5 border-b border-[#eae2dc] flex items-center justify-between bg-[#fcf9f7] rounded-t-xl">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-[#d4af37]">notifications_active</span>
+                <span class="text-xs font-extrabold text-[#24170d]">Alertas da Operação</span>
+              </div>
+              <button onclick="clearNotifications()" class="text-[11px] font-bold text-[#246c30] hover:underline cursor-pointer">Marcar lidas</button>
+            </div>
+            <div id="notifications-list" class="divide-y divide-[#eae2dc] max-h-72 overflow-y-auto">
+              <div class="p-3 hover:bg-[#fffaf6] transition cursor-pointer flex gap-2.5 items-start" onclick="filterLowLevel(); showToast('Filtro aplicado: Pozzetto 01 (Pistache Bronte DOP)')">
+                <div class="w-7 h-7 rounded-full bg-rose-100 text-[#c53030] flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-sm">priority_high</span>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-[#24170d]">Reposição Crítica: Pistache DOP</p>
+                  <p class="text-[11px] text-[#6e5a4f]">Pozzetto 01 com 1.4 kg (18%). Cuba reserva pronta.</p>
+                  <span class="text-[10px] text-stone-400 font-mono">há 5 min</span>
+                </div>
+              </div>
+              <div class="p-3 hover:bg-[#fffaf6] transition cursor-pointer flex gap-2.5 items-start" onclick="filterLowLevel(); showToast('Filtro aplicado: Pozzetto 06 (Doce de Leite)')">
+                <div class="w-7 h-7 rounded-full bg-amber-100 text-[#8a6800] flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-sm">warning</span>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-[#24170d]">Atenção: Doce de Leite Argentino</p>
+                  <p class="text-[11px] text-[#6e5a4f]">Pozzetto 06 atingiu 15%. Reposição recomendada.</p>
+                  <span class="text-[10px] text-stone-400 font-mono">há 18 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <button onclick="toggleSettingsDropdown(event)" class="p-2 rounded-lg text-[#6e5a4f] hover:text-[#24170d] hover:bg-[#fff8f4] transition cursor-pointer" title="Configurações Rápidas">
+            <span class="material-symbols-outlined text-xl">settings</span>
+          </button>
+          <div id="settings-dropdown" class="absolute right-0 top-11 w-64 bg-white border border-[#eae2dc] rounded-xl shadow-2xl p-0 z-50 hidden">
+            <div class="p-3 border-b border-[#eae2dc] bg-[#fcf9f7] rounded-t-xl">
+              <span class="text-xs font-extrabold text-[#24170d]">Ajustes Rápidos do Terminal</span>
+            </div>
+            <div class="p-2 flex flex-col gap-1 text-xs">
+              <button class="flex items-center justify-between p-2 rounded-lg hover:bg-stone-50 text-[#24170d] transition text-left cursor-pointer" onclick="toggleDarkMode()">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-base text-[#6e5a4f]">dark_mode</span>
+                  <span class="">Modo Noturno</span>
+                </div>
+                <span class="text-[10px] text-stone-400 font-bold" id="night-mode-status">OFF</span>
+              </button>
+              <button class="flex items-center justify-between p-2 rounded-lg hover:bg-stone-50 text-[#24170d] transition text-left cursor-pointer" onclick="syncPozzettiCloud()">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-base text-[#6e5a4f]">cloud_sync</span>
+                  <span class="">Sincronizar em Nuvem</span>
+                </div>
+                <span class="text-[10px] text-[#246c30] font-bold">Pronto</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button class="p-2 rounded-lg text-rose-600 hover:bg-rose-50 transition cursor-pointer" onclick="openLogoutModal()" title="Encerrar Sessão">
+          <span class="material-symbols-outlined text-xl">power_settings_new</span>
+        </button>
+      </div>
+
+      <div class="relative">
+        <button onclick="openLogoutModal()" class="flex items-center gap-3 pl-1 cursor-pointer hover:opacity-90 transition rounded-lg p-1" title="Adm MASTER">
+          <div class="w-8 h-8 rounded-full bg-[#24170d] text-[#d4af37] border border-[#d4af37]/40 flex items-center justify-center font-bold text-xs shadow-sm">AM</div>
+          <div class="flex flex-col text-left">
+            <span class="text-xs font-bold text-[#24170d] leading-none">Adm MASTER</span>
+            <span class="text-[11px] text-[#6e5a4f] font-medium leading-tight mt-0.5">Administrador Geral</span>
+          </div>
+          <span class="material-symbols-outlined text-[#6e5a4f] text-lg">expand_more</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 overflow-y-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <h1 class="text-2xl font-extrabold text-[#24170d] font-headline tracking-tight">Sabores de Gelato</h1>
+          <span class="bg-[#d4af37]/15 text-[#8a6800] border border-[#d4af37]/40 px-2.5 py-0.5 rounded text-[11px] font-bold">Bancada Italiana 17 Cubas</span>
+        </div>
+        <p class="text-xs text-[#6e5a4f] mt-1">Gestão de receitas artesanais, estoque de cubas na bancada italiana e controle de validade em tempo real.</p>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <button onclick="openPrintModal()" class="h-9 px-3.5 bg-white border border-[#eae2dc] hover:bg-[#f9f2ee] text-[#24170d] rounded-lg text-xs font-bold flex items-center gap-1.5 transition shadow-xs cursor-pointer">
+          <span class="material-symbols-outlined text-base">print</span>
+          <span class="">Imprimir Mapa de Cubas</span>
+        </button>
+        <button onclick="openNewFlavorModal()" class="h-9 px-4 bg-[#236b38] hover:bg-[#1b5324] text-white rounded-lg text-xs font-bold flex items-center gap-2 transition shadow-xs active:scale-95 cursor-pointer">
+          <span class="material-symbols-outlined text-lg">add_circle</span>
+          <span class="">+ Novo Sabor / Pozzetto</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Cards KPIs -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white border border-[#eae2dc] rounded-xl p-4 shadow-xs flex items-center justify-between cursor-pointer hover:border-[#d4af37] transition" onclick="resetFilters(); showToast('Exibindo todos os pozzetti ativos da bancada')">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#6e5a4f]">Pozzetti Ativos na Bancada</span>
+          <div class="flex items-baseline gap-1.5 mt-1">
+            <span id="kpi-active-count" class="text-2xl font-extrabold text-[#24170d]">14</span>
+            <span class="text-xs text-[#6e5a4f] font-semibold">de 17 cubas</span>
+          </div>
+          <span class="text-[11px] text-[#246c30] font-bold flex items-center gap-1 mt-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span> <span id="kpi-occupancy-rate" class="">82% de ocupação do balcão</span>
+          </span>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-[#eaf5ec] text-[#246c30] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">kitchen</span>
+        </div>
+      </div>
+
+      <div class="bg-white border border-[#eae2dc] rounded-xl p-4 shadow-xs flex items-center justify-between cursor-pointer hover:border-[#d4af37] transition" onclick="showToast('8 receitas no maturador central • 3 prontas para rodízio imediato')">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#6e5a4f]">Em Produção / Maturação</span>
+          <div class="flex items-baseline gap-1.5 mt-1">
+            <span class="text-2xl font-extrabold text-[#24170d]">8</span>
+            <span class="text-xs text-[#6e5a4f] font-semibold">receitas</span>
+          </div>
+          <span class="text-[11px] text-[#8a6800] font-bold flex items-center gap-1 mt-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span> 3 cubas prontas para rodízio
+          </span>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-[#fff8e7] text-[#8a6800] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">science</span>
+        </div>
+      </div>
+
+      <div class="bg-white border border-rose-200 rounded-xl p-4 shadow-xs flex items-center justify-between cursor-pointer hover:border-[#c53030] hover:bg-rose-50/30 transition" onclick="filterLowLevel()" title="Filtrar cubas críticas">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#c53030] flex items-center gap-1">
+            Alertas de Reposição
+            <span class="material-symbols-outlined text-xs">filter_alt</span>
+          </span>
+          <div class="flex items-baseline gap-1.5 mt-1">
+            <span id="kpi-critical-count" class="text-2xl font-extrabold text-[#c53030]">2</span>
+            <span class="text-xs text-[#c53030] font-semibold">nível crítico (&lt;20%)</span>
+          </div>
+          <span class="text-[11px] text-[#c53030] font-medium truncate block max-w-[150px] mt-1" id="kpi-critical-labels">Pistache DOP &amp; Doce de Leite</span>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-rose-50 text-[#c53030] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">priority_high</span>
+        </div>
+      </div>
+
+      <div class="bg-white border border-[#eae2dc] rounded-xl p-4 shadow-xs flex items-center justify-between cursor-pointer hover:border-sky-300 transition" onclick="showToast('Sensores térmicos PT100 em calibração automática: circuito -14.2°C')">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#6e5a4f]">Temperatura dos Pozzetti</span>
+          <div class="flex items-baseline gap-1.5 mt-1">
+            <span class="text-2xl font-extrabold text-[#24170d]">-14.2°C</span>
+            <span class="text-xs text-[#246c30] font-bold">Estável</span>
+          </div>
+          <span class="text-[11px] text-[#6e5a4f] font-medium mt-1 block">Glicol recirculante em 100%</span>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">device_thermostat</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Filtros -->
+    <div class="bg-white border border-[#eae2dc] rounded-xl p-3.5 mb-6 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-3">
+      <div class="relative w-full lg:w-80">
+        <span class="material-symbols-outlined absolute left-3 top-2.5 text-stone-400 text-lg">search</span>
+        <input id="filter-search" oninput="filterTable()" type="text" placeholder="Buscar por sabor, pozzetto ou lote..." class="w-full h-9 pl-9 pr-3 bg-[#fff8f4] border border-[#eae2dc] rounded-lg text-xs text-[#24170d] placeholder:text-stone-400 focus:outline-none focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37]">
+      </div>
+
+      <div class="flex flex-wrap items-center gap-1.5 w-full lg:w-auto" id="filter-buttons">
+        <button class="filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#24170d] text-[#fff8f4] cursor-pointer" onclick="setCategoryFilter('Todos', this)">Todos (<span id="btn-total-counter" class="">14</span>)</button>
+        <button class="filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer" onclick="setCategoryFilter('Linha Tradicional', this)">Linha Tradicional</button>
+        <button class="filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer" onclick="setCategoryFilter('Linha Premium DOP', this)">Linha Premium DOP</button>
+        <button class="filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer" onclick="setCategoryFilter('Zero Lactose / Sorbet', this)">Zero Lactose / Sorbet</button>
+        <button class="filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer" onclick="setCategoryFilter('Açaí &amp; Cremes', this)">Açaí &amp; Cremes</button>
+      </div>
+    </div>
+
+    <!-- Tabela Principal -->
+    <div class="bg-white border border-[#eae2dc] rounded-xl overflow-hidden shadow-xs">
+      <div class="px-5 py-3.5 bg-[#fcf9f7] border-b border-[#eae2dc] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#d4af37] text-xl">view_column</span>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-[#24170d]">Mapa Oficial de Cubas em Linha</span>
+          <span id="flavor-counter" class="text-xs bg-[#24170d] text-white px-2 py-0.5 rounded-full font-mono font-bold">14 pozzetti</span>
+        </div>
+        <span class="text-[11px] text-[#6e5a4f]">Temperatura alvo regulada: -14.0°C a -14.5°C</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse" id="table-pozzetti">
+          <thead>
+            <tr class="bg-[#fcf9f7] border-b border-[#eae2dc] text-[11px] font-bold uppercase tracking-wider text-[#6e5a4f] select-none">
+              <th class="py-3 px-4">Posição</th>
+              <th class="py-3 px-4">Sabor de Gelato</th>
+              <th class="py-3 px-4">Categoria / Linha</th>
+              <th class="py-3 px-4">Lote &amp; Fabricação</th>
+              <th class="py-3 px-4 w-44">Nível da Cuba</th>
+              <th class="py-3 px-4">Status</th>
+              <th class="py-3 px-4 text-right">Ações Rápidas</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#eae2dc] text-xs" id="table-body">
+            <!-- P01: Pistache (Crítico) -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="1" data-flavor="Pistache de Bronte DOP" data-category="Linha Premium DOP" data-status="critical">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]">
+                <span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#d4af37] font-extrabold">Pozzetto 01</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-[#e4ecc9] text-[#246c30] flex items-center justify-center font-bold text-xs shrink-0 border border-[#246c30]/20">PI</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Pistache de Bronte DOP</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Legítimo Siciliano 100% puro</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#fff8e7] text-[#8a6800] border border-[#d4af37]/30">Linha Premium DOP</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8842</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 11/03 • Val: 18/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#c53030] mb-1 level-labels">
+                  <span class="level-percent">18%</span>
+                  <span class="level-kg">1.4 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#c53030] rounded-full level-bar" style="width: 18%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-[#c53030] border border-rose-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#c53030] animate-ping"></span>Nível Baixo
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openRefillModal(1, 'Pistache de Bronte DOP')" class="px-2.5 py-1 rounded bg-[#236b38] text-white hover:bg-[#1b5324] text-[11px] font-bold transition shadow-xs cursor-pointer">Repor Cuba</button>
+                  <button onclick="openSwapModal(1, 'Pistache de Bronte DOP')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(1, 'Pistache de Bronte DOP', '#LT-8842', '11/03/2025', '1.4 kg (18%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- P02: Fior di Latte -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="2" data-flavor="Fior di Latte" data-category="Linha Tradicional" data-status="available">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]"><span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#24170d]">Pozzetto 02</span></td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-[#fffbf0] text-[#8c6d1f] flex items-center justify-center font-bold text-xs shrink-0 border border-[#8c6d1f]/20">FL</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Fior di Latte</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Creme de leite fresco e baunilha pura</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-stone-100 text-[#6e5a4f] border border-stone-200">Linha Tradicional</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8845</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 12/03 • Val: 19/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#246c30] mb-1 level-labels">
+                  <span class="level-percent">85%</span>
+                  <span class="level-kg">6.8 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#246c30] rounded-full level-bar" style="width: 85%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25"><span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span>Disponível</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openSwapModal(2, 'Fior di Latte')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(2, 'Fior di Latte', '#LT-8845', '12/03/2025', '6.8 kg (85%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- P03: Cioccolato Belga -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="3" data-flavor="Cioccolato Belga 70%" data-category="Linha Premium DOP" data-status="available">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]"><span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#24170d]">Pozzetto 03</span></td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-[#4a3528] text-[#f5ebe1] flex items-center justify-center font-bold text-xs shrink-0 border border-[#24170d]/20">CB</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Cioccolato Belga 70%</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Cacau Callebaut intenso com nibs</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#fff8e7] text-[#8a6800] border border-[#d4af37]/30">Linha Premium DOP</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8840</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 10/03 • Val: 17/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#246c30] mb-1 level-labels">
+                  <span class="level-percent">65%</span>
+                  <span class="level-kg">5.2 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#246c30] rounded-full level-bar" style="width: 65%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25"><span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span>Disponível</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openSwapModal(3, 'Cioccolato Belga 70%')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(3, 'Cioccolato Belga 70%', '#LT-8840', '10/03/2025', '5.2 kg (65%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- P04: Morango Silvestre -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="4" data-flavor="Morango Silvestre Sorbet" data-category="Zero Lactose / Sorbet" data-status="available">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]"><span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#24170d]">Pozzetto 04</span></td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xs shrink-0 border border-rose-200">MS</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Morango Silvestre Sorbet</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Fruta pura, vegano &amp; sem lactose</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">Zero Lactose / Sorbet</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8850</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 12/03 • Val: 19/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#246c30] mb-1 level-labels">
+                  <span class="level-percent">50%</span>
+                  <span class="level-kg">4.0 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#246c30] rounded-full level-bar" style="width: 50%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25"><span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span>Disponível</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openSwapModal(4, 'Morango Silvestre Sorbet')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(4, 'Morango Silvestre Sorbet', '#LT-8850', '12/03/2025', '4.0 kg (50%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- P05: Açaí Cremoso -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="5" data-flavor="Açaí Cremoso Especial" data-category="Açaí &amp; Cremes" data-status="available">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]"><span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#24170d]">Pozzetto 05</span></td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-purple-950 text-purple-200 flex items-center justify-center font-bold text-xs shrink-0 border border-purple-800">AC</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Açaí Cremoso Especial</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Açaí do Pará batido na consistência gelato</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-purple-50 text-purple-800 border border-purple-200">Açaí &amp; Cremes</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8848</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 11/03 • Val: 21/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#246c30] mb-1 level-labels">
+                  <span class="level-percent">90%</span>
+                  <span class="level-kg">7.2 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#246c30] rounded-full level-bar" style="width: 90%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25"><span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span>Disponível</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openSwapModal(5, 'Açaí Cremoso Especial')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(5, 'Açaí Cremoso Especial', '#LT-8848', '11/03/2025', '7.2 kg (90%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- P06: Doce de Leite (Crítico) -->
+            <tr class="hover:bg-[#fffaf6] transition-colors" data-pozzetto="6" data-flavor="Doce de Leite Argentino" data-category="Linha Tradicional" data-status="critical">
+              <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]">
+                <span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc] text-[#d4af37] font-extrabold">Pozzetto 06</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-[#f8ebd9] text-[#9a6516] flex items-center justify-center font-bold text-xs shrink-0 border border-[#9a6516]/20">DL</div>
+                  <div>
+                    <span class="font-bold text-[#24170d] text-[13px] block">Doce de Leite Argentino</span>
+                    <span class="text-[11px] text-[#6e5a4f]">Cozimento lento com flor de sal</span>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-stone-100 text-[#6e5a4f] border border-stone-200">Linha Tradicional</span></td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono text-[11px] text-[#24170d] font-semibold lot-display">#LT-8839</div>
+                <div class="text-[10px] text-[#6e5a4f]">Fab: 10/03 • Val: 17/03</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#c53030] mb-1 level-labels">
+                  <span class="level-percent">15%</span>
+                  <span class="level-kg">1.2 kg / 8 kg</span>
+                </div>
+                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-[#c53030] rounded-full level-bar" style="width: 15%;"></div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4 status-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-[#c53030] border border-rose-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#c53030] animate-ping"></span>Nível Baixo
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  <button onclick="openRefillModal(6, 'Doce de Leite Argentino')" class="px-2.5 py-1 rounded bg-[#236b38] text-white hover:bg-[#1b5324] text-[11px] font-bold transition shadow-xs cursor-pointer">Repor Cuba</button>
+                  <button onclick="openSwapModal(6, 'Doce de Leite Argentino')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button>
+                  <button onclick="showFlavorDetails(6, 'Doce de Leite Argentino', '#LT-8839', '10/03/2025', '1.2 kg (15%)')" class="p-1 rounded text-[#6e5a4f] hover:text-[#24170d] hover:bg-stone-100 cursor-pointer" title="Ver detalhes"><span class="material-symbols-outlined text-base">info</span></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="px-5 py-3 bg-[#fcf9f7] border-t border-[#eae2dc] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#6e5a4f]">
+        <span id="footer-count-text" class="">Exibindo pozzetti montados na bancada principal</span>
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#246c30]"></span> <span id="count-avail" class="">4 Disponíveis</span></span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#c53030]"></span> <span id="count-crit" class="">2 Nível Crítico</span></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="h-9 w-full bg-[#f9f2ee] border-t border-[#eae2dc] px-6 text-xs flex items-center justify-between text-[#80756e] select-none shrink-0">
+    <div class="flex items-center gap-3">
+      <span class="font-semibold">Terminal: TERM-PG-BALCAO-01</span>
+      <span class="">•</span>
+      <span class="flex items-center gap-1 text-[#246c30] font-semibold">
+        <span class="w-2 h-2 rounded-full bg-[#246c30] animate-pulse"></span>
+        Status: Conectado à Nuvem (Latência: 18ms)
+      </span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="">© 2025 SORVETEC PRO • Dal 1984 Arducci</span>
+      <span class="">•</span>
+      <span class="font-mono font-bold">v2.4.2 (Build 12/03/2025)</span>
+    </div>
+  </footer>
+</div>
+
+<!-- MODAL SAIR -->
+<div id="logout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#181310]/75 backdrop-blur-xs hidden" onclick="handleModalBackdropClick(event, 'logout-modal')">
+  <div class="bg-white border border-[#eae2dc] rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl relative">
+    <div class="w-14 h-14 mx-auto rounded-full bg-rose-50 text-[#c53030] flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-3xl">power_settings_new</span>
+    </div>
+    <h3 class="text-lg font-extrabold text-[#24170d] font-headline">Deseja encerrar a sessão?</h3>
+    <p class="text-xs text-[#6e5a4f] mt-1.5 mb-6">Ao encerrar, a sessão do terminal TERM-PG-BALCAO-01 será finalizada com segurança.</p>
+    <div class="flex items-center gap-3">
+      <button onclick="closeLogoutModal()" class="flex-1 h-10 rounded-lg border border-[#eae2dc] bg-white hover:bg-stone-50 text-[#6e5a4f] text-xs font-bold transition cursor-pointer">Cancelar</button>
+      <button onclick="confirmLogout()" class="flex-1 h-10 rounded-lg bg-[#c53030] hover:bg-rose-700 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer">
+        <span class="material-symbols-outlined text-base">logout</span>
+        <span class="">Confirmar e Sair</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NOVO SABOR -->
+<div id="new-flavor-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#181310]/75 backdrop-blur-xs hidden" onclick="handleModalBackdropClick(event, 'new-flavor-modal')">
+  <div class="bg-white border border-[#eae2dc] rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+    <div class="flex items-center justify-between pb-3 border-b border-[#eae2dc] mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#236b38] text-2xl">add_circle</span>
+        <h3 class="text-base font-extrabold text-[#24170d] font-headline">Cadastrar Novo Sabor de Gelato</h3>
+      </div>
+      <button onclick="closeNewFlavorModal()" class="text-stone-400 hover:text-stone-700 text-xl font-bold cursor-pointer">✕</button>
+    </div>
+    <form class="space-y-3.5 text-xs" onsubmit="handleSaveNewFlavor(event)">
+      <div>
+        <label class="block font-bold text-[#24170d] mb-1">Nome do Sabor *</label>
+        <input id="input-new-name" required="" type="text" placeholder="Ex: Tiramisù Clássico Veneziano" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block font-bold text-[#24170d] mb-1">Linha / Categoria *</label>
+          <select id="input-new-category" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+            <option value="Linha Tradicional">Linha Tradicional</option>
+            <option value="Linha Premium DOP">Linha Premium DOP</option>
+            <option value="Zero Lactose / Sorbet">Zero Lactose / Sorbet</option>
+            <option value="Açaí &amp; Cremes">Açaí &amp; Cremes</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-bold text-[#24170d] mb-1">Pozzetto Destino *</label>
+          <select id="input-new-pozzetto" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+            <option value="07">Pozzetto 07</option>
+            <option value="08">Pozzetto 08</option>
+            <option value="09">Pozzetto 09</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block font-bold text-[#24170d] mb-1">Número do Lote</label>
+          <input id="input-new-lot" type="text" value="#LT-8855" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+        </div>
+        <div>
+          <label class="block font-bold text-[#24170d] mb-1">Capacidade Inicial (kg)</label>
+          <input id="input-new-weight" type="number" step="0.1" min="1" max="8" value="8.0" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+        </div>
+      </div>
+      <div class="pt-3 border-t border-[#eae2dc] flex items-center justify-end gap-2.5">
+        <button onclick="closeNewFlavorModal()" type="button" class="h-9 px-4 rounded-lg border border-[#eae2dc] text-[#6e5a4f] font-bold hover:bg-stone-50 transition cursor-pointer">Cancelar</button>
+        <button type="submit" class="h-9 px-4 rounded-lg bg-[#236b38] text-white font-bold hover:bg-[#1b5324] transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span class="material-symbols-outlined text-base">save</span>
+          <span class="">Salvar no Pozzetto</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL REPOSIÇÃO -->
+<div id="refill-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#181310]/75 backdrop-blur-xs hidden" onclick="handleModalBackdropClick(event, 'refill-modal')">
+  <div class="bg-white border border-[#eae2dc] rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+    <div class="flex items-center justify-between pb-3 border-b border-[#eae2dc] mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#236b38] text-2xl">sync</span>
+        <h3 class="text-base font-extrabold text-[#24170d] font-headline">Repor Cuba de Gelato</h3>
+      </div>
+      <button onclick="closeRefillModal()" class="text-stone-400 hover:text-stone-700 text-xl font-bold cursor-pointer">✕</button>
+    </div>
+    <form onsubmit="handleConfirmRefill(event)" class="space-y-3.5 text-xs">
+      <input type="hidden" id="refill-pozzetto-id" value="">
+      <div class="p-3 bg-[#fcf9f7] rounded-xl border border-[#eae2dc]">
+        <div class="text-[11px] font-bold text-[#6e5a4f] uppercase">Pozzetto Selecionado:</div>
+        <div id="refill-flavor-title" class="text-sm font-extrabold text-[#24170d] mt-0.5">Pozzetto 01 - Pistache de Bronte DOP</div>
+      </div>
+      <div>
+        <label class="block font-bold text-[#24170d] mb-1">Novo Lote *</label>
+        <input id="refill-new-lot" required="" type="text" value="#LT-8860" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+      </div>
+      <div class="p-2.5 rounded-lg bg-[#eaf5ec] border border-[#246c30]/20 text-[11px] text-[#246c30] flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">verified</span>
+        <span class="">A cuba reserva está maturada a -14°C e pronta para rodízio imediato.</span>
+      </div>
+      <div class="pt-3 border-t border-[#eae2dc] flex items-center justify-end gap-2.5">
+        <button onclick="closeRefillModal()" type="button" class="h-9 px-4 rounded-lg border border-[#eae2dc] text-[#6e5a4f] font-bold hover:bg-stone-50 transition cursor-pointer">Cancelar</button>
+        <button type="submit" class="h-9 px-4 rounded-lg bg-[#236b38] text-white font-bold hover:bg-[#1b5324] transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span class="material-symbols-outlined text-base">check_circle</span>
+          <span class="">Confirmar Reposição (8 kg)</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL TROCA (SWAP) -->
+<div id="swap-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#181310]/75 backdrop-blur-xs hidden" onclick="handleModalBackdropClick(event, 'swap-modal')">
+  <div class="bg-white border border-[#eae2dc] rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+    <div class="flex items-center justify-between pb-3 border-b border-[#eae2dc] mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#d4af37] text-2xl">swap_horiz</span>
+        <h3 class="text-base font-extrabold text-[#24170d] font-headline">Substituir Sabor na Bancada</h3>
+      </div>
+      <button onclick="closeSwapModal()" class="text-stone-400 hover:text-stone-700 text-xl font-bold cursor-pointer">✕</button>
+    </div>
+    <form onsubmit="handleConfirmSwap(event)" class="space-y-3.5 text-xs">
+      <input type="hidden" id="swap-pozzetto-id" value="">
+      <div class="p-3 bg-[#fcf9f7] rounded-xl border border-[#eae2dc]">
+        <div class="text-[11px] font-bold text-[#6e5a4f] uppercase">Pozzetto Atual:</div>
+        <div id="swap-current-flavor" class="text-sm font-extrabold text-[#24170d] mt-0.5">Pozzetto 02 - Fior di Latte</div>
+      </div>
+      <div>
+        <label class="block font-bold text-[#24170d] mb-1">Sabor Substituto *</label>
+        <select id="swap-new-flavor" class="w-full h-9 px-3 border border-[#eae2dc] rounded-lg bg-[#fff8f4] text-[#24170d] focus:outline-none focus:border-[#d4af37]">
+          <option value="Cannolo Siciliano com Ricota">Cannolo Siciliano com Ricota (Lote #LT-8856)</option>
+          <option value="Maracujá com Manjericão">Maracujá com Manjericão Sorbet (Lote #LT-8857)</option>
+          <option value="Tiramisù Veneziano">Tiramisù Veneziano (Lote #LT-8858)</option>
+        </select>
+      </div>
+      <div class="pt-3 border-t border-[#eae2dc] flex items-center justify-end gap-2.5">
+        <button onclick="closeSwapModal()" type="button" class="h-9 px-4 rounded-lg border border-[#eae2dc] text-[#6e5a4f] font-bold hover:bg-stone-50 transition cursor-pointer">Cancelar</button>
+        <button type="submit" class="h-9 px-4 rounded-lg bg-[#24170d] text-white font-bold hover:bg-stone-800 transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span class="material-symbols-outlined text-base">swap_horiz</span>
+          <span class="">Efetivar Troca</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL IMPRESSÃO -->
+<div id="print-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#181310]/75 backdrop-blur-xs hidden" onclick="handleModalBackdropClick(event, 'print-modal')">
+  <div class="bg-white border border-[#eae2dc] rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+    <div class="flex items-center justify-between pb-3 border-b border-[#eae2dc] mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#24170d] text-2xl">print</span>
+        <h3 class="text-base font-extrabold text-[#24170d] font-headline">Impressão do Mapa de Cubas</h3>
+      </div>
+      <button onclick="closePrintModal()" class="text-stone-400 hover:text-stone-700 text-xl font-bold cursor-pointer">✕</button>
+    </div>
+    <div class="p-4 bg-[#fcf9f7] rounded-xl border border-[#eae2dc] mb-4 text-xs space-y-2">
+      <div class="flex justify-between font-bold text-[#24170d]">
+        <span class="">SORVETEC PRO • Dal 1984 Arducci</span>
+        <span class="">12/03/2025</span>
+      </div>
+      <p class="text-[#6e5a4f]">Bancada Italiana 17 Cubas — Mapa em tempo real para controle operacional.</p>
+    </div>
+    <div class="flex items-center justify-end gap-2.5">
+      <button onclick="closePrintModal()" class="h-9 px-4 rounded-lg border border-[#eae2dc] text-[#6e5a4f] text-xs font-bold hover:bg-stone-50 transition cursor-pointer">Fechar</button>
+      <button onclick="executeBrowserPrint()" class="h-9 px-4 rounded-lg bg-[#24170d] text-white text-xs font-bold hover:bg-stone-800 transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+        <span class="material-symbols-outlined text-base">print</span>
+        <span class="">Imprimir Agora</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-[#24170d] text-[#fff8f4] border border-[#d4af37]/40 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform opacity-0 pointer-events-none translate-y-4">
+  <span class="material-symbols-outlined text-[#d4af37] text-xl shrink-0" id="toast-icon">check_circle</span>
+  <span class="text-xs font-semibold" id="toast-message">Navegando para Dashboard...</span>
+</div>
+
+<!-- SCRIPT COMPLETO E TESTADO -->
+<script>
+  let toastTimer = null;
+  function showToast(message, icon = 'check_circle') {
+    const toast = document.getElementById('toast-notification');
+    const toastMsg = document.getElementById('toast-message');
+    const toastIco = document.getElementById('toast-icon');
+    if (!toast || !toastMsg) return;
+    toastMsg.innerText = message;
+    if (toastIco) toastIco.innerText = icon;
+    toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.remove('opacity-100', 'translate-y-0');
+    }, 3000);
+  }
+
+  let storeOpen = true;
+  function toggleStoreStatus() {
+    storeOpen = !storeOpen;
+    const badge = document.getElementById('store-status-badge');
+    const btn = document.getElementById('btn-toggle-store');
+    const text = document.getElementById('btn-toggle-text');
+    if (storeOpen) {
+      badge.className = "flex items-center gap-2 px-3 py-1.5 bg-[#eaf5ec] border border-[#246c30]/20 rounded-md transition-colors";
+      badge.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-[#246c30] animate-ping inline-block"></span><span class="text-xs font-bold text-[#246c30]">Loja Aberta • Balcão e Salão</span>';
+      btn.className = "h-8 px-3 rounded border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold flex items-center gap-1.5 transition active:scale-95 cursor-pointer";
+      text.innerText = "Fechar loja";
+      showToast("Operação da loja iniciada: Balcão & Delivery ativos!", "storefront");
+    } else {
+      badge.className = "flex items-center gap-2 px-3 py-1.5 bg-stone-100 border border-stone-300 rounded-md transition-colors";
+      badge.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block"></span><span class="text-xs font-bold text-stone-600">Loja Fechada • Balcão Encerrado</span>';
+      btn.className = "h-8 px-3 rounded border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center gap-1.5 transition active:scale-95 cursor-pointer";
+      text.innerText = "Abrir loja";
+      showToast("Operação da loja pausada temporariamente.", "lock");
+    }
+  }
+
+  let sidebarCollapsed = false;
+  function toggleSidebar() {
+    sidebarCollapsed = !sidebarCollapsed;
+    const sidebar = document.getElementById('sidebar');
+    const wrapper = document.getElementById('main-wrapper');
+    const labels = document.querySelectorAll('.sidebar-label-text');
+    const toggleIcon = document.getElementById('sidebar-toggle-icon');
+    if (sidebarCollapsed) {
+      sidebar.classList.remove('w-[260px]');
+      sidebar.classList.add('w-[80px]');
+      wrapper.classList.remove('ml-[260px]', 'w-[calc(100vw-260px)]');
+      wrapper.classList.add('ml-[80px]', 'w-[calc(100vw-80px)]');
+      labels.forEach(el => el.classList.add('hidden'));
+      if (toggleIcon) toggleIcon.innerText = 'menu';
+    } else {
+      sidebar.classList.remove('w-[80px]');
+      sidebar.classList.add('w-[260px]');
+      wrapper.classList.remove('ml-[80px]', 'w-[calc(100vw-80px)]');
+      wrapper.classList.add('ml-[260px]', 'w-[calc(100vw-260px)]');
+      labels.forEach(el => el.classList.remove('hidden'));
+      if (toggleIcon) toggleIcon.innerText = 'menu_open';
+    }
+  }
+
+  function toggleNotificationsDropdown(e) {
+    if (e) e.stopPropagation();
+    const drop = document.getElementById('notifications-dropdown');
+    const settingsDrop = document.getElementById('settings-dropdown');
+    if (settingsDrop) settingsDrop.classList.add('hidden');
+    if (drop) drop.classList.toggle('hidden');
+  }
+
+  function toggleSettingsDropdown(e) {
+    if (e) e.stopPropagation();
+    const drop = document.getElementById('settings-dropdown');
+    const notifDrop = document.getElementById('notifications-dropdown');
+    if (notifDrop) notifDrop.classList.add('hidden');
+    if (drop) drop.classList.toggle('hidden');
+  }
+
+  function clearNotifications() {
+    const list = document.getElementById('notifications-list');
+    const badge = document.getElementById('notifications-badge');
+    if (list) list.innerHTML = '<div class="p-6 text-center text-xs text-stone-400">Nenhum novo alerta no momento.</div>';
+    if (badge) badge.classList.add('hidden');
+    showToast('Alertas marcados como lidos!');
+  }
+
+  let darkModeActive = false;
+  function toggleDarkMode() {
+    darkModeActive = !darkModeActive;
+    const status = document.getElementById('night-mode-status');
+    if (status) status.innerText = darkModeActive ? 'ON' : 'OFF';
+    document.documentElement.classList.toggle('dark');
+    showToast(darkModeActive ? 'Modo Noturno ativado' : 'Modo Padrão Creme ativado', 'dark_mode');
+  }
+
+  function syncPozzettiCloud() {
+    showToast('Pozzetti sincronizados com a nuvem central em 18ms!', 'cloud_sync');
+    const drop = document.getElementById('settings-dropdown');
+    if (drop) drop.classList.add('hidden');
+  }
+
+  function openLogoutModal() { document.getElementById('logout-modal').classList.remove('hidden'); }
+  function closeLogoutModal() { document.getElementById('logout-modal').classList.add('hidden'); }
+  function confirmLogout() {
+    closeLogoutModal();
+    showToast('Sessão encerrada com sucesso! Redirecionando para login...', 'logout');
+  }
+
+  function openNewFlavorModal() { document.getElementById('new-flavor-modal').classList.remove('hidden'); }
+  function closeNewFlavorModal() { document.getElementById('new-flavor-modal').classList.add('hidden'); }
+
+  function openPrintModal() { document.getElementById('print-modal').classList.remove('hidden'); }
+  function closePrintModal() { document.getElementById('print-modal').classList.add('hidden'); }
+  function executeBrowserPrint() { closePrintModal(); window.print(); }
+
+  function handleModalBackdropClick(event, modalId) {
+    if (event.target && event.target.id === modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+  }
+
+  function openRefillModal(pozzettoId, flavorName) {
+    document.getElementById('refill-pozzetto-id').value = pozzettoId;
+    document.getElementById('refill-flavor-title').innerText = `Pozzetto ${String(pozzettoId).padStart(2, '0')} - ${flavorName}`;
+    document.getElementById('refill-modal').classList.remove('hidden');
+  }
+  function closeRefillModal() { document.getElementById('refill-modal').classList.add('hidden'); }
+
+  function handleConfirmRefill(e) {
+    e.preventDefault();
+    const pozzettoId = document.getElementById('refill-pozzetto-id').value;
+    const newLot = document.getElementById('refill-new-lot').value || '#LT-8860';
+    const row = document.querySelector(`tr[data-pozzetto="${pozzettoId}"]`);
+    if (row) {
+      row.setAttribute('data-status', 'available');
+      const lotEl = row.querySelector('.lot-display');
+      if (lotEl) lotEl.innerText = newLot;
+      const pLabel = row.querySelector('.level-percent');
+      const kgLabel = row.querySelector('.level-kg');
+      const bar = row.querySelector('.level-bar');
+      const statusCell = row.querySelector('.status-cell');
+      if (pLabel) pLabel.innerText = '100%';
+      if (kgLabel) kgLabel.innerText = '8.0 kg / 8 kg';
+      if (pLabel && pLabel.parentElement) {
+        pLabel.parentElement.className = 'flex items-center justify-between text-[11px] font-bold text-[#246c30] mb-1 level-labels';
+      }
+      if (bar) {
+        bar.style.width = '100%';
+        bar.className = 'h-full bg-[#246c30] rounded-full level-bar';
+      }
+      if (statusCell) {
+        statusCell.innerHTML = '<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25"><span class="w-1.5 h-1.5 rounded-full bg-[#246c30]"></span>Disponível</span>';
+      }
+    }
+    closeRefillModal();
+    updateKPIs();
+    showToast(`Pozzetto ${String(pozzettoId).padStart(2, '0')} reposto com sucesso para 8.0 kg!`);
+  }
+
+  function openSwapModal(pozzettoId, flavorName) {
+    document.getElementById('swap-pozzetto-id').value = pozzettoId;
+    document.getElementById('swap-current-flavor').innerText = `Pozzetto ${String(pozzettoId).padStart(2, '0')} - ${flavorName}`;
+    document.getElementById('swap-modal').classList.remove('hidden');
+  }
+  function closeSwapModal() { document.getElementById('swap-modal').classList.add('hidden'); }
+
+  function handleConfirmSwap(e) {
+    e.preventDefault();
+    const pozzettoId = document.getElementById('swap-pozzetto-id').value;
+    const newFlavor = document.getElementById('swap-new-flavor').value;
+    const row = document.querySelector(`tr[data-pozzetto="${pozzettoId}"]`);
+    if (row) {
+      const nameEl = row.querySelector('td:nth-child(2) span.font-bold');
+      if (nameEl) nameEl.innerText = newFlavor;
+      row.setAttribute('data-flavor', newFlavor);
+      showToast(`Pozzetto ${String(pozzettoId).padStart(2, '0')} substituído por: ${newFlavor}!`, 'swap_horiz');
+    }
+    closeSwapModal();
+  }
+
+  function handleSaveNewFlavor(e) {
+    e.preventDefault();
+    const name = document.getElementById('input-new-name').value;
+    const cat = document.getElementById('input-new-category').value;
+    const poz = document.getElementById('input-new-pozzetto').value;
+    const lot = document.getElementById('input-new-lot').value;
+    const tbody = document.getElementById('table-body');
+    const tr = document.createElement('tr');
+    tr.className = 'hover:bg-[#fffaf6] transition-colors';
+    tr.setAttribute('data-pozzetto', poz);
+    tr.setAttribute('data-flavor', name);
+    tr.setAttribute('data-category', cat);
+    tr.setAttribute('data-status', 'available');
+    tr.innerHTML = `
+      <td class="py-3.5 px-4 font-mono font-bold text-[#24170d]"><span class="px-2 py-1 rounded bg-[#fff8f4] border border-[#eae2dc]">Pozzetto ${poz}</span></td>
+      <td class="py-3.5 px-4"><span class="font-bold text-[#24170d] text-[13px] block">${name}</span><span class="text-[11px] text-[#6e5a4f]">Nova receita</span></td>
+      <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-stone-100 text-[#6e5a4f] border border-stone-200">${cat}</span></td>
+      <td class="py-3.5 px-4"><div class="font-mono text-[11px] text-[#24170d] font-semibold">${lot}</div></td>
+      <td class="py-3.5 px-4"><div class="text-[11px] font-bold text-[#246c30] mb-1">100% (8.0 kg)</div><div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden"><div class="h-full bg-[#246c30] w-full"></div></div></td>
+      <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#eaf5ec] text-[#246c30] border border-[#246c30]/25">Disponível</span></td>
+      <td class="py-3.5 px-4 text-right"><button onclick="openSwapModal(${poz}, '${name}')" class="px-2 py-1 rounded bg-stone-100 text-[#24170d] hover:bg-stone-200 text-[11px] font-semibold transition cursor-pointer">Trocar</button></td>
+    `;
+    tbody.appendChild(tr);
+    closeNewFlavorModal();
+    updateKPIs();
+    showToast(`Novo sabor "${name}" cadastrado no Pozzetto ${poz}!`);
+  }
+
+  let selectedCategory = 'Todos';
+  function setCategoryFilter(category, btn) {
+    selectedCategory = category;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.className = 'filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer';
+    });
+    if (btn) btn.className = 'filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#24170d] text-[#fff8f4] cursor-pointer';
+    filterTable();
+  }
+
+  function filterTable() {
+    const q = (document.getElementById('filter-search').value || '').toLowerCase();
+    const rows = document.querySelectorAll('#table-body tr');
+    let visibleCount = 0;
+    rows.forEach(r => {
+      const flavor = (r.getAttribute('data-flavor') || '').toLowerCase();
+      const cat = r.getAttribute('data-category') || '';
+      const poz = (r.getAttribute('data-pozzetto') || '').toLowerCase();
+      const matchCat = (selectedCategory === 'Todos' || cat === selectedCategory);
+      const matchQuery = !q || flavor.includes(q) || poz.includes(q);
+      if (matchCat && matchQuery) {
+        r.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        r.classList.add('hidden');
+      }
+    });
+    const counter = document.getElementById('flavor-counter');
+    if (counter) counter.innerText = `${visibleCount} pozzetti`;
+  }
+
+  function filterLowLevel() {
+    selectedCategory = 'Todos';
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.className = 'filter-btn h-8 px-3.5 rounded-lg text-xs font-bold transition bg-[#fff8f4] text-[#6e5a4f] border border-[#eae2dc] hover:bg-stone-100 cursor-pointer';
+    });
+    const rows = document.querySelectorAll('#table-body tr');
+    let count = 0;
+    rows.forEach(r => {
+      if (r.getAttribute('data-status') === 'critical') {
+        r.classList.remove('hidden');
+        count++;
+      } else {
+        r.classList.add('hidden');
+      }
+    });
+    const counter = document.getElementById('flavor-counter');
+    if (counter) counter.innerText = `${count} críticos`;
+    showToast('Filtro de cubas críticas aplicado (<20%)', 'priority_high');
+  }
+
+  function resetFilters() {
+    const allBtn = document.querySelector('.filter-btn');
+    if (allBtn) setCategoryFilter('Todos', allBtn);
+    const search = document.getElementById('filter-search');
+    if (search) search.value = '';
+    filterTable();
+  }
+
+  function updateKPIs() {
+    const rows = document.querySelectorAll('#table-body tr');
+    let crit = 0, avail = 0;
+    rows.forEach(r => {
+      if (r.getAttribute('data-status') === 'critical') crit++;
+      else avail++;
+    });
+    const critEl = document.getElementById('kpi-critical-count');
+    if (critEl) critEl.innerText = crit;
+    const cCrit = document.getElementById('count-crit');
+    if (cCrit) cCrit.innerText = `${crit} Nível Crítico`;
+    const cAvail = document.getElementById('count-avail');
+    if (cAvail) cAvail.innerText = `${avail} Disponíveis`;
+  }
+
+  function showFlavorDetails(pozzetto, flavor, lot, date, level) {
+    showToast(`Pozzetto ${pozzetto}: ${flavor} • Lote ${lot} • ${level}`, 'info');
+  }
+
+  window.addEventListener('click', () => {
+    const n = document.getElementById('notifications-dropdown');
+    const s = document.getElementById('settings-dropdown');
+    if (n) n.classList.add('hidden');
+    if (s) s.classList.add('hidden');
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      ['logout-modal', 'new-flavor-modal', 'refill-modal', 'swap-modal', 'print-modal'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+      const n = document.getElementById('notifications-dropdown');
+      const s = document.getElementById('settings-dropdown');
+      if (n) n.classList.add('hidden');
+      if (s) s.classList.add('hidden');
+    }
+  });
+</script>
+
+
+
+
+
+<script>window.ADMIN_SCREEN_ID=7;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script></body></html>

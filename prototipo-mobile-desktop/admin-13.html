@@ -1,0 +1,985 @@
+<!DOCTYPE html><html class="h-full" lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel de Controle · Arducci Gelato &amp; Açaí Enterprise</title>
+<!-- Google Fonts: Playfair Display + Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS CDN with plugins -->
+<link rel="stylesheet" href="styles/admin-13.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      line-height: 1;
+      display: inline-block;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F4EFE6;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #D0C5AF;
+      border-radius: 3px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #C5A059;
+    }
+
+    /* Estilos do menu lateral recolhido */
+    aside#sidebar.sidebar-collapsed {
+      width: 5rem !important; /* w-20 = 80px */
+    }
+    aside#sidebar.sidebar-collapsed .nav-text,
+    aside#sidebar.sidebar-collapsed #brand-text,
+    aside#sidebar.sidebar-collapsed .logout-text,
+    aside#sidebar.sidebar-collapsed .active-indicator {
+      display: none !important;
+    }
+    aside#sidebar.sidebar-collapsed .nav-link,
+    aside#sidebar.sidebar-collapsed #btn-logout {
+      justify-content: center !important;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    aside#sidebar.sidebar-collapsed #sidebar-brand-box {
+      margin: 0 auto;
+      justify-content: center;
+    }
+    aside#sidebar.sidebar-collapsed .header-container {
+      justify-content: center;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    aside#sidebar.sidebar-collapsed #toggle-sidebar {
+      display: none;
+    }
+  </style>
+<link rel="stylesheet" href="admin.css?v=20261108-layout-41"><link rel="stylesheet" href="styles/admin-header.css?v=20261108-layout-41"></head>
+<body class="bg-canvas-crema text-on-surface antialiased h-full flex overflow-hidden font-body-md text-body-md select-none">
+<!-- ========================================================================= -->
+<!-- SIDEBAR (Novo padrão técnico exato) -->
+<!-- ========================================================================= -->
+<aside class="w-64 bg-[#18110e] text-[#e5dcd3] flex flex-col justify-between shrink-0 transition-all duration-300 min-h-screen border-r border-[#2d221c] z-30 select-none" id="sidebar">
+<div class="flex flex-col flex-1 min-h-0">
+<!-- Cabeçalho do Aside -->
+<div class="header-container p-5 border-b border-[#2d221c] flex items-center justify-between">
+<div class="flex items-center gap-3 cursor-pointer" id="sidebar-brand-box" onclick="toggleSidebarCollapse()">
+<div class="w-10 h-10 rounded-xl bg-[#d4af37] flex items-center justify-center text-[#18110e] shadow-md shrink-0">
+<span class="material-symbols-outlined text-2xl font-bold">icecream</span>
+</div>
+<div class="flex flex-col" id="brand-text">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-sm tracking-wide text-[#fff8f4]">SORVETEC</span>
+<span class="text-[10px] bg-[#d4af37] text-[#18110e] font-extrabold px-1.5 py-0.5 rounded leading-none">PRO</span>
+</div>
+<span class="text-[10px] text-[#a89a8f] font-medium tracking-wider uppercase mt-0.5">ARDUCCI GELATO &amp; AÇAÍ</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-[#a89a8f] hover:text-[#fff8f4] hover:bg-white/5 transition-colors shrink-0" id="toggle-sidebar" onclick="toggleSidebarCollapse()" title="Recolher / Expandir Menu">
+<span class="material-symbols-outlined text-xl" id="toggle-icon">menu_open</span>
+</button>
+</div>
+<!-- Navegação -->
+<nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scroll">
+<!-- 1. Dashboard -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#dashboard" title="Dashboard">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">dashboard</span>
+<span class="nav-text truncate">Dashboard</span>
+</a>
+<!-- 2. Acompanhamento de Pedido -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#pedidos" title="Acompanhamento de Pedido">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">list_alt</span>
+<span class="nav-text truncate">Acompanhamento de Pedido</span>
+</a>
+<!-- 3. Caixa e PDV -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#caixa" title="Caixa e PDV">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">point_of_sale</span>
+<span class="nav-text truncate">Caixa</span>
+</a>
+<!-- 4. Clientes e Arducci Club -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#clientes" title="Clientes e Arducci Club">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">groups</span>
+<span class="nav-text truncate">Clientes e Arducci Club</span>
+</a>
+<!-- 5. Estoque -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#estoque" title="Estoque">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">inventory_2</span>
+<span class="nav-text truncate">Estoque</span>
+</a>
+<!-- 6. Sabores de Gelato -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#sabores" title="Sabores de Gelato">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">icecream</span>
+<span class="nav-text truncate">Sabores de Gelato</span>
+</a>
+<!-- 7. Financeiro & DRE -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#financeiro" title="Financeiro &amp; DRE">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">payments</span>
+<span class="nav-text truncate">Financeiro&nbsp;</span>
+</a>
+<!-- 8. Funcionários & Ponto -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#funcionarios" title="Funcionários &amp; Ponto">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">badge</span>
+<span class="nav-text truncate">Funcionários&nbsp;</span>
+</a>
+<!-- 9. Mapa de Mesa -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#mapa-mesas" title="Mapa de Mesa">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">table_restaurant</span>
+<span class="nav-text truncate">Mapa de Mesa</span>
+</a>
+<!-- 10. Relatórios e BI -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#relatorios" title="Relatórios e BI">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">bar_chart</span>
+<span class="nav-text truncate">Relatórios&nbsp;</span>
+</a>
+<!-- 11. Painel de Controle (ATIVO) -->
+<a class="nav-link flex items-center justify-between px-3 py-2 rounded-lg bg-[#2b1810] text-[#d4af37] font-semibold text-xs border-l-4 border-[#d4af37] shadow-sm whitespace-nowrap" href="#painel-controle" title="Painel de Controle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xl text-[#d4af37] shrink-0">settings</span>
+<span class="nav-text truncate">Painel de Controle</span>
+</div>
+<span class="active-indicator w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+</a>
+<!-- 12. Suporte Técnico -->
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-[#c5b8ad] hover:text-[#fff8f4] hover:bg-white/5 transition-colors group text-xs font-medium whitespace-nowrap" href="#suporte" title="Suporte Técnico">
+<span class="material-symbols-outlined text-xl text-[#a89a8f] group-hover:text-[#fff8f4] transition-colors shrink-0">help</span>
+<span class="nav-text truncate">Suporte Técnico</span>
+</a>
+</nav>
+</div>
+<!-- Rodapé do Aside -->
+<div class="p-4 border-t border-[#2d221c]">
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold text-rose-500 hover:bg-rose-500/10 transition-colors whitespace-nowrap" id="btn-logout" onclick="abrirModalLogout()" title="Encerrar o sistema (sair)">
+<span class="material-symbols-outlined text-xl shrink-0">logout</span>
+<span class="logout-text truncate">Encerrar o sistema (sair)</span>
+</button>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE VIEWPORT -->
+<!-- ========================================================================= -->
+<div class="flex-1 flex flex-col h-screen bg-canvas-crema overflow-hidden relative" id="main-content-wrapper">
+<!-- TOP OPERATIONAL APP BAR (Header) -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-16 px-8 w-full bg-surface-container-lowest border-b border-surface-crema-muted select-none shadow-sm flex-shrink-0">
+<div class="flex items-center gap-3.5">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cherry-soft border border-cherry-alert/30 cursor-pointer select-none transition-all duration-200 hover:shadow-sm active:scale-95" id="store-status-badge" onclick="toggleStoreStatus()" title="Clique para alternar o status do expediente">
+<span class="relative flex h-2.5 w-2.5" id="store-status-indicator">
+<span class="hidden" id="store-status-ping"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cherry-ruby" id="store-status-dot"></span>
+</span>
+<span class="font-label-md text-xs font-semibold text-cherry-ruby transition-colors duration-200" id="store-status-text">Loja fechada</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-pistache-emerald/40 text-pistache-emerald hover:bg-pistache-soft font-label-md text-xs transition-all duration-200 active:scale-95 shadow-sm" id="btn-toggle-store" onclick="toggleStoreStatus()">
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300" id="btn-toggle-store-icon">storefront</span>
+<span class="font-semibold" id="btn-toggle-store-label">Abrir loja</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 mr-2">
+<!-- Notificações Dropdown Container -->
+<div class="relative" id="notifications-container">
+<button class="relative p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-all duration-200 active:scale-90" id="btn-notifications" onclick="toggleNotificationsDropdown(event)" title="Notificações Operacionais">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="bell-icon">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-cherry-ruby text-white text-[10px] font-bold flex items-center justify-center shadow-sm animate-pulse" id="notif-badge">3</span>
+</button>
+<!-- Dropdown oculto por padrão -->
+<div class="absolute right-0 mt-2 w-80 bg-surface-container-lowest border border-surface-crema-muted rounded-lg shadow-2xl py-2 z-50 hidden" id="notifications-dropdown">
+<div class="flex items-center justify-between px-3.5 py-2 border-b border-surface-crema-muted">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-gold-deep">notifications_active</span>
+<span class="font-headline-sm text-xs font-bold text-cacao-deep">Notificações Operacionais</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] text-gold-deep hover:underline transition-colors" onclick="markAllNotificationsAsRead(event)">Marcar lidas</button>
+<span class="text-tertiary/40">·</span>
+<button class="text-[11px] text-tertiary hover:text-gold-deep transition-colors" onclick="clearNotifications(event)">Limpar todas</button>
+</div>
+</div>
+<div class="flex flex-col max-h-72 overflow-y-auto custom-scroll divide-y divide-surface-crema-muted/60" id="notif-list">
+<div class="p-3 hover:bg-surface-crema-subtle transition-colors flex gap-2.5 items-start">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald mt-1.5 flex-shrink-0"></span>
+<div class="flex-1">
+<p class="text-xs font-semibold text-cacao-deep">Sincronização Fiscal SEFAZ Concluída</p>
+<p class="text-[11px] text-tertiary mt-0.5">Lotes de NFC-e transmitidos com sucesso (18ms).</p>
+<span class="text-[10px] text-tertiary/75 mt-1 block">Há 4 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle transition-colors flex gap-2.5 items-start">
+<span class="w-2 h-2 rounded-full bg-gold-burnished mt-1.5 flex-shrink-0"></span>
+<div class="flex-1">
+<p class="text-xs font-semibold text-cacao-deep">Pozzetto Pistacchio Bronte</p>
+<p class="text-[11px] text-tertiary mt-0.5">Sensor de peso atingiu nível mínimo de 15%.</p>
+<span class="text-[10px] text-tertiary/75 mt-1 block">Há 22 minutos</span>
+</div>
+</div>
+<div class="p-3 hover:bg-surface-crema-subtle transition-colors flex gap-2.5 items-start">
+<span class="w-2 h-2 rounded-full bg-cherry-ruby mt-1.5 flex-shrink-0"></span>
+<div class="flex-1">
+<p class="text-xs font-semibold text-cacao-deep">Backup Automático Criado</p>
+<p class="text-[11px] text-tertiary mt-0.5">Snapshot da base de dados salvo localmente com sucesso.</p>
+<span class="text-[10px] text-tertiary/75 mt-1 block">Há 1 hora</span>
+</div>
+</div>
+</div>
+<div class="p-2 border-t border-surface-crema-muted bg-surface-crema-subtle text-center">
+<a class="text-xs font-semibold text-gold-deep hover:underline cursor-pointer" onclick="openCategoryModal('notificacoes'); closeAllHeaderDropdowns()">Configurar Alertas de Notificação</a>
+</div>
+</div>
+</div>
+<!-- Botão Configurações Rápidas (Engrenagem com rotação 90deg) -->
+<div class="relative" id="settings-container"><button class="relative p-2 rounded-lg text-tertiary hover:text-cacao-deep hover:bg-surface-crema-subtle transition-all duration-200 active:scale-90 flex items-center justify-center" id="btn-quick-settings" onclick="toggleSettingsDropdown(event)" title="Configurações Rápidas do Terminal"><span class="material-symbols-outlined text-[20px] transition-transform duration-300 transform" id="settings-gear-icon">settings</span></button><div class="hidden absolute right-0 mt-2 w-[370px] bg-surface-container-lowest border border-surface-crema-muted rounded-lg shadow-2xl z-50 overflow-hidden" id="settings-dropdown"><div class="flex items-center justify-between px-4 py-3 border-b border-surface-crema-muted bg-surface-container-lowest"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-lg bg-surface-crema-subtle border border-gold-burnished/40 flex items-center justify-center text-gold-deep flex-shrink-0"><span class="material-symbols-outlined text-[17px]">settings</span></div><div><h4 class="font-headline-sm text-xs font-bold text-cacao-deep leading-tight">Configurações Rápidas</h4><span class="text-[10px] text-tertiary">Terminal TERM-01 · Balcão</span></div></div><div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded bg-gold-burnished/20 text-gold-deep text-[10px] font-bold border border-gold-burnished/30">SORVETEC PRO</span><button class="p-1 text-tertiary hover:text-cacao-deep rounded hover:bg-surface-crema-subtle transition-colors flex items-center justify-center" onclick="toggleSettingsDropdown(event)" title="Fechar painel"><span class="material-symbols-outlined text-[16px]">close</span></button></div></div><div class="p-3.5 max-h-80 overflow-y-auto custom-scroll space-y-3"><div class="space-y-2"><span class="text-[10px] font-bold uppercase tracking-wider text-tertiary px-1 block">Modo Operacional</span><div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-crema-subtle/50 border border-surface-crema-muted"><div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-[18px] text-pistache-emerald mt-0.5 flex-shrink-0">point_of_sale</span><div><p class="text-xs font-semibold text-cacao-deep leading-tight">Balcão Rápido</p><p class="text-[10px] text-tertiary mt-0.5">Finalização simplificada de comandas</p></div></div><label class="relative inline-flex items-center cursor-pointer flex-shrink-0"><input checked="" class="sr-only peer" onchange="showToast(this.checked ? 'Modo Balcão Rápido ativado' : 'Modo Balcão Rápido desativado')" type="checkbox"><div class="w-8 h-4 bg-surface-crema-muted rounded-full peer peer-checked:bg-pistache-emerald peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[2px] after:bg-white after:border after:border-surface-crema-muted after:rounded-full after:h-3.5 after:w-3.5 after:transition-all"></div></label></div><div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-crema-subtle/50 border border-surface-crema-muted"><div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-[18px] text-gold-deep mt-0.5 flex-shrink-0">volume_up</span><div><p class="text-xs font-semibold text-cacao-deep leading-tight">Bip de Balança / TEF</p><p class="text-[10px] text-tertiary mt-0.5">Confirmação sonora na leitura de peso</p></div></div><label class="relative inline-flex items-center cursor-pointer flex-shrink-0"><input checked="" class="sr-only peer" onchange="showToast(this.checked ? 'Alertas sonoros ativados' : 'Alertas sonoros silenciados')" type="checkbox"><div class="w-8 h-4 bg-surface-crema-muted rounded-full peer peer-checked:bg-pistache-emerald peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[2px] after:bg-white after:border-surface-crema-muted after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all"></div></label></div><div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-crema-subtle/50 border border-surface-crema-muted"><div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-[18px] text-pistache-emerald mt-0.5 flex-shrink-0">cloud_sync</span><div><p class="text-xs font-semibold text-cacao-deep leading-tight">Sincronização em Nuvem (10s)</p><p class="text-[10px] text-tertiary mt-0.5">Envio contínuo de contingência NFC-e</p></div></div><label class="relative inline-flex items-center cursor-pointer flex-shrink-0"><input checked="" class="sr-only peer" onchange="showToast(this.checked ? 'Sincronização em nuvem ativa a cada 10s' : 'Sincronização contínua pausada', !this.checked)" type="checkbox"><div class="w-8 h-4 bg-surface-crema-muted rounded-full peer peer-checked:bg-pistache-emerald peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[2px] after:bg-white after:border-surface-crema-muted after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all"></div></label></div></div><div class="space-y-2 pt-1 border-t border-surface-crema-muted/60"><span class="text-[10px] font-bold uppercase tracking-wider text-tertiary px-1 block">Acessibilidade &amp; Interface</span><div class="p-2.5 rounded-lg border border-surface-crema-muted space-y-2"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-tertiary">contrast</span><span class="text-xs font-medium text-cacao-deep">Modo Alto Contraste</span></div><label class="relative inline-flex items-center cursor-pointer flex-shrink-0"><input class="sr-only peer" onchange="showToast(this.checked ? 'Modo Alto Contraste ativado' : 'Contraste padrão restaurado')" type="checkbox"><div class="w-8 h-4 bg-surface-crema-muted rounded-full peer peer-checked:bg-gold-deep peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[2px] after:bg-white after:border after:border-surface-crema-muted after:rounded-full after:h-3.5 after:w-3.5 after:transition-all"></div></label></div><div class="flex items-center justify-between pt-2 border-t border-surface-crema-muted/60"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-tertiary">format_size</span><span class="text-xs font-medium text-cacao-deep">Tamanho de Fonte</span></div><div class="flex items-center gap-1 font-label-md"><button class="w-6 h-6 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep text-[11px] font-bold flex items-center justify-center transition-colors" onclick="showToast('Tamanho de fonte: Pequeno')">P</button><button class="w-6 h-6 rounded bg-gold-burnished text-white text-[11px] font-bold flex items-center justify-center shadow-sm" onclick="showToast('Tamanho de fonte: Médio (Padrão)')">M</button><button class="w-6 h-6 rounded bg-surface-crema-subtle hover:bg-surface-crema-muted text-cacao-deep text-[11px] font-bold flex items-center justify-center transition-colors" onclick="showToast('Tamanho de fonte: Grande')">G</button></div></div></div></div><div class="space-y-1.5 pt-1 border-t border-surface-crema-muted/60"><span class="text-[10px] font-bold uppercase tracking-wider text-tertiary px-1 block">Atalhos Rápidos de Parâmetros</span><div class="grid grid-cols-1 gap-1.5"><button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-crema-subtle border border-surface-crema-muted text-xs text-cacao-deep transition-colors group" onclick="openCategoryModal('loja'); toggleSettingsDropdown(event)"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-gold-deep">storefront</span><span class="font-medium">1. Configurações da Loja</span></div><span class="material-symbols-outlined text-[15px] text-tertiary group-hover:translate-x-1 group-hover:text-gold-deep transition-transform">arrow_forward</span></button><button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-crema-subtle border border-surface-crema-muted text-xs text-cacao-deep transition-colors group" onclick="openCategoryModal('usuarios'); toggleSettingsDropdown(event)"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-gold-deep">manage_accounts</span><span class="font-medium">3. Usuários e Permissões</span></div><span class="material-symbols-outlined text-[15px] text-tertiary group-hover:translate-x-1 group-hover:text-gold-deep transition-transform">arrow_forward</span></button><button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-crema-subtle border border-surface-crema-muted text-xs text-cacao-deep transition-colors group" onclick="openCategoryModal('seguranca'); toggleSettingsDropdown(event)"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-gold-deep">security</span><span class="font-medium">8. Segurança e Acesso</span></div><span class="material-symbols-outlined text-[15px] text-tertiary group-hover:translate-x-1 group-hover:text-gold-deep transition-transform">arrow_forward</span></button></div></div></div><div class="p-3 border-t border-surface-crema-muted bg-surface-crema-subtle flex items-center justify-between gap-2"><button class="px-3 py-1.5 rounded border border-surface-crema-muted text-tertiary hover:bg-surface-container-lowest text-xs font-medium transition-colors" onclick="showToast('Preferências restauradas para os padrões originais'); toggleSettingsDropdown(event)">Restaurar Padrões</button><button class="px-4 py-1.5 rounded bg-pistache-emerald hover:bg-[#1B532B] text-white text-xs font-semibold transition-colors shadow-sm" onclick="showToast('Configurações rápidas aplicadas com sucesso!'); toggleSettingsDropdown(event)">Aplicar</button></div></div></div>
+<!-- Botão Energia / Desligar Terminal -->
+<button class="group p-2 rounded-lg text-cherry-ruby hover:bg-cherry-soft transition-all duration-200 active:scale-95 relative" id="btn-header-power" onclick="openLogoutModal()" title="Encerrar Turno / Desligar">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">power_settings_new</span>
+</button>
+</div>
+<div class="h-5 w-px bg-surface-crema-muted"></div>
+<!-- Menu do Usuário Dropdown -->
+<div class="relative ml-1" id="user-menu-container">
+<button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 rounded-lg hover:bg-surface-crema-subtle border border-transparent hover:border-surface-crema-muted transition-all duration-200 active:scale-98 text-left" id="user-dropdown-btn" onclick="toggleUserMenu(event)">
+<div class="w-8 h-8 rounded-full bg-cacao-deep border border-gold-burnished flex items-center justify-center text-gold-light font-headline-sm text-xs font-bold shadow-sm">AM</div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-xs font-semibold text-cacao-deep leading-tight">Adm MASTER</span>
+<span class="font-label-sm text-[11px] text-tertiary">Administrador Geral</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary transition-transform duration-300" id="user-chevron" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<!-- Dropdown oculto por padrão -->
+<div class="absolute right-0 mt-2 w-56 bg-surface-container-lowest border border-surface-crema-muted rounded-lg shadow-xl py-1.5 z-50 hidden" id="user-dropdown-menu">
+<div class="px-3.5 py-2 border-b border-surface-crema-muted text-xs">
+<p class="font-semibold text-cacao-deep">Adm MASTER</p>
+<p class="text-tertiary text-[11px]">master@arducci.com.br</p>
+</div>
+<button class="w-full text-left px-3.5 py-2 text-xs text-cacao-deep hover:bg-surface-crema-subtle flex items-center gap-2 transition-colors" onclick="openUserDataModal(); closeAllHeaderDropdowns()">
+<span class="material-symbols-outlined text-[16px] text-gold-deep">manage_accounts</span>
+<span class="">Editar meus dados</span>
+</button>
+<button class="w-full text-left px-3.5 py-2 text-xs text-cacao-deep hover:bg-surface-crema-subtle flex items-center gap-2 transition-colors" onclick="switchOperatorPrompt(); closeAllHeaderDropdowns()">
+<span class="material-symbols-outlined text-[16px] text-tertiary">switch_account</span>
+<span class="">Trocar de conta</span>
+</button>
+<div class="border-t border-surface-crema-muted my-1"></div>
+<button class="w-full text-left px-3.5 py-2 text-xs text-cherry-ruby hover:bg-cherry-soft flex items-center gap-2 transition-colors" onclick="openLogoutModal(); closeAllHeaderDropdowns()">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span class="">Sair do sistema</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- WORKSPACE CANVAS WITH CUSTOM SCROLL -->
+<main class="flex-1 overflow-y-auto custom-scroll px-8 pt-6 pb-16 flex flex-col gap-6">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-3 border-b border-surface-crema-muted">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2.5 py-0.5 rounded-full bg-gold-burnished/15 text-gold-deep font-label-sm text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">shield_person</span>Nível de Acesso: Administrador Geral
+          </span>
+<span class="text-tertiary text-xs">· Praia Grande / SP</span>
+</div>
+<h1 class="font-headline-xl text-3xl font-bold text-cacao-deep tracking-tight font-headline-lg">Painel de Controle</h1>
+<p class="font-body-md text-sm text-tertiary mt-1">Gerencie as configurações e permissões do SORVETEC.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-surface-crema-muted text-cacao-deep hover:bg-surface-crema-subtle font-label-md text-xs transition-colors shadow-sm" onclick="exportSettingsBackup()">
+<span class="material-symbols-outlined text-[17px] text-gold-deep">cloud_download</span>
+<span class="">+ Exportar Backup de Configurações (JSON)</span>
+</button>
+</div>
+</div>
+<!-- CARDS DE CONFIGURAÇÃO (8 CARDS) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- 1. Configurações da loja -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('loja')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[11px] font-bold">Ativo</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">1. Configurações da loja</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Nome comercial, informações de contato e dados básicos do estabelecimento.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Configurar parâmetros</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 2. Funcionamento da loja -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('funcionamento')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">schedule</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-crema-muted text-cacao-deep text-[11px] font-bold">Configurado</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">2. Funcionamento da loja</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Configurações relacionadas à abertura, fechamento e horários de pico.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Configurar horários</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 3. Usuários e permissões -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('usuarios')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">manage_accounts</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[11px] font-bold">3 Perfis</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">3. Usuários e permissões</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Gerenciamento dos acessos e das permissões dos perfis de administrador, gerente e funcionário.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Gerenciar acessos</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 4. Pedidos e atendimento -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('pedidos')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-crema-muted text-cacao-deep text-[11px] font-bold">Padrão</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">4. Pedidos e atendimento</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Preferências do fluxo de pedidos, KDS tablet e tempo médio de tolerância.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Ajustar fluxo</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 5. Estoque e produtos -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('estoque')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[11px] font-bold">Monitorando</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">5. Estoque e produtos</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Preferências de organização, alertas de câmara fria e controle de lote/pozzetti.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Parâmetros de estoque</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 6. Formas de pagamento -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" onclick="openCategoryModal('pagamentos')">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[11px] font-bold">4 ativas</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">6. Formas de pagamento</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Configurações das formas de pagamento disponíveis no sistema (PIX, TEF, Dinheiro, Voucher).</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Habilitar métodos</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 7. Notificações -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" data-control-card="documents" role="button" tabindex="0">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-pistache-soft text-pistache-emerald text-[11px] font-bold">Documentos</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">7. Comprovantes de pagamento e notas fiscais</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Comprovantes de pagamento, solicitações de nota fiscal, CPF e configurações dos documentos.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Gerenciar documentos</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 8. Segurança e acesso -->
+<div class="group p-5 rounded-lg bg-surface-container-lowest border border-surface-crema-muted hover:border-gold-burnished/60 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between" data-control-card="mobile" role="button" tabindex="0">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-center text-gold-deep group-hover:bg-gold-burnished group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">phonelink_setup</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-crema-muted text-cacao-deep text-[11px] font-bold">Editor visual</span>
+</div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep group-hover:text-gold-deep transition-colors">8. Sistema do cliente · Mobile</h3>
+<p class="font-body-sm text-xs text-tertiary leading-relaxed">Edite textos e imagens, organize os blocos e personalize as 42 telas do cliente e visitante.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-crema-muted flex items-center justify-between text-xs text-gold-deep font-semibold">
+<span class="">Editar mobile</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- BANNER INFORMATIVO DEMONSTRATIVO -->
+<div class="p-4 rounded-lg bg-surface-crema-subtle border border-border-gold-subtle flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gold-deep text-[24px]">info</span>
+<div>
+<p class="font-label-md text-xs font-semibold text-cacao-deep">Ambiente Operacional Demonstrativo SORVETEC PRO</p>
+<p class="font-body-sm text-xs text-tertiary">Módulos integrados diretamente ao banco local do terminal. Recursos externos sinalizados com tag transparente.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-gold-burnished/20 text-gold-deep font-label-sm text-xs font-bold border border-gold-burnished/30">Demonstrativo / Em Desenvolvimento</span>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- FOOTER TÉCNICO DOCKED (Fixo na base com h-10 perfeitamente alinhado) -->
+<!-- ========================================================================= -->
+<footer class="h-10 px-8 bg-surface-container-low border-t border-surface-crema-muted text-on-surface-variant font-data-tabular text-xs select-none flex items-center justify-between shadow-sm shrink-0" id="main-footer">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-pistache-emerald animate-pulse"></span>
+<span class="font-semibold text-cacao-deep">Terminal: TERM-01-GESTAO</span>
+</div>
+<span class="text-tertiary/40">·</span>
+<div class="flex items-center gap-1.5 text-pistache-emerald">
+<span class="material-symbols-outlined text-[15px]">cloud_done</span>
+<span class="">Sincronização em Nuvem OK (18ms)</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-tertiary">
+<span class="">© 2025 SORVETEC PRO · Arducci Gelato &amp; Açaí</span>
+<span class="text-tertiary/40">·</span>
+<span class="text-pistache-emerald font-semibold flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-pistache-emerald"></span>Status: Conectado à Nuvem
+      </span>
+<span class="text-tertiary/40">·</span>
+<span class="font-semibold text-cacao-deep">v2.5.0 PRO</span>
+</div>
+</footer>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL DE CONFIGURAÇÃO DE CATEGORIA -->
+<!-- ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-nero-rich/70 backdrop-blur-sm" id="confirmModal">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-lg p-6 shadow-2xl">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-crema-subtle border border-gold-burnished/40 flex items-center justify-center text-gold-deep">
+<span class="material-symbols-outlined text-[20px]" id="config-modal-icon">settings</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep" id="config-modal-title">Configurar Categoria</h3>
+<p class="font-body-sm text-xs text-tertiary" id="config-modal-desc">Ajuste os parâmetros conforme a rotina da loja.</p>
+</div>
+</div>
+<button class="p-1 text-tertiary hover:text-cacao-deep rounded hover:bg-surface-crema-subtle" onclick="closeConfigModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="py-4" id="config-modal-body"></div>
+<div class="pt-4 border-t border-surface-crema-muted flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-crema-subtle text-tertiary text-[11px] font-medium">Ambiente Demonstrativo</span>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 rounded border border-surface-crema-muted text-tertiary hover:bg-surface-crema-subtle font-label-md text-xs transition-colors" onclick="closeConfigModal()">Cancelar</button>
+<button class="px-4 py-2 rounded bg-pistache-emerald text-white hover:bg-[#1B532B] font-label-md text-xs font-semibold transition-colors shadow-sm" onclick="saveCategoryConfig()">Salvar Parâmetros</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL DE LOGOUT / ENCERRAMENTO DE TURNO -->
+<!-- ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" id="logoutModal">
+<div class="bg-[#fff8f4] rounded-lg border border-[#e2d1a6] w-full max-w-md p-6 shadow-2xl">
+<div class="flex items-center gap-3 pb-3 border-b border-[#eae3d6]">
+<div class="w-10 h-10 rounded-full bg-[#fde8e8] text-[#c53030] flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">power_settings_new</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-[#2e1f16]">Encerrar Sessão do Terminal</h3>
+<p class="text-xs text-[#6e5a4f]">Operador: Adm MASTER · Administrador Geral</p>
+</div>
+</div>
+<div class="py-4 text-xs text-[#1d1b19] space-y-2">
+<p class="font-medium">Deseja realmente encerrar a sessão atual e bloquear o terminal?</p>
+<p class="text-[#6e5a4f]">O caixa e as sessões ativas serão preservadas. Para retornar, será necessário informar o PIN ou credenciais.</p>
+</div>
+<div class="pt-4 border-t border-[#eae3d6] flex items-center justify-end gap-2.5">
+<button class="px-3.5 py-2 rounded border border-[#eae3d6] text-[#6e5a4f] hover:bg-[#f4efe6] text-xs font-semibold transition-colors" onclick="fecharModalLogout()">Cancelar</button>
+<button class="px-4 py-2 rounded bg-[#c53030] text-white hover:bg-[#9e2020] text-xs font-semibold transition-colors shadow-sm" onclick="confirmLogout()">Confirmar Saída</button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL DE FECHAMENTO DE LOJA -->
+<!-- ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-nero-rich/70 backdrop-blur-sm" id="closeStoreModal">
+<div class="bg-surface-container-lowest rounded-lg border border-cherry-alert/30 w-full max-w-md p-6 shadow-2xl">
+<div class="flex items-center gap-3 pb-3 border-b border-surface-crema-muted">
+<div class="w-10 h-10 rounded-full bg-cherry-soft text-cherry-ruby flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">lock_clock</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep">Confirmar Fechamento de Loja</h3>
+<p class="font-body-sm text-xs text-tertiary">Unidade Praia Grande · Balcão e Salão</p>
+</div>
+</div>
+<div class="py-4 text-xs text-on-surface space-y-2">
+<p class="font-medium">Tem certeza de que deseja fechar o expediente da loja?</p>
+<p class="text-tertiary">Esta ação suspenderá novos pedidos no balcão e comandas de mesa no terminal atual até a reabertura do próximo turno.</p>
+</div>
+<div class="pt-4 border-t border-surface-crema-muted flex items-center justify-end gap-2.5">
+<button class="px-3.5 py-2 rounded border border-surface-crema-muted text-tertiary hover:bg-surface-crema-subtle font-label-md text-xs transition-colors" onclick="closeCloseStoreModal()">Cancelar</button>
+<button class="px-4 py-2 rounded bg-cherry-ruby text-white hover:bg-[#9E2020] font-label-md text-xs font-semibold transition-colors shadow-sm" onclick="confirmStoreClose()">Confirmar Fechamento</button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL DE EDIÇÃO DE DADOS DO USUÁRIO -->
+<!-- ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-nero-rich/70 backdrop-blur-sm" id="userDataModal">
+<div class="bg-surface-container-lowest rounded-lg border border-border-gold-subtle w-full max-w-md p-6 shadow-2xl">
+<div class="flex items-center justify-between pb-3 border-b border-surface-crema-muted">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-cacao-deep text-gold-light font-bold text-xs flex items-center justify-center border border-gold-burnished">AM</div>
+<div>
+<h3 class="font-headline-sm text-base font-bold text-cacao-deep">Editar Meus Dados</h3>
+<p class="font-body-sm text-xs text-tertiary">Adm MASTER · Administrador Geral</p>
+</div>
+</div>
+<button class="p-1 text-tertiary hover:text-cacao-deep rounded hover:bg-surface-crema-subtle" onclick="closeUserDataModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-xs text-cacao-deep font-semibold">Nome Completo</label>
+<input class="h-9 px-3 rounded border border-surface-crema-muted bg-canvas-crema text-xs text-on-surface" id="user-edit-name" type="text" value="Administrador Master Arducci">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-xs text-cacao-deep font-semibold">E-mail Corporativo</label>
+<input class="h-9 px-3 rounded border border-surface-crema-muted bg-canvas-crema text-xs text-on-surface" id="user-edit-email" type="email" value="master@arducci.com.br">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-xs text-cacao-deep font-semibold">PIN de Acesso Rápido</label>
+<input class="h-9 px-3 rounded border border-surface-crema-muted bg-canvas-crema text-xs text-on-surface" type="password" value="••••••">
+</div>
+</div>
+<div class="pt-4 border-t border-surface-crema-muted flex items-center justify-end gap-2.5">
+<button class="px-3.5 py-2 rounded border border-surface-crema-muted text-tertiary hover:bg-surface-crema-subtle font-label-md text-xs" onclick="closeUserDataModal()">Cancelar</button>
+<button class="px-4 py-2 rounded bg-pistache-emerald text-white hover:bg-[#1B532B] font-label-md text-xs font-semibold" onclick="saveUserData()">Salvar Dados</button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- TOAST DE NOTIFICAÇÃO FLUTUANTE -->
+<!-- ========================================================================= -->
+<div class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 translate-y-20 opacity-0 pointer-events-none" id="toast-notification">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-cherry-ruby text-white shadow-xl border border-cherry-alert/40" id="toast-container-bg">
+<span class="material-symbols-outlined text-[20px] text-pistache-soft" id="toast-icon">error_outline</span>
+<span class="font-label-md text-xs font-medium" id="toast-message">Loja fechada! Novos pedidos suspensos no terminal.</span>
+</div>
+</div>
+<script>
+  function toggleSettingsDropdown(event) { 
+    if (event) event.stopPropagation(); 
+    const dropdown = document.getElementById('settings-dropdown'); 
+    const gear = document.getElementById('settings-gear-icon'); 
+    const notifDropdown = document.getElementById('notifications-dropdown'); 
+    const userMenu = document.getElementById('user-dropdown-menu'); 
+    const userChevron = document.getElementById('user-chevron'); 
+    if (notifDropdown && !notifDropdown.classList.contains('hidden')) notifDropdown.classList.add('hidden'); 
+    if (userMenu && !userMenu.classList.contains('hidden')) { 
+      userMenu.classList.add('hidden'); 
+      if (userChevron) userChevron.style.transform = 'rotate(0deg)'; 
+    } 
+    if (dropdown) { 
+      const isClosed = dropdown.classList.contains('hidden'); 
+      dropdown.classList.toggle('hidden'); 
+      if (gear) gear.style.transform = isClosed ? 'rotate(90deg)' : 'rotate(0deg)'; 
+    } 
+  } 
+
+  function closeAllHeaderDropdowns() { 
+    const settingsDropdown = document.getElementById('settings-dropdown'); 
+    const gear = document.getElementById('settings-gear-icon'); 
+    const notifDropdown = document.getElementById('notifications-dropdown'); 
+    const userMenu = document.getElementById('user-dropdown-menu'); 
+    const userChevron = document.getElementById('user-chevron'); 
+    if (settingsDropdown) settingsDropdown.classList.add('hidden'); 
+    if (gear) gear.style.transform = 'rotate(0deg)'; 
+    if (notifDropdown) notifDropdown.classList.add('hidden');
+    if (userMenu) userMenu.classList.add('hidden');
+    if (userChevron) userChevron.style.transform = 'rotate(0deg)';
+  } 
+
+  document.addEventListener('click', function(event) { 
+    const settingsContainer = document.getElementById('settings-container'); 
+    if (settingsContainer && !settingsContainer.contains(event.target)) { 
+      const settingsDropdown = document.getElementById('settings-dropdown'); 
+      const gear = document.getElementById('settings-gear-icon'); 
+      if (settingsDropdown && !settingsDropdown.classList.contains('hidden')) { 
+        settingsDropdown.classList.add('hidden'); 
+        if (gear) gear.style.transform = 'rotate(0deg)'; 
+      } 
+    } 
+  });
+</script>
+<!-- ========================================================================= -->
+<!-- SCRIPTS DE INTERATIVIDADE -->
+<!-- ========================================================================= -->
+<script>
+  let isSidebarCollapsed = false;
+  let isStoreOpen = true;
+
+  // 1. Alternância interativa do Aside (w-64 <-> w-20)
+  function toggleSidebarCollapse() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    isSidebarCollapsed = !isSidebarCollapsed;
+
+    if (isSidebarCollapsed) {
+      sidebar.classList.add('sidebar-collapsed');
+      sidebar.classList.remove('w-64');
+      sidebar.classList.add('w-20');
+      if (toggleIcon) toggleIcon.textContent = 'menu';
+    } else {
+      sidebar.classList.remove('sidebar-collapsed');
+      sidebar.classList.remove('w-20');
+      sidebar.classList.add('w-64');
+      if (toggleIcon) toggleIcon.textContent = 'menu_open';
+    }
+  }
+
+  // 2. Store Status Toggle & Effects
+  function toggleStoreStatus() {
+    const badge = document.getElementById('store-status-badge');
+    const ping = document.getElementById('store-status-ping');
+    const dot = document.getElementById('store-status-dot');
+    const text = document.getElementById('store-status-text');
+    const btn = document.getElementById('btn-toggle-store');
+    const btnLabel = document.getElementById('btn-toggle-store-label');
+    const btnIcon = document.getElementById('btn-toggle-store-icon');
+
+    isStoreOpen = !isStoreOpen;
+
+    if (isStoreOpen) {
+      // Aberta
+      badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-pistache-soft border border-pistache-emerald/30 cursor-pointer select-none transition-all duration-200 hover:shadow-sm active:scale-95";
+      ping.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-pistache-emerald opacity-75";
+      dot.className = "relative inline-flex rounded-full h-2.5 w-2.5 bg-pistache-emerald";
+      text.className = "font-label-md text-xs font-semibold text-pistache-emerald transition-colors duration-200";
+      text.textContent = "Loja aberta";
+
+      btn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-cherry-alert/30 text-cherry-ruby hover:bg-cherry-soft font-label-md text-xs transition-all duration-200 active:scale-95 shadow-sm";
+      btnLabel.textContent = "Fechar loja";
+      btnIcon.textContent = "storefront";
+      showToast("Loja reaberta! Sistema operando normalmente.");
+    } else {
+      // Fechada
+      badge.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-cherry-soft border border-cherry-alert/30 cursor-pointer select-none transition-all duration-200 hover:shadow-sm active:scale-95";
+      ping.className = "hidden";
+      dot.className = "relative inline-flex rounded-full h-2.5 w-2.5 bg-cherry-ruby";
+      text.className = "font-label-md text-xs font-semibold text-cherry-ruby transition-colors duration-200";
+      text.textContent = "Loja fechada";
+
+      btn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-pistache-emerald/40 text-pistache-emerald hover:bg-pistache-soft font-label-md text-xs transition-all duration-200 active:scale-95 shadow-sm";
+      btnLabel.textContent = "Abrir loja";
+      btnIcon.textContent = "storefront";
+      showToast("Loja fechada! Novos pedidos suspensos no terminal.", true);
+    }
+  }
+
+  // 3. Notifications Dropdown
+  function toggleNotificationsDropdown(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('notifications-dropdown');
+    const userMenu = document.getElementById('user-dropdown-menu');
+    const userChevron = document.getElementById('user-chevron');
+
+    if (userMenu && !userMenu.classList.contains('hidden')) {
+      userMenu.classList.add('hidden');
+      if (userChevron) userChevron.style.transform = 'rotate(0deg)';
+    }
+
+    if (dropdown) {
+      dropdown.classList.toggle('hidden');
+    }
+  }
+
+  function markAllNotificationsAsRead(event) {
+    if (event) event.stopPropagation();
+    const badge = document.getElementById('notif-badge');
+    if (badge) badge.classList.add('hidden');
+    showToast("Todas as notificações foram marcadas como lidas.");
+  }
+
+  function clearNotifications(event) {
+    if (event) event.stopPropagation();
+    const list = document.getElementById('notif-list');
+    const badge = document.getElementById('notif-badge');
+    if (list) {
+      list.innerHTML = '<div class="p-6 text-center text-xs text-tertiary">Nenhuma notificação operacional no momento.</div>';
+    }
+    if (badge) badge.classList.add('hidden');
+    showToast("Histórico de notificações limpo!");
+  }
+
+  // 4. User Dropdown Menu
+  function toggleUserMenu(event) {
+    if (event) event.stopPropagation();
+    const notifDropdown = document.getElementById('notifications-dropdown');
+    const userMenu = document.getElementById('user-dropdown-menu');
+    const userChevron = document.getElementById('user-chevron');
+
+    if (notifDropdown && !notifDropdown.classList.contains('hidden')) {
+      notifDropdown.classList.add('hidden');
+    }
+
+    if (userMenu) {
+      const willOpen = userMenu.classList.contains('hidden');
+      userMenu.classList.toggle('hidden');
+      if (userChevron) {
+        userChevron.style.transform = willOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    }
+  }
+
+  // Fechar dropdowns ao clicar fora
+  document.addEventListener('click', function(event) {
+    const notifContainer = document.getElementById('notifications-container');
+    const userContainer = document.getElementById('user-menu-container');
+
+    if (notifContainer && !notifContainer.contains(event.target)) {
+      const notifDropdown = document.getElementById('notifications-dropdown');
+      if (notifDropdown) notifDropdown.classList.add('hidden');
+    }
+
+    if (userContainer && !userContainer.contains(event.target)) {
+      const userMenu = document.getElementById('user-dropdown-menu');
+      const userChevron = document.getElementById('user-chevron');
+      if (userMenu) userMenu.classList.add('hidden');
+      if (userChevron) userChevron.style.transform = 'rotate(0deg)';
+    }
+  });
+
+  // 5. Modais de Ação e Configurações de Categorias
+  const categoryData = {
+    loja: {
+      title: '1. Configurações da Loja',
+      desc: 'Nome fantasia, CNPJ, telefone e dados de contato',
+      icon: 'storefront',
+      fields: [
+        { label: 'Nome Comercial', val: 'Arducci Gelato & Açaí - Matriz' },
+        { label: 'CNPJ', val: '34.892.109/0001-44' },
+        { label: 'Telefone / WhatsApp', val: '(13) 3491-0084' },
+        { label: 'Endereço', val: 'Av. Pres. Castelo Branco, 1842 - Praia Grande/SP' }
+      ]
+    },
+    funcionamento: {
+      title: '2. Funcionamento da Loja',
+      desc: 'Defina os horários de atendimento, abertura e tolerância',
+      icon: 'schedule',
+      fields: [
+        { label: 'Horário de Abertura Balcão', val: '12:00' },
+        { label: 'Horário de Fechamento Salão', val: '23:30' },
+        { label: 'Tolerância Pedidos de Cozinha', val: '15 minutos' },
+        { label: 'Horário de Pico Previsto', val: '19:30 às 22:00' }
+      ]
+    },
+    usuarios: {
+      title: '3. Usuários e Permissões',
+      desc: 'Controle de perfis, operadores e senhas de acesso',
+      icon: 'manage_accounts',
+      fields: [
+        { label: 'Perfil Administrador Geral', val: 'Acesso total irrestrito (AM)' },
+        { label: 'Perfil Gerente de Turno', val: 'Acesso a relatórios, sangrias e estornos' },
+        { label: 'Perfil Operador de Caixa / Balcão', val: 'Acesso exclusivo a pedidos e terminal PDV' }
+      ]
+    },
+    pedidos: {
+      title: '4. Pedidos e Atendimento',
+      desc: 'Configurações de impressão de comandas e fluxo KDS',
+      icon: 'receipt_long',
+      fields: [
+        { label: 'Tempo Padrão de Montagem Açaí', val: '4 minutos' },
+        { label: 'Autoimpressão de cupom fiscal', val: 'Habilitado via impressora térmica USB' },
+        { label: 'Divisão de Comanda por Pessoa', val: 'Permitido até 8 clientes por mesa' }
+      ]
+    },
+    estoque: {
+      title: '5. Estoque e Produtos',
+      desc: 'Limites de segurança, pozetti de gelato e alertas',
+      icon: 'inventory_2',
+      fields: [
+        { label: 'Alerta Nível Mínimo Pozzetto', val: '15% de peso restante' },
+        { label: 'Câmara Fria Temperatura Alvo', val: '-18°C a -14°C' },
+        { label: 'Controle de Lote Ativo', val: 'Sim, rastreabilidade por pasteurização' }
+      ]
+    },
+    pagamentos: {
+      title: '6. Formas de Pagamento',
+      desc: 'Configuração TEF Stone, PIX instantâneo e bandeiras',
+      icon: 'payments',
+      fields: [
+        { label: 'Chave PIX Dinâmica', val: 'pix@arducci.com.br (Banco Itaú)' },
+        { label: 'Integração TEF', val: 'Pinpad Stone conectada via USB Porta COM3' },
+        { label: 'Permitir Voucher Refeição', val: 'Alelo, Sodexo, VR Benefícios' }
+      ]
+    },
+    notificacoes: {
+      title: '7. Notificações Operacionais',
+      desc: 'Alertas sonoros e avisos de ruptura de insumos',
+      icon: 'notifications_active',
+      fields: [
+        { label: 'Aviso Sonoro de Novo Pedido', val: 'Ativado (Volume 80%)' },
+        { label: 'Alerta Fiscal SEFAZ', val: 'Notificação imediata em tela cheia' },
+        { label: 'Ruptura de Sabores Críticos', val: 'Notificar gerente via push' }
+      ]
+    },
+    seguranca: {
+      title: '8. Segurança e Acesso',
+      desc: 'Políticas de auditoria, senhas e fechamento de turno',
+      icon: 'security',
+      fields: [
+        { label: 'Expiração de Sessão por Inatividade', val: '30 minutos' },
+        { label: 'Exigir PIN do Gerente para Cancelamento', val: 'Obrigatório em todas as transações' },
+        { label: 'Criptografia Local SQLite', val: 'AES-256 Habilitado' }
+      ]
+    }
+  };
+
+  function openCategoryModal(catKey) {
+    const data = categoryData[catKey];
+    if (!data) return;
+
+    document.getElementById('config-modal-title').textContent = data.title;
+    document.getElementById('config-modal-desc').textContent = data.desc;
+    document.getElementById('config-modal-icon').textContent = data.icon;
+
+    let bodyHtml = '<div class="space-y-3">';
+    data.fields.forEach(f => {
+      bodyHtml += `
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-xs text-cacao-deep font-semibold">${f.label}</label>
+          <input type="text" class="h-9 px-3 rounded border border-surface-crema-muted bg-canvas-crema text-xs text-on-surface focus:border-gold-deep focus:ring-1 focus:ring-gold-deep" value="${f.val}">
+        </div>
+      `;
+    });
+    bodyHtml += '</div>';
+
+    document.getElementById('config-modal-body').innerHTML = bodyHtml;
+    document.getElementById('confirmModal').classList.remove('hidden');
+  }
+
+  function closeConfigModal() {
+    document.getElementById('confirmModal').classList.add('hidden');
+  }
+
+  function saveCategoryConfig() {
+    closeConfigModal();
+    showToast('Parâmetros salvos e aplicados com sucesso!');
+  }
+
+  // 6. Modais de Logout e Dados
+  function openLogoutModal() {
+    document.getElementById('logoutModal').classList.remove('hidden');
+  }
+
+  function closeLogoutModal() {
+    document.getElementById('logoutModal').classList.add('hidden');
+  }
+
+  function confirmLogout() {
+    closeLogoutModal();
+    showToast('Sessão encerrada. Redirecionando para login...', true);
+    setTimeout(() => {
+      location.reload();
+    }, 1200);
+  }
+
+  function openUserDataModal() {
+    document.getElementById('userDataModal').classList.remove('hidden');
+  }
+
+  function closeUserDataModal() {
+    document.getElementById('userDataModal').classList.add('hidden');
+  }
+
+  function saveUserData() {
+    closeUserDataModal();
+    showToast('Dados do usuário atualizados com sucesso!');
+  }
+
+  function switchOperatorPrompt() {
+    showToast('Alternando operador... Digite o PIN no leitor.', false);
+  }
+
+  function exportSettingsBackup() {
+    showToast('Exportando backup das configurações (JSON)...');
+    setTimeout(() => {
+      showToast('Arquivo arducci_config_backup_2025.json baixado!');
+    }, 1000);
+  }
+
+  // 7. Toast Helper
+  let toastTimer = null;
+  function showToast(message, isAlert = false) {
+    const toast = document.getElementById('toast-notification');
+    const toastMsg = document.getElementById('toast-message');
+    const toastIcon = document.getElementById('toast-icon');
+    const toastBg = document.getElementById('toast-container-bg');
+
+    if (!toast || !toastMsg) return;
+
+    toastMsg.textContent = message;
+
+    if (isAlert) {
+      toastBg.className = "flex items-center gap-3 px-4 py-3 rounded-lg bg-cherry-ruby text-white shadow-xl border border-cherry-alert/40";
+      toastIcon.textContent = "error_outline";
+    } else {
+      toastBg.className = "flex items-center gap-3 px-4 py-3 rounded-lg bg-[#1B532B] text-white shadow-xl border border-pistache-emerald/40";
+      toastIcon.textContent = "check_circle";
+    }
+
+    toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }, 3200);
+  }
+
+  function abrirModalLogout() {
+    const modal = document.getElementById('logoutModal');
+    if (modal) modal.classList.remove('hidden');
+  }
+  function fecharModalLogout() {
+    const modal = document.getElementById('logoutModal');
+    if (modal) modal.classList.add('hidden');
+  }
+  window.abrirModalLogout = abrirModalLogout;
+  window.fecharModalLogout = fecharModalLogout;
+  window.openLogoutModal = abrirModalLogout;
+  window.closeLogoutModal = fecharModalLogout;
+</script>
+
+
+<script>window.ADMIN_SCREEN_ID=13;</script><script src="admin.js?v=20261108-layout-41"></script><script src="admin-header.js?v=20261108-layout-41"></script><script src="documents.js?v=20261108-layout-41"></script><script src="control-panel.js?v=20261108-layout-41"></script></body></html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Petit Gateau - Arducci Gelateria</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS v3 -->
+<link rel="stylesheet" href="styles/screen-27.css?v=20261108-layout-41">
+
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="styles/gelato-selector.css?v=20261108-layout-41"><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-surface text-on-surface antialiased flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Viewport Wrapper (390px max-w-md frame) -->
+<main class="w-full max-w-md min-h-screen bg-background relative flex flex-col pb-56 shadow-xl">
+<!-- 1. Native Status Bar -->
+<header class="w-full pt-3 px-6 flex justify-between items-center text-primary-container z-30 select-none">
+<span class="font-title-sm text-label-md font-bold tracking-tight">9:41</span>
+<div class="flex items-center space-x-2 text-primary-container">
+<span class="material-symbols-outlined text-[17px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[17px]">wifi</span>
+<span class="material-symbols-outlined text-[19px]">battery_full</span>
+</div>
+</header>
+<div class="w-full bg-surface px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30 select-none z-20">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Foto de perfil de Lucas Arducci" class="w-10 h-10 rounded-full object-cover ring-2 ring-secondary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGWQMXN5WIneLy-72YsKQNkRfFPEFcKmUKuzjjpG7-9DthU66oztm_6clhQu_J7FWtCAjaxYPkZtIFdDdR4zB7wx5Qi1EJaPwTVeBdVxPF-6toLvfvyeZq9fWJ4vU4ZRlyhNSH_2QMHx2lg1FtJmp4eb28PhecQaEkX6L7Jd_xwFssZ1u8Cpf0GVX_AJi_uSd7O2Vs5SKASptRsirJ7Ot1t_FfsGiNrO6SfpmYTsLjRi8ULeSpfxoCtg"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-outline font-bold">Bem-vindo!</span>
+<span class="font-headline-md text-[16px] text-primary-container font-bold leading-tight">Cliente Arducci</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Sacola com 2 itens" class="relative w-9 h-9 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error font-label-sm text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-surface">2</span>
+</button>
+<button aria-label="Sair da conta" class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+<!-- 2. Sticky Top Navigation Bar -->
+<nav class="sticky top-0 z-20 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-outline-variant/30">
+<button aria-label="Voltar para o cardápio" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-label-sm text-label-sm tracking-[0.2em] text-outline font-bold">ARDUCCI GELATERIA</span>
+<h1 class="font-headline-md text-headline-md text-primary-container font-bold leading-none mt-0.5">Petit Gateau</h1>
+</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">icecream</span>
+</div>
+</nav>
+<!-- 3. Hero Visual & Highlight Banner -->
+<section class="relative w-full">
+<div class="relative w-full h-72 overflow-hidden bg-primary-container">
+<img alt="Petit Gateau Arducci com gelato e calda quente" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-700 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOGYnWbJN-Rmls6rrW6SPrF3aIIkP34NzMYFYZJ8l58Rflv4pnYrUcmOU_YSmlp5kS8TF3_yCqvMGs5TNoKhTs4IiSuaJ-ITMWFHMCPHa-y4758Ehzi5aviwHlhOQQytjl2iAFOlUNCbkol-yVVNtLk7atAw1Wo2ypEdseIl_EXYPT-p4PNmufZXyuY7-7DQJEJOS3vqqv1z5a0FxlkANpyFQyJ81edbvvbyb1Q2f0V-YYA2mjVQjQBQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-primary-container/40 to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1.5 bg-primary-container/80 backdrop-blur-md border border-primary-fixed-dim/30 text-surface px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[13px] text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">stars</span>
+            Sobremesa Especial Artisanal
+          </span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-on-primary">
+<p class="font-label-md text-label-md text-primary-fixed font-medium mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+            Assado na hora • Textura aveludada
+          </p>
+</div>
+</div>
+<!-- Detail Card & Inclusions -->
+<div class="px-4 -mt-3 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm space-y-3">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Bolo quente com recheio derretido de chocolate nobre, acompanhado de 2 bolas de gelato artesanal à sua escolha, cobertura artesanal à sua escolha, morangos frescos laminados e chantilly fresco batido na casa.
+          </p>
+<div class="pt-2 border-t border-surface-container flex items-start gap-2 bg-surface-container-low/70 p-3 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="text-left">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold block">Combo Completo</span>
+<p class="font-title-sm text-body-sm font-semibold text-primary-container">
+                Incluso: 2 Gelatos + Cobertura + Morangos + Chantilly
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. ETAPA 1: ESCOLHA SEUS GELATOS (Até 2 sabores) -->
+<section class="mt-6 px-4">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-title-sm text-primary-container font-bold">1. Escolha seus Gelatos</h3>
+<span class="bg-secondary-container/60 text-secondary text-[11px] font-label-sm font-bold px-2 py-0.5 rounded-full border border-secondary/20">Obrigatório • Incluso</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary bg-secondary-container/40 px-2.5 py-1 rounded-full transition-all" id="gelato-counter">2/2 Selecionados</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-3">Selecione até 2 sabores artesanais de gelato para acompanhar seu bolo quente.</p>
+<!-- Freezer Horizontal Tabs (Exact Names: Freezer 1, Freezer 2, Freezer 3) -->
+<div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-none">
+<button class="freezer-tab-btn whitespace-nowrap px-4 py-2 rounded-full bg-primary-container text-surface-container-lowest font-label-md text-label-sm font-semibold shadow-sm flex items-center gap-1.5 transition-all" id="tab-btn-1" onclick="switchFreezer(1)" type="button">
+<span class="material-symbols-outlined text-[16px]">kitchen</span>
+<span class="">Freezer 1</span>
+</button>
+<button class="freezer-tab-btn whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-sm font-medium hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="tab-btn-2" onclick="switchFreezer(2)" type="button">
+<span class="material-symbols-outlined text-[16px]">kitchen</span>
+<span class="">Freezer 2</span>
+</button>
+<button class="freezer-tab-btn whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-sm font-medium hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="tab-btn-3" onclick="switchFreezer(3)" type="button">
+<span class="material-symbols-outlined text-[16px]">kitchen</span>
+<span class="">Freezer 3</span>
+</button>
+</div>
+<!-- Gelato Flavors Grid Container -->
+<div class="grid grid-cols-4 gap-2.5 mt-3 min-h-[380px] transition-opacity duration-200" id="gelato-grid"><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border-2 border-secondary shadow-sm scale-[1.02]">
+<span class="absolute top-1 right-1 w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-secondary/30 ring-2 ring-secondary/20 flex items-center justify-center">
+<img alt="Pistache Bronte" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">01</span>
+<span class="font-title-sm text-[11px] font-bold text-primary-container leading-tight line-clamp-2 mt-0.5">Pistache Bronte</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Cioccolato Belga" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">02</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Cioccolato Belga</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border-2 border-secondary shadow-sm scale-[1.02]">
+<span class="absolute top-1 right-1 w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-secondary/30 ring-2 ring-secondary/20 flex items-center justify-center">
+<img alt="Fior di Latte" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">03</span>
+<span class="font-title-sm text-[11px] font-bold text-primary-container leading-tight line-clamp-2 mt-0.5">Fior di Latte</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Doce de Leite Caseiro" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">04</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Doce de Leite Caseiro</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Nocciola Piemonte" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">05</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Nocciola Piemonte</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Baunilha Bourbon" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">06</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Baunilha Bourbon</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Cantucci Amêndoas" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">07</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Cantucci Amêndoas</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Stracciatella Romana" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">08</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Stracciatella Romana</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Gianduia Torino" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1557142046-c704a3adf364?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">09</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Gianduia Torino</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Zabaione Marsala" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">10</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Zabaione Marsala</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Menta Fresca &amp; Choco" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">11</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Menta Fresca &amp; Choco</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Café Cold Brew" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">12</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Café Cold Brew</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Coco Fitas Tostado" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">13</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Coco Fitas Tostado</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Amêndoas Praliné" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">14</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Amêndoas Praliné</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Cioccomenta" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">15</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Cioccomenta</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Tiramisù Savoiardi" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">16</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Tiramisù Savoiardi</span>
+</div><div class="relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 border border-outline-variant/40 hover:border-outline">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Iogurte Amarena" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=160&amp;auto=format&amp;fit=crop&amp;q=80"/>
+</div>
+<span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">17</span>
+<span class="font-title-sm text-[11px] font-bold text-on-surface leading-tight line-clamp-2 mt-0.5">Iogurte Amarena</span>
+</div></div>
+</section>
+<!-- 5. ETAPA 2: ESCOLHA SUA COBERTURA -->
+<section class="mt-7 px-4">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-title-sm text-primary-container font-bold">2. Escolha sua Cobertura</h3>
+<span class="bg-secondary-container/60 text-secondary text-[11px] font-label-sm font-bold px-2 py-0.5 rounded-full border border-secondary/20">Obrigatório • Incluso</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary bg-secondary-container/40 px-2.5 py-1 rounded-full" id="cobertura-badge">1/1 Selecionada</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-3">Escolha 1 cobertura artesanal inclusa para regar o petit gateau e o gelato.</p>
+<!-- 3 Coberturas Inclusas Principais -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Cobertura 1: Chocolate Belga (Default selected) -->
+<div class="cobertura-card cursor-pointer bg-surface-container-lowest rounded-xl p-2.5 border-2 border-secondary shadow-sm relative flex flex-col justify-between transition-all duration-150" id="cobertura-card-1" onclick="selectBaseCobertura('Chocolate Belga', 1)">
+<div class="flex justify-between items-start mb-1.5">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container/10 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Chocolate Belga" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPqBGvTJgWOIZbEtcceBpOBIRl_A0mDY13sh5SQuY5i0Ge7w_6Kr_OWpynfCFVylk3CVy1Ha7RFZSIPbbUNv_7vycVlHbjhdZkxFWPZwcBLqLe_B6TJ-cxEMdGfm-lsSkwAovmvDOOlSPiEwFRscZbdkV_qLUXXnfxRnF7VzaOayZRfy_ZR4SPhnNhGFinE0y-pU1ghQSqcpXNGzw1yTFz1khGEHqt93WgC9Ei6rRuOHkrV_UAGVtUzw"/>
+</div>
+<span class="cobertura-check w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+</div>
+<div>
+<span class="font-title-sm text-[12px] font-bold text-primary-container block leading-tight">Chocolate Belga</span>
+<span class="font-label-sm text-[10px] text-secondary font-semibold mt-0.5 inline-block">Incluso • R$ 0,00</span>
+</div>
+</div>
+<!-- Cobertura 2: Morango Artesanal -->
+<div class="cobertura-card cursor-pointer bg-surface-container-lowest rounded-xl p-2.5 border border-outline-variant/40 hover:border-outline shadow-sm relative flex flex-col justify-between transition-all duration-150" id="cobertura-card-2" onclick="selectBaseCobertura('Morango Artesanal', 2)">
+<div class="flex justify-between items-start mb-1.5">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container/10 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Morango Artesanal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzB9KAbGLmpoM7R3wEubVUHREiviEQ4lbvZHM5CVbL4uqFVQ3SvodKSA5wedUB6MiJw2kZEHZWpfrA1fACFs5_a93txgzE4ZZLGGc5fSZv2llOFQXMKjFLPPCLONuwcbl-lWAEHKbTXBErc69FdyH1WtCh1KOYELaGlJMJsmvq0NFS9Ju4XmbRVB2zZqiKo3QCC_7688hL3HM8wQN2-byTyCausLR8u_YDK-NAeYBgPLKZNlXfBXjcKw"/>
+</div>
+<span class="cobertura-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center"></span>
+</div>
+<div>
+<span class="font-title-sm text-[12px] font-bold text-on-surface block leading-tight">Morango Artesanal</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold mt-0.5 inline-block">Incluso • R$ 0,00</span>
+</div>
+</div>
+<!-- Cobertura 3: Caramelo Salgado -->
+<div class="cobertura-card cursor-pointer bg-surface-container-lowest rounded-xl p-2.5 border border-outline-variant/40 hover:border-outline shadow-sm relative flex flex-col justify-between transition-all duration-150" id="cobertura-card-3" onclick="selectBaseCobertura('Caramelo Salgado', 3)">
+<div class="flex justify-between items-start mb-1.5">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container/10 border border-outline-variant/30 flex items-center justify-center">
+<img alt="Caramelo Salgado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhPSzO2j0oQ1ZBRHX8vY0vAHVL2cUFCFLJQjUQsPirquNX4reXd3Qmie6zoGQyu34oR401SWPKvPn2QWf00t6abBPkjnnWX2-xMaobtiNxA6JdVreEdPGS0ZmuW-S-fTnNvgGEO6zekahNi6TrCkGf9Bh2uzYKImlItyJ8O3N2VCEgIqzBiACj7q0Ua8YNoPajSeC82Ct-P7sBACid3SbpqugWVRVVnosCOsP5L_POvfX6A47hr2WidQ"/>
+</div>
+<span class="cobertura-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center"></span>
+</div>
+<div>
+<span class="font-title-sm text-[12px] font-bold text-on-surface block leading-tight">Caramelo Salgado</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold mt-0.5 inline-block">Incluso • R$ 0,00</span>
+</div>
+</div>
+</div>
+<!-- Botão/Caixa de Expansão: Coberturas Extras (Opcionais) -->
+<div class="mt-4">
+<button class="w-full py-2.5 px-3.5 bg-surface-container rounded-xl border border-outline-variant/50 hover:bg-surface-container-high transition-colors flex items-center justify-between text-left group" id="toggle-extras-btn" onclick="toggleExtrasBlock()" type="button">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-secondary/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</div>
+<div>
+<span class="font-title-sm text-body-sm font-bold text-primary-container block leading-snug">Deseja Cobertura Extra?</span>
+<span class="font-label-sm text-[11px] text-outline">Opcional • Personalize com caldas e farofas especiais</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-transform duration-200" id="extras-chevron">keyboard_arrow_down</span>
+</button>
+<!-- Bloco expansível de Coberturas Extras -->
+<div class="hidden mt-3 space-y-2.5 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/40 shadow-sm transition-all" id="extras-block">
+<span class="font-label-sm text-[10px] uppercase font-bold tracking-wider text-outline block mb-1">Selecione coberturas extras adicionais:</span>
+<!-- Extra 1: Calda de Frutas Vermelhas (+R$ 4,00) -->
+<div class="extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none" onclick="toggleExtra('Calda de Frutas Vermelhas', 4.00, this)">
+<div class="flex items-center gap-3">
+<img alt="Calda de Frutas Vermelhas" class="w-11 h-11 rounded-lg object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFd5ostlHEPgDmrSjd3R9N_Kn8j4oijRIH3qESL-GOTT2pCeaK29VI8BrthGi9KeG2vp6-5G5hsOn6uLu7qrHsQTBa1uzu-vXircyFA-gCwIDYkd84r8I8TNIQw0Zg_7Xh5fv-zGpglLXlnQZM1NHiUT87S9YxtfIWrwStFxo2x3eZymAxSyW3gyLHr4YMnbAzqvRpxusnMeShrrCbZuWWVP3Nxm9kY-7KSNV37RYNlQOm7S18-ucuvQ"/>
+<div class="text-left">
+<span class="font-title-sm text-[13px] font-bold text-primary-container block">Calda de Frutas Vermelhas</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold">Opcional</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm font-bold text-secondary">+ R$ 4,00</span>
+<div class="extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]"></div>
+</div>
+</div>
+<!-- Extra 2: Farofa Crocante de Pistache (+R$ 5,00) -->
+<div class="extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none" onclick="toggleExtra('Farofa de Pistache', 5.00, this)">
+<div class="flex items-center gap-3">
+<img alt="Farofa Crocante de Pistache" class="w-11 h-11 rounded-lg object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBflxA-qD7oyjBEej0fDlcevUFEIA4hDOCCdneqcBKiDUGk8EVHFtmjJtCT70M-gFc-cpu_mPuGJrd9qTAZeNIFqJkfxE37xM6ZqpVwKIgSyIKc4mlLZrJopOe7ey5tUtqmqVrAYf4SrDOfFaREBCdg33UDeFsd4FLlIJX5xVjT3rBzspt3MNvRzqo6G7L5yh9S6477B8MamDYlkT3DvDawRXbm-4sn6TFyR8y5kEmuVPuq9r0qYyYng"/>
+<div class="text-left">
+<span class="font-title-sm text-[13px] font-bold text-primary-container block">Farofa Crocante de Pistache</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold">Opcional</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm font-bold text-secondary">+ R$ 5,00</span>
+<div class="extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]"></div>
+</div>
+</div>
+<!-- Extra 3: Chantilly Extra (+R$ 3,50) -->
+<div class="extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none" onclick="toggleExtra('Chantilly Extra', 3.50, this)">
+<div class="flex items-center gap-3">
+<img alt="Chantilly Extra" class="w-11 h-11 rounded-lg object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCob9YY-H0rGwh7GMNnUzFWkMf4Fw5p36efdXu0OMIhRtLlv-NtbpuzSZsFc2hJWx5Sx2aKANDQqXk_nXZi1EtT7lcV4rwoBxaBJZTavXeUAISeqkhfZEIIYDlXNji_8aXgzXl5DSVuSlhIinnv654V1btveeKnIfqjgls7dNV6T8IvfOWOdhtef12-u0BbbF3hHkImtD-d3n8JffPMNA-q1DeEu0tWqvdGcSu6mwKTOZ6Oz3QVjxiVvA"/>
+<div class="text-left">
+<span class="font-title-sm text-[13px] font-bold text-primary-container block">Chantilly Extra</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold">Opcional</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm font-bold text-secondary">+ R$ 3,50</span>
+<div class="extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]"></div>
+</div>
+</div>
+<!-- Extra 4: Ganache de Avelã (+R$ 4,50) -->
+<div class="extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none" onclick="toggleExtra('Ganache de Avelã', 4.50, this)">
+<div class="flex items-center gap-3">
+<img alt="Ganache de Avelã" class="w-11 h-11 rounded-lg object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwIYgfcqjTHmzuznBF0u46tijrjktQpNiDyNks5cYW6TG4lgnA9UmfJ-yMB6euW8DIW_kIfknIVDDxRKJ3ytAMeesD3aqftebULX9RjmlXWezGhXjtMrXeUN3cIh0dMOC87RL_wjwYtD-ucwTLZ1yV3xSDy6NH5L5R6e4rcH2n7uDw6ZAQvgagbL2oB6Lxuo1PO7CE9t65ZIc-gwu63dsi0Aglc-AN8dEpqvda5ky1PhRW9uDO6y2yuA"/>
+<div class="text-left">
+<span class="font-title-sm text-[13px] font-bold text-primary-container block">Ganache de Avelã</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold">Opcional</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm font-bold text-secondary">+ R$ 4,50</span>
+<div class="extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]"></div>
+</div>
+</div>
+<!-- Extra 5: Raspas de Chocolate Nobre (+R$ 3,50) -->
+<div class="extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none" onclick="toggleExtra('Raspas de Choco Nobre', 3.50, this)">
+<div class="flex items-center gap-3">
+<img alt="Raspas de Chocolate Nobre" class="w-11 h-11 rounded-lg object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiBpnK_T-0BzVLA6S4Zrb3EO3G1OWeGZ-d3Ltgd0Sq_q6bETrVTrLy9pykpMWwni4aA2Z7qyZv15LAAQv96zs7vIS5Zzekod6yxKyeHUB-tzTJZzDHCCxrKULeaUMxRQNr2QLhYq-YgxCYD9k_UO0Wx9Wa0M1i6ccqQsMCRBObiiCZ7fdiIEWhPdiQUQHnv3jMKGBSX1qyEQSgHY3nkh25sDVlwyRKbHrfnCcqgkUAc6bA98ryG7QmXQ"/>
+<div class="text-left">
+<span class="font-title-sm text-[13px] font-bold text-primary-container block">Raspas de Choco Nobre</span>
+<span class="font-label-sm text-[10px] text-outline font-semibold">Opcional</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm font-bold text-secondary">+ R$ 3,50</span>
+<div class="extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Tempo de Preparo Notice Box -->
+<section class="mt-6 px-4">
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant/40 flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+<div>
+<h4 class="font-title-sm text-label-md font-bold text-primary-container flex items-center gap-1.5">
+            Tempo estimado de preparo: 15 minutos
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Nosso petit gateau é assado na hora para garantir a textura perfeita e o chocolate derretido no ponto exato.
+          </p>
+</div>
+</div>
+</section>
+<!-- 7. Floating Order Summary Action Bar (Brown #2a1c14, Level 2 Elevation, above bottom nav) -->
+<section class="fixed bottom-[65px] left-0 right-0 z-40 flex justify-center w-full text-on-primary border-t border-outline-variant/30 shadow-2xl" style="background-color: #2a1c14;">
+<div class="w-full max-w-md px-4 py-3 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed shrink-0"></span>
+<span class="font-title-sm text-label-md font-bold text-surface truncate">Petit Gateau Completo</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline-variant truncate mt-0.5" id="summary-details">2 Gelatos: Pistache Bronte + Fior di Latte • Chocolate Belga</span>
+<span class="font-headline-md text-[17px] text-primary-fixed font-bold leading-tight mt-0.5" id="summary-price">Total: R$ 38,00</span>
+</div>
+<button class="shrink-0 h-[46px] px-4 rounded-xl bg-secondary hover:bg-secondary/95 active:scale-[0.98] transition-all text-on-secondary font-label-md text-label-md font-bold flex items-center gap-2 shadow-md" id="add-to-cart-btn" onclick="this.innerHTML='&lt;span class=&quot;material-symbols-outlined text-[20px]&quot;&gt;check&lt;/span&gt;&lt;span&gt;Adicionado!&lt;/span&gt;'; this.classList.add('bg-secondary');" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="">Adicionar à Sacola</span>
+</button>
+</div>
+</section>
+<!-- 8. Fixed Bottom Navigation Bar (4 icons standard, SCREEN_2) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pt-2 pb-6 bg-surface-container-lowest dark:bg-surface-container border-t border-outline-variant/40">
+<!-- 1. Início -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Início</span>
+</a>
+<!-- 2. Carrinho (com badge 2) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium hover:text-secondary transition-colors" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">local_mall</span>
+<span class="absolute -top-1 -right-2 w-4 h-4 bg-error text-on-error font-label-sm text-[10px] font-bold rounded-full flex items-center justify-center shadow-xs">2</span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Sacola</span>
+</a>
+<!-- 3. Pedidos -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-0.5">Pedidos</span>
+</a>
+<!-- 4. Perfil -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-medium hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Perfil</span>
+</a>
+</nav>
+</main>
+<!-- Vanilla JavaScript for Freezer Switching, Gelato Selection, Coberturas, Extras & Dynamic Price Calculation -->
+<script>
+  // 17 flavors per freezer with realistic gourmet images
+  const freezerData = {
+    1: [
+      { id: "01", name: "Pistache Bronte", img: "https://images.unsplash.com/photo-1560008581-09826d1de69e?w=160&auto=format&fit=crop&q=80" },
+      { id: "02", name: "Cioccolato Belga", img: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=160&auto=format&fit=crop&q=80" },
+      { id: "03", name: "Fior di Latte", img: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=160&auto=format&fit=crop&q=80" },
+      { id: "04", name: "Doce de Leite Caseiro", img: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=160&auto=format&fit=crop&q=80" },
+      { id: "05", name: "Nocciola Piemonte", img: "https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=160&auto=format&fit=crop&q=80" },
+      { id: "06", name: "Baunilha Bourbon", img: "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=160&auto=format&fit=crop&q=80" },
+      { id: "07", name: "Cantucci Amêndoas", img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=160&auto=format&fit=crop&q=80" },
+      { id: "08", name: "Stracciatella Romana", img: "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=160&auto=format&fit=crop&q=80" },
+      { id: "09", name: "Gianduia Torino", img: "https://images.unsplash.com/photo-1557142046-c704a3adf364?w=160&auto=format&fit=crop&q=80" },
+      { id: "10", name: "Zabaione Marsala", img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=160&auto=format&fit=crop&q=80" },
+      { id: "11", name: "Menta Fresca & Choco", img: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=160&auto=format&fit=crop&q=80" },
+      { id: "12", name: "Café Cold Brew", img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=160&auto=format&fit=crop&q=80" },
+      { id: "13", name: "Coco Fitas Tostado", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=160&auto=format&fit=crop&q=80" },
+      { id: "14", name: "Amêndoas Praliné", img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=160&auto=format&fit=crop&q=80" },
+      { id: "15", name: "Cioccomenta", img: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=160&auto=format&fit=crop&q=80" },
+      { id: "16", name: "Tiramisù Savoiardi", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=160&auto=format&fit=crop&q=80" },
+      { id: "17", name: "Iogurte Amarena", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=160&auto=format&fit=crop&q=80" }
+    ],
+    2: [
+      { id: "18", name: "Morango Silvestre", img: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=160&auto=format&fit=crop&q=80" },
+      { id: "19", name: "Maracujá Puro", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=160&auto=format&fit=crop&q=80" },
+      { id: "20", name: "Limão Siciliano", img: "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=160&auto=format&fit=crop&q=80" },
+      { id: "21", name: "Frutas Vermelhas", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=160&auto=format&fit=crop&q=80" },
+      { id: "22", name: "Manga Palmer", img: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=160&auto=format&fit=crop&q=80" },
+      { id: "23", name: "Amora Selvagem", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=160&auto=format&fit=crop&q=80" },
+      { id: "24", name: "Framboesa Doce", img: "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=160&auto=format&fit=crop&q=80" },
+      { id: "25", name: "Abacaxi com Hortelã", img: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=160&auto=format&fit=crop&q=80" },
+      { id: "26", name: "Pitanga Vermelha", img: "https://images.unsplash.com/photo-1528825871115-3581a5387919?w=160&auto=format&fit=crop&q=80" },
+      { id: "27", name: "Goiaba Cascão", img: "https://images.unsplash.com/photo-1536511135899-756d11f81b16?w=160&auto=format&fit=crop&q=80" },
+      { id: "28", name: "Tangerina Fresca", img: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=160&auto=format&fit=crop&q=80" },
+      { id: "29", name: "Cupuaçu do Norte", img: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=160&auto=format&fit=crop&q=80" },
+      { id: "30", name: "Graviola Amazônica", img: "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=160&auto=format&fit=crop&q=80" },
+      { id: "31", name: "Melancia & Hortelã", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=160&auto=format&fit=crop&q=80" },
+      { id: "32", name: "Caju Tropical", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=160&auto=format&fit=crop&q=80" },
+      { id: "33", name: "Jabuticaba Nativa", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=160&auto=format&fit=crop&q=80" },
+      { id: "34", name: "Frutas do Bosque", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=160&auto=format&fit=crop&q=80" }
+    ],
+    3: [
+      { id: "35", name: "Trufa Branca & Frutas", img: "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=160&auto=format&fit=crop&q=80" },
+      { id: "36", name: "Cheesecake Frutas", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=160&auto=format&fit=crop&q=80" },
+      { id: "37", name: "Pavê Italiano", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=160&auto=format&fit=crop&q=80" },
+      { id: "38", name: "Caramelo & Sal", img: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=160&auto=format&fit=crop&q=80" },
+      { id: "39", name: "Nozes Pecan & Mel", img: "https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=160&auto=format&fit=crop&q=80" },
+      { id: "40", name: "Torta de Maçã", img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=160&auto=format&fit=crop&q=80" },
+      { id: "41", name: "Ruby & Berries", img: "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=160&auto=format&fit=crop&q=80" },
+      { id: "42", name: "Crocante Castanhas", img: "https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=160&auto=format&fit=crop&q=80" },
+      { id: "43", name: "Creme Brûlée", img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=160&auto=format&fit=crop&q=80" },
+      { id: "44", name: "Brownie Fudge", img: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=160&auto=format&fit=crop&q=80" },
+      { id: "45", name: "Banoffee Artesanal", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=160&auto=format&fit=crop&q=80" },
+      { id: "46", name: "Macchiato Crunch", img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=160&auto=format&fit=crop&q=80" },
+      { id: "47", name: "Pistache Nero", img: "https://images.unsplash.com/photo-1560008581-09826d1de69e?w=160&auto=format&fit=crop&q=80" },
+      { id: "48", name: "Gianduia Amarga", img: "https://images.unsplash.com/photo-1557142046-c704a3adf364?w=160&auto=format&fit=crop&q=80" },
+      { id: "49", name: "Brigadeiro Belga", img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=160&auto=format&fit=crop&q=80" },
+      { id: "50", name: "Rafaello Al Cocco", img: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=160&auto=format&fit=crop&q=80" },
+      { id: "51", name: "Doce de Leite Cookies", img: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?w=160&auto=format&fit=crop&q=80" }
+    ]
+  };
+
+  // State
+  let currentFreezer = 1;
+  let selectedGelatos = ["Pistache Bronte", "Fior di Latte"];
+  let selectedBaseCobertura = "Chocolate Belga";
+  let selectedExtras = [];
+  const basePrice = 38.00;
+
+  // Initialize
+  function init() {
+    renderFreezer(currentFreezer);
+    updateSummary();
+  }
+
+  // Switch Freezers
+  function switchFreezer(freezerNum) {
+    currentFreezer = freezerNum;
+    
+    // Update Tab Styles
+    for (let i = 1; i <= 3; i++) {
+      const btn = document.getElementById(`tab-btn-${i}`);
+      if (i === freezerNum) {
+        btn.className = "freezer-tab-btn whitespace-nowrap px-4 py-2 rounded-full bg-primary-container text-surface-container-lowest font-label-md text-label-sm font-semibold shadow-sm flex items-center gap-1.5 transition-all";
+      } else {
+        btn.className = "freezer-tab-btn whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-sm font-medium hover:bg-surface-container-high transition-all flex items-center gap-1.5";
+      }
+    }
+    
+    // Animate & Render
+    const grid = document.getElementById("gelato-grid");
+    grid.style.opacity = '0.3';
+    setTimeout(() => {
+      renderFreezer(freezerNum);
+      grid.style.opacity = '1';
+    }, 120);
+  }
+
+  // Render Flavors Grid
+  function renderFreezer(freezerNum) {
+    const list = freezerData[freezerNum] || [];
+    const grid = document.getElementById("gelato-grid");
+    grid.innerHTML = "";
+
+    list.forEach(item => {
+      const isSelected = selectedGelatos.includes(item.name);
+      const card = document.createElement("div");
+      card.className = `relative cursor-pointer bg-surface-container-lowest rounded-xl p-2 flex flex-col items-center text-center transition-all duration-150 ${
+        isSelected ? 'border-2 border-secondary shadow-sm scale-[1.02]' : 'border border-outline-variant/40 hover:border-outline'
+      }`;
+      card.onclick = () => toggleGelato(item.name);
+
+      card.innerHTML = `
+        ${isSelected ? `
+          <span class="absolute top-1 right-1 w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center shadow-xs">
+            <span class="material-symbols-outlined text-[13px] font-bold">check</span>
+          </span>
+        ` : ''}
+        <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-low mb-1.5 mt-0.5 border ${isSelected ? 'border-secondary/30 ring-2 ring-secondary/20' : 'border-outline-variant/30'} flex items-center justify-center">
+          <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"/>
+        </div>
+        <span class="font-label-sm text-[9px] font-bold text-outline uppercase tracking-wider">${item.id}</span>
+        <span class="font-title-sm text-[11px] font-bold ${isSelected ? 'text-primary-container' : 'text-on-surface'} leading-tight line-clamp-2 mt-0.5">${item.name}</span>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Update Counter badge
+    const counterBadge = document.getElementById("gelato-counter");
+    counterBadge.textContent = `${selectedGelatos.length}/2 Selecionados`;
+  }
+
+  // Gelato Selection logic: max 2, toggle or replace last
+  function toggleGelato(name) {
+    const index = selectedGelatos.indexOf(name);
+    if (index > -1) {
+      selectedGelatos.splice(index, 1);
+    } else {
+      if (selectedGelatos.length >= 2) {
+        selectedGelatos[1] = name; // replace 2nd
+      } else {
+        selectedGelatos.push(name);
+      }
+    }
+    renderFreezer(currentFreezer);
+    updateSummary();
+  }
+
+  // Base Cobertura selection (single choice among 3)
+  function selectBaseCobertura(name, id) {
+    selectedBaseCobertura = name;
+    
+    // Update visual cards
+    for (let i = 1; i <= 3; i++) {
+      const card = document.getElementById(`cobertura-card-${i}`);
+      const checkSpan = card.querySelector('.cobertura-check');
+      const titleSpan = card.querySelector('span.font-title-sm');
+      const priceSpan = card.querySelector('span.font-label-sm');
+
+      if (i === id) {
+        card.className = "cobertura-card cursor-pointer bg-surface-container-lowest rounded-xl p-2.5 border-2 border-secondary shadow-sm relative flex flex-col justify-between transition-all duration-150";
+        checkSpan.className = "cobertura-check w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center";
+        checkSpan.innerHTML = `<span class="material-symbols-outlined text-[13px] font-bold">check</span>`;
+        titleSpan.className = "font-title-sm text-[12px] font-bold text-primary-container block leading-tight";
+        priceSpan.className = "font-label-sm text-[10px] text-secondary font-semibold mt-0.5 inline-block";
+      } else {
+        card.className = "cobertura-card cursor-pointer bg-surface-container-lowest rounded-xl p-2.5 border border-outline-variant/40 hover:border-outline shadow-sm relative flex flex-col justify-between transition-all duration-150";
+        checkSpan.className = "cobertura-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center";
+        checkSpan.innerHTML = "";
+        titleSpan.className = "font-title-sm text-[12px] font-bold text-on-surface block leading-tight";
+        priceSpan.className = "font-label-sm text-[10px] text-outline font-semibold mt-0.5 inline-block";
+      }
+    }
+    updateSummary();
+  }
+
+  // Toggle Extras accordion
+  function toggleExtrasBlock() {
+    const block = document.getElementById("extras-block");
+    const chevron = document.getElementById("extras-chevron");
+    if (block.classList.contains("hidden")) {
+      block.classList.remove("hidden");
+      chevron.style.transform = "rotate(180deg)";
+    } else {
+      block.classList.add("hidden");
+      chevron.style.transform = "rotate(0deg)";
+    }
+  }
+
+  // Toggle Extra item
+  function toggleExtra(name, price, element) {
+    const existingIndex = selectedExtras.findIndex(item => item.name === name);
+    const checkEl = element.querySelector('.extra-check');
+
+    if (existingIndex > -1) {
+      selectedExtras.splice(existingIndex, 1);
+      element.className = "extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary/60 bg-surface transition-all select-none";
+      checkEl.className = "extra-check w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center text-surface text-[12px]";
+      checkEl.innerHTML = "";
+    } else {
+      selectedExtras.push({ name, price });
+      element.className = "extra-item cursor-pointer flex items-center justify-between p-2.5 rounded-lg border-2 border-secondary bg-secondary-container/15 transition-all select-none";
+      checkEl.className = "extra-check w-5 h-5 bg-secondary text-surface rounded-full flex items-center justify-center text-[12px]";
+      checkEl.innerHTML = `<span class="material-symbols-outlined text-[13px] font-bold">check</span>`;
+    }
+    updateSummary();
+  }
+
+  // Update dynamic bottom summary
+  function updateSummary() {
+    // Calculate total price
+    const extrasTotal = selectedExtras.reduce((sum, item) => sum + item.price, 0);
+    const totalPrice = basePrice + extrasTotal;
+
+    // Summary strings
+    const gelatosStr = selectedGelatos.length > 0 ? selectedGelatos.join(" + ") : "Selecione até 2";
+    let summaryText = `2 Gelatos: ${gelatosStr} • ${selectedBaseCobertura}`;
+
+    if (selectedExtras.length > 0) {
+      summaryText += ` • +${selectedExtras.length} extra(s)`;
+    }
+
+    document.getElementById("summary-details").textContent = summaryText;
+    document.getElementById("summary-price").textContent = `Total: R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+  }
+
+  // Initialize on load
+  document.addEventListener("DOMContentLoaded", init);
+</script>
+<script>window.SCREEN_ID=27;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>

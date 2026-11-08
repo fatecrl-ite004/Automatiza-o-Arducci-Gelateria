@@ -1,0 +1,457 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><script src="navigation.js?v=20261108-layout-41"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Açaiteria Artesanal - Barca de Açaí - Arducci Gelateria</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Material Symbols Outlined -->
+
+<!-- Tailwind CSS with Forms & Container Plugins -->
+<link rel="stylesheet" href="styles/screen-37.css?v=20261108-layout-41">
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link rel="stylesheet" href="simulator.css?v=20261108-layout-41"><meta name="description" content="Simulação interativa do aplicativo de pedidos da Arducci Gelateria."><link rel="preload" href="assets/material-symbols-outlined.ttf" as="font" type="font/ttf" crossorigin=""><script src="mobile-customization.js?v=20261108-layout-41"></script></head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary-fixed select-none">
+<!-- Mobile Viewport Container -->
+<div class="w-full max-w-md mx-auto min-h-screen bg-surface flex flex-col relative shadow-xl pb-48">
+<!-- 1. Native Status Bar -->
+<div class="w-full bg-surface/95 backdrop-blur-md px-6 pt-3 pb-1 flex justify-between items-center text-primary font-bold text-[14px] z-50 sticky top-0 border-b border-outline-variant/10">
+<span class="font-semibold text-[13px] tracking-tight">9:41</span>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- 2. Header Institucional Arducci com Badge Vermelho -->
+<header class="sticky top-[33px] z-40 bg-surface/95 backdrop-blur-md px-4 py-2.5 flex flex-col gap-2.5 border-b border-outline-variant/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5"><div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-bold text-sm border border-outline-variant/40 shadow-xs"><span class="material-symbols-outlined text-xl text-outline" data-icon="person">person</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-[10px] uppercase tracking-wider text-outline font-semibold leading-tight">BEM-VINDO!</span><span class="font-title-sm text-[13px] text-primary font-bold leading-tight">Visitante</span></div></div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Sacola de Compras" class="relative w-9 h-9 rounded-full flex items-center justify-center text-primary-container hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-red-600 text-white font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-sm" id="header-cart-badge">2</span>
+</button>
+<button aria-label="Entrar" class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container-low text-primary border border-outline-variant/40 font-label-sm text-xs font-bold transition-colors active:scale-95 duration-150 shadow-xs" title="Entrar na conta"><span class="material-symbols-outlined text-base" data-icon="login">login</span><span class="">Entrar</span></button>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-1 border-t border-outline-variant/20">
+<button aria-label="Voltar" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-surface-container-lowest border border-outline-variant/40 shadow-xs hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-[9px] uppercase tracking-[0.2em] font-semibold text-outline leading-none">ARDUCCI GELATERIA</span>
+<h1 class="font-headline-md text-[18px] text-primary tracking-tight font-bold leading-tight">Açaí Artesanal</h1>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-4 pt-3 space-y-5 pb-52">
+<!-- 3. Banner Destaque Superior com Imagem Artisanal Açaí Bowl -->
+<section class="relative rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/40 shadow-sm">
+<div class="relative h-44 w-full overflow-hidden">
+<img alt="Barca e tigela rústica de açaí artesanal Arducci" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtFwIEXlppwxbcLJ1xgno8zcX2IRQspTSlc5vu3yAf7Ns0ocpZUT6n8Sd-5w5FCWavm8kgyNvGuUHcKpADRHG-FK5T95TG8hTGH6btJcEJxORD4_9q9gwfJqoKOR6pDb31_zkTx5twxChlQU3nefMNZ6fahoGdHFR5reRv6sox2DAdAkPSfROJ10ti-UqopLGR1VCw2N06x_b6dihJS2pleSgFYBHG3LjdicPfchDHXpXvDCL3FG_E5A">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<!-- Selo Polpa Pura do Pará -->
+<div class="absolute top-3 left-3 bg-secondary px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm"><span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">verified</span><span class="font-label-sm text-label-sm text-white font-bold">O melhor açaí da Praia Grande</span></div>
+<div class="absolute bottom-3 left-4 right-4 text-surface">
+<h2 class="font-headline-md text-headline-md leading-tight text-white drop-shadow-sm">Açaí Artesanal &amp; Barcas Especiais</h2>
+<p class="font-body-sm text-body-sm text-tertiary-fixed line-clamp-1 drop-shadow-sm">Sem xaropes artificiais, batido na hora com máxima cremosidade</p>
+</div>
+</div>
+</section>
+<!-- 4. Seletor de Modo: "1. Escolha como quer saborear" -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between">
+<h3 class="font-title-sm text-title-sm text-primary font-bold">1. Escolha como quer saborear</h3>
+<span class="font-label-sm text-xs text-outline font-medium">Toque para alternar</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Card Opção 1: Tigela -->
+<button class="relative flex flex-col items-center justify-center p-3.5 rounded-2xl border border-outline-variant/50 bg-surface-container-lowest hover:border-outline shadow-sm transition-all text-center group" id="btn-mode-bowl" onclick="selectMode('bowl')">
+<div class="absolute -top-2 right-2 bg-primary-container text-white font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-xs hidden" id="badge-mode-bowl">Selecionado</div>
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl">soup_kitchen</span>
+</div>
+<span class="font-title-sm text-[15px] text-primary font-bold block">Açaí na Tigela</span>
+<span class="font-body-sm text-xs text-outline mt-0.5">Personalize sua tigela</span>
+</button>
+<!-- Card Opção 2: Barca (SELECIONADA POR PADRÃO) -->
+<button class="relative flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 border-primary-container bg-surface-container-lowest shadow-sm transition-all text-center group" id="btn-mode-boat" onclick="selectMode('boat')">
+<div class="absolute -top-2 right-2 bg-primary-container text-white font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold shadow-xs" id="badge-mode-boat">Selecionado</div>
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl">sailing</span>
+</div>
+<span class="font-title-sm text-[15px] text-primary font-bold block">Barca de Açaí</span>
+<span class="font-body-sm text-xs text-outline mt-0.5">Para compartilhar</span>
+</button>
+</div>
+</section>
+<!-- 5. SEÇÃO: MODO TIGELA (Oculta quando em Barca) -->
+<div class="space-y-5 hidden" id="section-bowl">
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-title-sm text-primary font-bold">2. Escolha a Base e Tamanho</h4>
+<p class="font-body-sm text-xs text-outline">Bases artesanais sem xarope de guaraná artificial</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-[11px] font-semibold border border-secondary/20">Obrigatório</span>
+</div>
+<div class="space-y-2">
+<label class="relative flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest hover:border-outline shadow-sm cursor-pointer transition-all bowl-base-card border border-outline-variant/40" onclick="updateBowlBase(22.00, 'Açaí Puro Artesanal - 300g')">
+<input class="hidden peer" name="bowl_base" type="radio" value="22.00">
+<div class="flex items-start gap-3 pr-2">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5 radio-dot"></div>
+<div>
+<p class="font-title-sm text-[14px] text-primary font-bold">Açaí Puro Artesanal - 300g</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant/80">Polpa concentrada batida com toque suave de mel/banana</p>
+</div>
+</div>
+<span class="font-title-sm text-sm text-primary whitespace-nowrap font-bold">R$ 22,00</span>
+</label>
+<label class="relative flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest hover:border-outline shadow-sm cursor-pointer transition-all bowl-base-card border-2 border-primary-container" onclick="updateBowlBase(24.00, 'Açaí com Cupuaçu - 300g')">
+<input checked="" class="hidden peer" name="bowl_base" type="radio" value="24.00">
+<div class="flex items-start gap-3 pr-2">
+<div class="w-5 h-5 rounded-full border-2 border-primary-container bg-primary-container flex items-center justify-center text-white shrink-0 mt-0.5 radio-dot"><span class="material-symbols-outlined text-xs">check</span></div>
+<div>
+<p class="font-title-sm text-[14px] text-primary font-bold">Açaí com Cupuaçu - 300g</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant/80">Camadas intercaladas de açaí puro e creme de cupuaçu</p>
+</div>
+</div>
+<span class="font-title-sm text-sm text-primary whitespace-nowrap font-bold">R$ 24,00</span>
+</label>
+<label class="relative flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline shadow-sm cursor-pointer transition-all bowl-base-card" onclick="updateBowlBase(29.00, 'Açaí Puro Artesanal - 500g')">
+<input class="hidden peer" name="bowl_base" type="radio" value="29.00">
+<div class="flex items-start gap-3 pr-2">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5 radio-dot"></div>
+<div>
+<p class="font-title-sm text-[14px] text-primary font-bold">Açaí Puro Artesanal - 500g</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant/80">Porção generosa para os amantes de açaí concentrado</p>
+</div>
+</div>
+<span class="font-title-sm text-sm text-primary whitespace-nowrap font-bold">R$ 29,00</span>
+</label>
+</div>
+</section>
+</div>
+<!-- 6. SEÇÃO: MODO BARCA (ATIVA POR PADRÃO) -->
+<div class="space-y-5" id="section-boat">
+<!-- Banner Informativo Barca Artesanal -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-sm">
+<div class="w-11 h-11 rounded-full bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">sailing</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-title-sm text-[14px] text-primary font-bold truncate">Barcas Especiais Arducci</h4>
+<span class="bg-primary-container text-white px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold shadow-xs whitespace-nowrap shrink-0">Para Compartilhar</span>
+</div>
+<p class="font-body-sm text-xs text-outline mt-0.5 leading-relaxed">Canoas rústicas generosas (800g a 1kg) preparadas na hora</p>
+</div>
+</div>
+<!-- 2. Formato da Barca -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-title-sm text-primary font-bold">2. Escolha o Formato da Barca</h4>
+<p class="font-body-sm text-xs text-outline">Selecione entre a receita consagrada ou monte do seu jeito</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-[11px] font-semibold border border-secondary/20 shrink-0">Obrigatório</span>
+</div>
+<!-- Cards de Formato da Barca -->
+<div class="space-y-2.5">
+<!-- Opção A: Barca Completa (Pronta da Casa) - R$ 42,00 -->
+<label class="relative flex flex-col p-3.5 rounded-xl border-2 border-primary-container bg-surface-container-lowest shadow-sm cursor-pointer transition-all boat-format-card" id="card-boat-complete" onclick="selectBoatFormat('complete')">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<input checked="" class="hidden peer" name="boat_format" type="radio" value="complete">
+<div class="w-5 h-5 rounded-full border-2 border-primary-container bg-primary-container flex items-center justify-center text-white shrink-0 mt-0.5 radio-dot-format"><span class="material-symbols-outlined text-xs">check</span></div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<p class="font-title-sm text-[14px] text-primary font-bold">Barca Completa (Pronta da Casa)</p>
+<span class="bg-secondary/15 text-secondary text-[10px] font-bold px-1.5 py-0.5 rounded">Favorita</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant/80 mt-1 leading-relaxed">Barca com açaí artesanal montada com frutas selecionadas (banana, morango, kiwi), granola crocante, leite condensado e paçoca.</p>
+</div>
+</div>
+<span class="font-title-sm text-sm text-secondary whitespace-nowrap font-bold shrink-0">R$ 42,00</span>
+</div>
+</label>
+<!-- Opção B: Barca para Montar (Personalizada) - R$ 38,00 -->
+<label class="relative flex flex-col p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline shadow-sm cursor-pointer transition-all boat-format-card" id="card-boat-custom" onclick="selectBoatFormat('custom')">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<input class="hidden peer" name="boat_format" type="radio" value="custom">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5 radio-dot-format"></div>
+<div class="min-w-0 flex-1">
+<p class="font-title-sm text-[14px] text-primary font-bold">Barca para Montar (Personalizada)</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant/80 mt-1 leading-relaxed">Tamanho único generoso (800g). Escolha sua base de açaí puro ou cupuaçu. Não possui itens inclusos — monte adicionando os complementos opcionais à parte.</p>
+</div>
+</div>
+<span class="font-title-sm text-sm text-primary whitespace-nowrap font-bold shrink-0">R$ 38,00</span>
+</div>
+</label>
+</div>
+</section>
+<!-- CONFIGURADOR 1: BARCA COMPLETA -->
+<div class="space-y-4" id="config-boat-complete">
+<!-- Itens Inclusos na Casa -->
+<div class="bg-surface-container-low rounded-2xl p-4 border border-outline-variant/30 space-y-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-[11px] font-bold text-primary uppercase tracking-wider">Inclusos na Barca Completa:</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-[11px] text-on-surface-variant font-medium pt-0.5">
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">800g Açaí Artesanal Puro</span></div>
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Banana fresca fatiada</span></div>
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Morangos selecionados</span></div>
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Kiwi em fatias</span></div>
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Granola artesanal crocante</span></div>
+<div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Leite condensado Moça</span></div>
+<div class="flex items-center gap-1.5 col-span-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span class="">Paçoca de rolha esfarelada na hora</span></div>
+</div>
+</div>
+<!-- Complementos Adicionais Extras (Opcionais) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-[14px] text-primary font-bold">Complementos Adicionais Extras</h4>
+<p class="font-body-sm text-xs text-outline">Turbine sua barca pronta com acréscimo</p>
+</div>
+<span class="font-label-sm text-[11px] text-outline bg-surface-container-high px-2 py-0.5 rounded-md font-semibold shrink-0">Opcionais</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 divide-y divide-outline-variant/20 overflow-hidden shadow-xs">
+<!-- Extra 1: Leite Ninho -->
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/30 complete-extra-checkbox" data-name="Leite Ninho" data-price="3.50" onchange="toggleCompleteExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Leite Ninho em Pó</span>
+<span class="font-body-sm text-[11px] text-outline">Porção extra generosa</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 3,50</span>
+</label>
+<!-- Extra 2: Nutella Original -->
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/30 complete-extra-checkbox" data-name="Nutella® Original" data-price="6.00" onchange="toggleCompleteExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Nutella® Pura Original</span>
+<span class="font-body-sm text-[11px] text-outline">Creme de avelã com cacau ferrero</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 6,00</span>
+</label>
+<!-- Extra 3: Mel Silvestre -->
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/30 complete-extra-checkbox" data-name="Mel Silvestre" data-price="3.50" onchange="toggleCompleteExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Mel Silvestre Orgânico</span>
+<span class="font-body-sm text-[11px] text-outline">Adoçante e néctar natural</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 3,50</span>
+</label>
+<!-- Extra 4: Amendoim Crocante -->
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/30 complete-extra-checkbox" data-name="Amendoim Crocante" data-price="2.50" onchange="toggleCompleteExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Amendoim Crocante Moído</span>
+<span class="font-body-sm text-[11px] text-outline">Torra fresca e textura crocante</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 2,50</span>
+</label>
+<!-- Extra 5: Gotas de Chocolate Belga -->
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/30 complete-extra-checkbox" data-name="Gotas de Chocolate Belga" data-price="4.50" onchange="toggleCompleteExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Gotas de Chocolate Belga</span>
+<span class="font-body-sm text-[11px] text-outline">Callebaut 54% meio amargo</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 4,50</span>
+</label>
+</div>
+</section>
+</div>
+<!-- CONFIGURADOR 2: BARCA PARA MONTAR (PERSONALIZADA) -->
+<div class="space-y-4 hidden" id="config-boat-custom">
+<!-- 1. Escolha da Base da Barca (Tamanho Único 800g) -->
+<div class="bg-surface-container-low rounded-2xl p-3.5 border border-outline-variant/30 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] font-bold text-primary uppercase tracking-wider">1. Base da Barca (Tamanho Único - 800g):</span>
+<span class="text-[10px] text-secondary font-bold bg-secondary/10 px-2 py-0.5 rounded">Obrigatório</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2.5 bg-surface-container-lowest rounded-xl border-2 border-primary-container cursor-pointer text-xs font-bold text-primary boat-custom-base-label" onclick="selectBoatCustomBase('Açaí Puro (800g)', this)">
+<input checked="" class="text-secondary focus:ring-secondary/30 hidden" name="boat_custom_base" type="radio" value="Açaí Puro">
+<div class="w-4 h-4 rounded-full border-2 border-primary-container bg-primary-container flex items-center justify-center text-white shrink-0"><span class="material-symbols-outlined text-[10px]">check</span></div>
+<span class="">Açaí Puro (800g)</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 bg-surface-container-lowest rounded-xl border border-outline-variant/40 cursor-pointer text-xs font-bold text-primary boat-custom-base-label" onclick="selectBoatCustomBase('Açaí + Cupuaçu (800g)', this)">
+<input class="text-secondary focus:ring-secondary/30 hidden" name="boat_custom_base" type="radio" value="Açaí + Cupuaçu">
+<div class="w-4 h-4 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0"></div>
+<span class="">Açaí + Cupuaçu (800g)</span>
+</label>
+</div>
+</div>
+<!-- 2. Complementos Opcionais Adicionados à Parte -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-title-sm text-[14px] text-primary font-bold">2. Complementos Opcionais à Parte</h4>
+<p class="font-body-sm text-xs text-outline">Adicione os complementos desejados à sua barca</p>
+</div>
+<span class="font-label-sm text-[11px] text-outline bg-surface-container-high px-2 py-0.5 rounded-md font-semibold shrink-0">Opcionais</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 divide-y divide-outline-variant/20 overflow-hidden shadow-xs">
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Banana Fresca" data-price="2.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Banana Fresca Fatiada</span>
+<span class="font-body-sm text-[11px] text-outline">Fruta fresca selecionada</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 2,50</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Morangos Frescos" data-price="3.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Morangos Selecionados</span>
+<span class="font-body-sm text-[11px] text-outline">Porção fresca fatiada</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 3,50</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Granola Artesanal" data-price="2.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Granola Artesanal Crocante</span>
+<span class="font-body-sm text-[11px] text-outline">Castanhas, aveia e mel</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 2,50</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Leite Condensado Moça" data-price="3.00" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Leite Condensado Moça</span>
+<span class="font-body-sm text-[11px] text-outline">Cobertura tradicional cremosa</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 3,00</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Leite Ninho em Pó" data-price="3.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Leite Ninho em Pó</span>
+<span class="font-body-sm text-[11px] text-outline">Porção generosa</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 3,50</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Nutella® Original" data-price="6.00" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Nutella® Pura Original</span>
+<span class="font-body-sm text-[11px] text-outline">Creme autêntico de avelã</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 6,00</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Paçoca de Rolha" data-price="2.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Paçoca de Rolha Moída</span>
+<span class="font-body-sm text-[11px] text-outline">Esfarelada na hora</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 2,50</span>
+</label>
+<label class="flex items-center justify-between p-3.5 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary custom-extra-checkbox" data-name="Gotas Belga" data-price="4.50" onchange="toggleCustomExtra(this)" type="checkbox">
+<div>
+<span class="font-title-sm text-[13px] text-primary font-bold block">Gotas de Chocolate Belga</span>
+<span class="font-body-sm text-[11px] text-outline">Callebaut 54% meio amargo</span>
+</div>
+</div>
+<span class="font-label-md text-xs text-primary font-bold whitespace-nowrap bg-surface-container-low px-2 py-1 rounded-md">+R$ 4,50</span>
+</label>
+</div>
+</section>
+</div>
+</div>
+</main></div>
+<!-- 6. SEÇÃO: MODO BARCA (ATIVA POR PADRÃO) -->
+<!-- 7. Barra de Resumo e Ação Inferior (Largura total, fixo logo acima da Bottom Navigation Bar) -->
+<div class="fixed left-0 right-0 w-full z-40 bg-[#24170d] shadow-2xl transition-all duration-300 backdrop-blur-md bottom-20 sim-actionbar">
+<div class="max-w-md mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
+<!-- Bloco Esquerdo: Título e Total Serifado Elegante com bom respiro -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse shrink-0"></span>
+<span class="font-label-sm text-[11px] text-tertiary-fixed font-medium truncate block tracking-wide" id="footer-item-summary">Barca Completa (Pronta da Casa)</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-[20px] text-white font-bold leading-tight tracking-tight block drop-shadow-xs" id="footer-total-display">Total: R$ 42,00</span>
+</div>
+</div>
+<!-- Botão de Adicionar à Sacola -->
+<button class="h-12 px-5 bg-secondary hover:bg-secondary/90 text-white rounded-xl font-label-md text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95 duration-150 shadow-md shrink-0 border border-secondary-fixed/20" id="btn-add-to-cart" onclick="handleAddToCart()"><span class="material-symbols-outlined text-xl" data-icon="shopping_bag">shopping_bag</span><span class="">Adicionar à Sacola</span></button>
+</div>
+</div>
+<!-- 8. Bottom Navigation Bar com Ícone de Carrinho com Badge Vermelho -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 flex justify-around items-center px-2 pt-2 pb-5 bg-surface-container-lowest border-t border-outline-variant/40 shadow-lg">
+<!-- Início -->
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-[11px] mt-0.5">Início</span>
+</a>
+<!-- Cardápio (Ativo) -->
+<!-- Carrinho com Badge Vermelho -->
+<a class="relative flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 right-2 w-4 h-4 bg-red-600 text-white font-label-sm text-[9px] rounded-full flex items-center justify-center font-bold" id="nav-cart-badge">Sacola</span>
+<span class="font-label-sm text-[11px] mt-0.5">Sacola</span>
+</a>
+<!-- Pedidos -->
+<a class="flex flex-col items-center justify-center text-outline font-medium hover:text-secondary transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-[11px] mt-0.5">Pedidos</span>
+</a>
+<!-- Perfil -->
+<a class="flex flex-col items-center justify-center text-outline font-medium opacity-40 cursor-not-allowed pointer-events-none select-none transition-colors duration-150" href="#" title="Disponível após login"><span class="material-symbols-outlined text-2xl" data-icon="person">person</span><span class="font-label-sm text-[11px] mt-0.5">Perfil</span></a>
+</nav>
+<!-- INTERACTIVITY SCRIPT -->
+<script src="acai.js?v=20261108-layout-41"></script>
+<script>window.SCREEN_ID=37;</script><script src="simulator.js?v=20261108-layout-41"></script><script src="mobile-products.js?v=20261108-layout-41"></script></body></html>
