@@ -180,6 +180,4 @@ Cenários do protótipo e propostas explicitadas em cada página.
 6. [Mapa de mesas e atendimento](06-mapa-de-mesas/README.md)
 7. [Gestão de estoque — insumos e produtos](07-estoque-insumos-produtos/README.md)
 8. [Gestão de estoque — gelatos](08-estoque-gelatos/README.md)
-=======
-- [Requisitos Não Funcionais — RNF01 a RNF08](docs/requisitos/requisitos-nao-funcionais.md)
 
