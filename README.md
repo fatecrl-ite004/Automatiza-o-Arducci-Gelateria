@@ -137,7 +137,7 @@ Os artefatos de engenharia de software elaborados (Diagrama de Casos de Uso, Flu
 ### Levantamento de Requisitos
 
 - [Requisitos Funcionais — RF001 a RF021](docs/requisitos/requisitos-funcionais.md)
-<<<<<<< HEAD
+
 - [Requisitos Não Funcionais — RNF01 a RNF08](docs/requisitos/requisitos-nao-funcionais.md)
 
 # Casos de uso do TCC
@@ -182,4 +182,4 @@ Cenários do protótipo e propostas explicitadas em cada página.
 8. [Gestão de estoque — gelatos](08-estoque-gelatos/README.md)
 =======
 - [Requisitos Não Funcionais — RNF01 a RNF08](docs/requisitos/requisitos-nao-funcionais.md)
->>>>>>> origin/main
+
