@@ -121,7 +121,7 @@ arducci-gelateria/
 |------------------ | ---------------- |
 | Sabrina Clemente |Engenharia de Software e camada de Negócio |
 | Luciara Pereira  |Documentação e estruturação do Banco de Dados (MER)  |
-| Vivian Gomes     |Prototipação e camada de presentação |
+| Vivian Gomes     |Prototipação e Design da Interface (camada de apresentação) |
 
 ## Wiki do projeto
 
