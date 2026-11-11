@@ -120,8 +120,8 @@ arducci-gelateria/
 | Integrante        | Responsabilidade |
 |------------------ | ---------------- |
 | Sabrina Clemente |Engenharia de Software e camada de Negócio |
-| Luciara Pereira  |Estruturação do Banco de Dados (MER/DER)  |
-| Vivian Gomes     |Documentação e camada de presentação |
+| Luciara Pereira  |Documentação e estruturação do Banco de Dados (MER)  |
+| Vivian Gomes     |Prototipação e camada de presentação |
 
 ## Wiki do projeto
 
