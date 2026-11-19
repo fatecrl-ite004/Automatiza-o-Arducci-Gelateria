@@ -37,3 +37,27 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0!important;padd
 @media(max-width:1023px){.adm-dashboard-header.adm-employee-header #shared-header-user-menu-button>div:nth-child(2){display:flex!important}.adm-employee-header #shared-header-user-menu-button{max-width:100%}}
 /* Hide presentation-only notices and reclaim their space in every device mode. */
 .adm-toolbar{display:none!important}body{padding-bottom:0!important}.adm-sidebar{bottom:0!important;height:100dvh!important}.adm-workspace{height:100dvh!important;max-height:100dvh!important}.adm-nav-scrim{bottom:0!important}html[data-preview-device=mobile] .adm-workspace{height:calc(100dvh - 36px)!important;max-height:calc(100dvh - 36px)!important}html[data-preview-device=mobile] .adm-sidebar{height:calc(100dvh - 36px)!important}
+/* Mantém as janelas administrativas dentro da tela. */
+.adm-module [id*="modal"].fixed.inset-0,
+.adm-module [id*="Modal"].fixed.inset-0 {
+  z-index: 10002 !important;
+  padding: 16px !important;
+  overflow: auto;
+}
+
+.adm-responsive-modal {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: min(42rem, calc(100vw - 32px)) !important;
+  max-height: calc(100dvh - 32px) !important;
+  margin: 0 !important;
+  overflow: auto !important;
+  box-sizing: border-box;
+}
+
+.adm-responsive-modal input,
+.adm-responsive-modal select,
+.adm-responsive-modal textarea {
+  min-width: 0;
+  max-width: 100%;
+}
